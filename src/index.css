@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --maroon-gold-primary: linear-gradient(135deg, #5B0F1B 0%, #D4AF37 100%);
+    --maroon-gold-soft: linear-gradient(135deg, #7A1624 0%, #E1C16E 100%);
+    --deep-maroon-blend: linear-gradient(135deg, #2A0C12 0%, #5B0F1B 100%);
+  }
+
+  body { 
+    @apply bg-luxury-bg-primary text-luxury-text-light transition-colors duration-300; 
+  }
+  
+  .dark body { 
+    @apply bg-luxury-dark-primary text-luxury-text-dark; 
+  }
+
+  /* Scrollbar Styles */
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { @apply bg-transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { @apply bg-gold rounded-full; }
+}
+
+@layer utilities {
+  .gradient-maroon-gold { background: var(--maroon-gold-primary); }
+  .gradient-maroon-gold-soft { background: var(--maroon-gold-soft); }
+  .gradient-deep-maroon { background: var(--deep-maroon-blend); }
+  
+  .gold-glow { filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
+  .luxury-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+  .dark .luxury-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+
+  @media (max-width: 768px) {
+    .dark .mobile-card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+  }
+}
