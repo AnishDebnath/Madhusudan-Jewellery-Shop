@@ -5,11 +5,9 @@ import { MessageSquare, Send, X, Sparkles } from 'lucide-react';
 const Concierge: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<{role: 'user' | 'model', text: string}[]>([]);
+  const [messages, setMessages] = useState<{ role: 'user' | 'model', text: string }[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -25,6 +23,13 @@ const Concierge: React.FC = () => {
     setIsLoading(true);
 
     try {
+      const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+
+      if (!apiKey) {
+        throw new Error('API key not configured');
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: userMsg,
@@ -35,6 +40,7 @@ const Concierge: React.FC = () => {
       const text = response.text || "I apologize, I'm having trouble connecting to our showroom right now.";
       setMessages(prev => [...prev, { role: 'model', text }]);
     } catch (error) {
+      console.error('Concierge error:', error);
       setMessages(prev => [...prev, { role: 'model', text: "I'm currently busy assisting another royal client. Please try again in a moment." }]);
     } finally {
       setIsLoading(false);
@@ -43,7 +49,7 @@ const Concierge: React.FC = () => {
 
   return (
     <>
-      <button 
+      <button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 z-[150] w-14 h-14 bg-maroon text-gold rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border border-gold/30 gold-glow"
       >
@@ -73,11 +79,10 @@ const Concierge: React.FC = () => {
             )}
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] p-3 rounded-xl text-sm font-light leading-relaxed ${
-                  m.role === 'user' 
-                  ? 'bg-maroon/40 text-white border border-maroon-secondary rounded-tr-none' 
-                  : 'bg-dark-card text-luxury-secondary border border-gold/10 rounded-tl-none'
-                }`}>
+                <div className={`max-w-[85%] p-3 rounded-xl text-sm font-light leading-relaxed ${m.role === 'user'
+                    ? 'bg-maroon/40 text-white border border-maroon-secondary rounded-tr-none'
+                    : 'bg-dark-card text-luxury-secondary border border-gold/10 rounded-tl-none'
+                  }`}>
                   {m.text}
                 </div>
               </div>
@@ -92,12 +97,12 @@ const Concierge: React.FC = () => {
           </div>
 
           <div className="p-4 bg-dark-secondary border-t border-luxury-border flex gap-2">
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Inquire about our craft..." 
+              placeholder="Inquire about our craft..."
               className="flex-1 bg-dark-primary rounded-sm px-4 py-2 text-sm focus:outline-none border border-maroon-secondary focus:border-gold transition-colors text-white placeholder:text-luxury-disabled"
             />
             <button onClick={handleSend} className="w-10 h-10 bg-gold text-dark-primary rounded-sm flex items-center justify-center hover:bg-gold-light transition-all active:scale-90 shadow-xl gold-glow">
