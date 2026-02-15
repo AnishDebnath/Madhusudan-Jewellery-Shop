@@ -21,7 +21,6 @@ export interface Product {
   description: string;
   isBestSeller?: boolean;
   isNewArrival?: boolean;
-  arSupport?: boolean;
   additionalImages?: string[];
 }
 

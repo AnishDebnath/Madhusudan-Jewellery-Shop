@@ -1,5 +1,5 @@
 import React from 'react';
-import { Maximize2, Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import necklace12 from '../assets/jewellery/necklace/nacklace (12).jpg';
 import necklace13 from '../assets/jewellery/necklace/nacklace (13).jpg';
 import necklace14 from '../assets/jewellery/necklace/nacklace (14).jpg';
@@ -83,14 +83,8 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
                 {/* Quick Actions Hover Overlay */}
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center gap-3 z-10">
                   <button
-                    onClick={() => onNavigate('category', 'Diamond')}
-                    className="bg-white text-maroon-dominant text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold transition-all duration-300 transform active:scale-95 shadow-xl rounded-full translate-y-4 group-hover:translate-y-0"
-                  >
-                    VIRTUAL TRY-ON
-                  </button>
-                  <button
                     onClick={() => onProductClick({ ...product, price: parseInt(product.price.replace(/[^\d]/g, '')) })}
-                    className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold hover:text-maroon-dominant transition-all duration-300 transform active:scale-95 shadow-xl border border-white/10 rounded-full translate-y-4 group-hover:translate-y-0 delay-75"
+                    className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold hover:text-maroon-dominant transition-all duration-300 transform active:scale-95 shadow-xl border border-white/10 rounded-full translate-y-4 group-hover:translate-y-0"
                   >
                     VIEW DETAILS
                   </button>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PRODUCTS } from '../constants';
 import { Product } from '../types';
-import { ChevronLeft, ChevronRight, ArrowRight, Star, Sparkles, Heart } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Star, Heart } from 'lucide-react';
 
 
 interface FeaturedSliderProps {

@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import PopularSearches from './components/PopularSearches';
 import Concierge from './components/Concierge';
-import ARTryOn from './components/ARTryOn';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const CategoryPage = React.lazy(() => import('./pages/CategoryPage'));
@@ -35,13 +34,12 @@ import { PRODUCTS } from './constants';
 
 interface ProductRouteWrapperProps {
   addToCart: (product: Product) => void;
-  setShowARTryOn: (product: Product | null) => void;
   handleNavigate: (view: string, data?: any) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
 }
 
-const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, setShowARTryOn, handleNavigate, onToggleWishlist, wishlist }) => {
+const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, handleNavigate, onToggleWishlist, wishlist }) => {
   const { id } = useParams<{ id: string }>();
   const product = PRODUCTS.find(p => p.id === id);
 
@@ -52,7 +50,6 @@ const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, se
       key={product.id}
       product={product}
       onAddToCart={addToCart}
-      onARTryOn={setShowARTryOn}
       onNavigateToCategory={(cat) => handleNavigate('category', cat)}
       onToggleWishlist={onToggleWishlist}
       isWishlisted={wishlist.includes(product.id)}
@@ -64,18 +61,16 @@ const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, se
 
 interface CategoryRouteWrapperProps {
   handleNavigate: (view: string, data?: any) => void;
-  setShowARTryOn: (product: Product | null) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
 }
 
-const CategoryRouteWrapper: React.FC<CategoryRouteWrapperProps> = ({ handleNavigate, setShowARTryOn, onToggleWishlist, wishlist }) => {
+const CategoryRouteWrapper: React.FC<CategoryRouteWrapperProps> = ({ handleNavigate, onToggleWishlist, wishlist }) => {
   const { category } = useParams<{ category: string }>();
   return (
     <CategoryPage
       category={category}
       onProductClick={(p) => handleNavigate('pdp', p)}
-      onARTryOn={setShowARTryOn}
       onToggleWishlist={onToggleWishlist}
       wishlist={wishlist}
     />
@@ -86,7 +81,6 @@ const App: React.FC = () => {
   // Global State
   const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<string[]>([]);
-  const [showARTryOn, setShowARTryOn] = useState<Product | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -157,15 +151,14 @@ const App: React.FC = () => {
             <Route path="/" element={
               <Home
                 onProductClick={(p) => handleNavigate('pdp', p)}
-                onARTryOn={setShowARTryOn}
                 onToggleWishlist={toggleWishlist}
                 wishlist={wishlist}
                 onNavigate={handleNavigate}
               />
             } />
 
-            <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} setShowARTryOn={setShowARTryOn} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
-            <Route path="/product/:id" element={<ProductRouteWrapper addToCart={addToCart} setShowARTryOn={setShowARTryOn} handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
+            <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
+            <Route path="/product/:id" element={<ProductRouteWrapper addToCart={addToCart} handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
 
             <Route path="/cart" element={
               <CartPage
@@ -206,13 +199,6 @@ const App: React.FC = () => {
       <Footer onNavigate={handleNavigate} />
       <PopularSearches />
       <Concierge />
-
-      {showARTryOn && (
-        <ARTryOn
-          product={showARTryOn}
-          onClose={() => setShowARTryOn(null)}
-        />
-      )}
     </div>
   );
 };

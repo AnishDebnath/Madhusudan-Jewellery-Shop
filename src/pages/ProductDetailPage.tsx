@@ -7,7 +7,6 @@ import ProductCard from '../components/ProductCard';
 interface PDPProps {
   product?: Product;
   onAddToCart: (p: Product) => void;
-  onARTryOn: (p: Product) => void;
   onNavigateToCategory: (cat: Category | string) => void;
   onToggleWishlist: (id: string) => void;
   isWishlisted: boolean;
@@ -18,7 +17,6 @@ interface PDPProps {
 const ProductDetailPage: React.FC<PDPProps> = ({
   product,
   onAddToCart,
-  onARTryOn,
   onNavigateToCategory,
   onToggleWishlist,
   isWishlisted,
@@ -173,16 +171,6 @@ const ProductDetailPage: React.FC<PDPProps> = ({
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </button>
               </div>
-
-              {product.arSupport && (
-                <button
-                  onClick={() => onARTryOn(product)}
-                  className="w-full border border-gold/30 bg-gold/5 text-gold py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all flex items-center justify-center gap-3 active:scale-95 shadow-lg group"
-                >
-                  <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                  <span className="group-hover:tracking-[0.3em] transition-all duration-300">Try On Virtually</span>
-                </button>
-              )}
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-10 border-t border-luxury-bg-card dark:border-white/10">
@@ -234,7 +222,6 @@ const ProductDetailPage: React.FC<PDPProps> = ({
                   onClick={(prod) => onNavigate('pdp', prod)}
                   onToggleWishlist={onToggleWishlist}
                   isWishlisted={wishlist.includes(p.id)}
-                  onARTryOn={onARTryOn}
                 />
               ))
             }

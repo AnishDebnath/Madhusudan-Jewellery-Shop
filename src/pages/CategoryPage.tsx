@@ -8,12 +8,11 @@ import heritageVideo from '../assets/Hero Banner.webm';
 interface CategoryPageProps {
   category?: Category | string;
   onProductClick: (p: Product) => void;
-  onARTryOn: (p: Product) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onARTryOn, onToggleWishlist, wishlist }) => {
+const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onToggleWishlist, wishlist }) => {
   const [sortBy, setSortBy] = useState('featured');
 
   const filteredProducts = useMemo(() => {
@@ -126,7 +125,6 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
               <ProductCard
                 product={product}
                 onClick={onProductClick}
-                onARTryOn={onARTryOn}
                 onToggleWishlist={onToggleWishlist}
                 isWishlisted={wishlist.includes(product.id)}
               />

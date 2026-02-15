@@ -66,12 +66,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             >
               EXPLORE COLLECTIONS <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </button>
-            <button
+            {/* <button
               onClick={() => onNavigate('category', 'Diamond')}
               className="glass px-8 py-4 text-maroon-dominant dark:text-white font-bold rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 hover:bg-white/20 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-lg"
             >
               VIRTUAL TRY-ON <Play className="w-4 h-4 fill-current transition-transform group-hover:scale-110" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

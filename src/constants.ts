@@ -41,7 +41,6 @@ export const PRODUCTS: Product[] = [
     weight: '32.5g',
     description: 'Exquisite handcrafted gold filigree work reflecting the rich heritage of Kolkata artisans.',
     isBestSeller: true,
-    arSupport: true,
     additionalImages: [necklace6, necklace7, necklace8]
   },
   {
@@ -54,7 +53,6 @@ export const PRODUCTS: Product[] = [
     diamondCarat: '1.2ct',
     description: 'A brilliant-cut certified solitaire diamond set in 18K white gold.',
     isNewArrival: true,
-    arSupport: true,
     additionalImages: [ring12, ring13]
   },
   {
@@ -80,7 +78,6 @@ export const PRODUCTS: Product[] = [
     karat: '22K',
     weight: '45g',
     description: 'Traditional solid gold bangles with hand-carved floral motifs.',
-    arSupport: true,
     additionalImages: [bangles2, bangles3, bangles4]
   },
   {
@@ -92,7 +89,6 @@ export const PRODUCTS: Product[] = [
     image: earrings1,
     diamondCarat: '0.8ct',
     description: 'Dancing diamonds in an elegant drop design, perfect for evening wear.',
-    arSupport: true,
     additionalImages: [earrings7, earrings8, earrings9]
   },
   {
@@ -117,7 +113,6 @@ export const PRODUCTS: Product[] = [
     image: earrings2,
     karat: '22K',
     description: 'Uncut diamonds (Polki) set in a traditional jadau technique with freshwater pearl drops.',
-    arSupport: true,
     additionalImages: [earrings3, earrings1]
   },
   {
@@ -130,7 +125,6 @@ export const PRODUCTS: Product[] = [
     diamondCarat: '0.3ct',
     description: 'Minimalist 18K rose gold pendant for effortless everyday elegance.',
     isNewArrival: true,
-    arSupport: true,
     additionalImages: [necklace5, necklace4]
   },
   {

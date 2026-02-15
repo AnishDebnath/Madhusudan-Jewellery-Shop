@@ -1,16 +1,15 @@
 import React from 'react';
 import { Product } from '../types';
-import { Heart, Maximize2, Sparkles, ShieldCheck } from 'lucide-react';
+import { Heart, ShieldCheck } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
   onClick: (p: Product) => void;
-  onARTryOn: (p: Product) => void;
   onToggleWishlist: (id: string) => void;
   isWishlisted: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onARTryOn, onToggleWishlist, isWishlisted }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onToggleWishlist, isWishlisted }) => {
   return (
     <div className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer rounded-3xl h-full flex flex-col">
       <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 rounded-t-3xl">

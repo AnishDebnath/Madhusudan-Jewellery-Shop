@@ -24,13 +24,12 @@ import { PRODUCTS } from '../constants';
 
 interface HomeProps {
     onProductClick: (p: Product) => void;
-    onARTryOn: (p: Product) => void;
     onToggleWishlist: (id: string) => void;
     wishlist: string[];
     onNavigate: (view: string, data?: any) => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn, onToggleWishlist, wishlist, onNavigate }) => {
+const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist, onNavigate }) => {
     return (
         <>
             <Hero onNavigate={onNavigate} />
@@ -63,7 +62,6 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn, onToggleWishlist
                                 key={product.id}
                                 product={product}
                                 onClick={onProductClick}
-                                onARTryOn={onARTryOn}
                                 onToggleWishlist={onToggleWishlist}
                                 isWishlisted={wishlist.includes(product.id)}
                             />
