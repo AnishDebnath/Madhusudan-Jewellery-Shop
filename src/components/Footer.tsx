@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, ShieldCheck, Award, RefreshCw, Truck } from 'lucide-react';
 import { PageView, Category } from '../types';
+import footerLogo from '../assets/footer logo.png';
 
 interface FooterProps {
   onNavigate: (view: PageView, data?: any) => void;
@@ -13,12 +14,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24">
           <div className="col-span-1 md:col-span-2">
-            <h2
-              className="text-6xl font-serif text-maroon-dominant dark:text-white mb-8 cursor-pointer tracking-tighter hover:text-gold transition-colors duration-500"
+            <div
+              className="mb-8 cursor-pointer transition-all duration-500 hover:scale-105"
               onClick={() => onNavigate('home')}
             >
-              AURA
-            </h2>
+              <img src={footerLogo} alt="Aura Logo" className="h-16 md:h-20" />
+            </div>
             <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted mb-10 max-w-md font-serif text-lg leading-relaxed">
               Celebrating the spirit of Indian heritage through meticulously crafted gold and diamond jewelry. Kolkata's most trusted name since 1952.
             </p>

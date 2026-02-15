@@ -15,6 +15,8 @@ import model2 from '../assets/models/models (2).jpg';
 import model3 from '../assets/models/models (3).jpg';
 import model4 from '../assets/models/models (4).jpg';
 import model14 from '../assets/models/models (14).jpg';
+import logo from '../assets/logo.png';
+import logoDark from '../assets/logo.png'; // Using same logo for now, adjust if needed
 
 const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isDarkMode, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -159,13 +161,12 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
 
             {/* Centered Logo */}
             <div className="col-span-4 flex justify-center">
-              <div onClick={() => onNavigate('home')} className="flex flex-col items-center group cursor-pointer relative">
-                <h1 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-[0.2em] leading-none transition-all duration-1000 group-hover:tracking-[0.3em] group-hover:text-gold">AURA</h1>
-                <div className="flex items-center gap-3 mt-2">
-                  <div className="h-[1px] w-6 bg-gold/30 group-hover:w-10 transition-all duration-700"></div>
-                  <span className="text-[8px] md:text-[10px] tracking-[0.5em] text-gold uppercase font-black gold-glow">Heritage House</span>
-                  <div className="h-[1px] w-6 bg-gold/30 group-hover:w-10 transition-all duration-700"></div>
-                </div>
+              <div onClick={() => onNavigate('home')} className="flex flex-col items-center group cursor-pointer relative py-2">
+                <img
+                  src={logo}
+                  alt="Aura Logo"
+                  className={`transition-all duration-700 ${scrolled ? 'h-10 md:h-12' : 'h-16 md:h-20'} group-hover:scale-110`}
+                />
               </div>
             </div>
 
@@ -284,8 +285,8 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
           <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-sm bg-luxury-bg-primary dark:bg-luxury-dark-primary shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300 border-r border-maroon-border">
             <div className="sticky top-0 z-10 bg-maroon-dominant dark:bg-luxury-dark-secondary p-8 border-b border-white/10 flex justify-between items-center transition-colors">
               <div className="flex flex-col">
-                <span className="font-serif text-3xl text-white tracking-widest">AURA</span>
-                <span className="text-[9px] tracking-[0.3em] text-gold uppercase mt-1">Heritage Luxury</span>
+                <img src={logo} alt="Aura Logo" className="h-10" />
+                <span className="text-[8px] tracking-[0.3em] text-gold uppercase mt-2">Heritage Luxury</span>
               </div>
               <button onClick={() => setIsMenuOpen(false)} className="p-3 bg-white/5 rounded-full text-white hover:bg-gold hover:text-maroon-dominant transition-all">
                 <X className="w-6 h-6" />
