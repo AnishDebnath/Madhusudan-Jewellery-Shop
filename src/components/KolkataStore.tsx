@@ -3,6 +3,8 @@ import { MapPin, Clock, Phone, Calendar } from 'lucide-react';
 import model11 from '../assets/models/models (11).jpg';
 import model12 from '../assets/models/models (12).jpg';
 
+import heritageVideo from '../assets/hero banner.mp4';
+
 const KolkataStore: React.FC = () => {
   return (
     <section className="bg-maroon-dominant py-32 text-white overflow-hidden relative border-y border-white/5">
@@ -65,20 +67,19 @@ const KolkataStore: React.FC = () => {
 
           <div className="relative group">
             <div className="absolute -inset-4 bg-gold/10 rounded-3xl group-hover:scale-105 transition-transform duration-700 border border-gold/20 blur-sm"></div>
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-              <img
-                src={model11}
-                alt="Showroom"
-                className="w-full h-[600px] object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
-              />
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[3/4]">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
+              >
+                <source src={heritageVideo} type="video/mp4" />
+              </video>
               <div className="absolute inset-0 bg-maroon-dominant/20 group-hover:bg-transparent transition-colors duration-700"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:scale-110 hover:bg-gold transition-all duration-500 border border-white/20 group/play shadow-2xl ring-1 ring-white/30">
-                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-2 group-hover/play:border-l-maroon-dominant transition-colors"></div>
-                </div>
-              </div>
               <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-                <p className="text-white/90 text-lg italic font-serif tracking-wide text-center">"Experience the royal 360° virtual tour of our flagship boutique"</p>
+                <p className="text-white/90 text-lg italic font-serif tracking-wide text-center">"Step into our heritage Flagship boutique on Park Street"</p>
               </div>
             </div>
           </div>
