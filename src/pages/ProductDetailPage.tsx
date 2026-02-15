@@ -51,7 +51,7 @@ const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn
               ))}
             </div>
             <div className="flex-1 aspect-[4/5] bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-3xl overflow-hidden relative group border border-transparent dark:border-white/5 shadow-2xl">
-              <img src={mainImage} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
+              <img src={mainImage} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <button
                 onClick={() => onToggleWishlist(product.id)}

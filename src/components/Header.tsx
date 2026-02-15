@@ -237,7 +237,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
                       </div>
 
                       <div className="col-span-5 relative rounded-3xl overflow-hidden group/featured shadow-2xl aspect-[4/5]">
-                        <img src={cat.featured} className="w-full h-full object-cover group-hover/featured:scale-110 transition-all duration-[3s]" alt={cat.name} />
+                        <img src={cat.featured} className="w-full h-full object-cover group-hover/featured:scale-110 transition-all duration-[3s]" alt={cat.name} loading="lazy" />
                         <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant via-maroon-dominant/20 to-transparent flex flex-col justify-end p-10">
                           <span className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-4 gold-glow">Curated Choice</span>
                           <h5 className="text-white font-serif text-3xl leading-tight mb-8">Exclusive <br />{cat.name}</h5>

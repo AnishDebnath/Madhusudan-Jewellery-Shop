@@ -6,14 +6,28 @@ import PopularSearches from './components/PopularSearches';
 import Concierge from './components/Concierge';
 import ARTryOn from './components/ARTryOn';
 
-import Home from './pages/Home';
-import CategoryPage from './pages/CategoryPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
-import WishlistPage from './pages/WishlistPage';
-import StaticPages from './pages/StaticPages';
-import KolkataStore from './components/KolkataStore';
+const Home = React.lazy(() => import('./pages/Home'));
+const CategoryPage = React.lazy(() => import('./pages/CategoryPage'));
+const ProductDetailPage = React.lazy(() => import('./pages/ProductDetailPage'));
+const CartPage = React.lazy(() => import('./pages/CartPage'));
+const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'));
+const WishlistPage = React.lazy(() => import('./pages/WishlistPage'));
+const About = React.lazy(() => import('./pages/StaticPages').then(m => ({ default: m.default.About })));
+const Contact = React.lazy(() => import('./pages/StaticPages').then(m => ({ default: m.default.Contact })));
+const KolkataStore = React.lazy(() => import('./components/KolkataStore'));
+
+// Loading component for Suspense
+const PageLoader = () => (
+  <div className="min-h-screen flex flex-col items-center justify-center bg-luxury-bg-primary dark:bg-luxury-dark-primary">
+    <div className="relative w-20 h-20 mb-6">
+      <div className="absolute inset-0 border-2 border-gold/10 rounded-full"></div>
+      <div className="absolute inset-0 border-t-2 border-gold rounded-full animate-spin"></div>
+      <div className="absolute inset-4 border border-gold/20 rounded-full animate-pulse"></div>
+    </div>
+    <span className="text-gold text-[10px] font-black uppercase tracking-[0.4em] gold-glow mb-2">Madhusudan Jewellery</span>
+    <span className="text-luxury-text-light/40 dark:text-white/40 text-[8px] uppercase tracking-widest italic animate-pulse">Loading Treasures...</span>
+  </div>
+);
 
 import { Product, CartItem, Category } from './types';
 import { PRODUCTS } from './constants';
@@ -136,51 +150,53 @@ const App: React.FC = () => {
       />
 
       <main className="pt-[120px] lg:pt-[150px]">
-        <Routes>
-          <Route path="/" element={
-            <Home
-              onProductClick={(p) => handleNavigate('pdp', p)}
-              onARTryOn={setShowARTryOn}
-              onToggleWishlist={toggleWishlist}
-              wishlist={wishlist}
-              onNavigate={handleNavigate}
-            />
-          } />
+        <React.Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={
+              <Home
+                onProductClick={(p) => handleNavigate('pdp', p)}
+                onARTryOn={setShowARTryOn}
+                onToggleWishlist={toggleWishlist}
+                wishlist={wishlist}
+                onNavigate={handleNavigate}
+              />
+            } />
 
-          <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} setShowARTryOn={setShowARTryOn} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
-          <Route path="/product/:id" element={<ProductRouteWrapper addToCart={addToCart} setShowARTryOn={setShowARTryOn} handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
+            <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} setShowARTryOn={setShowARTryOn} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
+            <Route path="/product/:id" element={<ProductRouteWrapper addToCart={addToCart} setShowARTryOn={setShowARTryOn} handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
 
-          <Route path="/cart" element={
-            <CartPage
-              cart={cart}
-              onUpdateQty={updateCartQuantity}
-              onRemove={removeFromCart}
-              onCheckout={() => handleNavigate('checkout')}
-              onShopMore={() => handleNavigate('home')}
-            />
-          } />
+            <Route path="/cart" element={
+              <CartPage
+                cart={cart}
+                onUpdateQty={updateCartQuantity}
+                onRemove={removeFromCart}
+                onCheckout={() => handleNavigate('checkout')}
+                onShopMore={() => handleNavigate('home')}
+              />
+            } />
 
-          <Route path="/checkout" element={
-            <CheckoutPage
-              cart={cart}
-              onComplete={() => { setCart([]); handleNavigate('home'); }}
-            />
-          } />
+            <Route path="/checkout" element={
+              <CheckoutPage
+                cart={cart}
+                onComplete={() => { setCart([]); handleNavigate('home'); }}
+              />
+            } />
+            <Route path="/wishlist" element={
+              <WishlistPage
+                wishlist={wishlist}
+                onProductClick={(p) => handleNavigate('pdp', p)}
+                onAddToCart={addToCart}
+              />
+            } />
 
-          <Route path="/wishlist" element={
-            <WishlistPage
-              wishlist={wishlist}
-              onProductClick={(p) => handleNavigate('pdp', p)}
-              onAddToCart={addToCart}
-            />
-          } />
+            {/* Static Content Routes */}
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/store-locator" element={<KolkataStore />} />
 
-          <Route path="/about" element={<StaticPages.About />} />
-          <Route path="/contact" element={<StaticPages.Contact />} />
-          <Route path="/store-locator" element={<KolkataStore />} />
-
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </React.Suspense>
       </main>
 
       <Footer onNavigate={handleNavigate} />

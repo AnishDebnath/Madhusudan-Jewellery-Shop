@@ -38,6 +38,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60"
         >
           <source src={heritageVideo} type="video/mp4" />

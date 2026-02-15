@@ -118,6 +118,7 @@ const VideoCollectionSlider: React.FC = () => {
                       loop
                       muted={isActive ? isMuted : true}
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover"
                       key={item.videoUrl}
                     >

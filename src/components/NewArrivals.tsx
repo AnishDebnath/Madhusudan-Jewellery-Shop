@@ -54,6 +54,7 @@ const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video
         muted
         loop
         playsInline
+        preload="metadata"
         className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-80 group-hover:opacity-100"
       >
         <source src={video.videoUrl} type="video/mp4" />

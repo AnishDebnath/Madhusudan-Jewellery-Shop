@@ -96,6 +96,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
+                      loading="lazy"
                     />
                     {/* Wishlist Button - Top Right Corner of Image */}
                     <button

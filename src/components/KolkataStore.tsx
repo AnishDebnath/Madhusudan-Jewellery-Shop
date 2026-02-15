@@ -10,7 +10,7 @@ const KolkataStore: React.FC = () => {
     <section className="bg-maroon-dominant py-24 text-white overflow-hidden relative border-y border-white/5">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none mix-blend-overlay">
-        <img src={model12} alt="Kolkata Pattern" className="w-full h-full object-cover grayscale" />
+        <img src={model12} alt="Kolkata Pattern" className="w-full h-full object-cover grayscale" loading="lazy" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant via-maroon-dominant/95 to-maroon-dominant/80 z-0"></div>
 
@@ -73,6 +73,7 @@ const KolkataStore: React.FC = () => {
                 muted
                 loop
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
               >
                 <source src={heritageVideo} type="video/mp4" />

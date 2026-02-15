@@ -6,7 +6,7 @@ const About = () => (
   <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen transition-colors animate-in fade-in duration-700">
     <div className="relative h-[60vh] flex items-center justify-center bg-black overflow-hidden border-b border-gold/10">
       <div className="absolute inset-0 bg-black opacity-40 object-cover scale-105 animate-kenburns_slow">
-        <img src={model13} alt="Heritage" className="w-full h-full object-cover" />
+        <img src={model13} alt="Heritage" className="w-full h-full object-cover" loading="lazy" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
       <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
