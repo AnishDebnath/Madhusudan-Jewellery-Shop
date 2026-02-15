@@ -31,14 +31,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onARTryOn }
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] transition-all duration-500 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center gap-4 z-10">
           <button
             onClick={(e) => { e.stopPropagation(); onClick(product); }}
-            className="bg-white text-maroon-dominant text-[10px] tracking-[0.2em] px-8 py-3.5 w-48 transition-all duration-500 translate-y-8 group-hover:translate-y-0 uppercase font-black hover:bg-gold hover:text-maroon-dominant shadow-xl rounded-full transform active:scale-95"
+            className="bg-white text-maroon-dominant text-[10px] tracking-[0.2em] px-8 py-3.5 w-48 transition-all duration-500 scale-90 group-hover:scale-100 uppercase font-black hover:bg-gold hover:text-maroon-dominant shadow-xl rounded-full transform active:scale-95"
           >
             Quick View
           </button>
           {product.arSupport && (
             <button
               onClick={(e) => { e.stopPropagation(); onARTryOn(product); }}
-              className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[10px] tracking-[0.2em] px-8 py-3.5 w-48 transition-all duration-500 translate-y-8 group-hover:translate-y-0 delay-75 uppercase font-black hover:bg-gold hover:text-maroon-dominant flex items-center justify-center gap-2 shadow-xl border border-white/10 rounded-full transform active:scale-95"
+              className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[10px] tracking-[0.2em] px-8 py-3.5 w-48 transition-all duration-500 scale-90 group-hover:scale-100 delay-75 uppercase font-black hover:bg-gold hover:text-maroon-dominant flex items-center justify-center gap-2 shadow-xl border border-white/10 rounded-full transform active:scale-95"
             >
               <Sparkles className="w-3 h-3" /> Virtual Try-On
             </button>

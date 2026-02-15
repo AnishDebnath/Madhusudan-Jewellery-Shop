@@ -66,7 +66,7 @@ const VivaahCollection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
           {VIVAAH_PRODUCTS.map((product) => (
             <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden transition-all duration-700 rounded-3xl hover:shadow-2xl hover:-translate-y-3">
-              <div className="relative aspect-[4/5] overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 rounded-t-3xl">
+              <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 rounded-t-3xl">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -94,11 +94,10 @@ const VivaahCollection: React.FC = () => {
 
         {/* Centered CTA */}
         <div className="flex justify-center pb-20">
-          <button className="group relative px-16 py-6 border border-gold/50 text-maroon-dominant dark:text-gold text-[10px] font-black tracking-[0.5em] uppercase overflow-hidden transition-all duration-500 hover:text-white rounded-full">
+          <button className="group relative px-12 py-5 bg-maroon-dominant text-white text-[11px] font-black uppercase tracking-[0.4em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-2xl active:scale-95 border border-white/10">
             <span className="relative z-10 flex items-center gap-4">
               Explore The Collection <ArrowRight className="w-4 h-4 group-hover:translate-x-3 transition-transform duration-500" />
             </span>
-            <div className="absolute inset-0 bg-maroon-dominant transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
           </button>
         </div>
       </div>

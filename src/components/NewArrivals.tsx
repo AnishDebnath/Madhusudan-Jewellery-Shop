@@ -12,61 +12,46 @@ import reel1 from '../assets/reels/reel 1.mp4';
 import reel2 from '../assets/reels/reel 2.mp4';
 import reel3 from '../assets/reels/reel 3.mp4';
 import reel4 from '../assets/reels/reel 4.mp4';
-import model1 from '../assets/models/models (1).jpg';
-import model2 from '../assets/models/models (2).jpg';
-import model3 from '../assets/models/models (3).jpg';
-import model4 from '../assets/models/models (4).jpg';
+
 
 const VIDEO_HIGHLIGHTS = [
   {
     id: 1,
     title: 'Modern Diamond Charms',
     videoUrl: reel1,
-    poster: model1,
     tag: 'Shagun Collection'
   },
   {
     id: 2,
     title: 'The Groom\'s Power',
     videoUrl: reel2,
-    poster: model2,
     tag: 'Aham Collection'
   },
   {
     id: 3,
     title: 'Bridal Heritage Glow',
     videoUrl: reel3,
-    poster: model3,
     tag: 'Vivaah Couture'
   },
   {
     id: 4,
     title: 'Minimalist Fine Gold',
     videoUrl: reel4,
-    poster: model4,
     tag: 'Latest Launch'
   }
 ];
 
 const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
   return (
     <div
-      className="relative flex-shrink-0 w-[280px] md:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden group cursor-pointer bg-black border border-transparent hover:border-gold/30 transition-all duration-700 hover:shadow-2xl hover:-translate-y-3"
-      onMouseEnter={() => videoRef.current?.play().catch(() => { })}
-      onMouseLeave={() => {
-        videoRef.current?.pause();
-        if (videoRef.current) videoRef.current.currentTime = 0;
-      }}
+      className="relative flex-shrink-0 w-[240px] md:w-[280px] aspect-[9/16] rounded-3xl overflow-hidden group cursor-pointer bg-black border border-transparent hover:border-gold/30 transition-all duration-700 hover:shadow-2xl hover:-translate-y-3"
     >
       <video
-        ref={videoRef}
-        poster={video.poster}
+        autoPlay
         muted
         loop
         playsInline
-        className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-60 group-hover:opacity-100"
+        className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-80 group-hover:opacity-100"
       >
         <source src={video.videoUrl} type="video/mp4" />
       </video>
@@ -117,11 +102,10 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
             </h2>
           </div>
 
-          <button className="group relative px-10 py-4 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-500 rounded-full hover:border-gold">
+          <button className="group relative px-10 py-4 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95">
             <span className="relative z-10 flex items-center gap-3">
               View Full Catalog <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </span>
-            <div className="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
           </button>
         </div>
 
@@ -171,9 +155,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
               </div>
             ))}
 
-            <div className="flex-shrink-0 w-[260px] md:w-[300px] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-gold/5 active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute inset-0 bg-maroon-dominant transform translate-y-full group-hover/view-all:translate-y-0 transition-transform duration-700"></div>
-              <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500 group-hover/view-all:-translate-y-2">
+            <div className="flex-shrink-0 w-[260px] md:w-[300px] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
+              <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500">
                 <div className="w-20 h-20 rounded-full bg-white dark:bg-luxury-dark-card flex items-center justify-center group-hover/view-all:bg-transparent group-hover/view-all:border-white/40 border border-gold/10 transition-all duration-500 group-hover/view-all:scale-110 shadow-2xl">
                   <ChevronRight className="w-8 h-8 text-maroon-dominant dark:text-white group-hover/view-all:text-white transition-colors" />
                 </div>

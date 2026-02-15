@@ -27,7 +27,7 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
 
   return (
     <div className="flex-shrink-0 w-[260px] md:w-[300px] bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group cursor-pointer p-4 transition-all duration-700 rounded-3xl hover:border-gold/20 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
-      <div className="relative aspect-[4/5] overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 mb-6 rounded-2xl">
+      <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 mb-6 rounded-2xl">
         <img
           src={product.image}
           alt={product.name}
@@ -58,7 +58,7 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
           <Heart className="w-4 h-4" />
         </button>
 
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center translate-y-4 group-hover:translate-y-0 z-20">
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center scale-95 group-hover:scale-100 z-20">
           <button
             onClick={() => onClick(product)}
             className="bg-white text-maroon-dominant text-[10px] font-black tracking-[0.2em] px-8 py-4 rounded-full hover:bg-gold hover:text-maroon-dominant transition-all shadow-2xl active:scale-95"

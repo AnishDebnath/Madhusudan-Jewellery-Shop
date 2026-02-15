@@ -15,7 +15,7 @@ const EarringCard: React.FC<EarringCardProps> = ({ title, image, link }) => (
     href={link}
     className="group relative block bg-white dark:bg-luxury-dark-card rounded-3xl overflow-hidden border border-transparent dark:border-white/5 transition-all duration-700 hover:shadow-2xl hover:-translate-y-2"
   >
-    <div className="aspect-[4/5] overflow-hidden relative">
+    <div className="aspect-square overflow-hidden relative">
       <img
         src={image}
         alt={title}

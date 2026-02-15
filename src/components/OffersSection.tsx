@@ -122,7 +122,7 @@ const OffersSection: React.FC = () => {
             <div className="w-16 h-[1px] bg-gold/30"></div>
           </div>
         </div>
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 no-scrollbar pb-8 pt-4 md:pb-0 snap-x snap-mandatory">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-14 no-scrollbar pb-8 pt-4 md:pb-0 snap-x snap-mandatory">
           {OFFERS_DATA.map((offer, idx) => (
             <div key={idx} className="flex-shrink-0 w-[85vw] md:w-auto snap-center">
               <OfferCard {...offer} />

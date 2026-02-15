@@ -86,7 +86,7 @@ const ShopByGender: React.FC = () => {
                 <div className="absolute inset-0 bg-maroon-dominant/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="flex justify-center">
-                    <ArrowRight className="text-gold w-5 h-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" />
+                    <ArrowRight className="text-gold w-5 h-5 -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100" />
                   </div>
                 </div>
               </div>

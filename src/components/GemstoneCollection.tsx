@@ -15,7 +15,7 @@ const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link }) => (
     href={link}
     className="group relative block rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 border border-transparent dark:border-white/5"
   >
-    <div className="aspect-[3/4] overflow-hidden relative">
+    <div className="aspect-square overflow-hidden relative">
       <img
         src={image}
         alt={label}

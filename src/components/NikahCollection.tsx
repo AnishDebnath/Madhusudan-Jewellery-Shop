@@ -79,11 +79,10 @@ const NikahCollection: React.FC = () => {
             </div>
 
             <div className="mt-16 flex flex-col sm:flex-row gap-6">
-              <button className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black tracking-[0.3em] uppercase overflow-hidden hover:bg-gold transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl hover:shadow-gold/20 rounded-full">
+              <button className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black tracking-[0.3em] uppercase transition-all duration-500 hover:bg-gold hover:text-maroon-dominant hover:scale-105 active:scale-95 shadow-xl hover:shadow-gold/20 rounded-full border border-white/10">
                 <span className="relative z-10 flex items-center gap-3">
                   EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <div className="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
               </button>
               <button className="flex items-center gap-2 text-[10px] font-black text-maroon-dominant dark:text-gold uppercase tracking-[0.2em] hover:text-gold dark:hover:text-white transition-all duration-300 border-b border-gold/30 pb-1 hover:scale-105 group px-4">
                 Book Consultation <Star className="w-3 h-3 text-gold transition-transform group-hover:rotate-12" />
