@@ -63,28 +63,18 @@ const App: React.FC = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [showARTryOn, setShowARTryOn] = useState<Product | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(() =>
-    document.documentElement.classList.contains('dark')
-  );
 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('aura_theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('aura_theme', 'light');
-    }
-  }, [isDarkMode]);
+    // Ensure dark mode is active on mount
+    document.documentElement.classList.add('dark');
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
-  const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   // Navigation Helper for backward compatibility with components
   const handleNavigate = (view: string, data?: any) => {
@@ -135,8 +125,6 @@ const App: React.FC = () => {
         cartCount={cart.reduce((acc, i) => acc + i.quantity, 0)}
         wishlistCount={wishlist.length}
         onNavigate={handleNavigate}
-        isDarkMode={isDarkMode}
-        toggleTheme={toggleTheme}
       />
 
       <main className="pt-[120px] lg:pt-[150px]">

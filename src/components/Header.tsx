@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, Menu, X, Phone, User, TrendingUp, TrendingDown, Info, ChevronDown, Home, Sparkles, MapPin, Sun, Moon } from 'lucide-react';
+import { Search, ShoppingBag, Heart, Menu, X, Phone, User, TrendingUp, TrendingDown, Info, ChevronDown, Home, Sparkles, MapPin } from 'lucide-react';
 import { PageView, Category } from '../types';
 
 interface HeaderProps {
   cartCount: number;
   wishlistCount: number;
   onNavigate: (view: PageView, data?: any) => void;
-  isDarkMode: boolean;
-  toggleTheme: () => void;
 }
 
 import model1 from '../assets/models/models (1).jpg';
@@ -18,7 +16,7 @@ import model14 from '../assets/models/models (14).jpg';
 import logo from '../assets/logo.png';
 import logoDark from '../assets/logo.png'; // Using same logo for now, adjust if needed
 
-const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isDarkMode, toggleTheme }) => {
+const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -147,14 +145,6 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                   className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] text-maroon-dominant dark:text-white hover:text-gold transition-all group"
                 >
                   <Search className="w-4 h-4 group-hover:scale-110 transition-transform" /> SEARCH
-                </button>
-                <div className="h-4 w-[1px] bg-maroon-dominant/10 dark:bg-white/10"></div>
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 text-maroon-dominant dark:text-white hover:text-gold transition-all rounded-full hover:bg-maroon-dominant/5 dark:hover:bg-white/5"
-                  aria-label="Toggle theme"
-                >
-                  {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                 </button>
               </div>
             </div>
