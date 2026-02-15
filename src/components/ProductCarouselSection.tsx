@@ -64,7 +64,7 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {products.map((product) => (
-            <div key={product.id} className="snap-start flex-shrink-0">
+            <div key={product.id} className="snap-start flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)]">
               <CarouselProductCard
                 product={product}
                 onClick={onProductClick}
@@ -73,7 +73,7 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
             </div>
           ))}
 
-          <div className="flex-shrink-0 w-[260px] md:w-[300px] snap-start flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
+          <div className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)] snap-start flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
             <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500">
               <div className="w-20 h-20 rounded-full bg-white dark:bg-luxury-dark-card flex items-center justify-center group-hover/view-all:bg-transparent group-hover/view-all:border-white/40 border border-gold/10 transition-all duration-500 group-hover/view-all:scale-110 shadow-2xl">
                 <ChevronRight className="w-8 h-8 text-maroon-dominant dark:text-white group-hover/view-all:text-white transition-colors" />

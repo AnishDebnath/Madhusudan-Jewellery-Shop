@@ -26,7 +26,7 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
   const offer = getOfferBadge();
 
   return (
-    <div className="flex-shrink-0 w-[260px] md:w-[300px] bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group cursor-pointer p-4 transition-all duration-700 rounded-3xl hover:border-gold/20 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
+    <div className="flex-shrink-0 w-full bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group cursor-pointer p-4 transition-all duration-700 rounded-3xl hover:border-gold/20 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
       <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 mb-6 rounded-2xl">
         <img
           src={product.image}

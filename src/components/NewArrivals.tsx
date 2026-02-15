@@ -111,9 +111,9 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
 
         <div className="mb-20">
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5">
-            <div className="space-y-1">
-              <span className="text-[9px] font-black text-gold/60 uppercase tracking-[0.3em]">Visual Stories</span>
-              <p className="text-xs font-serif italic text-maroon-dominant/40 dark:text-white/30 tracking-wide">Behind the craftsmanship</p>
+            <div className="space-y-2">
+              <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Visual Stories</span>
+              <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Behind the craftsmanship</p>
             </div>
             <div className="flex gap-4">
               <button onClick={() => scroll(scrollRef, 'left')} className="p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
@@ -132,9 +132,9 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
 
         <div>
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5">
-            <div className="space-y-1">
-              <span className="text-[9px] font-black text-gold/60 uppercase tracking-[0.3em]">Just Dropped</span>
-              <p className="text-xs font-serif italic text-maroon-dominant/40 dark:text-white/30 tracking-wide">Ready for your collection</p>
+            <div className="space-y-2">
+              <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Just Dropped</span>
+              <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Ready for your collection</p>
             </div>
             <div className="flex gap-4">
               <button onClick={() => scroll(productScrollRef, 'left')} className="p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
@@ -146,7 +146,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
             className="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-12 pt-4 -mx-6 px-6 md:mx-0 md:px-0"
           >
             {newArrivalProducts.slice(0, 8).map((product) => (
-              <div key={product.id} className="snap-start h-full">
+              <div key={product.id} className="snap-start h-full flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)]">
                 <CarouselProductCard
                   product={product}
                   onClick={onProductClick}
@@ -155,7 +155,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
               </div>
             ))}
 
-            <div className="flex-shrink-0 w-[260px] md:w-[300px] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
+            <div className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
               <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500">
                 <div className="w-20 h-20 rounded-full bg-white dark:bg-luxury-dark-card flex items-center justify-center group-hover/view-all:bg-transparent group-hover/view-all:border-white/40 border border-gold/10 transition-all duration-500 group-hover/view-all:scale-110 shadow-2xl">
                   <ChevronRight className="w-8 h-8 text-maroon-dominant dark:text-white group-hover/view-all:text-white transition-colors" />

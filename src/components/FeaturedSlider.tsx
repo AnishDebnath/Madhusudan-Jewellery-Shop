@@ -7,15 +7,18 @@ import { ChevronLeft, ChevronRight, ArrowRight, Star, Sparkles, Heart } from 'lu
 const FeaturedSlider: React.FC = () => {
   const featured = PRODUCTS.filter(p => p.isBestSeller || p.isNewArrival).slice(0, 6);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [viewState, setViewState] = useState({ isMobile: false, isTablet: false });
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      setViewState({
+        isMobile: window.innerWidth < 768,
+        isTablet: window.innerWidth >= 768 && window.innerWidth < 1280
+      });
     };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const nextSlide = useCallback(() => {
@@ -27,7 +30,7 @@ const FeaturedSlider: React.FC = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 2000);
+    const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
@@ -71,29 +74,31 @@ const FeaturedSlider: React.FC = () => {
         <div className="relative overflow-visible">
           <div
             className="flex transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)"
-            style={{ transform: `translateX(-${currentIndex * (100 / (isMobile ? 1 : 3))}%)` }}
+            style={{
+              transform: `translateX(-${currentIndex * (100 / (viewState.isMobile ? 1 : viewState.isTablet ? 2 : 4))}%)`
+            }}
           >
             {featured.map((product) => (
               <div
                 key={product.id}
-                className="w-full md:w-1/3 flex-shrink-0 px-5"
+                className="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-4"
               >
-                <div className="group relative bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-3xl p-5 md:p-7 border border-luxury-bg-card dark:border-maroon-border/20 hover:border-gold/40 transition-all duration-700 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] overflow-hidden">
-                  {/* Wishlist Button - Top Right Corner */}
-                  <button
-                    onClick={(e) => { e.stopPropagation(); /* Add to wishlist logic here */ }}
-                    className="absolute top-6 right-6 z-30 w-10 h-10 bg-white/90 dark:bg-luxury-dark-card/90 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all duration-300 shadow-lg hover:scale-110 active:scale-95"
-                    aria-label="Add to wishlist"
-                  >
-                    <Heart className="w-4 h-4" />
-                  </button>
-
+                <div className="group relative bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-[2rem] p-4 md:p-5 border border-luxury-bg-card dark:border-maroon-border/20 hover:border-gold/40 transition-all duration-700 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] overflow-hidden">
                   <div className="aspect-square mb-6 overflow-hidden relative bg-luxury-bg-card dark:bg-luxury-dark-secondary rounded-2xl">
                     <img
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
                     />
+                    {/* Wishlist Button - Top Right Corner of Image */}
+                    <button
+                      onClick={(e) => { e.stopPropagation(); /* Add to wishlist logic here */ }}
+                      className="absolute top-4 right-4 z-30 w-10 h-10 bg-white/90 dark:bg-luxury-dark-card/90 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all duration-300 shadow-lg hover:scale-110 active:scale-95"
+                      aria-label="Add to wishlist"
+                    >
+                      <Heart className="w-4 h-4" />
+                    </button>
+
                     {product.isNewArrival && (
                       <div className="absolute top-0 left-0 bg-gold/90 backdrop-blur-sm text-maroon-dominant text-[8px] px-4 py-2 uppercase tracking-[0.3em] font-black shadow-lg rounded-full mt-3 ml-3">
                         New Launch
@@ -101,9 +106,9 @@ const FeaturedSlider: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="text-center relative space-y-2 px-3">
+                  <div className="text-center relative space-y-2 px-2">
                     <span className="text-gold/80 text-[8px] font-black uppercase tracking-[0.4em] block">Artisan's Choice</span>
-                    <h4 className="font-serif text-maroon-dominant dark:text-white text-xl md:text-2xl mb-3 line-clamp-1 group-hover:text-gold transition-colors duration-500 tracking-wide">
+                    <h4 className="font-serif text-maroon-dominant dark:text-white text-lg md:text-xl mb-2 line-clamp-1 group-hover:text-gold transition-colors duration-500 tracking-wide">
                       {product.name}
                     </h4>
 
@@ -114,8 +119,8 @@ const FeaturedSlider: React.FC = () => {
                       <span className="text-[8px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase tracking-[0.25em] font-black">(BIS Hallmark)</span>
                     </div>
 
-                    <div className="relative mb-6">
-                      <p className="text-maroon-dominant dark:text-gold font-sans text-2xl md:text-3xl font-bold tracking-tight">
+                    <div className="relative mb-4">
+                      <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight">
                         ₹{product.price.toLocaleString('en-IN')}
                       </p>
                     </div>
