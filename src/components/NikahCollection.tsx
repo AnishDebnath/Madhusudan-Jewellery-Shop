@@ -3,7 +3,7 @@ import { ArrowRight, Star } from 'lucide-react';
 import necklace19 from '../assets/jewellery/necklace/nacklace (19).jpg';
 import necklace20 from '../assets/jewellery/necklace/nacklace (20).jpg';
 import necklace21 from '../assets/jewellery/necklace/nacklace (21).jpg';
-import nikahHero from '../assets/models/models (10).jpg';
+import nikahHero from '../assets/models/models (21).jpg';
 
 const NIKAH_PRODUCTS = [
   {

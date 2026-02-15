@@ -1,7 +1,7 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, ShieldCheck, Award, RefreshCw, Truck } from 'lucide-react';
 import { PageView, Category } from '../types';
-import footerLogo from '../assets/footer logo.png';
+import footerLogo from '../assets/logo.png';
 
 interface FooterProps {
   onNavigate: (view: PageView, data?: any) => void;

@@ -174,6 +174,7 @@ const App: React.FC = () => {
                 onRemove={removeFromCart}
                 onCheckout={() => handleNavigate('checkout')}
                 onShopMore={() => handleNavigate('home')}
+                onProductClick={(p) => handleNavigate('pdp', p)}
               />
             } />
 

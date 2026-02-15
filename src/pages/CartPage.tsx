@@ -8,9 +8,10 @@ interface CartPageProps {
   onRemove: (id: string) => void;
   onCheckout: () => void;
   onShopMore: () => void;
+  onProductClick: (product: any) => void;
 }
 
-const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove, onCheckout, onShopMore }) => {
+const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove, onCheckout, onShopMore, onProductClick }) => {
   const subtotal = cart.reduce((acc, i) => acc + (i.price * i.quantity), 0);
   const taxes = subtotal * 0.03; // GST 3%
   const total = subtotal + taxes;
@@ -43,7 +44,10 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove, onChec
           <div className="flex-1 space-y-6">
             {cart.map((item) => (
               <div key={item.id} className="bg-white dark:bg-luxury-dark-card p-6 rounded-3xl shadow-lg border border-transparent dark:border-white/5 flex gap-6 group hover:border-gold/20 transition-all duration-300">
-                <div className="w-32 h-32 bg-luxury-bg-secondary dark:bg-black/20 rounded-2xl overflow-hidden flex-shrink-0 border border-luxury-bg-card dark:border-white/5 relative">
+                <div
+                  className="w-32 h-32 bg-luxury-bg-secondary dark:bg-black/20 rounded-2xl overflow-hidden flex-shrink-0 border border-luxury-bg-card dark:border-white/5 relative cursor-pointer"
+                  onClick={() => onProductClick(item)}
+                >
                   <img src={item.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                   <div className="absolute inset-0 bg-black/5 dark:bg-black/20 group-hover:opacity-0 transition-opacity" />
                 </div>
@@ -51,7 +55,12 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove, onChec
                   <div className="flex justify-between items-start">
                     <div>
                       <span className="text-gold text-[9px] font-black uppercase tracking-[0.2em] block mb-2">{item.category}</span>
-                      <h3 className="text-xl font-serif text-maroon-dominant dark:text-white tracking-wide leading-none mb-2">{item.name}</h3>
+                      <h3
+                        className="text-xl font-serif text-maroon-dominant dark:text-white tracking-wide leading-none mb-2 cursor-pointer hover:text-gold transition-colors"
+                        onClick={() => onProductClick(item)}
+                      >
+                        {item.name}
+                      </h3>
                       <p className="text-lg font-serif text-maroon-dominant/80 dark:text-gold font-bold">₹{item.price.toLocaleString('en-IN')}</p>
                     </div>
                     <button onClick={() => onRemove(item.id)} className="text-luxury-text-light/40 dark:text-white/40 hover:text-red-500 transition-colors p-2 hover:bg-red-500/10 rounded-full">
