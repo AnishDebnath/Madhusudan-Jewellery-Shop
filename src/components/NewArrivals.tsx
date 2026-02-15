@@ -11,10 +11,10 @@ interface NewArrivalsProps {
   onNavigate: (view: string, data?: any) => void;
 }
 
-import reel1 from '../assets/reels/reel 1.mp4';
-import reel2 from '../assets/reels/reel 2.mp4';
-import reel3 from '../assets/reels/reel 3.mp4';
-import reel4 from '../assets/reels/reel 4.mp4';
+import reel1 from '../assets/reels/Reel 1.webm';
+import reel2 from '../assets/reels/Reel 2.webm';
+import reel3 from '../assets/reels/Reel 3.webm';
+import reel4 from '../assets/reels/Reel 4.webm';
 
 
 const VIDEO_HIGHLIGHTS = [
@@ -57,7 +57,7 @@ const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video
         preload="metadata"
         className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-80 group-hover:opacity-100"
       >
-        <source src={video.videoUrl} type="video/mp4" />
+        <source src={video.videoUrl} type="video/webm" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-40 transition-opacity duration-700" />
 

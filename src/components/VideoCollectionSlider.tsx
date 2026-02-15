@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Volume2, VolumeX, Maximize, Play } from 'lucide-react';
-import reel1 from '../assets/reels/reel 1.mp4';
-import reel2 from '../assets/reels/reel 2.mp4';
-import reel3 from '../assets/reels/reel 3.mp4';
-import reel4 from '../assets/reels/reel 4.mp4';
+import reel1 from '../assets/reels/Reel 1.webm';
+import reel2 from '../assets/reels/Reel 2.webm';
+import reel3 from '../assets/reels/Reel 3.webm';
+import reel4 from '../assets/reels/Reel 4.webm';
 import model5 from '../assets/models/models (5).jpg';
 import model6 from '../assets/models/models (6).jpg';
 import model7 from '../assets/models/models (7).jpg';
@@ -122,7 +122,7 @@ const VideoCollectionSlider: React.FC = () => {
                       className="w-full h-full object-cover"
                       key={item.videoUrl}
                     >
-                      <source src={item.videoUrl} type="video/mp4" />
+                      <source src={item.videoUrl} type="video/webm" />
                     </video>
 
                     <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>

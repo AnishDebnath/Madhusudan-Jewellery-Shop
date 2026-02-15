@@ -3,7 +3,7 @@ import { MapPin, Clock, Phone, Calendar } from 'lucide-react';
 import model11 from '../assets/models/models (11).jpg';
 import model12 from '../assets/models/models (12).jpg';
 
-import heritageVideo from '../assets/hero banner.mp4';
+import heritageVideo from '../assets/Hero Banner.webm';
 
 const KolkataStore: React.FC = () => {
   return (
@@ -76,7 +76,7 @@ const KolkataStore: React.FC = () => {
                 preload="metadata"
                 className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
               >
-                <source src={heritageVideo} type="video/mp4" />
+                <source src={heritageVideo} type="video/webm" />
               </video>
               <div className="absolute inset-0 bg-maroon-dominant/20 group-hover:bg-transparent transition-colors duration-700"></div>
               <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent">

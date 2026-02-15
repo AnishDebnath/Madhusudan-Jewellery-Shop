@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               className="mb-8 cursor-pointer transition-all duration-500 hover:scale-105"
               onClick={() => onNavigate('home')}
             >
-              <img src={footerLogo} alt="Aura Logo" className="h-16 md:h-20" />
+              <img src={footerLogo} alt="Aura Logo" className="h-16 md:h-20" loading="lazy" />
             </div>
             <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted mb-10 max-w-md font-serif text-lg leading-relaxed">
               Celebrating the spirit of Indian heritage through meticulously crafted gold and diamond jewelry. Kolkata's most trusted name since 1952.

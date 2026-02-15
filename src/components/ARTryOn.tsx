@@ -136,7 +136,7 @@ const ARTryOn: React.FC<ARTryOnProps> = ({ onClose, product: initialProduct }) =
                   onClick={() => setActiveProduct(p)}
                   className={`relative aspect-square rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 group/item border ${activeProduct.id === p.id ? 'border-gold shadow-[0_0_15px_rgba(212,175,55,0.2)]' : 'border-white/5 hover:border-white/20'}`}
                 >
-                  <img src={p.image} alt={p.name} className="w-full h-full object-cover opacity-80 group-hover/item:opacity-100 transition-opacity" />
+                  <img src={p.image} alt={p.name} className="w-full h-full object-cover opacity-80 group-hover/item:opacity-100 transition-opacity" loading="lazy" />
                   {activeProduct.id === p.id && (
                     <div className="absolute top-2 right-2 bg-gold text-maroon-dominant rounded-full p-1 shadow-sm">
                       <Check className="w-3 h-3" />

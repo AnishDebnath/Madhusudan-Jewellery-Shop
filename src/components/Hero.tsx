@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
-import heritageVideo from '../assets/hero banner.mp4';
+import heritageVideo from '../assets/Hero Banner.webm';
 
 interface HeroProps {
   onNavigate: (view: string, data?: any) => void;
@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       >
         <source
           src={heritageVideo}
-          type="video/mp4"
+          type="video/webm"
         />
       </video>
 

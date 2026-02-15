@@ -36,6 +36,7 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
           src={product.image}
           alt={product.name}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
           onClick={() => onClick(product)}
         />

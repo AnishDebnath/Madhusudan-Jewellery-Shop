@@ -48,6 +48,7 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
             src={vivaahHero}
             alt="Vivaah Collection"
             loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant/80 via-maroon-dominant/10 to-transparent"></div>

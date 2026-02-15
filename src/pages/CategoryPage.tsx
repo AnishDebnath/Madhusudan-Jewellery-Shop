@@ -3,7 +3,7 @@ import { Filter, ChevronDown, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { PRODUCTS } from '../constants';
 import { Category, Product } from '../types';
 import ProductCard from '../components/ProductCard';
-import heritageVideo from '../assets/hero banner.mp4';
+import heritageVideo from '../assets/Hero Banner.webm';
 
 interface CategoryPageProps {
   category?: Category | string;
@@ -41,7 +41,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60"
         >
-          <source src={heritageVideo} type="video/mp4" />
+          <source src={heritageVideo} type="video/webm" />
         </video>
 
         {/* Background Decorative Elements */}

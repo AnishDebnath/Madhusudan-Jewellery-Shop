@@ -280,7 +280,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
           <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-sm bg-luxury-bg-primary dark:bg-luxury-dark-primary shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300 border-r border-maroon-border">
             <div className="sticky top-0 z-10 bg-maroon-dominant dark:bg-luxury-dark-secondary p-8 border-b border-white/10 flex justify-between items-center transition-colors">
               <div className="flex flex-col">
-                <img src={logo} alt="Aura Logo" className="h-10" />
+                <img src={logo} alt="Aura Logo" className="h-10" loading="lazy" />
                 <span className="text-[8px] tracking-[0.3em] text-gold uppercase mt-2">Heritage Luxury</span>
               </div>
               <button onClick={() => setIsMenuOpen(false)} className="p-3 bg-white/5 rounded-full text-white hover:bg-gold hover:text-maroon-dominant transition-all">
