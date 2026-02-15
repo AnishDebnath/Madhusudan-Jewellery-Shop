@@ -139,7 +139,7 @@ const App: React.FC = () => {
         toggleTheme={toggleTheme}
       />
 
-      <main className="pt-[140px] md:pt-[120px]">
+      <main className="pt-[120px] lg:pt-[150px]">
         <Routes>
           <Route path="/" element={
             <Home

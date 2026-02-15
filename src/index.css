@@ -9,30 +9,81 @@
     --deep-maroon-blend: linear-gradient(135deg, #2A0C12 0%, #5B0F1B 100%);
   }
 
-  body { 
-    @apply bg-luxury-bg-primary text-luxury-text-light transition-colors duration-300; 
+  html {
+    scroll-behavior: smooth;
   }
-  
-  .dark body { 
-    @apply bg-luxury-dark-primary text-luxury-text-dark; 
+
+  body {
+    @apply bg-luxury-bg-primary text-luxury-text-light transition-colors duration-300 antialiased;
+  }
+
+  .dark body {
+    @apply bg-luxury-dark-primary text-luxury-text-dark;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-maroon-dominant;
   }
 
   /* Scrollbar Styles */
-  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-  .custom-scrollbar::-webkit-scrollbar-track { @apply bg-transparent; }
-  .custom-scrollbar::-webkit-scrollbar-thumb { @apply bg-gold rounded-full; }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold/50 hover:bg-gold rounded-full transition-colors;
+  }
 }
 
 @layer utilities {
-  .gradient-maroon-gold { background: var(--maroon-gold-primary); }
-  .gradient-maroon-gold-soft { background: var(--maroon-gold-soft); }
-  .gradient-deep-maroon { background: var(--deep-maroon-blend); }
-  
-  .gold-glow { filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
-  .luxury-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-  .dark .luxury-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10;
+  }
+
+  .gradient-maroon-gold {
+    background: var(--maroon-gold-primary);
+  }
+
+  .gradient-maroon-gold-soft {
+    background: var(--maroon-gold-soft);
+  }
+
+  .gradient-deep-maroon {
+    background: var(--deep-maroon-blend);
+  }
+
+  .gold-glow {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+  }
+
+  .luxury-shadow {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .luxury-shadow {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobile-card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
 
   @media (max-width: 768px) {
-    .dark .mobile-card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .dark .mobile-card-shadow {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
   }
 }

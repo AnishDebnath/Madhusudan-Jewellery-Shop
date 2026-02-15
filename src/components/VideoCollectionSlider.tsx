@@ -48,7 +48,7 @@ const VideoCollectionSlider: React.FC = () => {
     videoRefs.current.forEach((video, idx) => {
       if (video) {
         if (idx === activeIndex) {
-          video.play().catch(() => {});
+          video.play().catch(() => { });
         } else {
           video.pause();
         }
@@ -65,50 +65,52 @@ const VideoCollectionSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-maroon-border/20">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-serif text-maroon-dominant dark:text-gold uppercase tracking-[0.2em] font-bold">
-            Jewellery Design Showcases
+    <section className="py-32 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-20 space-y-4">
+          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Cinematic Showcase</span>
+          <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+            Jewellery In Motion
           </h2>
-          <div className="w-24 h-[1px] bg-gold mx-auto mt-4"></div>
         </div>
 
         <div className="relative flex items-center justify-center h-[600px] md:h-[700px]">
           {/* Navigation Controls */}
-          <button 
+          <button
             onClick={handlePrev}
-            className="absolute left-4 md:left-10 z-40 w-12 h-12 bg-luxury-bg-primary dark:bg-maroon-dominant border border-gold/20 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white transition-all shadow-xl"
+            className="absolute left-4 md:left-10 z-40 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all shadow-xl hover:scale-110"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
-          
-          <button 
+
+          <button
             onClick={handleNext}
-            className="absolute right-4 md:right-10 z-40 w-12 h-12 bg-luxury-bg-primary dark:bg-maroon-dominant border border-gold/20 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white transition-all shadow-xl"
+            className="absolute right-4 md:right-10 z-40 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all shadow-xl hover:scale-110"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
           {/* 3D Stacked Slider */}
-          <div className="relative w-full max-w-4xl h-full flex justify-center items-center">
+          <div className="relative w-full max-w-5xl h-full flex justify-center items-center perspective-1000">
             {VIDEO_COLLECTIONS.map((item, index) => {
               const isActive = index === activeIndex;
               const isPrev = index === (activeIndex === 0 ? VIDEO_COLLECTIONS.length - 1 : activeIndex - 1);
               const isNext = index === (activeIndex === VIDEO_COLLECTIONS.length - 1 ? 0 : activeIndex + 1);
-              
+
               let offset = 'translate-x-0 scale-50 opacity-0 z-0';
-              if (isActive) offset = 'translate-x-0 scale-100 opacity-100 z-30 shadow-2xl';
-              else if (isPrev) offset = '-translate-x-[60%] md:-translate-x-[70%] scale-75 opacity-40 z-20 grayscale';
-              else if (isNext) offset = 'translate-x-[60%] md:translate-x-[70%] scale-75 opacity-40 z-20 grayscale';
+              if (isActive) offset = 'translate-x-0 scale-100 opacity-100 z-30 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]';
+              else if (isPrev) offset = '-translate-x-[55%] md:-translate-x-[65%] scale-[0.85] opacity-40 z-20 grayscale blur-[1px]';
+              else if (isNext) offset = 'translate-x-[55%] md:translate-x-[65%] scale-[0.85] opacity-40 z-20 grayscale blur-[1px]';
 
               return (
-                <div 
+                <div
                   key={item.id}
-                  className={`absolute w-[280px] md:w-[380px] h-[500px] md:h-[650px] transition-all duration-700 ease-in-out cursor-pointer ${offset}`}
+                  className={`absolute w-[300px] md:w-[420px] aspect-[9/16] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer ${offset}`}
                   onClick={() => setActiveIndex(index)}
                 >
-                  <div className="relative w-full h-full rounded-sm overflow-hidden bg-black group border dark:border-maroon-border">
+                  <div className={`relative w-full h-full rounded-3xl overflow-hidden bg-black group border border-white/10 ${isActive ? 'ring-1 ring-gold/30' : ''}`}>
                     <video
                       ref={el => videoRefs.current[index] = el}
                       poster={item.poster}
@@ -120,34 +122,31 @@ const VideoCollectionSlider: React.FC = () => {
                     >
                       <source src={item.videoUrl} type="video/mp4" />
                     </video>
-                    
-                    <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-                      <span className="text-gold text-[10px] tracking-widest uppercase mb-2 font-bold">{item.tag}</span>
-                      <h4 className="text-white text-2xl font-serif mb-6">{item.title}</h4>
-                      
+
+                    <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+                      <span className="text-gold text-[9px] tracking-[0.4em] uppercase mb-4 font-black gold-glow">{item.tag}</span>
+                      <h4 className="text-white text-3xl md:text-4xl font-serif mb-8 leading-none">{item.title}</h4>
+
                       <div className="flex items-center justify-between">
-                        <button className="bg-maroon-dominant hover:bg-gold text-white text-[10px] font-bold py-2 px-8 uppercase tracking-widest transition-colors rounded-sm border border-maroon-border">
-                          View
+                        <button className="bg-white/10 backdrop-blur-md hover:bg-gold text-white text-[10px] font-black py-4 px-8 uppercase tracking-[0.3em] transition-all rounded-full border border-white/20 hover:border-gold hover:text-maroon-dominant group/btn">
+                          View details
                         </button>
-                        
+
                         <div className="flex gap-4">
-                           <button 
+                          <button
                             onClick={(e) => { e.stopPropagation(); setIsMuted(!isMuted); }}
-                            className="text-white/70 hover:text-gold"
-                           >
-                             {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                           </button>
-                           <button className="text-white/70 hover:text-gold">
-                             <Maximize className="w-5 h-5" />
-                           </button>
+                            className="w-10 h-10 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/70 hover:text-gold hover:bg-white/10 transition-all"
+                          >
+                            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                          </button>
                         </div>
                       </div>
                     </div>
 
                     {!isActive && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center text-white/40">
-                          <Play className="w-6 h-6" />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px]">
+                        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center text-white/80 group-hover:scale-110 transition-transform">
+                          <Play className="w-6 h-6 ml-1 fill-white/80" />
                         </div>
                       </div>
                     )}
@@ -158,12 +157,12 @@ const VideoCollectionSlider: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-4 mt-12">
+        <div className="flex justify-center gap-3 mt-16">
           {VIDEO_COLLECTIONS.map((_, idx) => (
-            <button 
+            <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`h-1.5 transition-all duration-500 rounded-full ${activeIndex === idx ? 'w-10 bg-gold' : 'w-2 bg-gold/30 hover:bg-gold'}`}
+              className={`h-1 transition-all duration-500 rounded-full ${activeIndex === idx ? 'w-12 bg-gold shadow-[0_0_10px_#D4AF37]' : 'w-2 bg-gold/20 hover:bg-gold/50'}`}
             />
           ))}
         </div>

@@ -18,63 +18,72 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
     if (category && category !== 'All') {
       result = result.filter(p => p.category === category || p.subCategory === category);
     }
-    if (sortBy === 'price-low') result = [...result].sort((a, b) => a.price - b.price);
-    if (sortBy === 'price-high') result = [...result].sort((a, b) => b.price - a.price);
-    if (sortBy === 'newest') result = result.filter(p => p.isNewArrival);
-    return result;
+    const sorted = [...result];
+    if (sortBy === 'price-asc') return sorted.sort((a, b) => a.price - b.price);
+    if (sortBy === 'price-desc') return sorted.sort((a, b) => b.price - a.price);
+    if (sortBy === 'newest') return sorted.filter(p => p.isNewArrival);
+    return sorted;
   }, [category, sortBy]);
 
   return (
-    <div className="bg-dark-primary min-h-screen pb-24">
-      <div className="relative h-[300px] flex items-center justify-center overflow-hidden bg-dark-card border-b border-luxury-border">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/silk-weave.png')] opacity-5"></div>
+    <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen pb-24 transition-colors animate-in fade-in duration-500">
+      <div className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-maroon-dominant border-b border-gold/10">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/silk-weave.png')] opacity-10 animate-kenburns_slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="relative z-10 text-center text-white px-6">
-          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold mb-4 block">Curated Collection</span>
-          <h1 className="text-5xl md:text-7xl font-serif mb-4 uppercase tracking-wider">{category || 'Jewellery Catalog'}</h1>
-          <p className="max-w-xl mx-auto text-luxury-secondary italic text-sm md:text-base">
+          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black mb-6 block animate-in fade-in slide-in-from-bottom-4 duration-700 gold-glow">Curated Collection</span>
+          <h1 className="text-5xl md:text-7xl font-serif mb-6 uppercase tracking-tight leading-none animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">{category || 'Jewellery Catalog'}</h1>
+          <p className="max-w-xl mx-auto text-white/70 font-light italic text-lg animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
             Discover {category ? category.toLowerCase() : 'our entire'} collection of heritage gold and certified diamonds.
           </p>
         </div>
       </div>
 
-      <div className="container mx-auto px-6 mt-12">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 bg-dark-card p-6 rounded-sm shadow-2xl border border-luxury-border">
+      <div className="container mx-auto px-6 -mt-10 relative z-20">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white dark:bg-luxury-dark-card p-6 rounded-3xl shadow-xl border border-transparent dark:border-white/5 backdrop-blur-md">
           <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2 text-white text-[11px] font-bold uppercase tracking-widest cursor-pointer hover:text-gold transition-colors">
-              <Filter className="w-4 h-4 text-gold" /> Filter By <ChevronDown className="w-3 h-3" />
-            </div>
-            <div className="h-4 w-[1px] bg-luxury-border"></div>
-            <p className="text-[11px] text-luxury-muted font-medium uppercase tracking-widest">
+            <button className="flex items-center gap-2 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.2em] hover:text-gold transition-colors group">
+              <Filter className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" /> Filter By <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300" />
+            </button>
+            <div className="h-4 w-[1px] bg-luxury-bg-card dark:bg-white/10"></div>
+            <p className="text-[10px] text-luxury-text-light/50 dark:text-luxury-text-darkMuted font-bold uppercase tracking-widest">
               Showing {filteredProducts.length} Results
             </p>
           </div>
+
           <div className="flex items-center gap-4">
-            <span className="text-[11px] text-luxury-muted font-bold uppercase tracking-widest">Sort By:</span>
-            <select 
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-transparent text-[11px] font-bold text-white uppercase tracking-widest focus:outline-none cursor-pointer border-b border-gold/30 pb-1"
-            >
-              <option value="featured">Featured</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="newest">Newest First</option>
-            </select>
+            <span className="text-[10px] text-luxury-text-light/50 dark:text-luxury-text-darkMuted font-bold uppercase tracking-widest hidden sm:inline">Sort By:</span>
+            <div className="relative group">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="appearance-none bg-transparent text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-[0.2em] focus:outline-none cursor-pointer border-b border-gold/30 pb-1 pr-6 hover:border-gold transition-colors"
+              >
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="newest">Newest First</option>
+              </select>
+              <ChevronDown className="w-3 h-3 text-gold absolute right-0 top-0.5 pointer-events-none group-hover:rotate-180 transition-transform duration-300" />
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-16">
           {filteredProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              onClick={onProductClick} 
-              onARTryOn={onARTryOn} 
+            <ProductCard
+              key={product.id}
+              product={product}
+              onClick={onProductClick}
+              onARTryOn={onARTryOn}
             />
           ))}
           {filteredProducts.length === 0 && (
-            <div className="col-span-full py-32 text-center text-luxury-muted italic">
-              No results found in this collection.
+            <div className="col-span-full py-40 text-center flex flex-col items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-luxury-bg-secondary dark:bg-white/5 flex items-center justify-center mb-6">
+                <Sparkles className="w-6 h-6 text-gold/50" />
+              </div>
+              <p className="text-luxury-text-light/40 dark:text-white/40 italic font-serif text-xl">No treasures found in this collection.</p>
             </div>
           )}
         </div>

@@ -7,25 +7,26 @@ interface GemstoneTileProps {
 }
 
 const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link }) => (
-  <a 
-    href={link} 
-    className="group relative block rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700"
+  <a
+    href={link}
+    className="group relative block rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 border border-transparent dark:border-white/5"
   >
-    <div className="aspect-[3/4] overflow-hidden">
-      <img 
-        src={image} 
-        alt={label} 
-        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+    <div className="aspect-[3/4] overflow-hidden relative">
+      <img
+        src={image}
+        alt={label}
+        className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.1] group-hover:grayscale-0"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/80 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
-      
-      <div className="absolute inset-x-0 bottom-0 p-8 text-center">
-        <span className="text-white font-serif text-xl md:text-2xl tracking-widest group-hover:text-gold transition-colors duration-300">
-          {label}
-        </span>
-        <div className="mt-4 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="w-8 h-[1px] bg-gold"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+      <div className="absolute inset-x-0 bottom-0 p-8 text-center flex flex-col items-center justify-end h-full">
+        <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex flex-col items-center">
+          <span className="text-white font-serif text-3xl md:text-4xl tracking-wide group-hover:text-gold transition-colors duration-300 mb-2">
+            {label}
+          </span>
+          <div className="w-12 h-[1px] bg-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"></div>
+          <span className="text-[9px] font-bold text-white/80 uppercase tracking-widest mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">View Collection</span>
         </div>
       </div>
     </div>
@@ -41,12 +42,14 @@ const GemstoneCollection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/20">
+    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-wide mb-4">Gemstone Collection</h2>
-          <p className="text-gold text-xs md:text-sm tracking-[0.4em] uppercase font-bold">Timeless Grace in Precious Stones</p>
-          <div className="w-24 h-[1px] bg-gold/20 mx-auto mt-8"></div>
+        <div className="text-center mb-16 space-y-3">
+          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Precious Stones</span>
+          <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-wide uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Gemstone</span> Edit</h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-lg font-light italic max-w-lg mx-auto">
+            "Timeless grace captured in nature's most vibrant hues."
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">

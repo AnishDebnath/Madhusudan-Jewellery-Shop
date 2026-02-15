@@ -1,16 +1,16 @@
 
 import React from 'react';
-import { 
-  ShieldCheck, 
-  RefreshCw, 
-  Gem, 
-  Scale, 
-  HandCoins, 
-  Truck, 
-  Lock, 
-  Sparkles, 
-  Tag, 
-  Calendar 
+import {
+  ShieldCheck,
+  RefreshCw,
+  Gem,
+  Scale,
+  HandCoins,
+  Truck,
+  Lock,
+  Sparkles,
+  Tag,
+  Calendar
 } from 'lucide-react';
 
 interface TrustCardProps {
@@ -19,14 +19,19 @@ interface TrustCardProps {
 }
 
 const TrustCard: React.FC<TrustCardProps> = ({ icon: Icon, title }) => (
-  <div className="group bg-luxury-bg-secondary dark:bg-luxury-dark-card p-10 md:p-12 rounded-sm flex flex-col items-center justify-center text-center transition-all duration-700 hover:-translate-y-3 hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] border border-luxury-bg-card dark:border-maroon-border/20 hover:border-gold/50 dark:hover:border-gold/50">
-    <div className="mb-8 p-6 rounded-full bg-luxury-bg-primary dark:bg-maroon-dominant/30 border border-luxury-bg-card dark:border-maroon-border/10 group-hover:border-gold/30 transition-all duration-700 relative shadow-inner">
-      <Icon className="w-8 h-8 text-gold gold-glow group-hover:scale-125 transition-transform duration-700" />
+  <div className="group bg-white dark:bg-luxury-dark-card p-10 md:p-14 rounded-3xl flex flex-col items-center justify-center text-center transition-all duration-700 hover:-translate-y-4 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover:shadow-2xl border border-transparent dark:border-white/5 hover:border-gold/30 relative overflow-hidden h-full">
+    <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-gold/10 transition-colors"></div>
+
+    <div className="mb-10 p-7 rounded-full bg-maroon-dominant/5 dark:bg-white/5 border border-maroon-dominant/5 dark:border-white/10 group-hover:border-gold/30 transition-all duration-700 relative shadow-inner group-hover:bg-gold/10">
+      <Icon className="w-10 h-10 text-maroon-dominant dark:text-gold gold-glow group-hover:scale-125 transition-transform duration-700" />
       <div className="absolute inset-0 rounded-full group-hover:animate-ping bg-gold/5 pointer-events-none"></div>
     </div>
-    <h4 className="text-[10px] md:text-[11px] font-black text-maroon-dominant dark:text-white uppercase tracking-[0.25em] leading-loose">
+
+    <h4 className="text-xs md:text-sm font-serif font-black text-maroon-dominant dark:text-white uppercase tracking-[0.2em] leading-relaxed text-balance group-hover:text-gold transition-colors duration-500">
       {title}
     </h4>
+
+    <div className="mt-4 w-6 h-[1px] bg-gold/30 group-hover:w-12 transition-all duration-700"></div>
   </div>
 );
 
@@ -45,46 +50,48 @@ const TRUST_POINTS = [
 
 const TrustSection: React.FC = () => {
   return (
-    <section className="py-32 md:py-40 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors relative overflow-hidden border-t border-luxury-bg-card dark:border-maroon-border/10">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-maroon-dominant/5 via-transparent to-transparent pointer-events-none"></div>
-      
+    <section className="py-32 md:py-40 bg-luxury-bg-secondary/50 dark:bg-luxury-dark-primary transition-colors relative overflow-hidden border-t border-luxury-bg-card dark:border-white/5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent pointer-events-none"></div>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24 space-y-6">
           <div className="inline-flex items-center gap-4">
-             <div className="h-[1px] w-8 bg-gold/30"></div>
-             <span className="text-gold text-[10px] font-black uppercase tracking-[0.5em] gold-glow">
-               The Aura Promise
-             </span>
-             <div className="h-[1px] w-8 bg-gold/30"></div>
+            <div className="h-[1px] w-8 bg-gold/30"></div>
+            <span className="text-gold text-[10px] font-black uppercase tracking-[0.5em] gold-glow">
+              The Aura Promise
+            </span>
+            <div className="h-[1px] w-8 bg-gold/30"></div>
           </div>
           <h2 className="text-5xl md:text-6xl font-serif text-maroon-dominant dark:text-white uppercase tracking-wider mb-6">Foundation of Trust</h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-lg md:text-xl font-light italic max-w-3xl mx-auto leading-relaxed">
-            "Every heritage piece is an investment in beauty, backed by unwavering purity, 
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-lg md:text-xl font-light italic max-w-3xl mx-auto leading-relaxed text-balance">
+            "Every heritage piece is an investment in beauty, backed by unwavering purity,
             absolute transparency, and a lifetime of royal care."
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
           {TRUST_POINTS.map((point, index) => (
-            <TrustCard 
-              key={index} 
-              icon={point.icon} 
-              title={point.title} 
+            <TrustCard
+              key={index}
+              icon={point.icon}
+              title={point.title}
             />
           ))}
         </div>
 
         <div className="mt-24 text-center">
-          <div className="inline-flex flex-col items-center gap-4">
-            <p className="text-[9px] text-luxury-text-light/30 dark:text-luxury-text-darkMuted uppercase tracking-[0.4em] font-black">
+          <div className="inline-flex flex-col items-center gap-6">
+            <p className="text-[10px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase tracking-[0.4em] font-black">
               BIS Hallmark Guaranteed • GIA & IGI Certified Masterpieces
             </p>
-            <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+            <div className="flex gap-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+              {/* Visual placeholders for certification logos if available, otherwise just the divider */}
+              <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
 export default TrustSection;

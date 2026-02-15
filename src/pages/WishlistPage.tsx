@@ -15,14 +15,14 @@ const WishlistPage: React.FC<WishlistPageProps> = ({ wishlist, onProductClick, o
   if (items.length === 0) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
-        <div className="w-24 h-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary rounded-full flex items-center justify-center shadow-xl mb-8 border border-gold/10">
-          <Heart className="w-10 h-10 text-gold opacity-30" />
+        <div className="w-24 h-24 bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-full flex items-center justify-center shadow-lg mb-8 border border-gold/10 animate-pulse">
+          <Heart className="w-10 h-10 text-gold/50" />
         </div>
-        <h2 className="text-3xl font-serif text-maroon-dominant dark:text-white mb-4 uppercase tracking-widest">Your wishlist is empty</h2>
+        <h2 className="text-3xl font-serif text-maroon-dominant dark:text-white mb-4 uppercase tracking-wider">Your wishlist is empty</h2>
         <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted italic mb-12">Keep track of items you love by adding them to your wishlist.</p>
-        <button 
+        <button
           onClick={() => window.scrollTo(0, 0)}
-          className="bg-maroon-dominant text-white px-12 py-4 rounded-sm text-xs font-bold uppercase tracking-widest hover:bg-gold transition-all shadow-xl"
+          className="bg-maroon-dominant text-white px-12 py-4 rounded-full text-xs font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all active:scale-95 shadow-xl border border-maroon-border"
         >
           Explore Catalog
         </button>
@@ -33,27 +33,29 @@ const WishlistPage: React.FC<WishlistPageProps> = ({ wishlist, onProductClick, o
   return (
     <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen py-24 transition-colors">
       <div className="container mx-auto px-6">
-        <h1 className="text-4xl font-serif text-maroon-dominant dark:text-white mb-12 text-center uppercase tracking-widest">Saved Pieces</h1>
+        <h1 className="text-4xl font-serif text-maroon-dominant dark:text-white mb-12 text-center uppercase tracking-widest leading-none">Saved Pieces</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((product) => (
-            <div key={product.id} className="group relative bg-luxury-bg-secondary dark:bg-luxury-dark-card border border-luxury-bg-card dark:border-maroon-border/20 overflow-hidden hover:shadow-2xl transition-all duration-500 rounded-sm">
-              <div className="aspect-square bg-luxury-bg-card dark:bg-luxury-dark-secondary relative overflow-hidden">
-                <img src={product.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 overflow-hidden hover:shadow-2xl transition-all duration-500 rounded-3xl hover:-translate-y-2">
+              <div className="aspect-square bg-luxury-bg-secondary dark:bg-black/20 relative overflow-hidden cursor-pointer" onClick={() => onProductClick(product)}>
+                <img src={product.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" />
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6 text-center">
-                <h3 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 truncate">{product.name}</h3>
-                <p className="text-gold font-bold mb-6">₹{product.price.toLocaleString('en-IN')}</p>
-                <div className="flex flex-col gap-2">
-                  <button 
+                <span className="text-gold text-[9px] font-black uppercase tracking-[0.2em] mb-2 block">{product.category}</span>
+                <h3 className="font-serif text-maroon-dominant dark:text-white text-xl mb-2 truncate group-hover:text-gold transition-colors">{product.name}</h3>
+                <p className="text-maroon-dominant dark:text-gold font-bold mb-6">₹{product.price.toLocaleString('en-IN')}</p>
+                <div className="flex flex-col gap-3">
+                  <button
                     onClick={() => onAddToCart(product)}
-                    className="w-full bg-maroon-dominant text-white py-3 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition-all"
+                    className="w-full bg-maroon-dominant text-white py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md group/btn relative overflow-hidden border border-transparent"
                   >
-                    Move to Bag
+                    <span className="relative z-10">Move to Bag</span>
+                    <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-500"></div>
                   </button>
-                  <button 
+                  <button
                     onClick={() => onProductClick(product)}
-                    className="w-full border border-maroon-dominant dark:border-gold/30 text-maroon-dominant dark:text-gold py-3 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-maroon-dominant hover:text-white transition-all"
+                    className="w-full border border-maroon-dominant/20 dark:border-white/20 text-maroon-dominant dark:text-white/60 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-luxury-bg-secondary dark:hover:bg-white/5 hover:text-maroon-dominant dark:hover:text-white transition-all"
                   >
                     View Details
                   </button>

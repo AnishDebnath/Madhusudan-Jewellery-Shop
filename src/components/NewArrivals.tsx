@@ -43,36 +43,38 @@ const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <div 
-      className="relative flex-shrink-0 w-[240px] md:w-[280px] aspect-[3/4] rounded-sm overflow-hidden group cursor-pointer bg-black border dark:border-maroon-border/20"
-      onMouseEnter={() => videoRef.current?.play().catch(() => {})}
+    <div
+      className="relative flex-shrink-0 w-[280px] md:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden group cursor-pointer bg-black border border-transparent hover:border-gold/30 transition-all duration-700 hover:shadow-2xl hover:-translate-y-3"
+      onMouseEnter={() => videoRef.current?.play().catch(() => { })}
       onMouseLeave={() => {
         videoRef.current?.pause();
         if (videoRef.current) videoRef.current.currentTime = 0;
       }}
     >
-      <video 
+      <video
         ref={videoRef}
         poster={video.poster}
         muted
         loop
         playsInline
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+        className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-60 group-hover:opacity-100"
       >
         <source src={video.videoUrl} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-      
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/40 flex items-center justify-center text-white/60 group-hover:scale-110 group-hover:border-white transition-all">
-        <Play className="w-5 h-5 fill-white" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-40 transition-opacity duration-700" />
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 group-hover:scale-110 group-hover:bg-gold group-hover:border-gold transition-all duration-700 shadow-2xl opacity-0 group-hover:opacity-100">
+        <Play className="w-6 h-6 fill-maroon-dominant text-maroon-dominant ml-1 group-hover:fill-maroon-dominant transition-all" />
       </div>
 
-      <div className="absolute bottom-6 left-6 text-white">
-        <span className="text-gold text-[8px] font-bold tracking-[0.4em] uppercase mb-1 block">{video.tag}</span>
-        <h4 className="text-lg font-serif tracking-wide">{video.title}</h4>
-        
-        <button className="mt-4 text-[9px] font-bold uppercase tracking-[0.2em] text-white/0 group-hover:text-gold transition-all duration-300 flex items-center gap-2 group-hover:translate-x-2">
-          DISCOVER <ArrowRight className="w-3 h-3" />
+      <div className="absolute bottom-8 left-8 right-8 text-white z-10 transition-transform duration-700 group-hover:-translate-y-2">
+        <span className="text-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block gold-glow opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">{video.tag}</span>
+        <h4 className="text-2xl font-serif tracking-tight leading-tight mb-6 text-balance">{video.title}</h4>
+
+        <div className="h-[1px] w-0 group-hover:w-full bg-gold/50 transition-all duration-700 mb-4"></div>
+
+        <button className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-gold transition-all duration-500 flex items-center gap-3 translate-x-0 opacity-100">
+          DISCOVER STORY <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
         </button>
       </div>
     </div>
@@ -93,29 +95,45 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
   };
 
   return (
-    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-b border-gold/10">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl font-serif text-maroon-dominant dark:text-white tracking-wider uppercase flex items-center gap-4">
-            New Arrivals
-            <div className="hidden md:block w-32 h-[1px] bg-gold/20"></div>
-          </h2>
-          <a href="#" className="text-[11px] font-black text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase tracking-[0.3em] flex items-center gap-2 hover:text-maroon-dominant dark:hover:text-gold transition-all duration-300 hover:scale-105 group">
-            Shop Everything <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+    <section className="py-32 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-b border-gold/10 relative">
+      {/* Background Decoration */}
+      <div className="absolute right-0 top-1/4 w-[500px] h-[500px] bg-maroon-dominant/5 rounded-full blur-[150px] pointer-events-none"></div>
+      <div className="absolute left-0 bottom-1/4 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="h-[1px] w-12 bg-gold/30"></div>
+              <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Fresh from the Atelier</span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+              New Arrivals
+            </h2>
+          </div>
+
+          <button className="group relative px-10 py-4 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-500 rounded-full hover:border-gold">
+            <span className="relative z-10 flex items-center gap-3">
+              View Full Catalog <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+          </button>
         </div>
 
-        <div className="mb-20">
-          <div className="flex items-center justify-between mb-6">
-            <span className="text-[10px] font-bold text-gold uppercase tracking-[0.5em]">Latest Collection Stories</span>
-            <div className="flex gap-2">
-              <button onClick={() => scroll(scrollRef, 'left')} className="p-2 border border-luxury-bg-card dark:border-maroon-border bg-luxury-bg-secondary dark:bg-maroon-dominant rounded-full hover:bg-gold hover:text-white transition-all duration-300 shadow-sm"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white" /></button>
-              <button onClick={() => scroll(scrollRef, 'right')} className="p-2 border border-luxury-bg-card dark:border-maroon-border bg-luxury-bg-secondary dark:bg-maroon-dominant rounded-full hover:bg-gold hover:text-white transition-all duration-300 shadow-sm"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white" /></button>
+        <div className="mb-32">
+          <div className="flex items-center justify-between mb-10 pb-6 border-b border-maroon-dominant/5 dark:border-white/5">
+            <div className="space-y-1">
+              <span className="text-[10px] font-black text-gold/60 uppercase tracking-[0.4em]">Visual Stories</span>
+              <p className="text-sm font-serif italic text-maroon-dominant/40 dark:text-white/30 tracking-wide">Behind the craftsmanship</p>
+            </div>
+            <div className="flex gap-4">
+              <button onClick={() => scroll(scrollRef, 'left')} className="p-4 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold transition-all duration-500 shadow-xl group active:scale-90"><ChevronLeft className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
+              <button onClick={() => scroll(scrollRef, 'right')} className="p-4 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold transition-all duration-500 shadow-xl group active:scale-90"><ChevronRight className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
             </div>
           </div>
-          <div 
+          <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4"
+            className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-12 -mx-6 px-6 md:mx-0 md:px-0"
           >
             {VIDEO_HIGHLIGHTS.map((video) => (
               <VideoStripCard key={video.id} video={video} />
@@ -124,33 +142,40 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
         </div>
 
         <div>
-          <div className="flex items-center justify-between mb-6">
-             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.5em]">Newly Launched Heirlooms</span>
-             <div className="flex gap-2">
-              <button onClick={() => scroll(productScrollRef, 'left')} className="p-2 border border-luxury-bg-card dark:border-maroon-border bg-luxury-bg-secondary dark:bg-maroon-dominant rounded-full hover:bg-gold hover:text-white transition-all duration-300 shadow-sm"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white" /></button>
-              <button onClick={() => scroll(productScrollRef, 'right')} className="p-2 border border-luxury-bg-card dark:border-maroon-border bg-luxury-bg-secondary dark:bg-maroon-dominant rounded-full hover:bg-gold hover:text-white transition-all duration-300 shadow-sm"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white" /></button>
+          <div className="flex items-center justify-between mb-10 pb-6 border-b border-maroon-dominant/5 dark:border-white/5">
+            <div className="space-y-1">
+              <span className="text-[10px] font-black text-gold/60 uppercase tracking-[0.4em]">Just Dropped</span>
+              <p className="text-sm font-serif italic text-maroon-dominant/40 dark:text-white/30 tracking-wide">Ready for your collection</p>
+            </div>
+            <div className="flex gap-4">
+              <button onClick={() => scroll(productScrollRef, 'left')} className="p-4 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold transition-all duration-500 shadow-xl group active:scale-90"><ChevronLeft className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
+              <button onClick={() => scroll(productScrollRef, 'right')} className="p-4 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold transition-all duration-500 shadow-xl group active:scale-90"><ChevronRight className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
             </div>
           </div>
-          <div 
+          <div
             ref={productScrollRef}
-            className="flex gap-6 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-8"
+            className="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-12 -mx-6 px-6 md:mx-0 md:px-0"
           >
-            {newArrivalProducts.map((product) => (
-              <div key={product.id} className="snap-start">
-                <CarouselProductCard 
-                  product={product} 
+            {newArrivalProducts.slice(0, 8).map((product) => (
+              <div key={product.id} className="snap-start h-full">
+                <CarouselProductCard
+                  product={product}
                   onClick={onProductClick}
                   showNewArrival={true}
                 />
               </div>
             ))}
-            
-            <div className="flex-shrink-0 w-[240px] md:w-[280px] flex items-center justify-center border-2 border-dashed border-gold/10 rounded-sm hover:border-gold/30 transition-all duration-500 group/view-all cursor-pointer hover:bg-luxury-bg-card dark:hover:bg-maroon-dominant/10 active:scale-95 bg-luxury-bg-secondary dark:bg-luxury-dark-card">
-              <div className="flex flex-col items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-luxury-bg-card dark:bg-maroon-dominant flex items-center justify-center group-hover/view-all:bg-gold transition-all duration-500 group-hover/view-all:scale-110">
-                  <ChevronRight className="w-6 h-6 text-maroon-dominant dark:text-white group-hover/view-all:text-white" />
+
+            <div className="flex-shrink-0 w-[260px] md:w-[300px] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-gold/5 active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-maroon-dominant transform translate-y-full group-hover/view-all:translate-y-0 transition-transform duration-700"></div>
+              <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500 group-hover/view-all:-translate-y-2">
+                <div className="w-20 h-20 rounded-full bg-white dark:bg-luxury-dark-card flex items-center justify-center group-hover/view-all:bg-transparent group-hover/view-all:border-white/40 border border-gold/10 transition-all duration-500 group-hover/view-all:scale-110 shadow-2xl">
+                  <ChevronRight className="w-8 h-8 text-maroon-dominant dark:text-white group-hover/view-all:text-white transition-colors" />
                 </div>
-                <span className="text-[10px] font-black tracking-[0.2em] uppercase text-luxury-text-light/40 dark:text-luxury-text-darkMuted group-hover/view-all:text-gold transition-colors">Catalog</span>
+                <div className="flex flex-col items-center gap-2">
+                  <span className="text-[11px] font-black tracking-[0.4em] uppercase text-maroon-dominant dark:text-gold group-hover/view-all:text-white transition-colors">View All</span>
+                  <span className="text-[9px] font-serif italic text-maroon-dominant/40 dark:text-white/30 group-hover/view-all:text-white/60">New Masterpieces</span>
+                </div>
               </div>
             </div>
           </div>

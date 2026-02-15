@@ -34,19 +34,27 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn }) => {
             <OffersSection />
             <FeaturedSlider />
             <NewArrivals onProductClick={onProductClick} />
-            <section className="py-32 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500">
-                <div className="container mx-auto px-6">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-                        <div className="space-y-4">
-                            <span className="text-gold text-[11px] tracking-[0.7em] uppercase font-black block mb-4 gold-glow">Our Masterpieces</span>
-                            <h2 className="text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">Signature Collections</h2>
+            <section className="py-24 md:py-40 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative overflow-hidden">
+                {/* Background Decor */}
+                <div className="absolute top-20 left-10 w-64 h-64 bg-maroon-dominant/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-4">
+                                <span className="text-gold text-[11px] tracking-[0.5em] uppercase font-black block gold-glow">Our Masterpieces</span>
+                                <div className="h-[1px] w-12 bg-gold/30"></div>
+                            </div>
+                            <h2 className="text-6xl md:text-8xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-[0.9]">
+                                Signature <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">Collections</span>
+                            </h2>
                         </div>
-                        <div className="flex items-center gap-4 text-luxury-text-light/30 dark:text-luxury-text-darkMuted text-[10px] font-black uppercase tracking-[0.3em]">
+                        <div className="flex items-center gap-6 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[10px] font-black uppercase tracking-[0.4em] mb-4">
                             Handcrafted in Bengal
-                            <div className="w-16 h-[1px] bg-gold/30"></div>
+                            <div className="w-24 h-[1px] bg-gold/30"></div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
                         {PRODUCTS.slice(0, 8).map((product) => (
                             <ProductCard
                                 key={product.id}

@@ -44,30 +44,30 @@ const PopularSearches: React.FC = () => {
   const slugify = (text: string) => text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
 
   return (
-    <section className="bg-[#FAF9F6] py-12 border-t border-gray-200">
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 border-t border-luxury-bg-card dark:border-white/5 transition-colors">
       <div className="container mx-auto px-6">
-        <h2 className="text-xl font-serif text-[#333333] mb-8 tracking-wider uppercase border-b border-gray-200 pb-4">
+        <h2 className="text-xl font-serif text-maroon-dominant dark:text-white mb-12 tracking-widest uppercase border-b border-luxury-bg-card dark:border-white/10 pb-6">
           Popular Searches
         </h2>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
           {SEARCH_DATA.map((category, idx) => (
             <div key={idx} className="flex flex-col">
-              <h3 className="text-sm font-bold text-[#444444] mb-4 uppercase tracking-widest">
+              <h3 className="text-xs font-black text-gold mb-5 uppercase tracking-[0.2em]">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap items-center text-[12px] leading-relaxed text-gray-500">
+              <div className="flex flex-wrap items-center text-[11px] leading-7 text-luxury-text-light/70 dark:text-luxury-text-darkMuted/70 font-medium">
                 {category.keywords.map((keyword, kIdx) => (
                   <React.Fragment key={kIdx}>
-                    <a 
+                    <a
                       href={`/jewellery/${slugify(keyword)}`}
-                      className="hover:text-gold transition-colors duration-200 py-1"
+                      className="hover:text-gold dark:hover:text-white transition-colors duration-300 py-1"
                     >
                       {keyword}
                     </a>
                     {kIdx < category.keywords.length - 1 && (
-                      <span className="mx-2 text-gray-300">|</span>
+                      <span className="mx-2 text-luxury-bg-card dark:text-white/10">|</span>
                     )}
                   </React.Fragment>
                 ))}
@@ -79,33 +79,33 @@ const PopularSearches: React.FC = () => {
         {/* Mobile Accordion Layout */}
         <div className="md:hidden space-y-2">
           {SEARCH_DATA.map((category, idx) => (
-            <div key={idx} className="border-b border-gray-200">
-              <button 
+            <div key={idx} className="border-b border-luxury-bg-card dark:border-white/5 last:border-0">
+              <button
                 onClick={() => toggleAccordion(idx)}
-                className="w-full flex justify-between items-center py-4 text-left"
+                className="w-full flex justify-between items-center py-5 text-left group"
                 aria-expanded={openIndex === idx}
               >
-                <h3 className="text-xs font-bold text-[#444444] uppercase tracking-widest">
+                <h3 className="text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-[0.2em] group-hover:text-gold transition-colors">
                   {category.title}
                 </h3>
                 {openIndex === idx ? (
-                  <ChevronUp className="w-4 h-4 text-gray-400" />
+                  <ChevronUp className="w-4 h-4 text-gold" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-gray-400" />
+                  <ChevronDown className="w-4 h-4 text-luxury-text-light/40 dark:text-white/40" />
                 )}
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-[500px] pb-6' : 'max-h-0'}`}>
-                <div className="flex flex-wrap items-center text-[11px] leading-relaxed text-gray-500">
+              <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${openIndex === idx ? 'max-h-[500px] opacity-100 pb-6' : 'max-h-0 opacity-0'}`}>
+                <div className="flex flex-wrap items-center text-[11px] leading-7 text-luxury-text-light/60 dark:text-luxury-text-darkMuted/60">
                   {category.keywords.map((keyword, kIdx) => (
                     <React.Fragment key={kIdx}>
-                      <a 
+                      <a
                         href={`/jewellery/${slugify(keyword)}`}
-                        className="hover:text-gold transition-colors duration-200 py-1"
+                        className="hover:text-maroon-dominant dark:hover:text-white transition-colors duration-200 py-1"
                       >
                         {keyword}
                       </a>
                       {kIdx < category.keywords.length - 1 && (
-                        <span className="mx-2 text-gray-300">|</span>
+                        <span className="mx-2 text-luxury-bg-card dark:text-white/10">|</span>
                       )}
                     </React.Fragment>
                   ))}

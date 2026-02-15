@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
-    
+
     const fetchGoldRates = async () => {
       const fluctuation = Math.floor(Math.random() * 20) - 10;
       setGoldRates(prev => ({
@@ -42,122 +42,108 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
   }, []);
 
   const navCategories = [
-    { 
-      name: 'Shop Jewellery', 
-      items: ['Everyday Jewellery', 'Wedding Jewellery', 'Festival Jewellery', 'Office Wear', 'Investment (Coins & Bars)'],
+    {
+      name: 'Curated Sets',
+      items: ['Heritage Bridal', 'Modern Minimalist', 'Office Elegance', 'Temple Classics', 'Investment Gold'],
       featured: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=400'
     },
-    { 
-      name: 'By Category', 
-      items: ['Rings', 'Earrings', 'Necklaces', 'Bangles', 'Bracelets', 'Chains', 'Mangalsutra', 'Nose Pins', 'Coins & Bars'],
+    {
+      name: 'By Category',
+      items: ['Elite Rings', 'Divine Earrings', 'Royal Necklaces', 'Heirloom Bangles', 'Artisan Bracelets', 'Mangalsutra', 'Nose Pins', 'Coins & Bars'],
       featured: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=400'
     },
-    { 
-      name: 'By Material', 
-      items: ['22K Gold', '18K Gold', 'Diamond', 'Platinum', 'Polki', 'Antique'],
+    {
+      name: 'Materials',
+      items: ['22K Royal Gold', '18K Fine Gold', 'Certified Diamond', 'Imperial Platinum', 'Heritage Polki', 'Antique Finish'],
       featured: 'https://images.unsplash.com/photo-1616151475510-9993309a489f?auto=format&fit=crop&q=80&w=400'
     },
-    { 
-      name: 'Collections', 
-      items: ['Vivaah Wedding', 'Temple Heritage', 'Antique Royal', 'Polki Heirloom', 'Modern Diamond', 'Aham Men\'s', 'Kids Sparkle', 'Festival Specials'],
+    {
+      name: 'The Muse',
+      items: ['Vivaah Journey', 'Temple Spirit', 'Antique Soul', 'Modern Muse', 'Aham Men', 'Little Stars'],
       featured: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=400'
     },
-    { 
-      name: 'Gift Shop', 
-      items: ['Wedding Gifts', 'Anniversary Gifts', 'Birthday Gifts', 'Corporate Gifts', 'Digital Gift Cards'],
-      featured: 'https://images.unsplash.com/photo-1512633017083-67231aba710d?auto=format&fit=crop&q=80&w=400'
-    },
-    { 
-      name: 'Gold Schemes', 
-      items: ['Monthly Savings', 'Advance Booking', 'Digi Gold', 'Digi Silver', 'Buyback & Exchange'],
-      featured: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&q=80&w=400'
-    },
-    { 
-      name: 'Experience', 
-      items: ['Virtual Try‑On', '360° VR View', 'Video Shopping', 'Custom Design', 'Book Appointment'],
+    {
+      name: 'Boutique',
+      items: ['Virtual Viewing', 'Custom Atelier', 'Bespoke Design', 'Book Appointment', 'Store Locator'],
       featured: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=400'
-    },
-    { 
-      name: 'Trust & Stores', 
-      items: ['Store Locator', 'BIS Guarantee', 'Ethical Sourcing', 'Certifications', 'Customer Reviews', 'Education'],
-      featured: 'https://images.unsplash.com/photo-1541093226354-28b934667791?auto=format&fit=crop&q=80&w=400'
     }
   ];
 
   const handleItemClick = (item: string) => {
     setActiveMega(null);
     setIsMenuOpen(false);
-    if (item === 'Virtual Try‑On' || item === '360° VR View') {
-        onNavigate('home');
-        return;
+    if (item.includes('Virtual') || item.includes('Atelier')) {
+      onNavigate('home');
+      return;
     }
-    if (item === 'Book Appointment' || item === 'Store Locator') {
-        onNavigate('store-locator');
-        return;
+    if (item.includes('Appointment') || item.includes('Locator')) {
+      onNavigate('store-locator');
+      return;
     }
     onNavigate('category', item);
   };
 
   return (
     <>
-      <header className={`fixed top-0 z-50 w-full transition-all duration-500 ${scrolled ? '-translate-y-10' : 'translate-y-0'}`}>
-        {/* Top Ticker Bar - Maroon First */}
-        <div className="bg-maroon-dominant text-white h-10 px-4 md:px-8 flex justify-between items-center text-[10px] tracking-[0.2em] font-medium border-b border-white/5 relative overflow-hidden transition-colors">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-4">
-              <span className="flex items-center gap-2 text-gold">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
-                LIVE MARKET:
+      <header className={`fixed top-0 z-50 w-full transition-all duration-700 ${scrolled ? '-translate-y-10' : 'translate-y-0'}`}>
+        {/* Top Ticker Bar */}
+        <div className="bg-maroon-dominant text-white h-10 px-6 md:px-12 flex justify-between items-center text-[9px] tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
+          <div className="flex items-center gap-10">
+            <div className="flex items-center gap-6">
+              <span className="flex items-center gap-2 text-gold gold-glow">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
+                LIVE RATES:
               </span>
-              <div className="flex gap-6">
-                <div className="flex items-center gap-1.5">
-                  <span className="opacity-60">24K:</span> 
-                  <span className="font-bold">₹{goldRates.gold24k.toLocaleString('en-IN')}</span>
+              <div className="flex gap-8">
+                <div className="flex items-center gap-2 hover:text-gold transition-colors cursor-default group">
+                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">24K:</span>
+                  <span className="font-black">₹{goldRates.gold24k.toLocaleString('en-IN')}</span>
                   {goldRates.trend === 'up' ? <TrendingUp className="w-3 h-3 text-green-400" /> : <TrendingDown className="w-3 h-3 text-red-400" />}
                 </div>
-                <div className="flex items-center gap-1.5 border-l border-white/10 pl-6">
-                  <span className="opacity-60">22K:</span> 
-                  <span className="font-bold">₹{goldRates.gold22k.toLocaleString('en-IN')}</span>
+                <div className="flex items-center gap-2 border-l border-white/10 pl-8 hover:text-gold transition-colors cursor-default group">
+                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">22K:</span>
+                  <span className="font-black">₹{goldRates.gold22k.toLocaleString('en-IN')}</span>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div className="hidden lg:block text-gold font-bold uppercase group overflow-hidden">
-             <div className="animate-in slide-in-from-right-full duration-[30s] infinite linear">
-               Complimentary Insured Shipping Across India • Kolkata's Finest Heritage since 1952
-             </div>
+
+          <div className="hidden xl:block text-gold/60 font-black uppercase overflow-hidden flex-1 px-20">
+            <div className="animate-in slide-in-from-right-full duration-[40s] infinite linear whitespace-nowrap">
+              Kolkata's Finest Heritage House Since 1952 • Complimentary Insured Shipping Across India • Hallmark Certified Purity
+            </div>
           </div>
 
-          <div className="flex items-center gap-6">
-             <button onClick={() => onNavigate('store-locator')} className="hover:text-gold flex items-center gap-2 transition-colors uppercase">
-               OUR BOUTIQUES <MapPin className="w-3 h-3 text-gold" />
-             </button>
+          <div className="flex items-center gap-8">
+            <button onClick={() => onNavigate('store-locator')} className="hover:text-gold flex items-center gap-2 transition-all group">
+              <span className="group-hover:tracking-[0.4em] transition-all">OUR BOUTIQUES</span> <MapPin className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
+            </button>
           </div>
         </div>
 
         {/* Main Navigation Bar */}
-        <div className={`transition-all duration-500 bg-luxury-bg-secondary/95 dark:bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-luxury-bg-card dark:border-maroon-border ${scrolled ? 'py-3' : 'py-5'}`}>
-          <div className="container mx-auto px-6 grid grid-cols-3 items-center">
-            
+        <div className={`transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-white/95 dark:bg-luxury-dark-primary/95 shadow-2xl' : 'py-4 bg-white dark:bg-luxury-dark-primary'}`}>
+          <div className="container mx-auto px-6 grid grid-cols-12 items-center">
+
             {/* Left Actions */}
-            <div className="flex items-center gap-4 md:gap-6">
-              <button 
-                onClick={() => setIsMenuOpen(true)} 
-                className="lg:hidden p-2 -ml-2 text-luxury-text-light dark:text-luxury-text-dark hover:text-gold transition-colors"
+            <div className="col-span-4 flex items-center gap-6">
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="lg:hidden p-2 -ml-2 text-maroon-dominant dark:text-white hover:text-gold transition-all"
               >
                 <Menu className="w-6 h-6" />
               </button>
-              <div className="hidden lg:flex items-center gap-6">
-                <button 
+              <div className="hidden lg:flex items-center gap-8">
+                <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="flex items-center gap-3 text-[10px] tracking-[0.2em] text-luxury-text-light dark:text-luxury-text-dark hover:text-gold transition-all group"
+                  className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] text-maroon-dominant dark:text-white hover:text-gold transition-all group"
                 >
                   <Search className="w-4 h-4 group-hover:scale-110 transition-transform" /> SEARCH
                 </button>
-                <button 
+                <div className="h-4 w-[1px] bg-maroon-dominant/10 dark:bg-white/10"></div>
+                <button
                   onClick={toggleTheme}
-                  className="p-2 text-luxury-text-light dark:text-luxury-text-dark hover:text-gold transition-all rounded-full hover:bg-maroon-dominant/10"
+                  className="p-2 text-maroon-dominant dark:text-white hover:text-gold transition-all rounded-full hover:bg-maroon-dominant/5 dark:hover:bg-white/5"
                   aria-label="Toggle theme"
                 >
                   {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -166,119 +152,123 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
             </div>
 
             {/* Centered Logo */}
-            <div className="flex justify-center">
-              <div onClick={() => onNavigate('home')} className="flex flex-col items-center group cursor-pointer">
-                <h1 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-[0.15em] leading-none transition-all duration-700 group-hover:tracking-[0.25em] group-hover:text-gold">AURA</h1>
-                <div className="flex items-center gap-2 mt-1 opacity-60">
-                   <div className="h-[1px] w-4 bg-gold/50"></div>
-                   <span className="text-[8px] md:text-[9px] tracking-[0.4em] text-gold uppercase font-light">Heritage House</span>
-                   <div className="h-[1px] w-4 bg-gold/50"></div>
+            <div className="col-span-4 flex justify-center">
+              <div onClick={() => onNavigate('home')} className="flex flex-col items-center group cursor-pointer relative">
+                <h1 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-[0.2em] leading-none transition-all duration-1000 group-hover:tracking-[0.3em] group-hover:text-gold">AURA</h1>
+                <div className="flex items-center gap-3 mt-2">
+                  <div className="h-[1px] w-6 bg-gold/30 group-hover:w-10 transition-all duration-700"></div>
+                  <span className="text-[8px] md:text-[10px] tracking-[0.5em] text-gold uppercase font-black gold-glow">Heritage House</span>
+                  <div className="h-[1px] w-6 bg-gold/30 group-hover:w-10 transition-all duration-700"></div>
                 </div>
               </div>
             </div>
 
             {/* Right Actions */}
-            <div className="flex items-center justify-end gap-2 md:gap-6">
+            <div className="col-span-4 flex items-center justify-end gap-2 md:gap-8">
               <button onClick={() => onNavigate('wishlist')} className="relative group p-2">
-                <Heart className="w-5 h-5 text-luxury-text-light dark:text-luxury-text-dark group-hover:text-gold transition-all group-hover:scale-110" />
+                <Heart className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
                 {wishlistCount > 0 && (
-                  <span className="absolute top-0 right-0 bg-gold text-[8px] text-maroon-dominant w-4 h-4 rounded-full flex items-center justify-center font-black shadow-[0_0_10px_rgba(212,175,55,0.4)]">{wishlistCount}</span>
+                  <span className="absolute -top-1 -right-1 bg-maroon-dominant text-[8px] text-white w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shadow-lg border border-gold/40 animate-in zoom-in rotate-12">{wishlistCount}</span>
                 )}
               </button>
               <button onClick={() => onNavigate('cart')} className="relative group p-2">
-                <ShoppingBag className="w-5 h-5 text-luxury-text-light dark:text-luxury-text-dark group-hover:text-gold transition-all group-hover:scale-110" />
-                <span className="absolute top-0 right-0 bg-gold text-[8px] text-maroon-dominant w-4 h-4 rounded-full flex items-center justify-center font-black shadow-[0_0_10px_rgba(212,175,55,0.4)]">{cartCount}</span>
+                <ShoppingBag className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-gold text-[8px] text-maroon-dominant w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in -rotate-12">{cartCount}</span>
+                )}
               </button>
-              <button className="lg:hidden p-2 text-luxury-text-light dark:text-luxury-text-dark hover:text-gold transition-all" onClick={toggleTheme}>
-                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
-              <button className="p-2 hidden lg:block group">
-                <User className="w-5 h-5 text-luxury-text-light dark:text-luxury-text-dark group-hover:text-gold transition-all group-hover:scale-110" />
+              <button className="p-2 hidden lg:block group hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full transition-all">
+                <User className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
               </button>
             </div>
           </div>
         </div>
 
         {/* Desktop Category Menu */}
-        <nav className="hidden lg:flex bg-luxury-bg-secondary/95 dark:bg-luxury-dark-primary/95 backdrop-blur-md justify-center border-b border-luxury-bg-card dark:border-maroon-border transition-colors">
-          {navCategories.map((cat) => (
-            <div 
-              key={cat.name}
-              className="group relative px-6 py-4 cursor-pointer"
-              onMouseEnter={() => setActiveMega(cat.name)}
-              onMouseLeave={() => setActiveMega(null)}
-            >
-              <div className="flex items-center gap-1 group-hover:text-gold transition-all duration-300">
-                <span className="text-[10px] font-bold text-luxury-text-light/80 dark:text-luxury-text-dark/80 uppercase tracking-[0.2em] whitespace-nowrap">
-                  {cat.name}
-                </span>
-                <ChevronDown className={`w-3 h-3 text-gold/40 transition-transform duration-300 ${activeMega === cat.name ? 'rotate-180 text-gold' : ''}`} />
-              </div>
-              
-              <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-gold transition-all duration-500 ${activeMega === cat.name ? 'w-2/3' : 'w-0'}`}></div>
+        <nav className={`hidden lg:flex justify-center transition-all duration-700 ${scrolled ? 'bg-white/95 dark:bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10 shadow-lg' : 'bg-white dark:bg-luxury-dark-primary border-b border-gold/10 shadow-xl'}`}>
+          <div className="flex items-center px-4">
+            {navCategories.map((cat) => (
+              <div
+                key={cat.name}
+                className="group relative px-6 py-3 cursor-pointer"
+                onMouseEnter={() => setActiveMega(cat.name)}
+                onMouseLeave={() => setActiveMega(null)}
+              >
+                <div className="flex items-center gap-2 group-hover:text-gold transition-all duration-500">
+                  <span className="text-[10px] font-black text-maroon-dominant/70 dark:text-white/70 group-hover:text-gold uppercase tracking-[0.25em] whitespace-nowrap transition-all">
+                    {cat.name}
+                  </span>
+                  <ChevronDown className={`w-3.5 h-3.5 text-gold/30 transition-transform duration-500 ${activeMega === cat.name ? 'rotate-180 text-gold shadow-sm' : ''}`} />
+                </div>
 
-              {activeMega === cat.name && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-full w-[900px] bg-luxury-bg-secondary dark:bg-luxury-dark-card shadow-[0_40px_80px_rgba(0,0,0,0.1)] dark:shadow-[0_40px_80px_rgba(0,0,0,0.6)] border border-luxury-bg-card dark:border-maroon-border animate-in fade-in slide-in-from-top-2 duration-300 z-[60] p-10">
-                  <div className="grid grid-cols-12 gap-10">
-                    <div className="col-span-8">
-                      <div className="flex items-center gap-3 mb-8">
-                        <Sparkles className="w-4 h-4 text-gold" />
-                        <h4 className="text-[11px] font-black text-gold uppercase tracking-[0.4em] border-b border-luxury-bg-card dark:border-maroon-border pb-2 flex-1">
-                          The {cat.name} Collection
-                        </h4>
-                      </div>
-                      <div className="grid grid-cols-2 gap-x-12 gap-y-5">
-                        {cat.items.map(item => (
-                          <button 
-                            key={item} 
-                            onClick={() => handleItemClick(item)}
-                            className="group/item flex items-center gap-3 text-[12px] text-luxury-text-light/70 dark:text-luxury-text-dark/70 hover:text-maroon-dominant dark:hover:text-white transition-all font-medium text-left"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-gold/0 border border-gold/40 group-hover/item:bg-gold group-hover/item:scale-125 transition-all"></span>
-                            {item}
+                <div className={`absolute bottom-0 left-0 h-[2px] bg-gold transition-all duration-700 ease-in-out ${activeMega === cat.name ? 'w-full opacity-100' : 'w-0 opacity-0'}`}></div>
+
+                {activeMega === cat.name && (
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[1000px] bg-white dark:bg-luxury-dark-card shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] border border-transparent dark:border-white/10 animate-in fade-in slide-in-from-top-4 duration-500 z-[60] p-12 overflow-hidden">
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/silk-weave.png')] opacity-[0.03] pointer-events-none"></div>
+                    <div className="grid grid-cols-12 gap-16 relative z-10">
+                      <div className="col-span-7">
+                        <div className="flex items-center gap-4 mb-10">
+                          <Sparkles className="w-5 h-5 text-gold gold-glow" />
+                          <h4 className="text-[12px] font-black text-gold uppercase tracking-[0.5em] border-b border-gold/10 pb-3 flex-1">
+                            {cat.name} Excellence
+                          </h4>
+                        </div>
+                        <div className="grid grid-cols-2 gap-x-16 gap-y-6">
+                          {cat.items.map(item => (
+                            <button
+                              key={item}
+                              onClick={() => handleItemClick(item)}
+                              className="group/item flex items-center gap-4 text-[13px] text-maroon-dominant/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-white transition-all font-serif italic text-left"
+                            >
+                              <span className="w-2 h-[1px] bg-gold/0 group-hover/item:bg-gold group-hover/item:w-4 transition-all duration-500"></span>
+                              {item}
+                            </button>
+                          ))}
+                        </div>
+                        <div className="mt-12 pt-8 border-t border-maroon-dominant/5 dark:border-white/5 flex justify-between items-center">
+                          <p className="text-[9px] text-maroon-dominant/30 dark:text-white/20 uppercase tracking-[0.4em] font-black">Crafting Perfection Since 1952</p>
+                          <button onClick={() => onNavigate('category', cat.name)} className="text-[10px] font-black text-gold hover:text-maroon-dominant dark:hover:text-white transition-all tracking-[0.3em] uppercase group/link">
+                            VIEW FULL COLLECTION <span className="inline-block group-hover/link:translate-x-2 transition-transform duration-500">→</span>
                           </button>
-                        ))}
+                        </div>
                       </div>
-                      <div className="mt-10 pt-6 border-t border-luxury-bg-card dark:border-maroon-border flex justify-between items-center">
-                         <p className="text-[10px] text-luxury-text-light/40 dark:text-luxury-text-dark/40 uppercase tracking-widest italic">Experience artisanal perfection since 1952</p>
-                         <button onClick={() => onNavigate('category', cat.name)} className="text-[10px] font-bold text-gold hover:text-maroon-dominant dark:hover:text-white transition-colors tracking-[0.2em] uppercase">View All Masterpieces →</button>
-                      </div>
-                    </div>
-                    
-                    <div className="col-span-4 relative rounded-sm overflow-hidden group/featured border border-luxury-bg-card dark:border-maroon-border aspect-[3/4]">
-                      <img src={cat.featured} className="w-full h-full object-cover grayscale-[0.2] group-hover/featured:grayscale-0 group-hover/featured:scale-110 transition-all duration-1000" alt={cat.name} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant dark:from-luxury-dark-primary/90 to-transparent flex flex-col justify-end p-6">
-                        <span className="text-[9px] text-gold font-black uppercase tracking-[0.4em] mb-2">Curated Choice</span>
-                        <h5 className="text-white font-serif text-xl leading-tight mb-4">Limited Edition <br/>{cat.name}</h5>
-                        <button className="w-fit bg-gold text-maroon-dominant px-6 py-2.5 text-[9px] font-black uppercase tracking-[0.2em] hover:bg-gold-light transition-all active:scale-95">Explore</button>
+
+                      <div className="col-span-5 relative rounded-3xl overflow-hidden group/featured shadow-2xl aspect-[4/5]">
+                        <img src={cat.featured} className="w-full h-full object-cover group-hover/featured:scale-110 transition-all duration-[3s]" alt={cat.name} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant via-maroon-dominant/20 to-transparent flex flex-col justify-end p-10">
+                          <span className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-4 gold-glow">Curated Choice</span>
+                          <h5 className="text-white font-serif text-3xl leading-tight mb-8">Exclusive <br />{cat.name}</h5>
+                          <button className="w-full bg-gold text-maroon-dominant py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white transition-all transform active:scale-95 shadow-xl">EXPLORE PIECES</button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ))}
+          </div>
         </nav>
       </header>
 
       {/* Modern Search Overlay */}
       {isSearchOpen && (
         <div className="fixed inset-0 z-[100] bg-luxury-bg-primary/98 dark:bg-luxury-dark-primary/98 backdrop-blur-2xl animate-in fade-in duration-500">
-           <button onClick={() => setIsSearchOpen(false)} className="absolute top-10 right-10 p-4 text-luxury-text-light dark:text-luxury-text-dark hover:text-gold hover:rotate-90 transition-all">
-             <X className="w-8 h-8" />
-           </button>
-           <div className="h-full container mx-auto px-6 flex flex-col justify-center items-center">
-              <div className="w-full max-w-4xl relative">
-                <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold mb-6 block text-center">What are you looking for today?</span>
-                <input 
-                  autoFocus
-                  type="text" 
-                  placeholder="E.g. Heritage Filigree, Polki Rings..." 
-                  className="w-full bg-transparent border-b-2 border-gold/20 py-8 text-3xl md:text-5xl font-serif text-luxury-text-light dark:text-luxury-text-dark focus:outline-none focus:border-gold transition-all placeholder:text-luxury-text-light/10 dark:placeholder:text-white/10"
-                />
-                <Search className="w-10 h-10 absolute right-0 top-1/2 -translate-y-1/2 text-gold opacity-50" />
-              </div>
-           </div>
+          <button onClick={() => setIsSearchOpen(false)} className="absolute top-10 right-10 p-4 text-luxury-text-light dark:text-luxury-text-dark hover:text-gold hover:rotate-90 transition-all">
+            <X className="w-8 h-8" />
+          </button>
+          <div className="h-full container mx-auto px-6 flex flex-col justify-center items-center">
+            <div className="w-full max-w-4xl relative">
+              <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold mb-6 block text-center">What are you looking for today?</span>
+              <input
+                autoFocus
+                type="text"
+                placeholder="E.g. Heritage Filigree, Polki Rings..."
+                className="w-full bg-transparent border-b-2 border-gold/20 py-8 text-3xl md:text-5xl font-serif text-luxury-text-light dark:text-luxury-text-dark focus:outline-none focus:border-gold transition-all placeholder:text-luxury-text-light/10 dark:placeholder:text-white/10"
+              />
+              <Search className="w-10 h-10 absolute right-0 top-1/2 -translate-y-1/2 text-gold opacity-50" />
+            </div>
+          </div>
         </div>
       )}
 
@@ -312,9 +302,9 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                 ))}
               </div>
               <div className="mt-16">
-                <button 
-                  onClick={() => { setIsMenuOpen(false); onNavigate('contact'); }} 
-                  className="w-full bg-gold text-maroon-dominant py-5 rounded-sm text-[11px] font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-gold-light transition-all"
+                <button
+                  onClick={() => { setIsMenuOpen(false); onNavigate('contact'); }}
+                  className="w-full bg-gold text-maroon-dominant py-5 rounded-full text-[11px] font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-gold-light transition-all"
                 >
                   Book Private Viewing
                 </button>
