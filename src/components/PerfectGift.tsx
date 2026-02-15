@@ -23,7 +23,7 @@ const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, subtitle,
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
 
     <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
-      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+      <div className="transition-transform duration-500">
         <h4 className="text-white font-serif text-2xl md:text-3xl group-hover:text-gold transition-colors duration-300 leading-none mb-2">
           {title}
         </h4>
@@ -34,7 +34,7 @@ const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, subtitle,
         )}
       </div>
 
-      <div className="mt-6 flex items-center gap-2 text-gold opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">
+      <div className="mt-6 flex items-center gap-2 text-gold transition-all duration-500 delay-100">
         <span className="text-[9px] font-black uppercase tracking-[0.3em]">Explore Collection</span>
         <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
       </div>
@@ -66,7 +66,7 @@ const PerfectGift: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[800px]">
+        <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[800px] pt-4">
           <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
             {occasionGifts.map((gift, idx) => (
               <GiftingTile

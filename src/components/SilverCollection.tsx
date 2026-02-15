@@ -20,21 +20,21 @@ const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, descript
     <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant via-maroon-dominant/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700" />
 
     <div className="relative p-10 md:p-12 text-center md:text-left z-10">
-      <div className="mb-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+      <div className="mb-6 transition-transform duration-700">
         <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] inline-block mb-4 shadow-lg">
           999 Pure Silver
         </span>
         <h3 className="text-4xl md:text-5xl font-serif text-white tracking-wide mb-4 leading-none">
           {title}
         </h3>
-        <p className="text-white/80 text-sm md:text-base font-light italic leading-relaxed max-w-sm mx-auto md:mx-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 text-balance">
+        <p className="text-white/80 text-sm md:text-base font-light italic leading-relaxed max-w-sm mx-auto md:mx-0 transition-opacity duration-700 delay-100 text-balance">
           {description}
         </p>
       </div>
 
       <a
         href={link}
-        className="inline-flex items-center gap-3 px-8 py-4 bg-white text-maroon-dominant text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-white transition-all duration-300 rounded-full group/btn hover:scale-105 active:scale-95 shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 delay-200"
+        className="inline-flex items-center gap-3 px-8 py-4 bg-white text-maroon-dominant text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-white transition-all duration-300 rounded-full group/btn hover:scale-105 active:scale-95 shadow-lg delay-200"
       >
         SHOP NOW <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
       </a>
@@ -50,7 +50,7 @@ const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, descript
 
 const SilverCollection: React.FC = () => {
   return (
-    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative overflow-hidden">
+    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -62,7 +62,7 @@ const SilverCollection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 pt-4">
           <FeaturedSilverCard
             title="Coins & Bars"
             description="Tradition wrapped in purity, perfect for every Shagun moment and smart investment."

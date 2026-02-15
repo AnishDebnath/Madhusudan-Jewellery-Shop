@@ -24,7 +24,7 @@ const EarringCard: React.FC<EarringCardProps> = ({ title, image, link }) => (
         <h4 className="text-white font-serif text-2xl md:text-3xl tracking-wide group-hover:text-gold transition-colors duration-300 leading-none mb-3">
           {title.replace(' Collection', '')}
         </h4>
-        <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+        <div className="flex items-center gap-2 transition-all duration-500">
           <div className="h-[1px] w-8 bg-gold"></div>
           <span className="text-[9px] font-bold text-gold uppercase tracking-[0.2em]">View Designs</span>
         </div>
@@ -50,7 +50,7 @@ const EarringCollection: React.FC = () => {
           <div className="w-24 h-[1px] bg-gold/20 mx-auto mt-6"></div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pt-4">
           {categories.map((cat, idx) => (
             <EarringCard key={idx} {...cat} />
           ))}

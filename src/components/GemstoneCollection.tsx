@@ -21,12 +21,12 @@ const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link }) => (
       <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
       <div className="absolute inset-x-0 bottom-0 p-8 text-center flex flex-col items-center justify-end h-full">
-        <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <span className="text-white font-serif text-3xl md:text-4xl tracking-wide group-hover:text-gold transition-colors duration-300 mb-2">
             {label}
           </span>
-          <div className="w-12 h-[1px] bg-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"></div>
-          <span className="text-[9px] font-bold text-white/80 uppercase tracking-widest mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">View Collection</span>
+          <div className="w-12 h-[1px] bg-gold transition-opacity duration-500 delay-100"></div>
+          <span className="text-[9px] font-bold text-white/80 uppercase tracking-widest mt-3 transition-opacity duration-500 delay-150">View Collection</span>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@ const GemstoneCollection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pt-4">
           {categories.map((cat, idx) => (
             <GemstoneTile key={idx} {...cat} />
           ))}

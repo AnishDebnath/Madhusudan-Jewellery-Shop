@@ -60,7 +60,7 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-8 md:gap-10 pb-16 no-scrollbar scroll-smooth snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
+          className="flex overflow-x-auto gap-8 md:gap-10 pb-16 pt-4 no-scrollbar scroll-smooth snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {products.map((product) => (

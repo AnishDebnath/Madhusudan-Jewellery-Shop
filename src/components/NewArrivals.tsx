@@ -63,17 +63,13 @@ const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-40 transition-opacity duration-700" />
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 group-hover:scale-110 group-hover:bg-gold group-hover:border-gold transition-all duration-700 shadow-2xl opacity-0 group-hover:opacity-100">
-        <Play className="w-6 h-6 fill-maroon-dominant text-maroon-dominant ml-1 group-hover:fill-maroon-dominant transition-all" />
-      </div>
-
-      <div className="absolute bottom-8 left-8 right-8 text-white z-10 transition-transform duration-700 group-hover:-translate-y-2">
-        <span className="text-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block gold-glow opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">{video.tag}</span>
+      <div className="absolute bottom-8 left-8 right-8 text-white z-10 transition-transform duration-700">
+        <span className="text-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block gold-glow opacity-95 transition-all duration-500">{video.tag}</span>
         <h4 className="text-2xl font-serif tracking-tight leading-tight mb-6 text-balance">{video.title}</h4>
 
-        <div className="h-[1px] w-0 group-hover:w-full bg-gold/50 transition-all duration-700 mb-4"></div>
+        <div className="h-[1px] w-full bg-gold/50 transition-all duration-700 mb-4"></div>
 
-        <button className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-gold transition-all duration-500 flex items-center gap-3 translate-x-0 opacity-100">
+        <button className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60 group-hover:text-gold transition-all duration-500 flex items-center gap-3">
           DISCOVER STORY <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
         </button>
       </div>
@@ -133,7 +129,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
           </div>
           <div
             ref={scrollRef}
-            className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-12 -mx-6 px-6 md:mx-0 md:px-0"
+            className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-12 pt-6 -mx-6 px-6 md:mx-0 md:px-0"
           >
             {VIDEO_HIGHLIGHTS.map((video) => (
               <VideoStripCard key={video.id} video={video} />
@@ -154,7 +150,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
           </div>
           <div
             ref={productScrollRef}
-            className="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-12 -mx-6 px-6 md:mx-0 md:px-0"
+            className="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-12 pt-4 -mx-6 px-6 md:mx-0 md:px-0"
           >
             {newArrivalProducts.slice(0, 8).map((product) => (
               <div key={product.id} className="snap-start h-full">

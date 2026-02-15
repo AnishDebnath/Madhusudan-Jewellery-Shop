@@ -50,7 +50,7 @@ const TRUST_POINTS = [
 
 const TrustSection: React.FC = () => {
   return (
-    <section className="py-32 md:py-40 bg-luxury-bg-secondary/50 dark:bg-luxury-dark-primary transition-colors relative overflow-hidden border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-32 md:py-40 bg-luxury-bg-secondary/50 dark:bg-luxury-dark-primary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -69,7 +69,7 @@ const TrustSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 pt-6">
           {TRUST_POINTS.map((point, index) => (
             <TrustCard
               key={index}

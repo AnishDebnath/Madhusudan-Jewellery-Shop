@@ -40,7 +40,7 @@ const OfferCard: React.FC<OfferCardProps> = ({
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
 
-        <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+        <div className="absolute bottom-0 left-0 w-full p-8 transition-all duration-500">
           <span className="text-gold text-[9px] font-black uppercase tracking-[0.4em] mb-3 block gold-glow opacity-90">
             {offerSubtext}
           </span>
@@ -50,7 +50,7 @@ const OfferCard: React.FC<OfferCardProps> = ({
           <h4 className="text-lg font-light text-white/80 italic mb-6">
             {title}
           </h4>
-          <div className="flex items-center justify-between border-t border-white/20 pt-5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+          <div className="flex items-center justify-between border-t border-white/20 pt-5 transition-all duration-500">
             <span className="text-[9px] uppercase tracking-[0.25em] text-white/60 font-black">
               {supportingLine}
             </span>
@@ -117,7 +117,7 @@ const OffersSection: React.FC = () => {
             <div className="w-16 h-[1px] bg-gold/30"></div>
           </div>
         </div>
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 no-scrollbar pb-8 md:pb-0 snap-x snap-mandatory">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 no-scrollbar pb-8 pt-4 md:pb-0 snap-x snap-mandatory">
           {OFFERS_DATA.map((offer, idx) => (
             <div key={idx} className="flex-shrink-0 w-[85vw] md:w-auto snap-center">
               <OfferCard {...offer} />

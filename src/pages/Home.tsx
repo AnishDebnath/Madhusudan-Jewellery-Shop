@@ -34,7 +34,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn }) => {
             <OffersSection />
             <FeaturedSlider />
             <NewArrivals onProductClick={onProductClick} />
-            <section className="py-24 md:py-40 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative overflow-hidden">
+            <section className="py-24 md:py-40 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
                 {/* Background Decor */}
                 <div className="absolute top-20 left-10 w-64 h-64 bg-maroon-dominant/5 rounded-full blur-3xl pointer-events-none"></div>
 
