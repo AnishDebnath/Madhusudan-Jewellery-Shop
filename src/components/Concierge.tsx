@@ -85,7 +85,7 @@ const Concierge: React.FC = () => {
             </button>
           </div>
 
-          <div ref={scrollRef} className="flex-1 p-8 space-y-8 overflow-y-auto custom-scrollbar bg-luxury-bg-secondary dark:bg-black/20">
+          <div ref={scrollRef} className="flex-1 p-8 space-y-8 overflow-y-auto bg-luxury-bg-secondary dark:bg-black/20">
             {messages.length === 0 && (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 bg-maroon-dominant/5 dark:bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold/10">

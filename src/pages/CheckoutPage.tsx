@@ -128,7 +128,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cart, onComplete }) => {
           <div className="lg:w-96">
             <div className="bg-white dark:bg-luxury-dark-card p-8 rounded-3xl shadow-xl border border-transparent dark:border-white/5 sticky top-32">
               <h4 className="text-[11px] font-black text-gold uppercase tracking-[0.3em] mb-6 border-b border-luxury-bg-card dark:border-white/10 pb-4">Cart Summary</h4>
-              <div className="space-y-5 mb-8 max-h-[300px] overflow-y-auto custom-scrollbar pr-2">
+              <div className="space-y-5 mb-8 max-h-[300px] overflow-y-auto pr-2">
                 {cart.map(i => (
                   <div key={i.id} className="flex justify-between text-[11px] font-medium tracking-wide items-center">
                     <span className="text-luxury-text-light/70 dark:text-white/70 truncate w-32">{i.name}</span>

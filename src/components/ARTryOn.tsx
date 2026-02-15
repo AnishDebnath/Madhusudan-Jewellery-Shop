@@ -129,7 +129,7 @@ const ARTryOn: React.FC<ARTryOnProps> = ({ onClose, product: initialProduct }) =
 
           <div className="flex-1 relative z-10">
             <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-6">Similar Styles</h4>
-            <div className="grid grid-cols-2 gap-4 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+            <div className="grid grid-cols-2 gap-4 overflow-y-auto max-h-[400px] pr-2">
               {similarProducts.map(p => (
                 <div
                   key={p.id}

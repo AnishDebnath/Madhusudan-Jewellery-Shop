@@ -24,20 +24,6 @@
   ::selection {
     @apply bg-gold/30 text-maroon-dominant;
   }
-
-  /* Scrollbar Styles */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gold/50 hover:bg-gold rounded-full transition-colors;
-  }
 }
 
 @layer utilities {

@@ -20,9 +20,19 @@ const Hero: React.FC = () => {
         />
       </video>
 
-      {/* Luxury Layering Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-luxury-bg-primary dark:from-luxury-dark-primary via-transparent to-transparent opacity-60 dark:opacity-80"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-luxury-bg-primary/80 dark:to-luxury-dark-primary/90"></div>
+      {/* Luxury Vignette Blending */}
+      {/* Top Blend */}
+      <div className="absolute inset-x-0 top-0 h-[15vh] bg-gradient-to-b from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-90"></div>
+
+      {/* Bottom Blend */}
+      <div className="absolute inset-x-0 bottom-0 h-[25vh] bg-gradient-to-t from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-90"></div>
+
+      {/* Left Blend */}
+      <div className="absolute inset-y-0 left-0 w-[15vw] bg-gradient-to-r from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-60"></div>
+
+      {/* Right Blend */}
+      <div className="absolute inset-y-0 right-0 w-[15vw] bg-gradient-to-l from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-60"></div>
+
       <div className="absolute inset-0 bg-black/5 mix-blend-overlay"></div>
 
       <div className="relative h-full container mx-auto px-6 md:px-12 flex flex-col justify-center text-luxury-text-light dark:text-luxury-text-dark">
