@@ -5,7 +5,7 @@ import necklace2 from './assets/jewellery/necklace/nacklace (2).jpg';
 import necklace3 from './assets/jewellery/necklace/nacklace (3).jpg';
 import necklace4 from './assets/jewellery/necklace/nacklace (4).jpg';
 import necklace5 from './assets/jewellery/necklace/nacklace (5).jpg';
-import ring1 from './assets/jewellery/ring/ring (1).jpg';
+import ring11 from './assets/jewellery/ring/ring (11).jpg';
 import bangles1 from './assets/jewellery/bangles/bangles (1).jpg';
 import earrings1 from './assets/jewellery/earrings/earrings (1).jpg';
 import earrings2 from './assets/jewellery/earrings/earrings (2).jpg';
@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
     category: Category.DIAMOND,
     subCategory: 'Rings',
     price: 95000,
-    image: ring1,
+    image: ring11,
     diamondCarat: '1.2ct',
     description: 'A brilliant-cut certified solitaire diamond set in 18K white gold.',
     isNewArrival: true,

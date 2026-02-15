@@ -9,23 +9,23 @@ interface CategoryItem {
   link: string;
 }
 
-import ring5 from '../assets/jewellery/ring/ring (5).jpg';
-import earrings4 from '../assets/jewellery/earrings/earrings (4).jpg';
+import ring12 from '../assets/jewellery/ring/ring (12).jpg';
+import earrings7 from '../assets/jewellery/earrings/earrings (7).jpg';
 import necklace10 from '../assets/jewellery/necklace/nacklace (10).jpg';
 import necklace11 from '../assets/jewellery/necklace/nacklace (11).jpg';
 import mens1 from '../assets/jewellery/mens/mens collection (1).jpg';
 import mens2 from '../assets/jewellery/mens/mens collection (2).jpg';
 import mens3 from '../assets/jewellery/mens/mens collection (3).jpg';
 import mens4 from '../assets/jewellery/mens/mens collection (4).jpg';
-import earrings5 from '../assets/jewellery/earrings/earrings (5).jpg';
+import earrings8 from '../assets/jewellery/earrings/earrings (8).jpg';
 import bangles3 from '../assets/jewellery/bangles/bangles (3).jpg';
-import ring6 from '../assets/jewellery/ring/ring (6).jpg';
+import ring13 from '../assets/jewellery/ring/ring (13).jpg';
 import goldDiamond22 from '../assets/jewellery/gold&diamond-jewellery(22).jpg';
 
 const GENDER_DATA: Record<GenderTab, CategoryItem[]> = {
   Women: [
-    { label: 'Gold Ring', image: ring5, link: '/jewellery-for-women?category=rings' },
-    { label: 'Gold Earring', image: earrings4, link: '/jewellery-for-women?category=earrings' },
+    { label: 'Gold Ring', image: ring12, link: '/jewellery-for-women?category=rings' },
+    { label: 'Gold Earring', image: earrings7, link: '/jewellery-for-women?category=earrings' },
     { label: 'Gold Pendant', image: necklace10, link: '/jewellery-for-women?category=pendants' },
     { label: 'Gold Chain', image: necklace11, link: '/jewellery-for-women?category=chains' },
   ],
@@ -36,9 +36,9 @@ const GENDER_DATA: Record<GenderTab, CategoryItem[]> = {
     { label: 'Gold Bracelet', image: mens4, link: '/jewellery-for-men?category=bracelets' },
   ],
   Kids: [
-    { label: 'Gold Earrings', image: earrings5, link: '/kids-jewellery?category=earrings' },
+    { label: 'Gold Earrings', image: earrings8, link: '/kids-jewellery?category=earrings' },
     { label: 'Gold Bangles', image: bangles3, link: '/kids-jewellery?category=bangles' },
-    { label: 'Gold Chain', image: ring6, link: '/kids-jewellery?category=chains' },
+    { label: 'Gold Chain', image: ring13, link: '/kids-jewellery?category=chains' },
     { label: 'Nazariya', image: goldDiamond22, link: '/kids-jewellery?category=nazariya' },
   ],
 };

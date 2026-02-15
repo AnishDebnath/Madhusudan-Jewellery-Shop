@@ -4,7 +4,7 @@ import necklace12 from '../assets/jewellery/necklace/nacklace (12).jpg';
 import necklace13 from '../assets/jewellery/necklace/nacklace (13).jpg';
 import necklace14 from '../assets/jewellery/necklace/nacklace (14).jpg';
 import necklace15 from '../assets/jewellery/necklace/nacklace (15).jpg';
-import vivaahHero from '../assets/models/models (9).jpg';
+import vivaahHero from '../assets/models/models (2).jpg';
 
 const VIVAAH_PRODUCTS = [
   {

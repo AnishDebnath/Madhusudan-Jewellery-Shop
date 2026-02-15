@@ -1,7 +1,7 @@
 import React from 'react';
 import necklace22 from '../assets/jewellery/necklace/nacklace (22).jpg';
-import ring9 from '../assets/jewellery/ring/ring (9).jpg';
-import earrings6 from '../assets/jewellery/earrings/earrings (6).jpg';
+import ring11 from '../assets/jewellery/ring/ring (11).jpg';
+import earrings7 from '../assets/jewellery/earrings/earrings (7).jpg';
 import bangles4 from '../assets/jewellery/bangles/bangles (4).jpg';
 
 interface GemstoneTileProps {
@@ -41,8 +41,8 @@ const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link }) => (
 const GemstoneCollection: React.FC = () => {
   const categories = [
     { label: 'Necklaces', image: necklace22, link: '/gemstone-jewellery/necklaces' },
-    { label: 'Rings', image: ring9, link: '/gemstone-jewellery/rings' },
-    { label: 'Earrings', image: earrings6, link: '/gemstone-jewellery/earrings' },
+    { label: 'Rings', image: ring11, link: '/gemstone-jewellery/rings' },
+    { label: 'Earrings', image: earrings7, link: '/gemstone-jewellery/earrings' },
     { label: 'Bangles', image: bangles4, link: '/gemstone-jewellery/bangles' },
   ];
 

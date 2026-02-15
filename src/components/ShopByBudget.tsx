@@ -1,18 +1,18 @@
 import React from 'react';
-import ring3 from '../assets/jewellery/ring/ring (3).jpg';
-import ring4 from '../assets/jewellery/ring/ring (4).jpg';
+import earrings9 from '../assets/jewellery/earrings/earrings (9).jpg';
+import necklace12 from '../assets/jewellery/necklace/nacklace (12).jpg';
 import necklace9 from '../assets/jewellery/necklace/nacklace (9).jpg';
 import bangles2 from '../assets/jewellery/bangles/bangles (2).jpg';
 
 const BUDGET_CATEGORIES = [
   {
     label: 'Under 10K',
-    image: ring3,
+    image: earrings9,
     link: '#'
   },
   {
     label: '10K - 25K',
-    image: ring4,
+    image: necklace12,
     link: '#'
   },
   {

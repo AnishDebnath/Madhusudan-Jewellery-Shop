@@ -1,8 +1,8 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import ring7 from '../assets/jewellery/ring/ring (7).jpg';
-import ring8 from '../assets/jewellery/ring/ring (8).jpg';
-import ring10 from '../assets/jewellery/ring/ring (10).jpg';
+import earrings10 from '../assets/jewellery/earrings/earrings (10).jpg';
+import necklace19 from '../assets/jewellery/necklace/nacklace (19).jpg';
+import necklace20 from '../assets/jewellery/necklace/nacklace (20).jpg';
 import necklace16 from '../assets/jewellery/necklace/nacklace (16).jpg';
 import necklace17 from '../assets/jewellery/necklace/nacklace (17).jpg';
 import necklace18 from '../assets/jewellery/necklace/nacklace (18).jpg';
@@ -51,9 +51,9 @@ const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, subtitle,
 
 const PerfectGift: React.FC = () => {
   const occasionGifts = [
-    { title: 'Birthday', image: ring7, link: '/gifts/birthday' },
-    { title: 'Anniversary', image: ring8, link: '/gifts/anniversary' },
-    { title: 'Baby Birth', image: ring10, link: '/gifts/baby-birth' },
+    { title: 'Birthday', image: earrings10, link: '/gifts/birthday' },
+    { title: 'Anniversary', image: necklace19, link: '/gifts/anniversary' },
+    { title: 'Baby Birth', image: necklace20, link: '/gifts/baby-birth' },
     { title: 'Festive Collection', image: necklace16, link: '/gifts/festive' },
   ];
 

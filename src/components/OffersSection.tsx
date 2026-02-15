@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import necklace6 from '../assets/jewellery/necklace/nacklace (6).jpg';
-import necklace7 from '../assets/jewellery/necklace/nacklace (7).jpg';
-import necklace8 from '../assets/jewellery/necklace/nacklace (8).jpg';
-import ring2 from '../assets/jewellery/ring/ring (2).jpg';
+import necklace1 from '../assets/jewellery/necklace/nacklace (20).jpg';
+import necklace2 from '../assets/jewellery/necklace/nacklace (7).jpg';
+import necklace3 from '../assets/jewellery/mens/mens collection (1).jpg';
+import earrings4 from '../assets/jewellery/earrings/earrings (3).jpg';
 
 interface OfferCardProps {
   title: string;
@@ -75,7 +75,7 @@ const OFFERS_DATA: OfferCardProps[] = [
     offerHeadline: 'UP TO 30% OFF',
     offerSubtext: 'On Diamond Value',
     supportingLine: '1900+ Unique Designs',
-    image: necklace6,
+    image: necklace1,
     badge: 'Diamond Offer',
     link: '/diamond-jewellery'
   },
@@ -84,7 +84,7 @@ const OFFERS_DATA: OfferCardProps[] = [
     offerHeadline: 'FLAT 25% OFF',
     offerSubtext: 'On Making Charges',
     supportingLine: '4900+ Unique Designs',
-    image: necklace7,
+    image: necklace2,
     badge: 'Gold Jewellery Offer',
     link: '/gold-jewellery'
   },
@@ -93,7 +93,7 @@ const OFFERS_DATA: OfferCardProps[] = [
     offerHeadline: 'FLAT 20% OFF',
     offerSubtext: 'On Stone Value',
     supportingLine: '800+ Unique Designs',
-    image: necklace8,
+    image: necklace3,
     badge: 'Limited Edition',
     link: '/gemstone-jewellery'
   },
@@ -102,7 +102,7 @@ const OFFERS_DATA: OfferCardProps[] = [
     offerHeadline: 'UP TO 15% OFF',
     offerSubtext: 'On Gold Rate',
     supportingLine: '1200+ Unique Designs',
-    image: ring2,
+    image: earrings4,
     badge: 'Polki Special',
     link: '/uncut-jewellery'
   }
