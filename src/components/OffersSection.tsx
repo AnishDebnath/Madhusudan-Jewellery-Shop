@@ -1,6 +1,10 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import necklace6 from '../assets/jewellery/necklace/nacklace (6).jpg';
+import necklace7 from '../assets/jewellery/necklace/nacklace (7).jpg';
+import necklace8 from '../assets/jewellery/necklace/nacklace (8).jpg';
+import ring2 from '../assets/jewellery/ring/ring (2).jpg';
 
 interface OfferCardProps {
   title: string;
@@ -64,13 +68,14 @@ const OfferCard: React.FC<OfferCardProps> = ({
   );
 };
 
+
 const OFFERS_DATA: OfferCardProps[] = [
   {
     title: 'Diamond Jewellery',
     offerHeadline: 'UP TO 30% OFF',
     offerSubtext: 'On Diamond Value',
     supportingLine: '1900+ Unique Designs',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600',
+    image: necklace6,
     badge: 'Diamond Offer',
     link: '/diamond-jewellery'
   },
@@ -79,7 +84,7 @@ const OFFERS_DATA: OfferCardProps[] = [
     offerHeadline: 'FLAT 25% OFF',
     offerSubtext: 'On Making Charges',
     supportingLine: '4900+ Unique Designs',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=600',
+    image: necklace7,
     badge: 'Gold Jewellery Offer',
     link: '/gold-jewellery'
   },
@@ -88,7 +93,7 @@ const OFFERS_DATA: OfferCardProps[] = [
     offerHeadline: 'FLAT 20% OFF',
     offerSubtext: 'On Stone Value',
     supportingLine: '800+ Unique Designs',
-    image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=600',
+    image: necklace8,
     badge: 'Limited Edition',
     link: '/gemstone-jewellery'
   },
@@ -97,7 +102,7 @@ const OFFERS_DATA: OfferCardProps[] = [
     offerHeadline: 'UP TO 15% OFF',
     offerSubtext: 'On Gold Rate',
     supportingLine: '1200+ Unique Designs',
-    image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&q=80&w=600',
+    image: ring2,
     badge: 'Polki Special',
     link: '/uncut-jewellery'
   }

@@ -1,12 +1,14 @@
 import React from 'react';
 import { MapPin, Clock, Phone, Calendar } from 'lucide-react';
+import model11 from '../assets/models/models (11).jpg';
+import model12 from '../assets/models/models (12).jpg';
 
 const KolkataStore: React.FC = () => {
   return (
     <section className="bg-maroon-dominant py-32 text-white overflow-hidden relative border-y border-white/5">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none mix-blend-overlay">
-        <img src="https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&q=80&w=800" alt="Kolkata Pattern" className="w-full h-full object-cover grayscale" />
+        <img src={model12} alt="Kolkata Pattern" className="w-full h-full object-cover grayscale" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant via-maroon-dominant/95 to-maroon-dominant/80 z-0"></div>
 
@@ -65,7 +67,7 @@ const KolkataStore: React.FC = () => {
             <div className="absolute -inset-4 bg-gold/10 rounded-3xl group-hover:scale-105 transition-transform duration-700 border border-gold/20 blur-sm"></div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <img
-                src="https://images.unsplash.com/photo-1541093226354-28b934667791?auto=format&fit=crop&q=80&w=800"
+                src={model11}
                 alt="Showroom"
                 className="w-full h-[600px] object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
               />

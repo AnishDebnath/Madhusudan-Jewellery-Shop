@@ -1,29 +1,34 @@
 import React from 'react';
 import { Maximize2, Sparkles, ArrowRight } from 'lucide-react';
+import necklace12 from '../assets/jewellery/necklace/nacklace (12).jpg';
+import necklace13 from '../assets/jewellery/necklace/nacklace (13).jpg';
+import necklace14 from '../assets/jewellery/necklace/nacklace (14).jpg';
+import necklace15 from '../assets/jewellery/necklace/nacklace (15).jpg';
+import vivaahHero from '../assets/models/models (9).jpg';
 
 const VIVAAH_PRODUCTS = [
   {
     id: 'v1',
     name: 'Heritage Polki Choker Set',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=600',
+    image: necklace12,
     price: '₹4,50,000'
   },
   {
     id: 'v2',
     name: 'Antique Gold Temple Set',
-    image: 'https://images.unsplash.com/photo-1603561591411-0e7041f02c63?auto=format&fit=crop&q=80&w=600',
+    image: necklace13,
     price: '₹7,20,000'
   },
   {
     id: 'v3',
     name: 'Kundan Meena Bridal Haar',
-    image: 'https://images.unsplash.com/photo-1629215031123-09746536b139?auto=format&fit=crop&q=80&w=600',
+    image: necklace14,
     price: '₹5,80,000'
   },
   {
     id: 'v4',
     name: 'Rose Gold Diamond Maang Tikka',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=600',
+    image: necklace15,
     price: '₹1,25,000'
   }
 ];
@@ -35,7 +40,7 @@ const VivaahCollection: React.FC = () => {
         {/* Cinematic Hero Image */}
         <div className="relative h-[80vh] mb-32 rounded-3xl overflow-hidden group border border-transparent dark:border-white/5 shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1920"
+            src={vivaahHero}
             alt="Vivaah Collection"
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"

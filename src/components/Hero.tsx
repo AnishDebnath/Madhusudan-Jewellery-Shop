@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import heritageVideo from '../assets/hero banner.mp4';
 
 const Hero: React.FC = () => {
   return (
@@ -12,10 +13,9 @@ const Hero: React.FC = () => {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover scale-105"
-        poster="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=1920"
       >
         <source
-          src="https://assets.mixkit.co/videos/preview/mixkit-glamorous-jewelry-of-a-woman-in-a-red-dress-40344-large.mp4"
+          src={heritageVideo}
           type="video/mp4"
         />
       </video>

@@ -9,7 +9,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-luxury-bg-secondary dark:bg-luxury-dark-primary pt-24 pb-12 border-t border-luxury-bg-card dark:border-white/5 transition-colors relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-transparent opacity-[0.03] pointer-events-none"></div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24">
           <div className="col-span-1 md:col-span-2">

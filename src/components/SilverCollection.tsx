@@ -1,5 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import goldDiamond22 from '../assets/jewellery/gold&diamond-jewellery(22).jpg';
+import necklace23 from '../assets/jewellery/necklace/nacklace (23).jpg';
 
 interface FeaturedSilverCardProps {
   title: string;
@@ -66,13 +68,13 @@ const SilverCollection: React.FC = () => {
           <FeaturedSilverCard
             title="Coins & Bars"
             description="Tradition wrapped in purity, perfect for every Shagun moment and smart investment."
-            image="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&q=80&w=800"
+            image={goldDiamond22}
             link="/silver-coins"
           />
           <FeaturedSilverCard
             title="Divine Utensils"
             description="Embrace auspiciousness with divine silver idols, pooja thalis, and royal silverware."
-            image="https://images.unsplash.com/photo-1584305323473-d674ede008f1?auto=format&fit=crop&q=80&w=800"
+            image={necklace23}
             link="/silver-articles"
           />
         </div>

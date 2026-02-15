@@ -1,41 +1,42 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Volume2, VolumeX, Maximize, Play } from 'lucide-react';
+import reel1 from '../assets/reels/reel 1.mp4';
+import reel2 from '../assets/reels/reel 2.mp4';
+import reel3 from '../assets/reels/reel 3.mp4';
+import reel4 from '../assets/reels/reel 4.mp4';
+import model5 from '../assets/models/models (5).jpg';
+import model6 from '../assets/models/models (6).jpg';
+import model7 from '../assets/models/models (7).jpg';
+import model8 from '../assets/models/models (8).jpg';
 
 const VIDEO_COLLECTIONS = [
   {
     id: 1,
     title: 'Aham Men\'s Collection',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-with-a-gold-chain-on-his-neck-40342-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel1,
+    poster: model5,
     tag: 'Bold & Masculine'
   },
   {
     id: 2,
     title: 'Vivaah Bridal Couture',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-glamorous-jewelry-of-a-woman-in-a-red-dress-40344-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel2,
+    poster: model6,
     tag: 'Bridal Heritage'
   },
   {
     id: 3,
     title: 'Eternal Diamond Glow',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-woman-wearing-shiny-jewelry-40340-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel3,
+    poster: model7,
     tag: 'Pure Brilliance'
   },
   {
     id: 4,
     title: 'Antique Polki Secrets',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-jewelry-on-a-woman-in-a-fancy-dress-40345-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel4,
+    poster: model8,
     tag: 'Royal Heirloom'
-  },
-  {
-    id: 5,
-    title: 'Rose Gold Filigree',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-luxury-gold-jewels-on-a-woman-40347-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1616151475510-9993309a489f?auto=format&fit=crop&q=80&w=400',
-    tag: 'Kolkata Signature'
   }
 ];
 

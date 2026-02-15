@@ -1,5 +1,11 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import ring7 from '../assets/jewellery/ring/ring (7).jpg';
+import ring8 from '../assets/jewellery/ring/ring (8).jpg';
+import ring10 from '../assets/jewellery/ring/ring (10).jpg';
+import necklace16 from '../assets/jewellery/necklace/nacklace (16).jpg';
+import necklace17 from '../assets/jewellery/necklace/nacklace (17).jpg';
+import necklace18 from '../assets/jewellery/necklace/nacklace (18).jpg';
 
 interface GiftingCardProps {
   title: string;
@@ -42,17 +48,18 @@ const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, subtitle,
   </a>
 );
 
+
 const PerfectGift: React.FC = () => {
   const occasionGifts = [
-    { title: 'Birthday', image: 'https://images.unsplash.com/photo-1512633017083-67231aba710d?auto=format&fit=crop&q=80&w=600', link: '/gifts/birthday' },
-    { title: 'Anniversary', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=600', link: '/gifts/anniversary' },
-    { title: 'Baby Birth', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&q=80&w=600', link: '/gifts/baby-birth' },
-    { title: 'Festive Collection', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=600', link: '/gifts/festive' },
+    { title: 'Birthday', image: ring7, link: '/gifts/birthday' },
+    { title: 'Anniversary', image: ring8, link: '/gifts/anniversary' },
+    { title: 'Baby Birth', image: ring10, link: '/gifts/baby-birth' },
+    { title: 'Festive Collection', image: necklace16, link: '/gifts/festive' },
   ];
 
   const customGifts = [
-    { title: 'Personalised Jewellery', subtitle: 'Bespoke Gifts', image: 'https://images.unsplash.com/photo-1598560912005-59a0d5c1a412?auto=format&fit=crop&q=80&w=600', link: '/personalised-jewellery' },
-    { title: 'Custom Consultations', subtitle: 'Royal Bespoke Design', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=600', link: '/customised-jewellery' },
+    { title: 'Personalised Jewellery', subtitle: 'Bespoke Gifts', image: necklace17, link: '/personalised-jewellery' },
+    { title: 'Custom Consultations', subtitle: 'Royal Bespoke Design', image: necklace18, link: '/customised-jewellery' },
   ];
 
   return (

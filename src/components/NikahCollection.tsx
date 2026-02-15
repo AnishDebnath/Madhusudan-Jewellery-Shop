@@ -1,23 +1,27 @@
 import React from 'react';
 import { ArrowRight, Star } from 'lucide-react';
+import necklace19 from '../assets/jewellery/necklace/nacklace (19).jpg';
+import necklace20 from '../assets/jewellery/necklace/nacklace (20).jpg';
+import necklace21 from '../assets/jewellery/necklace/nacklace (21).jpg';
+import nikahHero from '../assets/models/models (10).jpg';
 
 const NIKAH_PRODUCTS = [
   {
     id: 'n1',
     name: 'Eternal Nikah Necklace Set',
-    image: 'https://images.unsplash.com/photo-1616151475510-9993309a489f?auto=format&fit=crop&q=80&w=600',
+    image: necklace19,
     tag: 'Nikah Ready'
   },
   {
     id: 'n2',
     name: 'Walima Emerald Drops',
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=600',
+    image: necklace20,
     tag: 'Walima Special'
   },
   {
     id: 'n3',
     name: 'Traditional Polki Passa',
-    image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&q=80&w=600',
+    image: necklace21,
     tag: 'Bridal Heritage'
   }
 ];
@@ -32,7 +36,7 @@ const NikahCollection: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-20 items-center mb-16">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl group border border-transparent dark:border-white/5 shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1200"
+              src={nikahHero}
               alt="Nikah Bridal"
               className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
               loading="lazy"

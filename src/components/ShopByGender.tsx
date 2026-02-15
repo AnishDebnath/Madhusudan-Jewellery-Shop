@@ -9,24 +9,37 @@ interface CategoryItem {
   link: string;
 }
 
+import ring5 from '../assets/jewellery/ring/ring (5).jpg';
+import earrings4 from '../assets/jewellery/earrings/earrings (4).jpg';
+import necklace10 from '../assets/jewellery/necklace/nacklace (10).jpg';
+import necklace11 from '../assets/jewellery/necklace/nacklace (11).jpg';
+import mens1 from '../assets/jewellery/mens/mens collection (1).jpg';
+import mens2 from '../assets/jewellery/mens/mens collection (2).jpg';
+import mens3 from '../assets/jewellery/mens/mens collection (3).jpg';
+import mens4 from '../assets/jewellery/mens/mens collection (4).jpg';
+import earrings5 from '../assets/jewellery/earrings/earrings (5).jpg';
+import bangles3 from '../assets/jewellery/bangles/bangles (3).jpg';
+import ring6 from '../assets/jewellery/ring/ring (6).jpg';
+import goldDiamond22 from '../assets/jewellery/gold&diamond-jewellery(22).jpg';
+
 const GENDER_DATA: Record<GenderTab, CategoryItem[]> = {
   Women: [
-    { label: 'Gold Ring', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-women?category=rings' },
-    { label: 'Gold Earring', image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-women?category=earrings' },
-    { label: 'Gold Pendant', image: 'https://images.unsplash.com/photo-1598560912005-59a0d5c1a412?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-women?category=pendants' },
-    { label: 'Gold Chain', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-women?category=chains' },
+    { label: 'Gold Ring', image: ring5, link: '/jewellery-for-women?category=rings' },
+    { label: 'Gold Earring', image: earrings4, link: '/jewellery-for-women?category=earrings' },
+    { label: 'Gold Pendant', image: necklace10, link: '/jewellery-for-women?category=pendants' },
+    { label: 'Gold Chain', image: necklace11, link: '/jewellery-for-women?category=chains' },
   ],
   Men: [
-    { label: 'Gold Ring', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-men?category=rings' },
-    { label: 'Gold Chain', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-men?category=chains' },
-    { label: 'Gold Kada', image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-men?category=kadas' },
-    { label: 'Gold Bracelet', image: 'https://images.unsplash.com/photo-1531995811006-35cb42e1a022?auto=format&fit=crop&q=80&w=400', link: '/jewellery-for-men?category=bracelets' },
+    { label: 'Gold Ring', image: mens1, link: '/jewellery-for-men?category=rings' },
+    { label: 'Gold Chain', image: mens2, link: '/jewellery-for-men?category=chains' },
+    { label: 'Gold Kada', image: mens3, link: '/jewellery-for-men?category=kadas' },
+    { label: 'Gold Bracelet', image: mens4, link: '/jewellery-for-men?category=bracelets' },
   ],
   Kids: [
-    { label: 'Gold Earrings', image: 'https://images.unsplash.com/photo-1512633017083-67231aba710d?auto=format&fit=crop&q=80&w=400', link: '/kids-jewellery?category=earrings' },
-    { label: 'Gold Bangles', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=400', link: '/kids-jewellery?category=bangles' },
-    { label: 'Gold Chain', image: 'https://images.unsplash.com/photo-1598560912005-59a0d5c1a412?auto=format&fit=crop&q=80&w=400', link: '/kids-jewellery?category=chains' },
-    { label: 'Nazariya', image: 'https://images.unsplash.com/photo-1584305323473-d674ede008f1?auto=format&fit=crop&q=80&w=400', link: '/kids-jewellery?category=nazariya' },
+    { label: 'Gold Earrings', image: earrings5, link: '/kids-jewellery?category=earrings' },
+    { label: 'Gold Bangles', image: bangles3, link: '/kids-jewellery?category=bangles' },
+    { label: 'Gold Chain', image: ring6, link: '/kids-jewellery?category=chains' },
+    { label: 'Nazariya', image: goldDiamond22, link: '/kids-jewellery?category=nazariya' },
   ],
 };
 

@@ -1,24 +1,28 @@
 import React from 'react';
+import ring3 from '../assets/jewellery/ring/ring (3).jpg';
+import ring4 from '../assets/jewellery/ring/ring (4).jpg';
+import necklace9 from '../assets/jewellery/necklace/nacklace (9).jpg';
+import bangles2 from '../assets/jewellery/bangles/bangles (2).jpg';
 
 const BUDGET_CATEGORIES = [
   {
     label: 'Under 10K',
-    image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&q=80&w=400',
+    image: ring3,
     link: '#'
   },
   {
     label: '10K - 25K',
-    image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=400',
+    image: ring4,
     link: '#'
   },
   {
     label: '25K - 50K',
-    image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&q=80&w=400',
+    image: necklace9,
     link: '#'
   },
   {
     label: '50K Above',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=400',
+    image: bangles2,
     link: '#'
   }
 ];

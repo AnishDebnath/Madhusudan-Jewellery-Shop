@@ -1,10 +1,13 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Clock, Sparkles, Award, ShieldCheck } from 'lucide-react';
+import model13 from '../assets/models/models (13).jpg';
 
 const About = () => (
   <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen transition-colors animate-in fade-in duration-700">
     <div className="relative h-[60vh] flex items-center justify-center bg-black overflow-hidden border-b border-gold/10">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=1920')] opacity-40 object-cover scale-105 animate-kenburns_slow"></div>
+      <div className="absolute inset-0 bg-black opacity-40 object-cover scale-105 animate-kenburns_slow">
+        <img src={model13} alt="Heritage" className="w-full h-full object-cover" />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
       <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
         <span className="text-gold text-xs tracking-[0.6em] uppercase font-black mb-6 block animate-in fade-in slide-in-from-bottom-4 duration-700 gold-glow">Our Story</span>

@@ -1,5 +1,15 @@
 
 import { Category, Product, Review } from './types';
+import necklace1 from './assets/jewellery/necklace/nacklace (1).jpg';
+import necklace2 from './assets/jewellery/necklace/nacklace (2).jpg';
+import necklace3 from './assets/jewellery/necklace/nacklace (3).jpg';
+import necklace4 from './assets/jewellery/necklace/nacklace (4).jpg';
+import necklace5 from './assets/jewellery/necklace/nacklace (5).jpg';
+import ring1 from './assets/jewellery/ring/ring (1).jpg';
+import bangles1 from './assets/jewellery/bangles/bangles (1).jpg';
+import earrings1 from './assets/jewellery/earrings/earrings (1).jpg';
+import earrings2 from './assets/jewellery/earrings/earrings (2).jpg';
+import goldDiamond22 from './assets/jewellery/gold&diamond-jewellery(22).jpg';
 
 export const PRODUCTS: Product[] = [
   {
@@ -8,15 +18,15 @@ export const PRODUCTS: Product[] = [
     category: Category.GOLD,
     subCategory: 'Necklaces',
     price: 185000,
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800',
+    image: necklace1,
     karat: '22K',
     weight: '32.5g',
     description: 'Exquisite handcrafted gold filigree work reflecting the rich heritage of Kolkata artisans.',
     isBestSeller: true,
     arSupport: true,
     additionalImages: [
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1616151475510-9993309a489f?auto=format&fit=crop&q=80&w=800'
+      necklace2,
+      necklace3
     ]
   },
   {
@@ -25,7 +35,7 @@ export const PRODUCTS: Product[] = [
     category: Category.DIAMOND,
     subCategory: 'Rings',
     price: 95000,
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800',
+    image: ring1,
     diamondCarat: '1.2ct',
     description: 'A brilliant-cut certified solitaire diamond set in 18K white gold.',
     isNewArrival: true,
@@ -37,7 +47,7 @@ export const PRODUCTS: Product[] = [
     category: Category.BRIDAL,
     subCategory: 'Necklaces & Sets',
     price: 750000,
-    image: 'https://images.unsplash.com/photo-1603561591411-0e7041f02c63?auto=format&fit=crop&q=80&w=800',
+    image: necklace2,
     karat: '22K',
     weight: '120g',
     description: 'The ultimate wedding statement. Intricate Nakshi work with ruby and emerald highlights.',
@@ -49,7 +59,7 @@ export const PRODUCTS: Product[] = [
     category: Category.GOLD,
     subCategory: 'Bangles',
     price: 240000,
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800',
+    image: bangles1,
     karat: '22K',
     weight: '45g',
     description: 'Traditional solid gold bangles with hand-carved floral motifs.',
@@ -61,7 +71,7 @@ export const PRODUCTS: Product[] = [
     category: Category.DIAMOND,
     subCategory: 'Earrings',
     price: 65000,
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800',
+    image: earrings1,
     diamondCarat: '0.8ct',
     description: 'Dancing diamonds in an elegant drop design, perfect for evening wear.',
     arSupport: true
@@ -72,7 +82,7 @@ export const PRODUCTS: Product[] = [
     category: Category.GOLD,
     subCategory: 'Investment',
     price: 74500,
-    image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&q=80&w=800',
+    image: goldDiamond22,
     karat: '24K',
     weight: '10g',
     description: 'Pure 999.9 investment grade gold coin with divine Lakshmi motif.',
@@ -84,7 +94,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CUSTOM,
     subCategory: 'Earrings',
     price: 320000,
-    image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&q=80&w=800',
+    image: earrings2,
     karat: '22K',
     description: 'Uncut diamonds (Polki) set in a traditional jadau technique with freshwater pearl drops.',
     arSupport: true
@@ -95,7 +105,7 @@ export const PRODUCTS: Product[] = [
     category: Category.DIAMOND,
     subCategory: 'Necklaces',
     price: 42000,
-    image: 'https://images.unsplash.com/photo-1598560912005-59a0d5c1a412?auto=format&fit=crop&q=80&w=400',
+    image: necklace4,
     diamondCarat: '0.3ct',
     description: 'Minimalist 18K rose gold pendant for effortless everyday elegance.',
     isNewArrival: true,
@@ -107,7 +117,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SILVER,
     subCategory: 'Articles',
     price: 12500,
-    image: 'https://images.unsplash.com/photo-1584305323473-d674ede008f1?auto=format&fit=crop&q=80&w=800',
+    image: necklace5,
     description: 'Pure 999 sterling silver platter featuring a majestic peacock design.',
   },
   {
@@ -116,7 +126,7 @@ export const PRODUCTS: Product[] = [
     category: Category.GEMSTONE,
     subCategory: 'Necklaces',
     price: 385000,
-    image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&q=80&w=800',
+    image: necklace3,
     description: 'Handpicked Zambian emeralds surrounded by brilliant-cut diamonds.',
     isNewArrival: true
   }

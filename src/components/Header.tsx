@@ -10,6 +10,12 @@ interface HeaderProps {
   toggleTheme: () => void;
 }
 
+import model1 from '../assets/models/models (1).jpg';
+import model2 from '../assets/models/models (2).jpg';
+import model3 from '../assets/models/models (3).jpg';
+import model4 from '../assets/models/models (4).jpg';
+import model14 from '../assets/models/models (14).jpg';
+
 const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isDarkMode, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
@@ -45,27 +51,27 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
     {
       name: 'Curated Sets',
       items: ['Heritage Bridal', 'Modern Minimalist', 'Office Elegance', 'Temple Classics', 'Investment Gold'],
-      featured: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=400'
+      featured: model1
     },
     {
       name: 'By Category',
       items: ['Elite Rings', 'Divine Earrings', 'Royal Necklaces', 'Heirloom Bangles', 'Artisan Bracelets', 'Mangalsutra', 'Nose Pins', 'Coins & Bars'],
-      featured: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=400'
+      featured: model2
     },
     {
       name: 'Materials',
       items: ['22K Royal Gold', '18K Fine Gold', 'Certified Diamond', 'Imperial Platinum', 'Heritage Polki', 'Antique Finish'],
-      featured: 'https://images.unsplash.com/photo-1616151475510-9993309a489f?auto=format&fit=crop&q=80&w=400'
+      featured: model3
     },
     {
       name: 'The Muse',
       items: ['Vivaah Journey', 'Temple Spirit', 'Antique Soul', 'Modern Muse', 'Aham Men', 'Little Stars'],
-      featured: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=400'
+      featured: model4
     },
     {
       name: 'Boutique',
       items: ['Virtual Viewing', 'Custom Atelier', 'Bespoke Design', 'Book Appointment', 'Store Locator'],
-      featured: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=400'
+      featured: model14
     }
   ];
 
@@ -205,7 +211,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
 
                 {activeMega === cat.name && (
                   <div className="absolute left-1/2 -translate-x-1/2 top-full w-[1000px] bg-white dark:bg-luxury-dark-card shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] border border-transparent dark:border-white/10 animate-in fade-in slide-in-from-top-4 duration-500 z-[60] p-12 overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/silk-weave.png')] opacity-[0.03] pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-transparent opacity-[0.03] pointer-events-none"></div>
                     <div className="grid grid-cols-12 gap-16 relative z-10">
                       <div className="col-span-7">
                         <div className="flex items-center gap-4 mb-10">

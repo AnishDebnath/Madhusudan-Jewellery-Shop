@@ -8,33 +8,42 @@ interface NewArrivalsProps {
   onProductClick: (p: Product) => void;
 }
 
+import reel1 from '../assets/reels/reel 1.mp4';
+import reel2 from '../assets/reels/reel 2.mp4';
+import reel3 from '../assets/reels/reel 3.mp4';
+import reel4 from '../assets/reels/reel 4.mp4';
+import model1 from '../assets/models/models (1).jpg';
+import model2 from '../assets/models/models (2).jpg';
+import model3 from '../assets/models/models (3).jpg';
+import model4 from '../assets/models/models (4).jpg';
+
 const VIDEO_HIGHLIGHTS = [
   {
     id: 1,
     title: 'Modern Diamond Charms',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-woman-wearing-shiny-jewelry-40340-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1598560912005-59a0d5c1a412?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel1,
+    poster: model1,
     tag: 'Shagun Collection'
   },
   {
     id: 2,
     title: 'The Groom\'s Power',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-with-a-gold-chain-on-his-neck-40342-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel2,
+    poster: model2,
     tag: 'Aham Collection'
   },
   {
     id: 3,
     title: 'Bridal Heritage Glow',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-glamorous-jewelry-of-a-woman-in-a-red-dress-40344-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel3,
+    poster: model3,
     tag: 'Vivaah Couture'
   },
   {
     id: 4,
     title: 'Minimalist Fine Gold',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-luxury-gold-jewels-on-a-woman-40347-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=400',
+    videoUrl: reel4,
+    poster: model4,
     tag: 'Latest Launch'
   }
 ];

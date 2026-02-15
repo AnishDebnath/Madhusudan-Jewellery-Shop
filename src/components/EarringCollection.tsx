@@ -1,4 +1,8 @@
 import React from 'react';
+import earrings7 from '../assets/jewellery/earrings/earrings (7).jpg';
+import earrings8 from '../assets/jewellery/earrings/earrings (8).jpg';
+import earrings9 from '../assets/jewellery/earrings/earrings (9).jpg';
+import earrings10 from '../assets/jewellery/earrings/earrings (10).jpg';
 
 interface EarringCardProps {
   title: string;
@@ -33,12 +37,13 @@ const EarringCard: React.FC<EarringCardProps> = ({ title, image, link }) => (
   </a>
 );
 
+
 const EarringCollection: React.FC = () => {
   const categories = [
-    { title: 'Studs Collection', image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&q=80&w=400', link: '/earrings/studs' },
-    { title: 'Jhumkas Collection', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=400', link: '/earrings/jhumkas' },
-    { title: 'Drops Collection', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400', link: '/earrings/drops' },
-    { title: 'Hoops–Balis Collection', image: 'https://images.unsplash.com/photo-1512633017083-67231aba710d?auto=format&fit=crop&q=80&w=400', link: '/earrings/hoops' },
+    { title: 'Studs Collection', image: earrings7, link: '/earrings/studs' },
+    { title: 'Jhumkas Collection', image: earrings8, link: '/earrings/jhumkas' },
+    { title: 'Drops Collection', image: earrings9, link: '/earrings/drops' },
+    { title: 'Hoops–Balis Collection', image: earrings10, link: '/earrings/hoops' },
   ];
 
   return (

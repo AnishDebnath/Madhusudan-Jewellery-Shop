@@ -67,7 +67,7 @@ const GoldExchangeSection: React.FC = () => {
       </div>
 
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/silk-weave.png')] invert"></div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-luxury-dark-primary invert"></div>
     </section>
   );
 };

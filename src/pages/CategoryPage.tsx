@@ -28,7 +28,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
   return (
     <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen pb-24 transition-colors animate-in fade-in duration-500">
       <div className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-maroon-dominant border-b border-gold/10">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/silk-weave.png')] opacity-10 animate-kenburns_slow"></div>
+        <div className="absolute inset-0 bg-maroon-dominant opacity-10 animate-kenburns_slow"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="relative z-10 text-center text-white px-6">
           <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black mb-6 block animate-in fade-in slide-in-from-bottom-4 duration-700 gold-glow">Curated Collection</span>

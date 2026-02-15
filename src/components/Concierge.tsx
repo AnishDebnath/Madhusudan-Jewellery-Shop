@@ -64,7 +64,7 @@ const Concierge: React.FC = () => {
       {isOpen && (
         <div className="fixed bottom-28 right-8 z-[150] w-[400px] max-h-[650px] bg-white dark:bg-luxury-dark-card rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] border border-transparent dark:border-white/5 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-10 zoom-in-95 duration-500">
           <div className="bg-maroon-dominant p-6 flex justify-between items-center border-b border-white/5 relative">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/silk-weave.png')] opacity-10"></div>
+            <div className="absolute inset-0 bg-maroon-dominant opacity-10"></div>
             <div className="flex items-center gap-4 relative z-10">
               <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-inner group">
                 <Sparkles className="w-6 h-6 text-gold gold-glow group-hover:rotate-12 transition-transform" />
