@@ -28,20 +28,20 @@ const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, subtitle,
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
 
-    <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
+    <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
       <div className="transition-transform duration-500">
-        <h4 className="text-white font-serif text-2xl md:text-3xl group-hover:text-gold transition-colors duration-300 leading-none mb-2">
+        <h4 className="text-white font-serif text-xl md:text-2xl group-hover:text-gold transition-colors duration-300 leading-tight mb-2">
           {title}
         </h4>
         {subtitle && (
-          <p className="text-white/60 text-[10px] uppercase tracking-[0.2em] font-medium group-hover:text-white transition-colors delay-75">
+          <p className="text-white/60 text-[9px] uppercase tracking-[0.15em] font-medium group-hover:text-white transition-colors delay-75">
             {subtitle}
           </p>
         )}
       </div>
 
-      <div className="mt-6 flex items-center gap-2 text-gold transition-all duration-500 delay-100">
-        <span className="text-[9px] font-black uppercase tracking-[0.3em]">Explore Collection</span>
+      <div className="mt-5 flex items-center gap-2 text-gold transition-all duration-500 delay-100">
+        <span className="text-[8px] font-black uppercase tracking-[0.3em]">Explore Collection</span>
         <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
       </div>
     </div>
@@ -63,17 +63,17 @@ const PerfectGift: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-20 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 space-y-3">
-          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Gifting & More</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Moments</span></h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm font-light italic max-w-lg mx-auto">
+        <div className="text-center mb-12 space-y-3">
+          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Gifting & More</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Moments</span></h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm font-light italic max-w-lg mx-auto border-t border-gold/10 pt-6">
             "Celebrate life's precious milestones with heirlooms that last forever."
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[800px] pt-4">
+        <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[700px] pt-4">
           <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
             {occasionGifts.map((gift, idx) => (
               <GiftingTile

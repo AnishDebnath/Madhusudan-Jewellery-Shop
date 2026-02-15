@@ -44,21 +44,21 @@ const Hero: React.FC = () => {
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif mb-8 leading-[1] tracking-tight animate-in fade-in slide-in-from-left-10 duration-1000 delay-200 text-balance drop-shadow-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight tracking-tight animate-in fade-in slide-in-from-left-10 duration-1000 delay-200 text-balance drop-shadow-2xl">
             Timeless Purity, <br />
-            <span className="italic font-light text-gold gold-glow block mt-2">Eternal Grace.</span>
+            <span className="italic font-light text-gold gold-glow block mt-1">Eternal Grace.</span>
           </h1>
 
-          <p className="text-lg md:text-xl opacity-90 dark:text-luxury-text-darkMuted max-w-2xl mb-14 font-light leading-relaxed animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
+          <p className="text-base md:text-lg opacity-90 dark:text-luxury-text-darkMuted max-w-2xl mb-10 font-light leading-relaxed animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
             Discover signature heritage collections and certified diamonds,
             crafted with the soul of Kolkata's legendary master artisans since 1952.
           </p>
 
-          <div className="flex flex-wrap gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
-            <button className="px-12 py-6 bg-gold hover:bg-gold-light text-maroon-dominant font-black rounded-full flex items-center gap-4 transition-all duration-500 transform hover:scale-105 uppercase tracking-[0.3em] text-[10px] md:text-[11px] group shadow-[0_20px_50px_-10px_rgba(212,175,55,0.4)]">
+          <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
+            <button className="px-8 py-4 bg-gold hover:bg-gold-light text-maroon-dominant font-black rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-[0_15px_35px_-5px_rgba(212,175,55,0.3)]">
               EXPLORE COLLECTIONS <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </button>
-            <button className="glass px-12 py-6 text-maroon-dominant dark:text-white font-bold rounded-full flex items-center gap-4 transition-all duration-500 transform hover:scale-105 hover:bg-white/20 uppercase tracking-[0.3em] text-[10px] md:text-[11px] group shadow-xl">
+            <button className="glass px-8 py-4 text-maroon-dominant dark:text-white font-bold rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 hover:bg-white/20 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-lg">
               VIRTUAL TRY-ON <Play className="w-4 h-4 fill-current transition-transform group-hover:scale-110" />
             </button>
           </div>

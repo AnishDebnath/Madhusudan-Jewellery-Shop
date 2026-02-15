@@ -44,21 +44,21 @@ const OfferCard: React.FC<OfferCardProps> = ({
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
 
-        <div className="absolute bottom-0 left-0 w-full p-8 transition-all duration-500">
-          <span className="text-gold text-[9px] font-black uppercase tracking-[0.4em] mb-3 block gold-glow opacity-90">
+        <div className="absolute bottom-0 left-0 w-full p-6 transition-all duration-500">
+          <span className="text-gold text-[8px] font-black uppercase tracking-[0.3em] mb-2 block gold-glow opacity-90">
             {offerSubtext}
           </span>
-          <h3 className="text-3xl md:text-4xl font-serif text-white leading-none mb-2 tracking-tight">
+          <h3 className="text-2xl md:text-3xl font-serif text-white leading-tight mb-1 tracking-tight">
             {offerHeadline}
           </h3>
-          <h4 className="text-lg font-light text-white/80 italic mb-6">
+          <h4 className="text-base font-light text-white/80 italic mb-5">
             {title}
           </h4>
-          <div className="flex items-center justify-between border-t border-white/20 pt-5 transition-all duration-500">
-            <span className="text-[9px] uppercase tracking-[0.25em] text-white/60 font-black">
+          <div className="flex items-center justify-between border-t border-white/10 pt-4 transition-all duration-500">
+            <span className="text-[8px] uppercase tracking-[0.2em] text-white/60 font-black">
               {supportingLine}
             </span>
-            <span className="text-[10px] font-black text-gold uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform gold-glow flex items-center gap-2">
+            <span className="text-[9px] font-black text-gold uppercase tracking-[0.15em] group-hover:translate-x-2 transition-transform gold-glow flex items-center gap-1.5">
               Discover <ArrowRight className="w-3 h-3" />
             </span>
           </div>
@@ -110,21 +110,21 @@ const OFFERS_DATA: OfferCardProps[] = [
 
 const OffersSection: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
+    <section className="py-16 md:py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
-          <div className="space-y-4">
-            <span className="text-gold text-[10px] tracking-[0.6em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
-            <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-wider leading-tight">Curated Offers</h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="space-y-3">
+            <span className="text-gold text-[9px] tracking-[0.5em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
+            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-wider leading-tight">Curated Offers</h2>
           </div>
-          <div className="flex items-center gap-4 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[10px] font-black uppercase tracking-[0.4em]">
+          <div className="flex items-center gap-4 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[9px] font-black uppercase tracking-[0.3em] mb-2">
             Available across Kolkata boutiques
-            <div className="w-16 h-[1px] bg-gold/30"></div>
+            <div className="w-12 h-[1px] bg-gold/30"></div>
           </div>
         </div>
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-14 no-scrollbar pb-8 pt-4 md:pb-0 snap-x snap-mandatory">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 no-scrollbar pb-6 pt-2 md:pb-0 snap-x snap-mandatory">
           {OFFERS_DATA.map((offer, idx) => (
-            <div key={idx} className="flex-shrink-0 w-[85vw] md:w-auto snap-center">
+            <div key={idx} className="flex-shrink-0 w-[80vw] md:w-auto snap-center">
               <OfferCard {...offer} />
             </div>
           ))}

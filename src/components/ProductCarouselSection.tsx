@@ -27,15 +27,15 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
   };
 
   return (
-    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden group/section border-t border-maroon-dominant/5 dark:border-white/5">
+    <section className="py-20 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden group/section border-t border-maroon-dominant/5 dark:border-white/5">
       <div className="container mx-auto px-6 relative">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="space-y-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+          <div className="space-y-3">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
-              <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">The Elite Selection</span>
+              <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">The Elite Selection</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
               {title}
             </h2>
           </div>
@@ -43,17 +43,17 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
           <div className="flex gap-4">
             <button
               onClick={() => scroll('left')}
-              className="p-4 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold transition-all duration-500 shadow-xl group active:scale-90"
+              className="p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"
               aria-label="Previous"
             >
-              <ChevronLeft className="w-5 h-5 text-maroon-dominant dark:text-white transition-colors" />
+              <ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white transition-colors" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-4 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold transition-all duration-500 shadow-xl group active:scale-90"
+              className="p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"
               aria-label="Next"
             >
-              <ChevronRight className="w-5 h-5 text-maroon-dominant dark:text-white transition-colors" />
+              <ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white transition-colors" />
             </button>
           </div>
         </div>

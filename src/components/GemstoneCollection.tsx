@@ -24,13 +24,13 @@ const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link }) => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
-      <div className="absolute inset-x-0 bottom-0 p-8 text-center flex flex-col items-center justify-end h-full">
+      <div className="absolute inset-x-0 bottom-0 p-6 text-center flex flex-col items-center justify-end h-full">
         <div className="flex flex-col items-center">
-          <span className="text-white font-serif text-3xl md:text-4xl tracking-wide group-hover:text-gold transition-colors duration-300 mb-2">
+          <span className="text-white font-serif text-2xl md:text-3xl tracking-wide group-hover:text-gold transition-colors duration-300 mb-2">
             {label}
           </span>
-          <div className="w-12 h-[1px] bg-gold transition-opacity duration-500 delay-100"></div>
-          <span className="text-[9px] font-bold text-white/80 uppercase tracking-widest mt-3 transition-opacity duration-500 delay-150">View Collection</span>
+          <div className="w-10 h-[1px] bg-gold transition-opacity duration-500 delay-100"></div>
+          <span className="text-[8px] font-black text-white/80 uppercase tracking-widest mt-3 transition-opacity duration-500 delay-150">View Collection</span>
         </div>
       </div>
     </div>
@@ -47,12 +47,12 @@ const GemstoneCollection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-20 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 space-y-3">
-          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Precious Stones</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-wide uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Gemstone</span> Edit</h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-lg font-light italic max-w-lg mx-auto">
+        <div className="text-center mb-12 space-y-3">
+          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Precious Stones</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-wide uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Gemstone</span> Edit</h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base font-light italic max-w-lg mx-auto border-t border-gold/10 pt-6">
             "Timeless grace captured in nature's most vibrant hues."
           </p>
         </div>

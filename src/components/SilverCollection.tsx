@@ -12,7 +12,7 @@ interface FeaturedSilverCardProps {
 }
 
 const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, description, image, link }) => (
-  <div className="relative group overflow-hidden rounded-3xl h-[500px] shadow-2xl flex flex-col justify-end border border-transparent dark:border-white/5 transition-all duration-700 hover:-translate-y-2">
+  <div className="relative group overflow-hidden rounded-3xl h-[420px] shadow-2xl flex flex-col justify-end border border-transparent dark:border-white/5 transition-all duration-700 hover:-translate-y-2">
     <img
       src={image}
       alt={title}
@@ -21,22 +21,22 @@ const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, descript
     />
     <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant via-maroon-dominant/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700" />
 
-    <div className="relative p-10 md:p-12 text-center md:text-left z-10">
-      <div className="mb-6 transition-transform duration-700">
-        <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] inline-block mb-4 shadow-lg">
+    <div className="relative p-8 md:p-10 text-center md:text-left z-10">
+      <div className="mb-5 transition-transform duration-700">
+        <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] inline-block mb-3 shadow-lg">
           999 Pure Silver
         </span>
-        <h3 className="text-4xl md:text-5xl font-serif text-white tracking-wide mb-4 leading-none">
+        <h3 className="text-3xl md:text-4xl font-serif text-white tracking-wide mb-3 leading-tight">
           {title}
         </h3>
-        <p className="text-white/80 text-sm md:text-base font-light italic leading-relaxed max-w-sm mx-auto md:mx-0 transition-opacity duration-700 delay-100 text-balance">
+        <p className="text-white/80 text-xs md:text-sm font-light italic leading-relaxed max-w-sm mx-auto md:mx-0 transition-opacity duration-700 delay-100 text-balance">
           {description}
         </p>
       </div>
 
       <a
         href={link}
-        className="inline-flex items-center gap-3 px-8 py-4 bg-white text-maroon-dominant text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-white transition-all duration-300 rounded-full group/btn hover:scale-105 active:scale-95 shadow-lg delay-200"
+        className="inline-flex items-center gap-3 px-8 py-3.5 bg-white text-maroon-dominant text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-white transition-all duration-300 rounded-full group/btn hover:scale-105 active:scale-95 shadow-lg delay-200"
       >
         SHOP NOW <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
       </a>
@@ -52,14 +52,14 @@ const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, descript
 
 const SilverCollection: React.FC = () => {
   return (
-    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 space-y-4">
-          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Heritage Silver</span>
-          <h2 className="text-5xl md:text-6xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-2 uppercase">Silver <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white font-light italic">Store</span></h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-lg font-light italic max-w-xl mx-auto">
+        <div className="text-center mb-12 space-y-3">
+          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Heritage Silver</span>
+          <h2 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-2 uppercase">Silver <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white font-light italic">Store</span></h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base font-light italic max-w-xl mx-auto border-t border-gold/10 pt-6">
             "Where tradition meets silver sophistication, crafted for prosperity."
           </p>
         </div>

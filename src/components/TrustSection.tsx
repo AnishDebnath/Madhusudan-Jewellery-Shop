@@ -19,19 +19,19 @@ interface TrustCardProps {
 }
 
 const TrustCard: React.FC<TrustCardProps> = ({ icon: Icon, title }) => (
-  <div className="group bg-white dark:bg-luxury-dark-card p-10 md:p-14 rounded-3xl flex flex-col items-center justify-center text-center transition-all duration-700 hover:-translate-y-4 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover:shadow-2xl border border-transparent dark:border-white/5 hover:border-gold/30 relative overflow-hidden h-full">
-    <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-gold/10 transition-colors"></div>
+  <div className="group bg-white dark:bg-luxury-dark-card p-6 md:p-8 rounded-3xl flex flex-col items-center justify-center text-center transition-all duration-700 hover:-translate-y-2 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.08)] hover:shadow-2xl border border-transparent dark:border-white/5 hover:border-gold/30 relative overflow-hidden h-full">
+    <div className="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-gold/10 transition-colors"></div>
 
-    <div className="mb-10 p-7 rounded-full bg-maroon-dominant/5 dark:bg-white/5 border border-maroon-dominant/5 dark:border-white/10 group-hover:border-gold/30 transition-all duration-700 relative shadow-inner group-hover:bg-gold/10">
-      <Icon className="w-10 h-10 text-maroon-dominant dark:text-gold gold-glow group-hover:scale-125 transition-transform duration-700" />
+    <div className="mb-6 p-5 rounded-full bg-maroon-dominant/5 dark:bg-white/5 border border-maroon-dominant/5 dark:border-white/10 group-hover:border-gold/30 transition-all duration-700 relative shadow-inner group-hover:bg-gold/10">
+      <Icon className="w-8 h-8 text-maroon-dominant dark:text-gold gold-glow group-hover:scale-110 transition-transform duration-700" />
       <div className="absolute inset-0 rounded-full group-hover:animate-ping bg-gold/5 pointer-events-none"></div>
     </div>
 
-    <h4 className="text-xs md:text-sm font-serif font-black text-maroon-dominant dark:text-white uppercase tracking-[0.2em] leading-relaxed text-balance group-hover:text-gold transition-colors duration-500">
+    <h4 className="text-[10px] md:text-xs font-serif font-black text-maroon-dominant dark:text-white uppercase tracking-[0.15em] leading-relaxed text-balance group-hover:text-gold transition-colors duration-500 px-4">
       {title}
     </h4>
 
-    <div className="mt-4 w-6 h-[1px] bg-gold/30 group-hover:w-12 transition-all duration-700"></div>
+    <div className="mt-4 w-4 h-[1px] bg-gold/30 group-hover:w-8 transition-all duration-700"></div>
   </div>
 );
 
@@ -50,20 +50,20 @@ const TRUST_POINTS = [
 
 const TrustSection: React.FC = () => {
   return (
-    <section className="py-32 md:py-40 bg-luxury-bg-secondary/50 dark:bg-luxury-dark-primary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-20 md:py-28 bg-luxury-bg-secondary/50 dark:bg-luxury-dark-primary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-24 space-y-6">
+        <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-4">
             <div className="h-[1px] w-8 bg-gold/30"></div>
-            <span className="text-gold text-[10px] font-black uppercase tracking-[0.5em] gold-glow">
+            <span className="text-gold text-[9px] font-black uppercase tracking-[0.4em] gold-glow">
               The Aura Promise
             </span>
             <div className="h-[1px] w-8 bg-gold/30"></div>
           </div>
-          <h2 className="text-5xl md:text-6xl font-serif text-maroon-dominant dark:text-white uppercase tracking-wider mb-6">Foundation of Trust</h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-lg md:text-xl font-light italic max-w-3xl mx-auto leading-relaxed text-balance">
+          <h2 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-wider mb-4">Foundation of Trust</h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base md:text-lg font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-gold/10 pt-6">
             "Every heritage piece is an investment in beauty, backed by unwavering purity,
             absolute transparency, and a lifetime of royal care."
           </p>

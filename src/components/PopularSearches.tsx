@@ -44,9 +44,9 @@ const PopularSearches: React.FC = () => {
   const slugify = (text: string) => text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
 
   return (
-    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 border-t border-luxury-bg-card dark:border-white/5 transition-colors">
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-12 border-t border-luxury-bg-card dark:border-white/5 transition-colors">
       <div className="container mx-auto px-6">
-        <h2 className="text-xl font-serif text-maroon-dominant dark:text-white mb-12 tracking-widest uppercase border-b border-luxury-bg-card dark:border-white/10 pb-6">
+        <h2 className="text-lg font-serif text-maroon-dominant dark:text-white mb-10 tracking-widest uppercase border-b border-luxury-bg-card dark:border-white/10 pb-5">
           Popular Searches
         </h2>
 

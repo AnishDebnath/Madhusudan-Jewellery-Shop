@@ -20,30 +20,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onARTryOn }
           onClick={() => onClick(product)}
         />
         {product.isNewArrival && (
-          <span className="absolute top-4 left-4 bg-maroon-dominant text-white text-[9px] tracking-widest px-3 py-1.5 uppercase font-black shadow-lg rounded-full animate-in fade-in slide-in-from-left-2">New</span>
-        )}
-        {product.arSupport && (
-          <span className="absolute top-4 right-4 bg-white/10 backdrop-blur-md text-maroon-dominant dark:text-gold border border-white/20 text-[9px] tracking-widest px-3 py-1.5 uppercase font-black flex items-center gap-1 shadow-lg rounded-full animate-in fade-in slide-in-from-right-2">
-            <Maximize2 className="w-3 h-3" /> AR View
-          </span>
+          <span className="inline-block absolute top-4 left-4 bg-maroon-dominant text-white text-[9px] tracking-widest px-3 py-1.5 uppercase font-black shadow-lg rounded-full animate-in fade-in slide-in-from-left-2 whitespace-nowrap">New</span>
         )}
 
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] transition-all duration-500 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center gap-4 z-10">
-          <button
-            onClick={(e) => { e.stopPropagation(); onClick(product); }}
-            className="bg-white text-maroon-dominant text-[10px] tracking-[0.2em] px-8 py-3.5 w-48 transition-all duration-500 scale-90 group-hover:scale-100 uppercase font-black hover:bg-gold hover:text-maroon-dominant shadow-xl rounded-full transform active:scale-95"
-          >
-            Quick View
-          </button>
-          {product.arSupport && (
-            <button
-              onClick={(e) => { e.stopPropagation(); onARTryOn(product); }}
-              className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[10px] tracking-[0.2em] px-8 py-3.5 w-48 transition-all duration-500 scale-90 group-hover:scale-100 delay-75 uppercase font-black hover:bg-gold hover:text-maroon-dominant flex items-center justify-center gap-2 shadow-xl border border-white/10 rounded-full transform active:scale-95"
-            >
-              <Sparkles className="w-3 h-3" /> Virtual Try-On
-            </button>
-          )}
-        </div>
+        {/* Wishlist Button - Top Right Corner */}
+        <button
+          onClick={(e) => { e.stopPropagation(); /* Add to wishlist logic here */ }}
+          className="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-luxury-dark-card/90 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 z-20"
+          aria-label="Add to wishlist"
+        >
+          <Heart className="w-4 h-4" />
+        </button>
       </div>
 
       <div className="p-6 text-center flex-1 flex flex-col justify-between" onClick={() => onClick(product)}>

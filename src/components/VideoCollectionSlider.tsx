@@ -66,13 +66,13 @@ const VideoCollectionSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-32 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 space-y-4">
-          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Cinematic Showcase</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+        <div className="text-center mb-16 space-y-3">
+          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Cinematic Showcase</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
             Jewellery In Motion
           </h2>
         </div>
@@ -129,7 +129,7 @@ const VideoCollectionSlider: React.FC = () => {
                       <h4 className="text-white text-3xl md:text-4xl font-serif mb-8 leading-none">{item.title}</h4>
 
                       <div className="flex items-center justify-between">
-                        <button className="bg-white/10 backdrop-blur-md hover:bg-gold text-white text-[10px] font-black py-4 px-8 uppercase tracking-[0.3em] transition-all rounded-full border border-white/20 hover:border-gold hover:text-maroon-dominant group/btn">
+                        <button className="bg-white/10 backdrop-blur-md hover:bg-gold text-white text-[10px] font-black py-3.5 px-7 uppercase tracking-[0.25em] transition-all rounded-full border border-white/20 hover:border-gold hover:text-maroon-dominant group/btn">
                           View details
                         </button>
 
@@ -158,12 +158,12 @@ const VideoCollectionSlider: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-3 mt-16">
+        <div className="flex justify-center gap-3 mt-12">
           {VIDEO_COLLECTIONS.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`h-1 transition-all duration-500 rounded-full ${activeIndex === idx ? 'w-12 bg-gold shadow-[0_0_10px_#D4AF37]' : 'w-2 bg-gold/20 hover:bg-gold/50'}`}
+              className={`h-1 transition-all duration-500 rounded-full ${activeIndex === idx ? 'w-10 bg-gold shadow-[0_0_10px_#D4AF37]' : 'w-2 bg-gold/20 hover:bg-gold/50'}`}
             />
           ))}
         </div>

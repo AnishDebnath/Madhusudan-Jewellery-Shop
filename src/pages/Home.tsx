@@ -34,27 +34,27 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn }) => {
             <OffersSection />
             <FeaturedSlider />
             <NewArrivals onProductClick={onProductClick} />
-            <section className="py-24 md:py-40 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
+            <section className="py-20 md:py-28 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
                 {/* Background Decor */}
                 <div className="absolute top-20 left-10 w-64 h-64 bg-maroon-dominant/5 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
-                        <div className="space-y-6">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+                        <div className="space-y-3">
                             <div className="flex items-center gap-4">
-                                <span className="text-gold text-[11px] tracking-[0.5em] uppercase font-black block gold-glow">Our Masterpieces</span>
+                                <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Our Masterpieces</span>
                                 <div className="h-[1px] w-12 bg-gold/30"></div>
                             </div>
-                            <h2 className="text-6xl md:text-8xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-[0.9]">
-                                Signature <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">Collections</span>
+                            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
+                                Signature <span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">Collections</span>
                             </h2>
                         </div>
-                        <div className="flex items-center gap-6 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[10px] font-black uppercase tracking-[0.4em] mb-4">
+                        <div className="flex items-center gap-6 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[9px] font-black uppercase tracking-[0.3em] mb-2">
                             Handcrafted in Bengal
-                            <div className="w-24 h-[1px] bg-gold/30"></div>
+                            <div className="w-12 h-[1px] bg-gold/30"></div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
                         {PRODUCTS.slice(0, 8).map((product) => (
                             <ProductCard
                                 key={product.id}

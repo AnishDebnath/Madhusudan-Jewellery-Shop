@@ -55,19 +55,19 @@ const CustomerReviews: React.FC = () => {
   const doubledReviews = [...REVIEWS, ...REVIEWS, ...REVIEWS]; // Triple for smoother non-loop break
 
   return (
-    <section className="py-32 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden relative border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden relative border-t border-luxury-bg-card dark:border-white/5">
       {/* Decorative luxury elements */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #D4AF37 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[150px] -mr-96 -mt-96 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-maroon-dominant/5 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-16 space-y-4 text-center lg:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="mb-12 space-y-3 text-center lg:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="flex items-center justify-center lg:justify-start gap-4">
             <div className="h-[1px] w-12 bg-gold/30"></div>
-            <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">The Voice of Heritage</span>
+            <span className="text-gold text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">The Voice of Heritage</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
             Stories <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold italic font-light tracking-tight">of Trust</span>
           </h2>
         </div>
@@ -75,39 +75,39 @@ const CustomerReviews: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           {/* Left Column: Fixed Rating Card */}
           <div className="lg:col-span-4 sticky top-32">
-            <div className="bg-white dark:bg-luxury-dark-card/40 backdrop-blur-xl p-10 md:p-12 rounded-[32px] text-center lg:text-left flex flex-col items-center lg:items-start justify-center shadow-xl border border-white/20 dark:border-white/5 hover:border-gold/30 transition-all duration-700 group relative overflow-hidden">
+            <div className="bg-white dark:bg-luxury-dark-card/40 backdrop-blur-xl p-8 md:p-10 rounded-[32px] text-center lg:text-left flex flex-col items-center lg:items-start justify-center shadow-xl border border-white/20 dark:border-white/5 hover:border-gold/30 transition-all duration-700 group relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-maroon-dominant/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
               <div className="relative z-10">
-                <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mb-8 ring-1 ring-gold/30 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-700 shadow-xl">
-                  <Star className="w-10 h-10 text-gold fill-gold gold-glow" />
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6 ring-1 ring-gold/30 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-700 shadow-xl">
+                  <Star className="w-8 h-8 text-gold fill-gold gold-glow" />
                 </div>
 
                 <div className="flex items-baseline gap-2 mb-2">
-                  <h3 className="text-5xl md:text-6xl font-serif text-maroon-dominant dark:text-white font-medium">4.9</h3>
-                  <span className="text-gold text-xl font-serif italic text-white/40">/ 5.0</span>
+                  <h3 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white font-medium">4.9</h3>
+                  <span className="text-gold text-lg font-serif italic text-white/40">/ 5.0</span>
                 </div>
 
-                <div className="flex gap-1 mb-8">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-gold fill-gold shadow-sm" />)}
+                <div className="flex gap-1 mb-6">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-gold fill-gold shadow-sm" />)}
                 </div>
 
-                <p className="text-maroon-dominant/60 dark:text-luxury-text-darkMuted text-base italic leading-relaxed font-light mb-10">
+                <p className="text-maroon-dominant/60 dark:text-luxury-text-darkMuted text-sm italic leading-relaxed font-light mb-8">
                   "Unmatched brilliance as shared by our 1,500+ verified patrons across the city."
                 </p>
 
-                <div className="pt-8 border-t border-maroon-dominant/5 dark:border-white/5 w-full space-y-6">
+                <div className="pt-6 border-t border-maroon-dominant/5 dark:border-white/5 w-full space-y-4">
                   <div className="flex items-center gap-4">
                     <div className="flex -space-x-3">
                       {[1, 2, 3, 4, 5].map(i => (
-                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-luxury-dark-card bg-luxury-bg-secondary overflow-hidden shadow-lg transform hover:-translate-y-1 transition-transform cursor-pointer relative z-[10-i]">
+                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white dark:border-luxury-dark-card bg-luxury-bg-secondary overflow-hidden shadow-lg transform hover:-translate-y-1 transition-transform cursor-pointer relative z-[10-i]">
                           <div className={`w-full h-full bg-gradient-to-br ${i % 2 === 0 ? 'from-gold/40 to-maroon-dominant/20' : 'from-maroon-dominant/30 to-gold/10'}`}></div>
                         </div>
                       ))}
                     </div>
                     <div className="space-y-0">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-maroon-dominant dark:text-gold block">Loyal Family</span>
-                      <span className="text-[9px] text-maroon-dominant/30 dark:text-white/20 uppercase font-bold tracking-widest">1.5K+ Stories</span>
+                      <span className="text-[9px] font-black uppercase tracking-widest text-maroon-dominant dark:text-gold block">Loyal Family</span>
+                      <span className="text-[8px] text-maroon-dominant/30 dark:text-white/20 uppercase font-bold tracking-widest">1.5K+ Stories</span>
                     </div>
                   </div>
                 </div>

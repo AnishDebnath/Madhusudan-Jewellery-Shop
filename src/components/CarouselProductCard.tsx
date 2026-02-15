@@ -37,35 +37,31 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
         />
 
         <div className="absolute top-3 left-3 flex flex-col gap-2 pointer-events-none z-10">
-          {showBestseller && (
-            <span className="bg-red-600 text-white text-[8px] font-black tracking-[0.2em] px-3 py-1.5 uppercase rounded-full shadow-lg animate-in fade-in slide-in-from-left-2 transition-all">
+          {/* {showBestseller && (
+            <span className="inline-block bg-red-600 text-white text-[8px] font-black tracking-[0.2em] px-3 py-1.5 uppercase rounded-full shadow-lg animate-in fade-in slide-in-from-left-2 transition-all whitespace-nowrap">
               Bestseller
             </span>
-          )}
-          {showNewArrival && (
-            <span className="bg-maroon-dominant text-white text-[8px] font-black tracking-[0.2em] px-3 py-1.5 uppercase rounded-full shadow-lg animate-in fade-in slide-in-from-left-2 transition-all">
+          )} */}
+          {/* {showNewArrival && (
+            <span className="inline-block bg-maroon-dominant text-white text-[8px] font-black tracking-[0.2em] px-3 py-1.5 uppercase rounded-full shadow-lg animate-in fade-in slide-in-from-left-2 transition-all whitespace-nowrap">
               New
             </span>
-          )}
+          )} */}
           {offer && (
-            <span className="bg-white dark:bg-maroon-dominant/90 text-maroon-dominant dark:text-gold border border-gold/20 text-[8px] font-black px-3 py-1.5 uppercase tracking-widest rounded-full shadow-lg backdrop-blur-md">
+            <span className="inline-flex bg-white dark:bg-maroon-dominant/90 text-maroon-dominant dark:text-gold border border-gold/20 text-[8px] font-black px-3 py-1.5 uppercase tracking-widest rounded-full shadow-lg backdrop-blur-md whitespace-nowrap">
               {offer}
             </span>
           )}
         </div>
 
-        <button className="absolute top-3 right-3 p-2.5 bg-white/10 backdrop-blur-md rounded-full text-white/50 hover:text-red-500 hover:bg-white hover:scale-110 transition-all shadow-lg border border-white/20 z-10">
+        {/* Wishlist Button - Top Right Corner */}
+        <button
+          onClick={(e) => { e.stopPropagation(); /* Add to wishlist logic here */ }}
+          className="absolute top-3 right-3 w-10 h-10 bg-white/90 dark:bg-luxury-dark-card/90 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 z-20"
+          aria-label="Add to wishlist"
+        >
           <Heart className="w-4 h-4" />
         </button>
-
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center scale-95 group-hover:scale-100 z-20">
-          <button
-            onClick={() => onClick(product)}
-            className="bg-white text-maroon-dominant text-[10px] font-black tracking-[0.2em] px-8 py-4 rounded-full hover:bg-gold hover:text-maroon-dominant transition-all shadow-2xl active:scale-95"
-          >
-            Quick View
-          </button>
-        </div>
       </div>
 
       <div className="px-2 flex-1 flex flex-col justify-between" onClick={() => onClick(product)}>

@@ -47,18 +47,18 @@ const ShopByGender: React.FC = () => {
   const [activeTab, setActiveTab] = useState<GenderTab>('Women');
 
   return (
-    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow mb-4">Collections For Everyone</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-wide mb-10 uppercase">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Gender</span></h2>
+        <div className="text-center mb-12">
+          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow mb-4">Collections For Everyone</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-wide mb-8 uppercase">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Gender</span></h2>
 
-          <div className="flex justify-center items-center gap-6 md:gap-12 mb-12 overflow-x-auto no-scrollbar pb-2">
+          <div className="flex justify-center items-center gap-4 md:gap-8 mb-8 overflow-x-auto no-scrollbar pb-2">
             {(['Women', 'Men', 'Kids'] as GenderTab[]).map((gender) => (
               <button
                 key={gender}
                 onClick={() => setActiveTab(gender)}
-                className={`relative py-3 px-8 text-xs font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full border ${activeTab === gender
+                className={`relative py-2.5 px-6 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full border ${activeTab === gender
                   ? 'bg-maroon-dominant text-gold border-gold/50 shadow-[0_5px_15px_rgba(212,175,55,0.2)]'
                   : 'bg-transparent text-luxury-text-light/40 dark:text-white/40 border-transparent hover:border-gold/20 hover:text-maroon-dominant dark:hover:text-white'
                   }`}
@@ -76,7 +76,7 @@ const ShopByGender: React.FC = () => {
               href={item.link}
               className="group flex flex-col items-center"
             >
-              <div className="relative aspect-square w-full overflow-hidden mb-6 rounded-3xl shadow-lg bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group-hover:border-gold/30 transition-all duration-500">
+              <div className="relative aspect-square w-full overflow-hidden mb-5 rounded-2xl shadow-lg bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group-hover:border-gold/30 transition-all duration-500">
                 <img
                   src={item.image}
                   alt={`${item.label} for ${activeTab}`}
@@ -90,7 +90,7 @@ const ShopByGender: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <span className="text-xs md:text-sm font-black text-maroon-dominant dark:text-white tracking-[0.2em] uppercase group-hover:text-gold transition-colors text-center">
+              <span className="text-[11px] md:text-xs font-black text-maroon-dominant dark:text-white tracking-[0.15em] uppercase group-hover:text-gold transition-colors text-center">
                 {item.label}
               </span>
             </a>

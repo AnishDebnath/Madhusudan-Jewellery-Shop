@@ -28,12 +28,12 @@ const NIKAH_PRODUCTS = [
 
 const NikahCollection: React.FC = () => {
   return (
-    <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-32 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
+    <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-24 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-maroon-dominant/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl group border border-transparent dark:border-white/5 shadow-2xl">
             <img
               src={nikahHero}
@@ -50,13 +50,13 @@ const NikahCollection: React.FC = () => {
           </div>
 
           <div className="flex flex-col h-full justify-center">
-            <div className="mb-16">
-              <div className="flex items-center gap-4 mb-6">
+            <div className="mb-12">
+              <div className="flex items-center gap-4 mb-5">
                 <div className="h-[1px] w-12 bg-gold/30"></div>
-                <span className="text-gold dark:text-gold text-[10px] tracking-[0.5em] uppercase font-black block gold-glow">Elegance Redefined</span>
+                <span className="text-gold dark:text-gold text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">Elegance Redefined</span>
               </div>
-              <h2 className="text-6xl font-serif text-maroon-dominant dark:text-white mb-8 uppercase tracking-tight leading-none">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">COLLECTION</span></h2>
-              <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-xl leading-relaxed max-w-lg font-light italic text-balance border-l-2 border-gold/20 pl-6">
+              <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-none">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">COLLECTION</span></h2>
+              <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-lg leading-relaxed max-w-lg font-light italic text-balance border-l-2 border-gold/20 pl-6">
                 "Graceful jewellery for a sacred union, designed for timeless Nikah ceremonies and Walima elegance."
               </p>
             </div>
@@ -78,8 +78,8 @@ const NikahCollection: React.FC = () => {
               ))}
             </div>
 
-            <div className="mt-16 flex flex-col sm:flex-row gap-6">
-              <button className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black tracking-[0.3em] uppercase transition-all duration-500 hover:bg-gold hover:text-maroon-dominant hover:scale-105 active:scale-95 shadow-xl hover:shadow-gold/20 rounded-full border border-white/10">
+            <div className="mt-12 flex flex-col sm:flex-row items-center gap-6">
+              <button className="group relative px-8 py-3.5 bg-maroon-dominant text-white text-[10px] font-black tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gold hover:text-maroon-dominant hover:scale-105 active:scale-95 shadow-xl rounded-full border border-white/10">
                 <span className="relative z-10 flex items-center gap-3">
                   EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
