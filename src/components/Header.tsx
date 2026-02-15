@@ -49,29 +49,34 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
 
   const navCategories = [
     {
-      name: 'Curated Sets',
-      items: ['Heritage Bridal', 'Modern Minimalist', 'Office Elegance', 'Temple Classics', 'Investment Gold'],
+      name: 'Gold',
+      items: ['Necklaces', 'Bangles', 'Earrings', 'Rings', 'Chains', 'Investment Gold'],
       featured: model1
     },
     {
-      name: 'By Category',
-      items: ['Elite Rings', 'Divine Earrings', 'Royal Necklaces', 'Heirloom Bangles', 'Artisan Bracelets', 'Mangalsutra', 'Nose Pins', 'Coins & Bars'],
+      name: 'Diamond',
+      items: ['Elite Rings', 'Divine Earrings', 'Royal Necklaces', 'Heirloom Bangles', 'Pendants', 'Solitaires'],
       featured: model2
     },
     {
-      name: 'Materials',
-      items: ['22K Royal Gold', '18K Fine Gold', 'Certified Diamond', 'Imperial Platinum', 'Heritage Polki', 'Antique Finish'],
+      name: 'Bridal',
+      items: ['Heritage Sets', 'Polki Collection', 'Necklaces & Sets', 'Bridal Kadas', 'Wedding Special'],
       featured: model3
     },
     {
-      name: 'The Muse',
-      items: ['Vivaah Journey', 'Temple Spirit', 'Antique Soul', 'Modern Muse', 'Aham Men', 'Little Stars'],
+      name: 'Silver',
+      items: ['Investment Coins', 'Pure 999 Bars', 'Silver Articles', 'Silver Utensils', 'Modern Silver'],
       featured: model4
     },
     {
-      name: 'Boutique',
-      items: ['Virtual Viewing', 'Custom Atelier', 'Bespoke Design', 'Book Appointment', 'Store Locator'],
+      name: 'Gemstone',
+      items: ['Emerald Pieces', 'Ruby Highlights', 'Sapphire Classics', 'Navratna Heritage', 'Natural Pearls'],
       featured: model14
+    },
+    {
+      name: 'Bespoke',
+      items: ['Custom Atelier', 'Virtual Viewing', 'Book Appointment', 'Aham Men', 'Little Stars', 'Store Locator'],
+      featured: model1
     }
   ];
 
