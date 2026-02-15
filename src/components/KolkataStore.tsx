@@ -1,11 +1,21 @@
-import React from 'react';
-import { MapPin, Clock, Phone, Calendar } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { MapPin, Clock, Phone, Calendar, ArrowRight } from 'lucide-react';
 import model11 from '../assets/models/models (11).jpg';
 import model12 from '../assets/models/models (12).jpg';
+import heroPoster from '../assets/models/models (2).jpg';
 
 import heritageVideo from '../assets/Hero Banner.webm';
 
 const KolkataStore: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Kolkata store video playback failed:", error);
+      });
+    }
+  }, []);
   return (
     <section className="bg-maroon-dominant py-24 text-white overflow-hidden relative border-y border-white/5">
       {/* Background Decor */}
@@ -69,11 +79,13 @@ const KolkataStore: React.FC = () => {
             <div className="absolute -inset-4 bg-gold/10 rounded-3xl group-hover:scale-105 transition-transform duration-700 border border-gold/20 blur-sm"></div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3]">
               <video
+                ref={videoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
+                poster={heroPoster}
                 className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
               >
                 <source src={heritageVideo} type="video/webm" />

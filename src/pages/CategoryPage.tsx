@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Filter, ChevronDown, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { PRODUCTS } from '../constants';
 import { Category, Product } from '../types';
 import ProductCard from '../components/ProductCard';
 import heritageVideo from '../assets/Hero Banner.webm';
+import heroPoster from '../assets/models/models (2).jpg';
 
 interface CategoryPageProps {
   category?: Category | string;
@@ -14,6 +15,15 @@ interface CategoryPageProps {
 
 const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onToggleWishlist, wishlist }) => {
   const [sortBy, setSortBy] = useState('featured');
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Video playback failed:", error);
+      });
+    }
+  }, []);
 
   const filteredProducts = useMemo(() => {
     let result = PRODUCTS;
@@ -33,11 +43,13 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
       <section className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden bg-maroon-dominant">
         {/* Cinematic Video Background */}
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
+          poster={heroPoster}
           className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60"
         >
           <source src={heritageVideo} type="video/webm" />

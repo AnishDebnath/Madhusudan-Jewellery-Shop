@@ -1,22 +1,35 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import heritageVideo from '../assets/Hero Banner.webm';
+import heroPoster from '../assets/models/models (2).jpg';
 
 interface HeroProps {
   onNavigate: (view: string, data?: any) => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Video autoplay blocked or failed:", error);
+      });
+    }
+  }, []);
+
   return (
     <section className="relative h-[85vh] w-full overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary">
       {/* Cinematic Video/Image Background */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        poster={heroPoster}
         className="absolute inset-0 w-full h-full object-cover scale-105"
       >
         <source
@@ -66,12 +79,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             >
               EXPLORE COLLECTIONS <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </button>
-            {/* <button
-              onClick={() => onNavigate('category', 'Diamond')}
-              className="glass px-8 py-4 text-maroon-dominant dark:text-white font-bold rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 hover:bg-white/20 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-lg"
-            >
-              VIRTUAL TRY-ON <Play className="w-4 h-4 fill-current transition-transform group-hover:scale-110" />
-            </button> */}
           </div>
         </div>
       </div>
