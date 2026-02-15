@@ -9,9 +9,11 @@ interface CategoryPageProps {
   category?: Category | string;
   onProductClick: (p: Product) => void;
   onARTryOn: (p: Product) => void;
+  onToggleWishlist: (id: string) => void;
+  wishlist: string[];
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onARTryOn }) => {
+const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onARTryOn, onToggleWishlist, wishlist }) => {
   const [sortBy, setSortBy] = useState('featured');
 
   const filteredProducts = useMemo(() => {
@@ -72,7 +74,10 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/95 dark:bg-luxury-dark-card/95 p-3.5 md:p-4 rounded-full shadow-xl border border-gold/10 dark:border-white/5 backdrop-blur-xl">
             <div className="flex items-center gap-6 md:gap-8">
-              <button className="flex items-center gap-2.5 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.2em] hover:text-gold transition-all group px-4 py-2 hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full">
+              <button
+                onClick={() => window.scrollTo({ top: window.innerHeight * 0.4, behavior: 'smooth' })}
+                className="flex items-center gap-2.5 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.2em] hover:text-gold transition-all group px-4 py-2 hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full"
+              >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
                 Refine Search
                 <ChevronDown className="w-3 h-3 text-gold/50 group-hover:rotate-180 transition-transform" />
@@ -121,6 +126,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
                 product={product}
                 onClick={onProductClick}
                 onARTryOn={onARTryOn}
+                onToggleWishlist={onToggleWishlist}
+                isWishlisted={wishlist.includes(product.id)}
               />
             </div>
           ))}

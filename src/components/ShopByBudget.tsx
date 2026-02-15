@@ -27,7 +27,11 @@ const BUDGET_CATEGORIES = [
   }
 ];
 
-const ShopByBudget: React.FC = () => {
+interface ShopByBudgetProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const ShopByBudget: React.FC<ShopByBudgetProps> = ({ onNavigate }) => {
   return (
     <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="container mx-auto px-6">
@@ -38,10 +42,10 @@ const ShopByBudget: React.FC = () => {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {BUDGET_CATEGORIES.map((item, index) => (
-            <a
+            <div
               key={index}
-              href={item.link}
-              className="group flex flex-col items-center"
+              onClick={() => onNavigate('category', 'All')}
+              className="group flex flex-col items-center cursor-pointer"
             >
               <div className="relative aspect-square w-full overflow-hidden mb-5 bg-white dark:bg-luxury-dark-card rounded-[2rem] shadow-lg border border-transparent dark:border-white/5 group-hover:border-gold/30 transition-all duration-500">
                 <img
@@ -62,7 +66,7 @@ const ShopByBudget: React.FC = () => {
                 {item.label}
               </span>
               <div className="w-8 h-[1px] bg-gold/50 mt-2.5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            </a>
+            </div>
           ))}
         </div>
       </div>

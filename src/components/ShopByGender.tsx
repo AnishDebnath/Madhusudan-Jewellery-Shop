@@ -43,7 +43,11 @@ const GENDER_DATA: Record<GenderTab, CategoryItem[]> = {
   ],
 };
 
-const ShopByGender: React.FC = () => {
+interface ShopByGenderProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const ShopByGender: React.FC<ShopByGenderProps> = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState<GenderTab>('Women');
 
   return (
@@ -71,10 +75,10 @@ const ShopByGender: React.FC = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 animate-in fade-in duration-500">
           {GENDER_DATA[activeTab].map((item, idx) => (
-            <a
+            <div
               key={`${activeTab}-${idx}`}
-              href={item.link}
-              className="group flex flex-col items-center"
+              onClick={() => onNavigate('category', 'All')}
+              className="group flex flex-col items-center cursor-pointer"
             >
               <div className="relative aspect-square w-full overflow-hidden mb-5 rounded-2xl shadow-lg bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group-hover:border-gold/30 transition-all duration-500">
                 <img
@@ -93,7 +97,7 @@ const ShopByGender: React.FC = () => {
               <span className="text-[11px] md:text-xs font-black text-maroon-dominant dark:text-white tracking-[0.15em] uppercase group-hover:text-gold transition-colors text-center">
                 {item.label}
               </span>
-            </a>
+            </div>
           ))}
         </div>
       </div>

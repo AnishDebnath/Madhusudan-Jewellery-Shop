@@ -11,14 +11,15 @@ interface GiftingCardProps {
   title: string;
   image: string;
   link: string;
+  onNavigate: (view: string, data?: any) => void;
   subtitle?: string;
   isTall?: boolean;
 }
 
-const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, subtitle, isTall }) => (
-  <a
-    href={link}
-    className={`group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-700 bg-gray-100 dark:bg-luxury-dark-secondary border border-transparent dark:border-white/5 ${isTall ? 'h-full' : 'aspect-square md:aspect-auto md:h-full'}`}
+const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, onNavigate, subtitle, isTall }) => (
+  <div
+    onClick={() => onNavigate('category', 'All')}
+    className={`group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-700 bg-gray-100 dark:bg-luxury-dark-secondary border border-transparent dark:border-white/5 cursor-pointer ${isTall ? 'h-full' : 'aspect-square md:aspect-auto md:h-full'}`}
   >
     <img
       src={image}
@@ -45,11 +46,15 @@ const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, subtitle,
         <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
       </div>
     </div>
-  </a>
+  </div>
 );
 
 
-const PerfectGift: React.FC = () => {
+interface PerfectGiftProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const PerfectGift: React.FC<PerfectGiftProps> = ({ onNavigate }) => {
   const occasionGifts = [
     { title: 'Birthday', image: earrings10, link: '/gifts/birthday' },
     { title: 'Anniversary', image: necklace19, link: '/gifts/anniversary' },
@@ -81,6 +86,7 @@ const PerfectGift: React.FC = () => {
                 title={gift.title}
                 image={gift.image}
                 link={gift.link}
+                onNavigate={onNavigate}
               />
             ))}
           </div>
@@ -93,6 +99,7 @@ const PerfectGift: React.FC = () => {
                 subtitle={gift.subtitle}
                 image={gift.image}
                 link={gift.link}
+                onNavigate={onNavigate}
                 isTall={true}
               />
             ))}

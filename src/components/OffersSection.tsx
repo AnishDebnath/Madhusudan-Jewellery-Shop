@@ -14,6 +14,7 @@ interface OfferCardProps {
   image: string;
   badge: string;
   link: string;
+  onNavigate?: (view: string, data?: any) => void;
 }
 
 const OfferCard: React.FC<OfferCardProps> = ({
@@ -23,12 +24,13 @@ const OfferCard: React.FC<OfferCardProps> = ({
   supportingLine,
   image,
   badge,
-  link
+  link,
+  onNavigate
 }) => {
   return (
-    <a
-      href={link}
-      className="group relative flex flex-col overflow-hidden rounded-3xl shadow-xl bg-white dark:bg-luxury-dark-card transition-all duration-700 hover:-translate-y-2 border border-transparent dark:border-white/5 hover:border-gold/30 hover:shadow-2xl"
+    <div
+      onClick={() => onNavigate?.('category', title.split(' ')[0])}
+      className="group relative flex flex-col overflow-hidden rounded-3xl shadow-xl bg-white dark:bg-luxury-dark-card transition-all duration-700 hover:-translate-y-2 border border-transparent dark:border-white/5 hover:border-gold/30 hover:shadow-2xl cursor-pointer"
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-luxury-bg-card dark:bg-luxury-dark-secondary">
         <img
@@ -64,7 +66,7 @@ const OfferCard: React.FC<OfferCardProps> = ({
           </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
@@ -108,7 +110,11 @@ const OFFERS_DATA: OfferCardProps[] = [
   }
 ];
 
-const OffersSection: React.FC = () => {
+interface OffersSectionProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const OffersSection: React.FC<OffersSectionProps> = ({ onNavigate }) => {
   return (
     <section className="py-16 md:py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
       <div className="container mx-auto px-6">
@@ -125,7 +131,7 @@ const OffersSection: React.FC = () => {
         <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 no-scrollbar pb-6 pt-2 md:pb-0 snap-x snap-mandatory">
           {OFFERS_DATA.map((offer, idx) => (
             <div key={idx} className="flex-shrink-0 w-[80vw] md:w-auto snap-center">
-              <OfferCard {...offer} />
+              <OfferCard {...offer} onNavigate={onNavigate} />
             </div>
           ))}
         </div>

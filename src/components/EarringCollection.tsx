@@ -8,12 +8,13 @@ interface EarringCardProps {
   title: string;
   image: string;
   link: string;
+  onNavigate: (view: string, data?: any) => void;
 }
 
-const EarringCard: React.FC<EarringCardProps> = ({ title, image, link }) => (
-  <a
-    href={link}
-    className="group relative block bg-white dark:bg-luxury-dark-card rounded-3xl overflow-hidden border border-transparent dark:border-white/5 transition-all duration-700 hover:shadow-2xl hover:-translate-y-2"
+const EarringCard: React.FC<EarringCardProps> = ({ title, image, link, onNavigate }) => (
+  <div
+    onClick={() => onNavigate('category', 'Earrings')}
+    className="group relative block bg-white dark:bg-luxury-dark-card rounded-3xl overflow-hidden border border-transparent dark:border-white/5 transition-all duration-700 hover:shadow-2xl hover:-translate-y-2 cursor-pointer"
   >
     <div className="aspect-square overflow-hidden relative">
       <img
@@ -34,11 +35,15 @@ const EarringCard: React.FC<EarringCardProps> = ({ title, image, link }) => (
         </div>
       </div>
     </div>
-  </a>
+  </div>
 );
 
 
-const EarringCollection: React.FC = () => {
+interface EarringCollectionProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const EarringCollection: React.FC<EarringCollectionProps> = ({ onNavigate }) => {
   const categories = [
     { title: 'Studs Collection', image: earrings7, link: '/earrings/studs' },
     { title: 'Jhumkas Collection', image: earrings8, link: '/earrings/jhumkas' },
@@ -57,7 +62,7 @@ const EarringCollection: React.FC = () => {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pt-4">
           {categories.map((cat, idx) => (
-            <EarringCard key={idx} {...cat} />
+            <EarringCard key={idx} {...cat} onNavigate={onNavigate} />
           ))}
         </div>
       </div>

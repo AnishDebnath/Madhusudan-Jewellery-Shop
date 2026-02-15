@@ -5,6 +5,8 @@ import { Product } from '../types';
 interface CarouselProductCardProps {
   product: Product;
   onClick: (p: Product) => void;
+  onToggleWishlist: (id: string) => void;
+  isWishlisted: boolean;
   showBestseller?: boolean;
   showNewArrival?: boolean;
 }
@@ -12,6 +14,8 @@ interface CarouselProductCardProps {
 const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
   product,
   onClick,
+  onToggleWishlist,
+  isWishlisted,
   showBestseller,
   showNewArrival
 }) => {
@@ -56,11 +60,11 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
 
         {/* Wishlist Button - Top Right Corner */}
         <button
-          onClick={(e) => { e.stopPropagation(); /* Add to wishlist logic here */ }}
-          className="absolute top-3 right-3 w-10 h-10 bg-white/90 dark:bg-luxury-dark-card/90 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 z-20"
-          aria-label="Add to wishlist"
+          onClick={(e) => { e.stopPropagation(); onToggleWishlist(product.id); }}
+          className={`absolute top-3 right-3 w-10 h-10 backdrop-blur-md border rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 z-20 ${isWishlisted ? 'bg-gold text-white border-gold' : 'bg-white/90 dark:bg-luxury-dark-card/90 text-maroon-dominant dark:text-white border-white/20 dark:border-white/10 hover:bg-gold/20'}`}
+          aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
         >
-          <Heart className="w-4 h-4" />
+          <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
         </button>
       </div>
 

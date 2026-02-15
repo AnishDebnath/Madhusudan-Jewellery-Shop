@@ -1,10 +1,17 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { PRODUCTS } from '../constants';
+import { Product } from '../types';
 import { ChevronLeft, ChevronRight, ArrowRight, Star, Sparkles, Heart } from 'lucide-react';
 
 
-const FeaturedSlider: React.FC = () => {
+interface FeaturedSliderProps {
+  onProductClick: (p: Product) => void;
+  onToggleWishlist: (id: string) => void;
+  wishlist: string[];
+}
+
+const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggleWishlist, wishlist }) => {
   const featured = PRODUCTS.filter(p => p.isBestSeller || p.isNewArrival).slice(0, 6);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewState, setViewState] = useState({ isMobile: false, isTablet: false });
@@ -92,11 +99,11 @@ const FeaturedSlider: React.FC = () => {
                     />
                     {/* Wishlist Button - Top Right Corner of Image */}
                     <button
-                      onClick={(e) => { e.stopPropagation(); /* Add to wishlist logic here */ }}
-                      className="absolute top-4 right-4 z-30 w-10 h-10 bg-white/90 dark:bg-luxury-dark-card/90 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all duration-300 shadow-lg hover:scale-110 active:scale-95"
-                      aria-label="Add to wishlist"
+                      onClick={(e) => { e.stopPropagation(); onToggleWishlist(product.id); }}
+                      className={`absolute top-4 right-4 z-30 w-10 h-10 backdrop-blur-md border rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 ${wishlist.includes(product.id) ? 'bg-gold text-white border-gold' : 'bg-white/90 dark:bg-luxury-dark-card/90 text-maroon-dominant dark:text-white border-white/20 dark:border-white/10 hover:bg-gold/20'}`}
+                      aria-label={wishlist.includes(product.id) ? "Remove from wishlist" : "Add to wishlist"}
                     >
-                      <Heart className="w-4 h-4" />
+                      <Heart className={`w-4 h-4 ${wishlist.includes(product.id) ? 'fill-current' : ''}`} />
                     </button>
 
                     {product.isNewArrival && (
@@ -125,7 +132,10 @@ const FeaturedSlider: React.FC = () => {
                       </p>
                     </div>
 
-                    <button className="relative w-full py-3.5 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent">
+                    <button
+                      onClick={() => onProductClick(product)}
+                      className="relative w-full py-3.5 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
+                    >
                       <span className="relative z-10 flex items-center justify-center gap-2">
                         EXPLORE THE CRAFT <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
                       </span>

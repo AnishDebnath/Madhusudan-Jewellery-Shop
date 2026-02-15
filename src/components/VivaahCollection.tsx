@@ -33,7 +33,12 @@ const VIVAAH_PRODUCTS = [
   }
 ];
 
-const VivaahCollection: React.FC = () => {
+interface VivaahCollectionProps {
+  onNavigate: (view: string, data?: any) => void;
+  onProductClick: (p: any) => void;
+}
+
+const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProductClick }) => {
   return (
     <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-24 overflow-hidden border-t border-gold/10 transition-colors relative">
       <div className="container mx-auto px-6">
@@ -76,10 +81,16 @@ const VivaahCollection: React.FC = () => {
 
                 {/* Quick Actions Hover Overlay */}
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center gap-3 z-10">
-                  <button className="bg-white text-maroon-dominant text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold transition-all duration-300 transform active:scale-95 shadow-xl rounded-full translate-y-4 group-hover:translate-y-0">
+                  <button
+                    onClick={() => onNavigate('category', 'Diamond')}
+                    className="bg-white text-maroon-dominant text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold transition-all duration-300 transform active:scale-95 shadow-xl rounded-full translate-y-4 group-hover:translate-y-0"
+                  >
                     VIRTUAL TRY-ON
                   </button>
-                  <button className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold hover:text-maroon-dominant transition-all duration-300 transform active:scale-95 shadow-xl border border-white/10 rounded-full translate-y-4 group-hover:translate-y-0 delay-75">
+                  <button
+                    onClick={() => onProductClick({ ...product, price: parseInt(product.price.replace(/[^\d]/g, '')) })}
+                    className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold hover:text-maroon-dominant transition-all duration-300 transform active:scale-95 shadow-xl border border-white/10 rounded-full translate-y-4 group-hover:translate-y-0 delay-75"
+                  >
                     VIEW DETAILS
                   </button>
                 </div>
@@ -94,7 +105,10 @@ const VivaahCollection: React.FC = () => {
 
         {/* Centered CTA */}
         <div className="flex justify-center pb-20">
-          <button className="group relative px-12 py-5 bg-maroon-dominant text-white text-[11px] font-black uppercase tracking-[0.4em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-2xl active:scale-95 border border-white/10">
+          <button
+            onClick={() => onNavigate('category', 'Bridal')}
+            className="group relative px-12 py-5 bg-maroon-dominant text-white text-[11px] font-black uppercase tracking-[0.4em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-2xl active:scale-95 border border-white/10"
+          >
             <span className="relative z-10 flex items-center gap-4">
               Explore The Collection <ArrowRight className="w-4 h-4 group-hover:translate-x-3 transition-transform duration-500" />
             </span>

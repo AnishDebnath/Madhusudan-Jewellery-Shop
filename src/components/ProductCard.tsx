@@ -6,9 +6,11 @@ interface ProductCardProps {
   product: Product;
   onClick: (p: Product) => void;
   onARTryOn: (p: Product) => void;
+  onToggleWishlist: (id: string) => void;
+  isWishlisted: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onARTryOn }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onARTryOn, onToggleWishlist, isWishlisted }) => {
   return (
     <div className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer rounded-3xl h-full flex flex-col">
       <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 rounded-t-3xl">
@@ -25,11 +27,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onARTryOn }
 
         {/* Wishlist Button - Top Right Corner */}
         <button
-          onClick={(e) => { e.stopPropagation(); /* Add to wishlist logic here */ }}
-          className="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-luxury-dark-card/90 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 z-20"
-          aria-label="Add to wishlist"
+          onClick={(e) => { e.stopPropagation(); onToggleWishlist(product.id); }}
+          className={`absolute top-4 right-4 w-10 h-10 backdrop-blur-md border rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 z-20 ${isWishlisted ? 'bg-gold text-white border-gold' : 'bg-white/90 dark:bg-luxury-dark-card/90 text-maroon-dominant dark:text-white border-white/20 dark:border-white/10 hover:bg-gold/20'}`}
+          aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
         >
-          <Heart className="w-4 h-4" />
+          <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
         </button>
       </div>
 

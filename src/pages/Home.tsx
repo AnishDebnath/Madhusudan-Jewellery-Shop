@@ -25,15 +25,18 @@ import { PRODUCTS } from '../constants';
 interface HomeProps {
     onProductClick: (p: Product) => void;
     onARTryOn: (p: Product) => void;
+    onToggleWishlist: (id: string) => void;
+    wishlist: string[];
+    onNavigate: (view: string, data?: any) => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn }) => {
+const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn, onToggleWishlist, wishlist, onNavigate }) => {
     return (
         <>
-            <Hero />
-            <OffersSection />
-            <FeaturedSlider />
-            <NewArrivals onProductClick={onProductClick} />
+            <Hero onNavigate={onNavigate} />
+            <OffersSection onNavigate={onNavigate} />
+            <FeaturedSlider onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} />
+            <NewArrivals onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} />
             <section className="py-20 md:py-28 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
                 {/* Background Decor */}
                 <div className="absolute top-20 left-10 w-64 h-64 bg-maroon-dominant/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -61,21 +64,31 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onARTryOn }) => {
                                 product={product}
                                 onClick={onProductClick}
                                 onARTryOn={onARTryOn}
+                                onToggleWishlist={onToggleWishlist}
+                                isWishlisted={wishlist.includes(product.id)}
                             />
                         ))}
                     </div>
                 </div>
             </section>
-            <ProductCarouselSection title="Top Sellers" products={PRODUCTS.filter(p => p.isBestSeller)} onProductClick={onProductClick} showBestsellerBadge={true} />
+            <ProductCarouselSection
+                title="Top Sellers"
+                products={PRODUCTS.filter(p => p.isBestSeller)}
+                onProductClick={onProductClick}
+                onToggleWishlist={onToggleWishlist}
+                wishlist={wishlist}
+                onNavigate={onNavigate}
+                showBestsellerBadge={true}
+            />
             <VideoCollectionSlider />
-            <ShopByBudget />
-            <VivaahCollection />
-            <NikahCollection />
-            <EarringCollection />
-            <GemstoneCollection />
-            <ShopByGender />
-            <SilverCollection />
-            <PerfectGift />
+            <ShopByBudget onNavigate={onNavigate} />
+            <VivaahCollection onNavigate={onNavigate} onProductClick={onProductClick} />
+            <NikahCollection onNavigate={onNavigate} />
+            <EarringCollection onNavigate={onNavigate} />
+            <GemstoneCollection onNavigate={onNavigate} />
+            <ShopByGender onNavigate={onNavigate} />
+            <SilverCollection onNavigate={onNavigate} />
+            <PerfectGift onNavigate={onNavigate} />
             <GoldLoanSection />
             <GoldExchangeSection />
             <TrustSection />

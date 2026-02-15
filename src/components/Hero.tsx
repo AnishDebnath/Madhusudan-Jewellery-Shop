@@ -3,7 +3,11 @@ import React from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import heritageVideo from '../assets/hero banner.mp4';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section className="relative h-[85vh] w-full overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary">
       {/* Cinematic Video/Image Background */}
@@ -55,10 +59,16 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
-            <button className="px-8 py-4 bg-gold hover:bg-gold-light text-maroon-dominant font-black rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-[0_15px_35px_-5px_rgba(212,175,55,0.3)]">
+            <button
+              onClick={() => onNavigate('category', 'All')}
+              className="px-8 py-4 bg-gold hover:bg-gold-light text-maroon-dominant font-black rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-[0_15px_35px_-5px_rgba(212,175,55,0.3)]"
+            >
               EXPLORE COLLECTIONS <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </button>
-            <button className="glass px-8 py-4 text-maroon-dominant dark:text-white font-bold rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 hover:bg-white/20 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-lg">
+            <button
+              onClick={() => onNavigate('category', 'Diamond')}
+              className="glass px-8 py-4 text-maroon-dominant dark:text-white font-bold rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 hover:bg-white/20 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-lg"
+            >
               VIRTUAL TRY-ON <Play className="w-4 h-4 fill-current transition-transform group-hover:scale-110" />
             </button>
           </div>

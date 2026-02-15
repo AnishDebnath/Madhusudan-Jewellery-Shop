@@ -23,9 +23,11 @@ interface ProductRouteWrapperProps {
   addToCart: (product: Product) => void;
   setShowARTryOn: (product: Product | null) => void;
   handleNavigate: (view: string, data?: any) => void;
+  onToggleWishlist: (id: string) => void;
+  wishlist: string[];
 }
 
-const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, setShowARTryOn, handleNavigate }) => {
+const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, setShowARTryOn, handleNavigate, onToggleWishlist, wishlist }) => {
   const { id } = useParams<{ id: string }>();
   const product = PRODUCTS.find(p => p.id === id);
 
@@ -38,6 +40,8 @@ const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, se
       onAddToCart={addToCart}
       onARTryOn={setShowARTryOn}
       onNavigateToCategory={(cat) => handleNavigate('category', cat)}
+      onToggleWishlist={onToggleWishlist}
+      isWishlisted={wishlist.includes(product.id)}
     />
   );
 };
@@ -45,15 +49,19 @@ const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, se
 interface CategoryRouteWrapperProps {
   handleNavigate: (view: string, data?: any) => void;
   setShowARTryOn: (product: Product | null) => void;
+  onToggleWishlist: (id: string) => void;
+  wishlist: string[];
 }
 
-const CategoryRouteWrapper: React.FC<CategoryRouteWrapperProps> = ({ handleNavigate, setShowARTryOn }) => {
+const CategoryRouteWrapper: React.FC<CategoryRouteWrapperProps> = ({ handleNavigate, setShowARTryOn, onToggleWishlist, wishlist }) => {
   const { category } = useParams<{ category: string }>();
   return (
     <CategoryPage
       category={category}
       onProductClick={(p) => handleNavigate('pdp', p)}
       onARTryOn={setShowARTryOn}
+      onToggleWishlist={onToggleWishlist}
+      wishlist={wishlist}
     />
   );
 };
@@ -133,11 +141,14 @@ const App: React.FC = () => {
             <Home
               onProductClick={(p) => handleNavigate('pdp', p)}
               onARTryOn={setShowARTryOn}
+              onToggleWishlist={toggleWishlist}
+              wishlist={wishlist}
+              onNavigate={handleNavigate}
             />
           } />
 
-          <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} setShowARTryOn={setShowARTryOn} />} />
-          <Route path="/product/:id" element={<ProductRouteWrapper addToCart={addToCart} setShowARTryOn={setShowARTryOn} handleNavigate={handleNavigate} />} />
+          <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} setShowARTryOn={setShowARTryOn} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
+          <Route path="/product/:id" element={<ProductRouteWrapper addToCart={addToCart} setShowARTryOn={setShowARTryOn} handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
 
           <Route path="/cart" element={
             <CartPage

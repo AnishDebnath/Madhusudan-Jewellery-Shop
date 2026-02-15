@@ -6,6 +6,9 @@ import CarouselProductCard from './CarouselProductCard';
 
 interface NewArrivalsProps {
   onProductClick: (p: Product) => void;
+  onToggleWishlist: (id: string) => void;
+  wishlist: string[];
+  onNavigate: (view: string, data?: any) => void;
 }
 
 import reel1 from '../assets/reels/reel 1.mp4';
@@ -71,7 +74,7 @@ const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video
   );
 };
 
-const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
+const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishlist, wishlist, onNavigate }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const productScrollRef = useRef<HTMLDivElement>(null);
   const newArrivalProducts = PRODUCTS.filter(p => p.isNewArrival);
@@ -102,7 +105,10 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
             </h2>
           </div>
 
-          <button className="group relative px-8 py-3.5 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95">
+          <button
+            onClick={() => onNavigate('category', 'All')}
+            className="group relative px-8 py-3.5 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95"
+          >
             <span className="relative z-10 flex items-center gap-3">
               View Full Catalog <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </span>
@@ -150,12 +156,17 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick }) => {
                 <CarouselProductCard
                   product={product}
                   onClick={onProductClick}
+                  onToggleWishlist={onToggleWishlist}
+                  isWishlisted={wishlist.includes(product.id)}
                   showNewArrival={true}
                 />
               </div>
             ))}
 
-            <div className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden">
+            <div
+              onClick={() => onNavigate('category', 'All')}
+              className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden"
+            >
               <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500">
                 <div className="w-20 h-20 rounded-full bg-white dark:bg-luxury-dark-card flex items-center justify-center group-hover/view-all:bg-transparent group-hover/view-all:border-white/40 border border-gold/10 transition-all duration-500 group-hover/view-all:scale-110 shadow-2xl">
                   <ChevronRight className="w-8 h-8 text-maroon-dominant dark:text-white group-hover/view-all:text-white transition-colors" />

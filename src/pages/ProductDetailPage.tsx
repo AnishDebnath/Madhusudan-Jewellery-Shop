@@ -7,9 +7,11 @@ interface PDPProps {
   onAddToCart: (p: Product) => void;
   onARTryOn: (p: Product) => void;
   onNavigateToCategory: (cat: Category | string) => void;
+  onToggleWishlist: (id: string) => void;
+  isWishlisted: boolean;
 }
 
-const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn, onNavigateToCategory }) => {
+const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn, onNavigateToCategory, onToggleWishlist, isWishlisted }) => {
   if (!product) return null;
   const [mainImage, setMainImage] = useState(product.image);
 
@@ -51,8 +53,11 @@ const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn
             <div className="flex-1 aspect-[4/5] bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-3xl overflow-hidden relative group border border-transparent dark:border-white/5 shadow-2xl">
               <img src={mainImage} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <button className="absolute top-6 right-6 p-4 bg-white/10 backdrop-blur-md hover:bg-gold text-white rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 group/heart">
-                <Heart className="w-6 h-6 transition-colors" />
+              <button
+                onClick={() => onToggleWishlist(product.id)}
+                className={`absolute top-6 right-6 p-4 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 group/heart ${isWishlisted ? 'bg-gold text-white' : 'bg-white/10 hover:bg-gold text-white'}`}
+              >
+                <Heart className={`w-6 h-6 transition-colors ${isWishlisted ? 'fill-current' : ''}`} />
               </button>
               <button className="absolute bottom-6 right-6 p-4 bg-white/10 backdrop-blur-md hover:bg-gold text-white rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500 delay-100">
                 <Share2 className="w-6 h-6 transition-colors" />
@@ -124,8 +129,11 @@ const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn
                   <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">Add to Bag</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </button>
-                <button className="px-6 border border-luxury-bg-card dark:border-white/20 rounded-full hover:border-gold hover:text-gold transition-colors">
-                  <Heart className="w-5 h-5 text-gray-400 dark:text-gray-500 hover:text-red-500 transition-colors" />
+                <button
+                  onClick={() => onToggleWishlist(product.id)}
+                  className={`px-6 border rounded-full transition-all duration-300 ${isWishlisted ? 'bg-gold/10 border-gold text-gold ring-1 ring-gold shadow-lg' : 'border-luxury-bg-card dark:border-white/20 hover:border-gold hover:text-gold'}`}
+                >
+                  <Heart className={`w-5 h-5 transition-colors ${isWishlisted ? 'fill-current text-gold' : 'text-gray-400 dark:text-gray-500 hover:text-red-500'}`} />
                 </button>
               </div>
 

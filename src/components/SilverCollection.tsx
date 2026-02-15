@@ -8,11 +8,15 @@ interface FeaturedSilverCardProps {
   description: string;
   image: string;
   link: string;
+  onNavigate: (view: string, data?: any) => void;
   isDark?: boolean;
 }
 
-const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, description, image, link }) => (
-  <div className="relative group overflow-hidden rounded-3xl h-[420px] shadow-2xl flex flex-col justify-end border border-transparent dark:border-white/5 transition-all duration-700 hover:-translate-y-2">
+const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, description, image, link, onNavigate }) => (
+  <div
+    onClick={() => onNavigate('category', title.split(' ')[0])}
+    className="relative group overflow-hidden rounded-3xl h-[420px] shadow-2xl flex flex-col justify-end border border-transparent dark:border-white/5 transition-all duration-700 hover:-translate-y-2 cursor-pointer"
+  >
     <img
       src={image}
       alt={title}
@@ -34,12 +38,11 @@ const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, descript
         </p>
       </div>
 
-      <a
-        href={link}
+      <button
         className="inline-flex items-center gap-3 px-8 py-3.5 bg-white text-maroon-dominant text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-white transition-all duration-300 rounded-full group/btn hover:scale-105 active:scale-95 shadow-lg delay-200"
       >
         SHOP NOW <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
-      </a>
+      </button>
     </div>
 
     <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none delay-300">
@@ -50,7 +53,11 @@ const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, descript
   </div>
 );
 
-const SilverCollection: React.FC = () => {
+interface SilverCollectionProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const SilverCollection: React.FC<SilverCollectionProps> = ({ onNavigate }) => {
   return (
     <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
@@ -70,12 +77,14 @@ const SilverCollection: React.FC = () => {
             description="Tradition wrapped in purity, perfect for every Shagun moment and smart investment."
             image={goldDiamond22}
             link="/silver-coins"
+            onNavigate={onNavigate}
           />
           <FeaturedSilverCard
             title="Divine Utensils"
             description="Embrace auspiciousness with divine silver idols, pooja thalis, and royal silverware."
             image={necklace23}
             link="/silver-articles"
+            onNavigate={onNavigate}
           />
         </div>
 

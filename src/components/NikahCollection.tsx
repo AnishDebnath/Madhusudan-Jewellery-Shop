@@ -26,7 +26,11 @@ const NIKAH_PRODUCTS = [
   }
 ];
 
-const NikahCollection: React.FC = () => {
+interface NikahCollectionProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
   return (
     <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-24 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-maroon-dominant/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
@@ -63,7 +67,7 @@ const NikahCollection: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {NIKAH_PRODUCTS.map((product) => (
-                <div key={product.id} className="group cursor-pointer">
+                <div key={product.id} className="group cursor-pointer" onClick={() => onNavigate('category', 'Bridal')}>
                   <div className="relative aspect-square overflow-hidden mb-5 rounded-2xl border border-transparent dark:border-white/10 shadow-lg group-hover:shadow-xl transition-all duration-500 bg-white dark:bg-luxury-dark-card">
                     <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
@@ -79,12 +83,18 @@ const NikahCollection: React.FC = () => {
             </div>
 
             <div className="mt-12 flex flex-col sm:flex-row items-center gap-6">
-              <button className="group relative px-8 py-3.5 bg-maroon-dominant text-white text-[10px] font-black tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gold hover:text-maroon-dominant hover:scale-105 active:scale-95 shadow-xl rounded-full border border-white/10">
+              <button
+                onClick={() => onNavigate('category', 'Bridal')}
+                className="group relative px-8 py-3.5 bg-maroon-dominant text-white text-[10px] font-black tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gold hover:text-maroon-dominant hover:scale-105 active:scale-95 shadow-xl rounded-full border border-white/10"
+              >
                 <span className="relative z-10 flex items-center gap-3">
                   EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
-              <button className="flex items-center gap-2 text-[10px] font-black text-maroon-dominant dark:text-gold uppercase tracking-[0.2em] hover:text-gold dark:hover:text-white transition-all duration-300 border-b border-gold/30 pb-1 hover:scale-105 group px-4">
+              <button
+                onClick={() => onNavigate('contact')}
+                className="flex items-center gap-2 text-[10px] font-black text-maroon-dominant dark:text-gold uppercase tracking-[0.2em] hover:text-gold dark:hover:text-white transition-all duration-300 border-b border-gold/30 pb-1 hover:scale-105 group px-4"
+              >
                 Book Consultation <Star className="w-3 h-3 text-gold transition-transform group-hover:rotate-12" />
               </button>
             </div>

@@ -8,12 +8,13 @@ interface GemstoneTileProps {
   label: string;
   image: string;
   link: string;
+  onNavigate: (view: string, data?: any) => void;
 }
 
-const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link }) => (
-  <a
-    href={link}
-    className="group relative block rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 border border-transparent dark:border-white/5"
+const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link, onNavigate }) => (
+  <div
+    onClick={() => onNavigate('category', 'Gemstone')}
+    className="group relative block rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 border border-transparent dark:border-white/5 cursor-pointer"
   >
     <div className="aspect-square overflow-hidden relative">
       <img
@@ -34,11 +35,15 @@ const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link }) => (
         </div>
       </div>
     </div>
-  </a>
+  </div>
 );
 
 
-const GemstoneCollection: React.FC = () => {
+interface GemstoneCollectionProps {
+  onNavigate: (view: string, data?: any) => void;
+}
+
+const GemstoneCollection: React.FC<GemstoneCollectionProps> = ({ onNavigate }) => {
   const categories = [
     { label: 'Necklaces', image: necklace22, link: '/gemstone-jewellery/necklaces' },
     { label: 'Rings', image: ring11, link: '/gemstone-jewellery/rings' },
@@ -59,7 +64,7 @@ const GemstoneCollection: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pt-4">
           {categories.map((cat, idx) => (
-            <GemstoneTile key={idx} {...cat} />
+            <GemstoneTile key={idx} {...cat} onNavigate={onNavigate} />
           ))}
         </div>
       </div>
