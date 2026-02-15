@@ -67,7 +67,7 @@ const KolkataStore: React.FC = () => {
 
           <div className="relative group">
             <div className="absolute -inset-4 bg-gold/10 rounded-3xl group-hover:scale-105 transition-transform duration-700 border border-gold/20 blur-sm"></div>
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[3/4]">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3]">
               <video
                 autoPlay
                 muted
