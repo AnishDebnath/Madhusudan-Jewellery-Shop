@@ -56,6 +56,8 @@ const ProductRouteWrapper: React.FC<ProductRouteWrapperProps> = ({ addToCart, se
       onNavigateToCategory={(cat) => handleNavigate('category', cat)}
       onToggleWishlist={onToggleWishlist}
       isWishlisted={wishlist.includes(product.id)}
+      wishlist={wishlist}
+      onNavigate={handleNavigate}
     />
   );
 };

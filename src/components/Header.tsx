@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, Menu, X, Phone, User, TrendingUp, TrendingDown, Info, ChevronDown, Home, Sparkles, MapPin } from 'lucide-react';
+import { Search, ShoppingBag, Heart, Menu, X, Phone, User, Info, ChevronDown, Home, Sparkles, MapPin } from 'lucide-react';
 import { PageView, Category } from '../types';
 
 interface HeaderProps {
@@ -21,29 +21,13 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [goldRates, setGoldRates] = useState({
-    gold24k: 72450,
-    gold22k: 66410,
-    trend: 'up' as 'up' | 'down'
-  });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
 
-    const fetchGoldRates = async () => {
-      const fluctuation = Math.floor(Math.random() * 20) - 10;
-      setGoldRates(prev => ({
-        gold24k: prev.gold24k + fluctuation,
-        gold22k: prev.gold22k + Math.floor(fluctuation * 0.916),
-        trend: fluctuation >= 0 ? 'up' : 'down'
-      }));
-    };
-
-    const interval = setInterval(fetchGoldRates, 15000);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearInterval(interval);
     };
   }, []);
 
@@ -98,34 +82,41 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
     <>
       <header className={`fixed top-0 z-50 w-full transition-all duration-700 ${scrolled ? '-translate-y-10' : 'translate-y-0'}`}>
         {/* Top Ticker Bar */}
-        <div className="bg-maroon-dominant text-white h-10 px-6 md:px-12 flex justify-between items-center text-[9px] tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
-          <div className="flex items-center gap-10">
-            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-gold gold-glow">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
-                LIVE RATES:
-              </span>
-              <div className="flex gap-8">
-                <div className="flex items-center gap-2 hover:text-gold transition-colors cursor-default group">
-                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">24K:</span>
-                  <span className="font-black">₹{goldRates.gold24k.toLocaleString('en-IN')}</span>
-                  {goldRates.trend === 'up' ? <TrendingUp className="w-3 h-3 text-green-400" /> : <TrendingDown className="w-3 h-3 text-red-400" />}
-                </div>
-                <div className="flex items-center gap-2 border-l border-white/10 pl-8 hover:text-gold transition-colors cursor-default group">
-                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">22K:</span>
-                  <span className="font-black">₹{goldRates.gold22k.toLocaleString('en-IN')}</span>
-                </div>
+        <div className="bg-maroon-dominant text-white h-10 px-6 md:px-12 flex items-center text-[9px] tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
+          <div className="flex items-center gap-10 z-10 bg-maroon-dominant pr-10">
+            <span className="flex items-center gap-2 text-gold gold-glow whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
+              TODAY'S LIVE RATES:
+            </span>
+          </div>
+
+          <div className="flex-1 overflow-hidden relative h-full flex items-center">
+            <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
+              <div className="flex gap-12 pr-12 items-center">
+                <span className="hover:text-gold transition-colors">22K GOLD - <span className="text-gold">₹ 1,48,090 (10g)</span></span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                <span className="hover:text-gold transition-colors">18K GOLD - <span className="text-gold">₹ 1,24,880 (10g)</span></span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                <span className="hover:text-gold transition-colors">SILVER - <span className="text-gold">₹ 2,590 (10g)</span></span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                <span className="hover:text-gold transition-colors">KOLKATA'S FINEST HERITAGE HOUSE SINCE 1952</span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className="flex gap-12 pr-12 items-center">
+                <span className="hover:text-gold transition-colors">22K GOLD - <span className="text-gold">₹ 1,48,090 (10g)</span></span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                <span className="hover:text-gold transition-colors">18K GOLD - <span className="text-gold">₹ 1,24,880 (10g)</span></span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                <span className="hover:text-gold transition-colors">SILVER - <span className="text-gold">₹ 2,590 (10g)</span></span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                <span className="hover:text-gold transition-colors">KOLKATA'S FINEST HERITAGE HOUSE SINCE 1952</span>
+                <span className="w-1 h-1 rounded-full bg-white/20"></span>
               </div>
             </div>
           </div>
 
-          <div className="hidden xl:block text-gold/60 font-black uppercase overflow-hidden flex-1 px-20">
-            <div className="animate-in slide-in-from-right-full duration-[40s] infinite linear whitespace-nowrap">
-              Kolkata's Finest Heritage House Since 1952 • Complimentary Insured Shipping Across India • Hallmark Certified Purity
-            </div>
-          </div>
-
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 z-10 bg-maroon-dominant pl-10">
             <button onClick={() => onNavigate('store-locator')} className="hover:text-gold flex items-center gap-2 transition-all group">
               <span className="group-hover:tracking-[0.4em] transition-all">OUR BOUTIQUES</span> <MapPin className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
             </button>

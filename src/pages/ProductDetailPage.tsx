@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Star, ShieldCheck, RefreshCw, Truck, Heart, Share2, Sparkles, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { Product, Category } from '../types';
+import { PRODUCTS } from '../constants';
+import ProductCard from '../components/ProductCard';
 
 interface PDPProps {
   product?: Product;
@@ -9,15 +11,27 @@ interface PDPProps {
   onNavigateToCategory: (cat: Category | string) => void;
   onToggleWishlist: (id: string) => void;
   isWishlisted: boolean;
+  wishlist: string[];
+  onNavigate: (view: string, data?: any) => void;
 }
 
-const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn, onNavigateToCategory, onToggleWishlist, isWishlisted }) => {
+const ProductDetailPage: React.FC<PDPProps> = ({
+  product,
+  onAddToCart,
+  onARTryOn,
+  onNavigateToCategory,
+  onToggleWishlist,
+  isWishlisted,
+  wishlist,
+  onNavigate
+}) => {
   if (!product) return null;
   const [mainImage, setMainImage] = useState(product.image);
 
   return (
     <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen pb-24 text-luxury-text-light dark:text-luxury-text-dark transition-colors animate-in fade-in duration-500">
-      <div className="container mx-auto px-6 py-6 border-b border-luxury-bg-card dark:border-white/10 mb-12 sticky top-20 z-20 bg-luxury-bg-primary/90 dark:bg-luxury-dark-primary/90 backdrop-blur-md transition-colors">
+      {/* Breadcrumbs - Adjusted sticky top for header height */}
+      <div className="container mx-auto px-6 py-4 border-b border-luxury-bg-card dark:border-white/10 mb-8 sticky top-[110px] lg:top-[140px] z-20 bg-luxury-bg-primary/95 dark:bg-luxury-dark-primary/95 backdrop-blur-md transition-all">
         <div className="flex items-center gap-2 text-[10px] font-black text-luxury-text-light/50 dark:text-luxury-text-darkMuted uppercase tracking-widest">
           <button onClick={() => onNavigateToCategory('All')} className="hover:text-gold transition-colors">Home</button>
           <ChevronRight className="w-3 h-3" />
@@ -27,10 +41,11 @@ const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn
         </div>
       </div>
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 mt-8">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Gallery Section */}
-          <div className="lg:w-1/2 flex flex-col md:flex-row gap-6 h-fit sticky top-40">
+          {/* Gallery Section - Adjusted sticky top */}
+          <div className="lg:w-1/2 flex flex-col md:flex-row gap-6 h-fit sticky top-[200px] lg:top-[220px]">
             <div className="hidden md:flex flex-col gap-4 w-24">
               <button
                 className={`aspect-square rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 relative group ${mainImage === product.image ? 'ring-2 ring-gold ring-offset-2 ring-offset-luxury-bg-primary dark:ring-offset-luxury-dark-primary' : 'border border-transparent dark:border-white/10 opacity-70 hover:opacity-100'}`}
@@ -50,18 +65,39 @@ const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn
                 </button>
               ))}
             </div>
-            <div className="flex-1 aspect-[4/5] bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-3xl overflow-hidden relative group border border-transparent dark:border-white/5 shadow-2xl">
-              <img src={mainImage} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <button
-                onClick={() => onToggleWishlist(product.id)}
-                className={`absolute top-6 right-6 p-4 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 group/heart ${isWishlisted ? 'bg-gold text-white' : 'bg-white/10 hover:bg-gold text-white'}`}
-              >
-                <Heart className={`w-6 h-6 transition-colors ${isWishlisted ? 'fill-current' : ''}`} />
-              </button>
-              <button className="absolute bottom-6 right-6 p-4 bg-white/10 backdrop-blur-md hover:bg-gold text-white rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500 delay-100">
-                <Share2 className="w-6 h-6 transition-colors" />
-              </button>
+            <div className="flex-1 flex flex-col gap-6">
+              <div className="aspect-[4/5] bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-3xl overflow-hidden relative group border border-transparent dark:border-white/5 shadow-2xl">
+                <img src={mainImage} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <button
+                  onClick={() => onToggleWishlist(product.id)}
+                  className={`absolute top-6 right-6 p-4 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 group/heart ${isWishlisted ? 'bg-gold text-white' : 'bg-white/10 hover:bg-gold text-white'}`}
+                >
+                  <Heart className={`w-6 h-6 transition-colors ${isWishlisted ? 'fill-current' : ''}`} />
+                </button>
+                <button className="absolute bottom-6 right-6 p-4 bg-white/10 backdrop-blur-md hover:bg-gold text-white rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500 delay-100">
+                  <Share2 className="w-6 h-6 transition-colors" />
+                </button>
+              </div>
+
+              {/* Mobile Thumbnails */}
+              <div className="flex md:hidden gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                <button
+                  className={`min-w-[70px] aspect-square rounded-xl overflow-hidden relative ${mainImage === product.image ? 'ring-2 ring-gold' : 'opacity-60'}`}
+                  onClick={() => setMainImage(product.image)}
+                >
+                  <img src={product.image} className="w-full h-full object-cover" />
+                </button>
+                {product.additionalImages?.map((img, i) => (
+                  <button
+                    key={i}
+                    className={`min-w-[70px] aspect-square rounded-xl overflow-hidden relative ${mainImage === img ? 'ring-2 ring-gold' : 'opacity-60'}`}
+                    onClick={() => setMainImage(img)}
+                  >
+                    <img src={img} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -123,17 +159,18 @@ const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn
             <div className="flex flex-col gap-4 mb-12">
               <div className="flex gap-4">
                 <button
+                  onClick={() => { onAddToCart(product); onNavigate('checkout'); }}
+                  className="flex-1 bg-gradient-to-r from-gold-light via-gold to-gold-dark text-maroon-dominant py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] transition-all shadow-xl active:scale-95 group relative overflow-hidden border-none"
+                >
+                  <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">Buy Now</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </button>
+                <button
                   onClick={() => onAddToCart(product)}
-                  className="flex-1 bg-maroon-dominant text-white py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-xl active:scale-95 group relative overflow-hidden"
+                  className="flex-[1.5] bg-maroon-dominant text-white py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-xl active:scale-95 group relative overflow-hidden"
                 >
                   <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">Add to Bag</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                </button>
-                <button
-                  onClick={() => onToggleWishlist(product.id)}
-                  className={`px-6 border rounded-full transition-all duration-300 ${isWishlisted ? 'bg-gold/10 border-gold text-gold ring-1 ring-gold shadow-lg' : 'border-luxury-bg-card dark:border-white/20 hover:border-gold hover:text-gold'}`}
-                >
-                  <Heart className={`w-5 h-5 transition-colors ${isWishlisted ? 'fill-current text-gold' : 'text-gray-400 dark:text-gray-500 hover:text-red-500'}`} />
                 </button>
               </div>
 
@@ -168,6 +205,39 @@ const ProductDetailPage: React.FC<PDPProps> = ({ product, onAddToCart, onARTryOn
                 <span className="text-[9px] font-black text-luxury-text-light/60 dark:text-white uppercase tracking-widest group-hover:text-gold transition-colors">Insured Shipping</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Related Products Section */}
+        <div className="mt-32 pt-20 border-t border-luxury-bg-card dark:border-white/10">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <span className="text-gold text-[10px] tracking-[0.4em] uppercase font-black mb-3 block gold-glow">Curated For You</span>
+              <h3 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">You May Also <span className="italic text-gold">Adore</span></h3>
+            </div>
+            <button
+              onClick={() => onNavigateToCategory('All')}
+              className="text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant dark:text-gold hover:tracking-[0.3em] transition-all border-b border-gold pb-1"
+            >
+              Explore Collection
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {PRODUCTS
+              .filter(p => p.category === product.category && p.id !== product.id)
+              .slice(0, 4)
+              .map(p => (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  onClick={(prod) => onNavigate('pdp', prod)}
+                  onToggleWishlist={onToggleWishlist}
+                  isWishlisted={wishlist.includes(p.id)}
+                  onARTryOn={onARTryOn}
+                />
+              ))
+            }
           </div>
         </div>
       </div>
