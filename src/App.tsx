@@ -188,6 +188,7 @@ const App: React.FC = () => {
                 wishlist={wishlist}
                 onProductClick={(p) => handleNavigate('pdp', p)}
                 onAddToCart={addToCart}
+                onRemove={toggleWishlist}
               />
             } />
 

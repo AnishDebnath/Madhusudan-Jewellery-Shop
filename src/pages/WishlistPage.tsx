@@ -7,9 +7,10 @@ interface WishlistPageProps {
   wishlist: string[];
   onProductClick: (p: Product) => void;
   onAddToCart: (p: Product) => void;
+  onRemove: (id: string) => void;
 }
 
-const WishlistPage: React.FC<WishlistPageProps> = ({ wishlist, onProductClick, onAddToCart }) => {
+const WishlistPage: React.FC<WishlistPageProps> = ({ wishlist, onProductClick, onAddToCart, onRemove }) => {
   const items = PRODUCTS.filter(p => wishlist.includes(p.id));
 
   if (items.length === 0) {
@@ -32,18 +33,29 @@ const WishlistPage: React.FC<WishlistPageProps> = ({ wishlist, onProductClick, o
 
   return (
     <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen py-24 transition-colors">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 pt-12">
         <h1 className="text-4xl font-serif text-maroon-dominant dark:text-white mb-12 text-center uppercase tracking-widest leading-none">Saved Pieces</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((product) => (
             <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 overflow-hidden hover:shadow-2xl transition-all duration-500 rounded-3xl hover:-translate-y-2">
-              <div className="aspect-square bg-luxury-bg-secondary dark:bg-black/20 relative overflow-hidden cursor-pointer" onClick={() => onProductClick(product)}>
-                <img src={product.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" />
-                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="aspect-square bg-luxury-bg-secondary dark:bg-black/20 relative overflow-hidden">
+                <img
+                  src={product.image}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 cursor-pointer"
+                  onClick={() => onProductClick(product)}
+                  loading="lazy"
+                />
+                <button
+                  onClick={() => onRemove(product.id)}
+                  className="absolute top-4 right-4 p-2 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-gold hover:bg-gold hover:text-white transition-all shadow-lg z-10"
+                >
+                  <Heart className="w-4 h-4 fill-current" />
+                </button>
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
               <div className="p-6 text-center">
                 <span className="text-gold text-[9px] font-black uppercase tracking-[0.2em] mb-2 block">{product.category}</span>
-                <h3 className="font-serif text-maroon-dominant dark:text-white text-xl mb-2 truncate group-hover:text-gold transition-colors">{product.name}</h3>
+                <h3 className="font-serif text-maroon-dominant dark:text-white text-xl mb-2 truncate group-hover:text-gold transition-colors cursor-pointer" onClick={() => onProductClick(product)}>{product.name}</h3>
                 <p className="text-maroon-dominant dark:text-gold font-bold mb-6">₹{product.price.toLocaleString('en-IN')}</p>
                 <div className="flex flex-col gap-3">
                   <button
@@ -54,10 +66,10 @@ const WishlistPage: React.FC<WishlistPageProps> = ({ wishlist, onProductClick, o
                     <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-500"></div>
                   </button>
                   <button
-                    onClick={() => onProductClick(product)}
-                    className="w-full border border-maroon-dominant/20 dark:border-white/20 text-maroon-dominant dark:text-white/60 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-luxury-bg-secondary dark:hover:bg-white/5 hover:text-maroon-dominant dark:hover:text-white transition-all"
+                    onClick={() => onRemove(product.id)}
+                    className="w-full border border-maroon-dominant/20 dark:border-white/20 text-maroon-dominant dark:text-white/60 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-red-500/10 hover:border-red-500 hover:text-red-500 transition-all"
                   >
-                    View Details
+                    Remove
                   </button>
                 </div>
               </div>
