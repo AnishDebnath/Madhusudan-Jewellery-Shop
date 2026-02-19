@@ -155,14 +155,14 @@ const ProductDetailPage: React.FC<PDPProps> = ({
               <div className="flex gap-8 mb-8 border-b border-luxury-bg-card dark:border-white/10">
                 <button
                   onClick={() => setActiveTab('specs')}
-                  className={`pb-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'specs' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/40 dark:text-white/40 hover:text-maroon-dominant dark:hover:text-gold'}`}
+                  className={`pb-4 text-xs font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'specs' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-gold'}`}
                 >
                   Product Specification
                   {activeTab === 'specs' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold animate-in slide-in-from-left duration-300"></div>}
                 </button>
                 <button
                   onClick={() => setActiveTab('price')}
-                  className={`pb-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'price' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/40 dark:text-white/40 hover:text-maroon-dominant dark:hover:text-gold'}`}
+                  className={`pb-4 text-xs font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'price' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-gold'}`}
                 >
                   Price Breakdown
                   {activeTab === 'price' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold animate-in slide-in-from-left duration-300"></div>}
@@ -328,33 +328,39 @@ const ProductDetailPage: React.FC<PDPProps> = ({
                       <div className="space-y-0.5">
                         <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
                           <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Gold Value</span>
-                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{goldValue.toLocaleString('en-IN')}.00</span>
+                          <span className="text-lg font-serif text-maroon-dominant dark:text-white">₹{goldValue.toLocaleString('en-IN')}.00</span>
                         </div>
                         <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
                           <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Making Charge</span>
-                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{makingCharge.toLocaleString('en-IN')}.00</span>
+                          <span className="text-lg font-serif text-maroon-dominant dark:text-white">₹{makingCharge.toLocaleString('en-IN')}.00</span>
                         </div>
-                        <div className="flex justify-between items-center py-4 border-b border-gold/20 bg-gold/10 -mx-4 px-4 rounded-lg my-1">
-                          <span className="text-[11px] text-gold uppercase font-black tracking-[0.2em]">Grand Total</span>
-                          <span className="text-2xl font-serif text-gold font-bold">₹{grandTotal.toLocaleString('en-IN')}.00</span>
+                        <div className="flex justify-between items-center py-4 border-b border-gold/20 -mx-4 px-4 rounded-lg my-1">
+                          <div className="flex flex-col gap-1">
+                            <span className="text-[11px] text-gold uppercase font-black tracking-[0.2em]">Grand Total</span>
+                          </div>
+                          <span className="text-xl font-serif text-gold font-bold">₹{grandTotal.toLocaleString('en-IN')}.00</span>
                         </div>
                         <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
                           <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">GST (3%)</span>
-                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{gst3.toLocaleString('en-IN')}.00</span>
+                          <span className="text-lg font-serif text-maroon-dominant dark:text-white">₹{gst3.toLocaleString('en-IN')}.00</span>
                         </div>
                         <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
                           <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Net Amount</span>
-                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{netAmount.toLocaleString('en-IN')}.00</span>
+                          <span className="text-lg font-serif text-maroon-dominant dark:text-white">₹{netAmount.toLocaleString('en-IN')}.00</span>
                         </div>
                         <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
                           <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Round Off</span>
-                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{roundOff}</span>
+                          <span className="text-lg font-serif text-maroon-dominant dark:text-white">₹{roundOff}</span>
                         </div>
-                        <div className="flex justify-between items-center pt-8 px-2">
-                          <span className="text-xs text-maroon-dominant dark:text-gold uppercase font-black tracking-[0.3em]">Payable Amount</span>
-                          <div className="flex flex-col items-end">
-                            <span className="text-4xl font-serif text-maroon-dominant dark:text-gold font-bold drop-shadow-sm">₹{payableAmount.toLocaleString('en-IN')}</span>
-                            <div className="h-1 w-full bg-gold/50 rounded-full mt-1"></div>
+                        <div className="mt-6 pt-6">
+                          <div className="bg-gold/10 -mx-4 px-6 py-5 rounded-xl border border-gold/20 flex items-center justify-between group">
+                            <div className="flex flex-col gap-1">
+                              <span className="text-[11px] font-black text-maroon-dominant dark:text-gold uppercase tracking-[0.25em]">Payable Amount</span>
+                              <span className="text-[9px] text-luxury-text-light/60 dark:text-white/40 font-bold uppercase tracking-widest">(Incl. of all taxes)</span>
+                            </div>
+                            <span className="text-3xl font-serif text-maroon-dominant dark:text-gold font-bold tracking-tight drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                              ₹{payableAmount.toLocaleString('en-IN')}
+                            </span>
                           </div>
                         </div>
                       </div>
