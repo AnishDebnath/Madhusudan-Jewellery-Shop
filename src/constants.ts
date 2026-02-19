@@ -41,7 +41,19 @@ export const PRODUCTS: Product[] = [
     weight: '32.5g',
     description: 'Exquisite handcrafted gold filigree work reflecting the rich heritage of Kolkata artisans.',
     isBestSeller: true,
-    additionalImages: [necklace6, necklace7, necklace8]
+    additionalImages: [necklace6, necklace7, necklace8],
+    grossWeight: '32.5g',
+    goldWeight: '32.5g',
+    baseMetal: 'Gold',
+    sizes: ['15 No', '16 No', '17 No', '18 No'],
+    resizeable: true,
+    metalStamp: 'BIS',
+    goldPurity: '22K',
+    goldColor: 'Yellow',
+    warranty: true,
+    jewelleryFor: 'Female',
+    productCode: 'MJ-GOLD-NK-501',
+    designCode: 'D-KOL-782'
   },
   {
     id: 'd1',

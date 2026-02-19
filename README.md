@@ -74,3 +74,5 @@ src/
 ## License
 
 Distributed under the Copyright Rights Reserved License of Madhusudan Jewellery.
+
+Designed & Developed with ❤️ by Anish Debnath

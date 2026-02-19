@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, ShieldCheck, RefreshCw, Truck, Heart, Share2, Sparkles, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Star, ShieldCheck, RefreshCw, Truck, Heart, Share2, Sparkles, ChevronRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import { Product, Category } from '../types';
 import { PRODUCTS } from '../constants';
 import ProductCard from '../components/ProductCard';
@@ -25,6 +25,14 @@ const ProductDetailPage: React.FC<PDPProps> = ({
 }) => {
   if (!product) return null;
   const [mainImage, setMainImage] = useState(product.image);
+  const [activeTab, setActiveTab] = useState<'specs' | 'price'>('specs');
+  const [openAccordions, setOpenAccordions] = useState<string[]>(['metal']);
+
+  const toggleAccordion = (id: string) => {
+    setOpenAccordions(prev =>
+      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+    );
+  };
 
   return (
     <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen pb-24 text-luxury-text-light dark:text-luxury-text-dark transition-colors animate-in fade-in duration-500">
@@ -92,7 +100,7 @@ const ProductDetailPage: React.FC<PDPProps> = ({
                     className={`min-w-[70px] aspect-square rounded-xl overflow-hidden relative ${mainImage === img ? 'ring-2 ring-gold' : 'opacity-60'}`}
                     onClick={() => setMainImage(img)}
                   >
-                    <img src={img} className="w-full h-full object-cover" />
+                    <img img src={img} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
@@ -124,36 +132,6 @@ const ProductDetailPage: React.FC<PDPProps> = ({
               </div>
             </div>
 
-            <div className="bg-luxury-bg-secondary dark:bg-luxury-dark-card/50 rounded-3xl p-8 mb-10 border border-transparent dark:border-white/5 backdrop-blur-sm">
-              <h4 className="text-[10px] font-black text-luxury-text-light/40 dark:text-white/40 uppercase tracking-[0.2em] mb-6 flex items-center gap-4">
-                Technical Specifications
-                <div className="h-[1px] flex-1 bg-luxury-bg-card dark:bg-white/10"></div>
-              </h4>
-              <div className="grid grid-cols-2 gap-y-6">
-                {product.karat && (
-                  <div>
-                    <span className="text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase block font-black tracking-widest mb-1">Metal Purity</span>
-                    <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.karat} Solid Gold</span>
-                  </div>
-                )}
-                {product.weight && (
-                  <div>
-                    <span className="text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase block font-black tracking-widest mb-1">Gross Weight</span>
-                    <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.weight}</span>
-                  </div>
-                )}
-                <div className="col-span-2">
-                  <span className="text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase block font-black tracking-widest mb-1">Certification</span>
-                  <span className="text-base font-serif text-maroon-dominant dark:text-white flex items-center gap-2">
-                    BIS Hallmarked
-                    <span className="bg-green-500/10 text-green-500 text-[10px] px-2 py-0.5 rounded-full border border-green-500/20 font-bold uppercase tracking-wider flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3" /> Certified
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </div>
-
             <div className="flex flex-col gap-4 mb-12">
               <div className="flex gap-4">
                 <button
@@ -171,6 +149,219 @@ const ProductDetailPage: React.FC<PDPProps> = ({
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </button>
               </div>
+            </div>
+
+            <div className="bg-luxury-bg-secondary dark:bg-luxury-dark-card/50 rounded-3xl p-8 mb-10 border border-transparent dark:border-white/5 backdrop-blur-sm">
+              <div className="flex gap-8 mb-8 border-b border-luxury-bg-card dark:border-white/10">
+                <button
+                  onClick={() => setActiveTab('specs')}
+                  className={`pb-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'specs' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/40 dark:text-white/40 hover:text-maroon-dominant dark:hover:text-gold'}`}
+                >
+                  Product Specification
+                  {activeTab === 'specs' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold animate-in slide-in-from-left duration-300"></div>}
+                </button>
+                <button
+                  onClick={() => setActiveTab('price')}
+                  className={`pb-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'price' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/40 dark:text-white/40 hover:text-maroon-dominant dark:hover:text-gold'}`}
+                >
+                  Price Breakdown
+                  {activeTab === 'price' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold animate-in slide-in-from-left duration-300"></div>}
+                </button>
+              </div>
+
+              {activeTab === 'specs' ? (
+                <div className="animate-in fade-in slide-in-from-bottom-2 duration-500 flex flex-col gap-4">
+                  {/* Metal Details Accordion */}
+                  <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('metal') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+                    <button
+                      onClick={() => toggleAccordion('metal')}
+                      className="w-full px-6 py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+                    >
+                      <span className={`text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('metal') ? 'text-gold' : 'group-hover:text-gold'}`}>1. Metal Details</span>
+                      <div className={`p-1.5 rounded-full transition-all duration-300 ${openAccordions.includes('metal') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </div>
+                    </button>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('metal') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="px-6 pb-6 pt-2 grid grid-cols-2 gap-x-12 gap-y-6">
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gross Weight</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.grossWeight || product.weight || '6.81'} (Approx.)</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Weight</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.goldWeight || product.weight || '6.81'} (Approx.)</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Base Metal</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.baseMetal || 'Gold'}</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Purity</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.goldPurity || product.karat || '22K'}</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Color</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.goldColor || 'Yellow'}</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Metal Stamp</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.metalStamp || 'BIS'}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Diamond Details Accordion (Conditional) */}
+                  {(product.diamondCarat || product.category === 'Diamond') && (
+                    <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('diamond') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+                      <button
+                        onClick={() => toggleAccordion('diamond')}
+                        className="w-full px-6 py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+                      >
+                        <span className={`text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('diamond') ? 'text-gold' : 'group-hover:text-gold'}`}>2. Diamond Details</span>
+                        <div className={`p-1.5 rounded-full transition-all duration-300 ${openAccordions.includes('diamond') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
+                          <ChevronDown className="w-3.5 h-3.5" />
+                        </div>
+                      </button>
+                      <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('diamond') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className="px-6 pb-6 pt-2 grid grid-cols-2 gap-x-12 gap-y-6">
+                          <div className="flex flex-col gap-1.5">
+                            <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Weight</span>
+                            <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.diamondCarat || '0.8ct'}</span>
+                          </div>
+                          <div className="flex flex-col gap-1.5">
+                            <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Quality</span>
+                            <span className="text-base font-serif text-maroon-dominant dark:text-white">VS-SI / G-H</span>
+                          </div>
+                          <div className="flex flex-col gap-1.5">
+                            <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Setting Type</span>
+                            <span className="text-base font-serif text-maroon-dominant dark:text-white">Prong / Pave</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* More Info Accordion */}
+                  <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('more') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+                    <button
+                      onClick={() => toggleAccordion('more')}
+                      className="w-full px-6 py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+                    >
+                      <span className={`text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('more') ? 'text-gold' : 'group-hover:text-gold'}`}>
+                        {(product.diamondCarat || product.category === 'Diamond') ? '3. More Info' : '2. More Info'}
+                      </span>
+                      <div className={`p-1.5 rounded-full transition-all duration-300 ${openAccordions.includes('more') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </div>
+                    </button>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('more') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="px-6 pb-6 pt-2 grid grid-cols-2 gap-x-12 gap-y-6">
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Size</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.sizes?.join(', ') || '15, 16, 17, 18, 19, 20'} No</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Resizeable</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.resizeable ? 'Yes' : 'No'}</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Warranty</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.warranty ? 'Yes' : 'No'}</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Jewellery for</span>
+                          <span className="text-base font-serif text-maroon-dominant dark:text-white">{product.jewelleryFor || 'Female'}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product Details Accordion */}
+                  <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('details') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+                    <button
+                      onClick={() => toggleAccordion('details')}
+                      className="w-full px-6 py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+                    >
+                      <span className={`text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('details') ? 'text-gold' : 'group-hover:text-gold'}`}>
+                        {(product.diamondCarat || product.category === 'Diamond') ? '4. Product Details' : '3. Product Details'}
+                      </span>
+                      <div className={`p-1.5 rounded-full transition-all duration-300 ${openAccordions.includes('details') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </div>
+                    </button>
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('details') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="px-6 pb-6 pt-2 space-y-4">
+                        <div className="grid grid-cols-2 gap-x-12 gap-y-4 pt-2">
+                          <div className="flex flex-col gap-1.5">
+                            <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Product Code</span>
+                            <span className="text-base font-serif text-maroon-dominant dark:text-white uppercase">{product.productCode || 'N/A'}</span>
+                          </div>
+                          <div className="flex flex-col gap-1.5">
+                            <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Design Code</span>
+                            <span className="text-base font-serif text-maroon-dominant dark:text-white uppercase">{product.designCode || 'N/A'}</span>
+                          </div>
+                        </div>
+                        <div className="pt-2 border-t border-luxury-bg-card/30 dark:border-white/5">
+                          <span className="text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest mb-2 block">Description</span>
+                          <p className="text-base font-serif text-maroon-dominant/80 dark:text-white/80 leading-relaxed italic">
+                            "{product.description}"
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                  {(() => {
+                    const payableAmount = product.price;
+                    const netAmount = Math.floor(payableAmount);
+                    const roundOff = (payableAmount - netAmount).toFixed(2);
+                    const grandTotal = Math.round(netAmount / 1.03);
+                    const gst3 = netAmount - grandTotal;
+                    const makingCharge = Math.round(grandTotal * 0.12);
+                    const goldValue = grandTotal - makingCharge;
+
+                    return (
+                      <div className="space-y-0.5">
+                        <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
+                          <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Gold Value</span>
+                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{goldValue.toLocaleString('en-IN')}.00</span>
+                        </div>
+                        <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
+                          <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Making Charge</span>
+                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{makingCharge.toLocaleString('en-IN')}.00</span>
+                        </div>
+                        <div className="flex justify-between items-center py-4 border-b border-gold/20 bg-gold/10 -mx-4 px-4 rounded-lg my-1">
+                          <span className="text-[11px] text-gold uppercase font-black tracking-[0.2em]">Grand Total</span>
+                          <span className="text-2xl font-serif text-gold font-bold">₹{grandTotal.toLocaleString('en-IN')}.00</span>
+                        </div>
+                        <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
+                          <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">GST (3%)</span>
+                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{gst3.toLocaleString('en-IN')}.00</span>
+                        </div>
+                        <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
+                          <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Net Amount</span>
+                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{netAmount.toLocaleString('en-IN')}.00</span>
+                        </div>
+                        <div className="flex justify-between items-end py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
+                          <span className="text-[11px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Round Off</span>
+                          <span className="text-xl font-serif text-maroon-dominant dark:text-white">₹{roundOff}</span>
+                        </div>
+                        <div className="flex justify-between items-center pt-8 px-2">
+                          <span className="text-xs text-maroon-dominant dark:text-gold uppercase font-black tracking-[0.3em]">Payable Amount</span>
+                          <div className="flex flex-col items-end">
+                            <span className="text-4xl font-serif text-maroon-dominant dark:text-gold font-bold drop-shadow-sm">₹{payableAmount.toLocaleString('en-IN')}</span>
+                            <div className="h-1 w-full bg-gold/50 rounded-full mt-1"></div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+              )}
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-10 border-t border-luxury-bg-card dark:border-white/10">

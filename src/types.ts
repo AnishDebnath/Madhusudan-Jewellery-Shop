@@ -22,6 +22,18 @@ export interface Product {
   isBestSeller?: boolean;
   isNewArrival?: boolean;
   additionalImages?: string[];
+  grossWeight?: string;
+  goldWeight?: string;
+  baseMetal?: string;
+  sizes?: string[];
+  resizeable?: boolean;
+  metalStamp?: string;
+  goldPurity?: string;
+  goldColor?: string;
+  warranty?: boolean;
+  jewelleryFor?: string;
+  productCode?: string;
+  designCode?: string;
 }
 
 export interface Review {
