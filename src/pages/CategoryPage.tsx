@@ -15,6 +15,8 @@ interface CategoryPageProps {
 
 const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onToggleWishlist, wishlist }) => {
   const [sortBy, setSortBy] = useState('featured');
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const sortRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Filter States
@@ -31,7 +33,22 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
         console.log("Video playback failed:", error);
       });
     }
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
+        setIsSortOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const sortOptions = [
+    { value: 'featured', label: 'Featured' },
+    { value: 'price-asc', label: 'Price: Low-High' },
+    { value: 'price-desc', label: 'Price: High-Low' },
+    { value: 'newest', label: 'New Arrivals' },
+  ];
 
   // Derived filter options from PRODUCTS
   const categories = useMemo(() => Array.from(new Set(PRODUCTS.map(p => p.category))), []);
@@ -153,22 +170,46 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
             />
           </div>
 
-          <div className="flex items-center gap-4 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0 hide-scrollbar">
-            <div className="flex items-center gap-3 bg-white/50 dark:bg-white/5 px-6 py-2.5 rounded-full border border-gold/10">
-              <span className="text-[9px] text-maroon-dominant/50 dark:text-white/40 font-black uppercase tracking-widest whitespace-nowrap">Sort By:</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-transparent text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-widest focus:outline-none cursor-pointer pr-4"
+          <div className="flex items-center justify-between w-full lg:w-auto gap-6 pb-2 lg:pb-0">
+            <div className="relative" ref={sortRef}>
+              <div
+                className="flex items-center gap-3 bg-white/40 dark:bg-black/20 px-5 py-2.5 rounded-full border border-gold/20 cursor-pointer hover:border-gold/40 hover:bg-white/60 dark:hover:bg-black/40 transition-all duration-300 group backdrop-blur-sm"
+                onClick={() => setIsSortOpen(!isSortOpen)}
               >
-                <option value="featured">Featured</option>
-                <option value="price-asc">Price: Low-High</option>
-                <option value="price-desc">Price: High-Low</option>
-                <option value="newest">New Arrivals</option>
-              </select>
+                <span className="text-xs text-maroon-dominant/60 dark:text-white/50 font-black uppercase tracking-widest whitespace-nowrap">Sort By:</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-black text-maroon-dominant dark:text-gold uppercase tracking-widest whitespace-nowrap transition-colors">
+                    {sortOptions.find(opt => opt.value === sortBy)?.label}
+                  </span>
+                  <ChevronDown className={`w-4 h-4 text-gold/80 transition-transform duration-300 ${isSortOpen ? 'rotate-180' : 'group-hover:translate-y-0.5'}`} />
+                </div>
+              </div>
+
+              {isSortOpen && (
+                <div className="absolute top-[calc(100%+0.5rem)] right-0 lg:right-auto lg:left-0 w-64 bg-white/95 dark:bg-luxury-dark-primary/95 backdrop-blur-md border border-gold/20 rounded-xl shadow-xl shadow-black/5 dark:shadow-none overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-200">
+                  <div className="py-2">
+                    {sortOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        onClick={() => {
+                          setSortBy(option.value);
+                          setIsSortOpen(false);
+                        }}
+                        className={`w-full text-left px-5 py-3 text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between group ${sortBy === option.value
+                          ? 'text-gold font-bold bg-gold/5'
+                          : 'text-maroon-dominant/70 dark:text-white/60 font-medium hover:text-maroon-dominant hover:bg-black/5 dark:hover:text-white dark:hover:bg-white/5'
+                          }`}
+                      >
+                        <span className="group-hover:translate-x-1 transition-transform duration-300">{option.label}</span>
+                        {sortBy === option.value && <Check className="w-4 h-4 text-gold" />}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            <p className="text-[10px] text-maroon-dominant/40 dark:text-white/30 font-black uppercase tracking-widest ml-auto italic">
+            <p className="text-[10px] text-maroon-dominant/40 dark:text-white/30 font-black uppercase tracking-widest italic whitespace-nowrap">
               {filteredProducts.length} items Found
             </p>
           </div>
