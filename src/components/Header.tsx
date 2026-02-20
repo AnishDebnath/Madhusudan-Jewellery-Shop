@@ -162,13 +162,13 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
               <button onClick={() => onNavigate('wishlist')} className="relative group p-2">
                 <Heart className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
                 {wishlistCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-maroon-dominant text-[8px] text-white w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shadow-lg border border-gold/40 animate-in zoom-in rotate-12">{wishlistCount}</span>
+                  <span className="absolute -top-1.5 -right-1.5 bg-maroon-dominant text-[10px] text-white min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-lg border border-gold/40 animate-in zoom-in">{wishlistCount}</span>
                 )}
               </button>
               <button onClick={() => onNavigate('cart')} className="relative group p-2">
                 <ShoppingBag className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-gold text-[8px] text-maroon-dominant w-4.5 h-4.5 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in -rotate-12">{cartCount}</span>
+                  <span className="absolute -top-1.5 -right-1.5 bg-gold text-[10px] text-maroon-dominant min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in">{cartCount}</span>
                 )}
               </button>
               <button className="p-2 hidden lg:block group hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full transition-all">
