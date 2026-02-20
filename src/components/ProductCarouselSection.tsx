@@ -11,6 +11,7 @@ interface ProductCarouselSectionProps {
   wishlist: string[];
   onNavigate: (view: string, data?: any) => void;
   showBestsellerBadge?: boolean;
+  onAddToCart?: (p: Product) => void;
 }
 
 const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
@@ -20,7 +21,8 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
   onToggleWishlist,
   wishlist,
   onNavigate,
-  showBestsellerBadge
+  showBestsellerBadge,
+  onAddToCart
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -77,6 +79,7 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
                 onToggleWishlist={onToggleWishlist}
                 isWishlisted={wishlist.includes(product.id)}
                 showBestseller={showBestsellerBadge}
+                onAddToCart={onAddToCart}
               />
             </div>
           ))}

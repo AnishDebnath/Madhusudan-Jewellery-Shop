@@ -9,6 +9,7 @@ interface NewArrivalsProps {
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
   onNavigate: (view: string, data?: any) => void;
+  onAddToCart?: (p: Product) => void;
 }
 
 import reel1 from '../assets/reels/Reel 1.webm';
@@ -75,7 +76,7 @@ const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video
   );
 };
 
-const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishlist, wishlist, onNavigate }) => {
+const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishlist, wishlist, onNavigate, onAddToCart }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const productScrollRef = useRef<HTMLDivElement>(null);
   const newArrivalProducts = PRODUCTS.filter(p => p.isNewArrival);
@@ -160,6 +161,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
                   onToggleWishlist={onToggleWishlist}
                   isWishlisted={wishlist.includes(product.id)}
                   showNewArrival={true}
+                  onAddToCart={onAddToCart}
                 />
               </div>
             ))}

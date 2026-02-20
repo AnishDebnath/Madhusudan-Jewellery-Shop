@@ -124,7 +124,7 @@ const ProductDetailPage: React.FC<PDPProps> = ({
               </div>
 
               <div className="space-y-2">
-                <p className="text-4xl font-serif text-maroon-dominant dark:text-gold font-light">₹{product.price.toLocaleString('en-IN')}</p>
+                <p className="text-4xl font-sans font-bold tracking-tight text-maroon-dominant dark:text-gold">₹{product.price.toLocaleString('en-IN')}</p>
                 <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-[10px] uppercase font-bold tracking-widest flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                   Complimentary Insured Shipping
@@ -358,7 +358,7 @@ const ProductDetailPage: React.FC<PDPProps> = ({
                               <span className="text-[11px] font-black text-maroon-dominant dark:text-gold uppercase tracking-[0.25em]">Payable Amount</span>
                               <span className="text-[9px] text-luxury-text-light/60 dark:text-white/40 font-bold uppercase tracking-widest">(Incl. of all taxes)</span>
                             </div>
-                            <span className="text-3xl font-serif text-maroon-dominant dark:text-gold font-bold tracking-tight drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                            <span className="text-3xl font-sans text-maroon-dominant dark:text-gold font-bold tracking-tight drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                               ₹{payableAmount.toLocaleString('en-IN')}
                             </span>
                           </div>
@@ -419,6 +419,7 @@ const ProductDetailPage: React.FC<PDPProps> = ({
                   onClick={(prod) => onNavigate('pdp', prod)}
                   onToggleWishlist={onToggleWishlist}
                   isWishlisted={wishlist.includes(p.id)}
+                  onAddToCart={onAddToCart}
                 />
               ))
             }

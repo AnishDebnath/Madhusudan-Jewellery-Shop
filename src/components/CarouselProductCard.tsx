@@ -9,6 +9,7 @@ interface CarouselProductCardProps {
   isWishlisted: boolean;
   showBestseller?: boolean;
   showNewArrival?: boolean;
+  onAddToCart?: (p: Product) => void;
 }
 
 const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
@@ -17,7 +18,8 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
   onToggleWishlist,
   isWishlisted,
   showBestseller,
-  showNewArrival
+  showNewArrival,
+  onAddToCart
 }) => {
   const mrp = product.price * 1.15;
 
@@ -77,10 +79,10 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
           </h3>
 
           <div className="flex items-center gap-4 mb-4">
-            <span className="text-xl font-black text-maroon-dominant dark:text-gold tracking-tight">
+            <span className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight">
               ₹{product.price.toLocaleString('en-IN')}
             </span>
-            <span className="text-[11px] text-maroon-dominant/30 dark:text-white/20 line-through Decoration-1 font-bold">
+            <span className="font-sans text-[11px] text-maroon-dominant/30 dark:text-white/20 line-through Decoration-1 font-bold">
               ₹{Math.round(mrp).toLocaleString('en-IN')}
             </span>
           </div>
@@ -94,6 +96,15 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
           </div>
           <span className="text-[9px] text-maroon-dominant/40 dark:text-white/30 uppercase tracking-[0.2em] font-black">24 Reviews</span>
         </div>
+
+        {onAddToCart && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
+            className="w-full mt-4 bg-maroon-dominant text-white py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
+          >
+            Add to Bag
+          </button>
+        )}
       </div>
     </div>
   );

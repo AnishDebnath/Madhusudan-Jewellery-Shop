@@ -133,13 +133,13 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cart, onComplete }) => {
                   <div key={i.id} className="flex justify-between text-[11px] font-medium tracking-wide items-center">
                     <span className="text-luxury-text-light/70 dark:text-white/70 truncate w-32">{i.name}</span>
                     <span className="text-luxury-text-light/50 dark:text-white/50">x{i.quantity}</span>
-                    <span className="text-maroon-dominant dark:text-gold font-bold">₹{(i.price * i.quantity).toLocaleString('en-IN')}</span>
+                    <span className="font-sans text-maroon-dominant dark:text-gold font-bold tracking-tight">₹{(i.price * i.quantity).toLocaleString('en-IN')}</span>
                   </div>
                 ))}
               </div>
               <div className="pt-6 border-t border-luxury-bg-card dark:border-white/10 flex justify-between items-center">
                 <span className="text-[10px] font-black text-luxury-text-light/40 dark:text-white/40 uppercase tracking-widest">Grand Total</span>
-                <span className="text-xl font-bold text-maroon-dominant dark:text-white tracking-tighter">₹{total.toLocaleString('en-IN')}</span>
+                <span className="text-xl font-sans font-bold text-maroon-dominant dark:text-white tracking-tight">₹{total.toLocaleString('en-IN')}</span>
               </div>
             </div>
           </div>

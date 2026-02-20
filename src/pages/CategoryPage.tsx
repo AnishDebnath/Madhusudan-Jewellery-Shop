@@ -11,9 +11,10 @@ interface CategoryPageProps {
   onProductClick: (p: Product) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
+  onAddToCart?: (p: Product) => void;
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onToggleWishlist, wishlist }) => {
+const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, onToggleWishlist, wishlist, onAddToCart }) => {
   const [sortBy, setSortBy] = useState('featured');
   const [isSortOpen, setIsSortOpen] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
@@ -357,6 +358,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
                     onClick={onProductClick}
                     onToggleWishlist={onToggleWishlist}
                     isWishlisted={wishlist.includes(product.id)}
+                    onAddToCart={onAddToCart}
                   />
                 </div>
               ))}

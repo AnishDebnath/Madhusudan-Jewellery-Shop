@@ -63,9 +63,10 @@ interface CategoryRouteWrapperProps {
   handleNavigate: (view: string, data?: any) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
+  addToCart: (product: Product) => void;
 }
 
-const CategoryRouteWrapper: React.FC<CategoryRouteWrapperProps> = ({ handleNavigate, onToggleWishlist, wishlist }) => {
+const CategoryRouteWrapper: React.FC<CategoryRouteWrapperProps> = ({ handleNavigate, onToggleWishlist, wishlist, addToCart }) => {
   const { category } = useParams<{ category: string }>();
   return (
     <CategoryPage
@@ -73,6 +74,7 @@ const CategoryRouteWrapper: React.FC<CategoryRouteWrapperProps> = ({ handleNavig
       onProductClick={(p) => handleNavigate('pdp', p)}
       onToggleWishlist={onToggleWishlist}
       wishlist={wishlist}
+      onAddToCart={addToCart}
     />
   );
 };
@@ -154,10 +156,11 @@ const App: React.FC = () => {
                 onToggleWishlist={toggleWishlist}
                 wishlist={wishlist}
                 onNavigate={handleNavigate}
+                onAddToCart={addToCart}
               />
             } />
 
-            <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
+            <Route path="/category/:category" element={<CategoryRouteWrapper handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} addToCart={addToCart} />} />
             <Route path="/product/:id" element={<ProductRouteWrapper addToCart={addToCart} handleNavigate={handleNavigate} onToggleWishlist={toggleWishlist} wishlist={wishlist} />} />
 
             <Route path="/cart" element={

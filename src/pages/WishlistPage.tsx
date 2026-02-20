@@ -56,7 +56,7 @@ const WishlistPage: React.FC<WishlistPageProps> = ({ wishlist, onProductClick, o
               <div className="p-6 text-center">
                 <span className="text-gold text-[9px] font-black uppercase tracking-[0.2em] mb-2 block">{product.category}</span>
                 <h3 className="font-serif text-maroon-dominant dark:text-white text-xl mb-2 truncate group-hover:text-gold transition-colors cursor-pointer" onClick={() => onProductClick(product)}>{product.name}</h3>
-                <p className="text-maroon-dominant dark:text-gold font-bold mb-6">₹{product.price.toLocaleString('en-IN')}</p>
+                <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight mb-6">₹{product.price.toLocaleString('en-IN')}</p>
                 <div className="flex flex-col gap-3">
                   <button
                     onClick={() => onAddToCart(product)}

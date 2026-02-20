@@ -7,9 +7,10 @@ interface ProductCardProps {
   onClick: (p: Product) => void;
   onToggleWishlist: (id: string) => void;
   isWishlisted: boolean;
+  onAddToCart?: (p: Product) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onToggleWishlist, isWishlisted }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onToggleWishlist, isWishlisted, onAddToCart }) => {
   return (
     <div className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer rounded-3xl h-full flex flex-col">
       <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 rounded-t-3xl">
@@ -39,13 +40,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onToggleWis
         <div>
           <span className="text-[9px] text-gold uppercase tracking-[0.2em] font-black mb-2 block">{product.category} {product.karat || product.diamondCarat}</span>
           <h3 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 truncate group-hover:text-gold transition-colors">{product.name}</h3>
-          <p className="text-maroon-dominant dark:text-gold font-bold text-base font-serif">₹{product.price.toLocaleString('en-IN')}</p>
+          <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight mt-1">₹{product.price.toLocaleString('en-IN')}</p>
         </div>
         <div className="mt-6 pt-4 border-t border-luxury-bg-card dark:border-white/5 flex justify-center items-center gap-4 text-[9px] text-luxury-text-light/40 dark:text-white/40 uppercase tracking-widest font-bold">
           <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> BIS Hallmark</span>
           <span className="w-1 h-1 bg-gold/50 rounded-full"></span>
           <span>Certified</span>
         </div>
+        {onAddToCart && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
+            className="w-full mt-4 bg-maroon-dominant text-white py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
+          >
+            Add to Bag
+          </button>
+        )}
       </div>
     </div>
   );

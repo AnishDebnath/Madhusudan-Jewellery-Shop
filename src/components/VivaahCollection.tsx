@@ -36,9 +36,10 @@ const VIVAAH_PRODUCTS = [
 interface VivaahCollectionProps {
   onNavigate: (view: string, data?: any) => void;
   onProductClick: (p: any) => void;
+  onAddToCart?: (p: any) => void;
 }
 
-const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProductClick }) => {
+const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProductClick, onAddToCart }) => {
   return (
     <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-24 overflow-hidden border-t border-gold/10 transition-colors relative">
       <div className="container mx-auto px-6">
@@ -90,9 +91,19 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
                   </button>
                 </div>
               </div>
-              <div className="p-8 text-center flex flex-col justify-between h-36">
-                <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 line-clamp-1 group-hover:text-gold transition-colors">{product.name}</h4>
-                <p className="text-maroon-dominant dark:text-gold font-black text-base tracking-tight">₹{product.price.replace('₹', '')}</p>
+              <div className="p-8 text-center flex flex-col justify-between h-auto">
+                <div>
+                  <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 line-clamp-1 group-hover:text-gold transition-colors">{product.name}</h4>
+                  <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight mb-4">₹{product.price.replace('₹', '')}</p>
+                </div>
+                {onAddToCart && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onAddToCart({ ...product, price: parseInt(product.price.replace(/[^\d]/g, '')) }); }}
+                    className="w-full bg-maroon-dominant text-white py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
+                  >
+                    Add to Bag
+                  </button>
+                )}
               </div>
             </div>
           ))}

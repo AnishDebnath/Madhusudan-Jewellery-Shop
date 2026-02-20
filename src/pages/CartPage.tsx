@@ -61,7 +61,7 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove, onChec
                       >
                         {item.name}
                       </h3>
-                      <p className="text-lg font-serif text-maroon-dominant/80 dark:text-gold font-bold">₹{item.price.toLocaleString('en-IN')}</p>
+                      <p className="text-lg font-sans text-maroon-dominant dark:text-gold font-bold tracking-tight">₹{item.price.toLocaleString('en-IN')}</p>
                     </div>
                     <button onClick={() => onRemove(item.id)} className="text-luxury-text-light/40 dark:text-white/40 hover:text-red-500 transition-colors p-2 hover:bg-red-500/10 rounded-full">
                       <Trash2 className="w-5 h-5" />
@@ -91,11 +91,11 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove, onChec
               <div className="space-y-5 mb-8">
                 <div className="flex justify-between text-xs font-bold tracking-widest text-luxury-text-light/60 dark:text-white/60">
                   <span className="uppercase">Subtotal</span>
-                  <span className="text-maroon-dominant dark:text-white">₹{subtotal.toLocaleString('en-IN')}</span>
+                  <span className="font-sans font-bold tracking-tight text-maroon-dominant dark:text-white">₹{subtotal.toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between text-xs font-bold tracking-widest text-luxury-text-light/60 dark:text-white/60">
                   <span className="uppercase">GST (3%)</span>
-                  <span className="text-maroon-dominant dark:text-white">₹{taxes.toLocaleString('en-IN')}</span>
+                  <span className="font-sans font-bold tracking-tight text-maroon-dominant dark:text-white">₹{taxes.toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between text-xs font-bold tracking-widest text-luxury-text-light/60 dark:text-white/60">
                   <span className="uppercase">Shipping</span>
@@ -103,7 +103,7 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove, onChec
                 </div>
                 <div className="pt-6 border-t border-luxury-bg-card dark:border-white/10 flex justify-between items-center">
                   <span className="text-maroon-dominant dark:text-gold font-black uppercase text-xs tracking-widest">Estimated Total</span>
-                  <span className="text-2xl font-serif text-maroon-dominant dark:text-white font-bold tracking-tight">₹{total.toLocaleString('en-IN')}</span>
+                  <span className="text-2xl font-sans text-maroon-dominant dark:text-white font-bold tracking-tight">₹{total.toLocaleString('en-IN')}</span>
                 </div>
               </div>
 

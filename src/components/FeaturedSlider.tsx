@@ -9,9 +9,10 @@ interface FeaturedSliderProps {
   onProductClick: (p: Product) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
+  onAddToCart?: (p: Product) => void;
 }
 
-const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggleWishlist, wishlist }) => {
+const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggleWishlist, wishlist, onAddToCart }) => {
   const featured = PRODUCTS.filter(p => p.isBestSeller || p.isNewArrival).slice(0, 6);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewState, setViewState] = useState({ isMobile: false, isTablet: false });
@@ -133,15 +134,17 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
                       </p>
                     </div>
 
-                    <button
-                      onClick={() => onProductClick(product)}
-                      className="relative w-full py-3.5 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
-                    >
-                      <span className="relative z-10 flex items-center justify-center gap-2">
-                        EXPLORE THE CRAFT <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
-                      </span>
-                      <div className="absolute inset-0 bg-maroon-dominant dark:bg-gold transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-out"></div>
-                    </button>
+                    <div className="flex flex-col gap-2">
+                      <button
+                        onClick={() => onProductClick(product)}
+                        className="relative w-full py-3.5 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
+                      >
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                          EXPLORE THE CRAFT <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+                        </span>
+                        <div className="absolute inset-0 bg-maroon-dominant dark:bg-gold transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-out"></div>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

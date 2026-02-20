@@ -27,15 +27,16 @@ interface HomeProps {
     onToggleWishlist: (id: string) => void;
     wishlist: string[];
     onNavigate: (view: string, data?: any) => void;
+    onAddToCart?: (p: Product) => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist, onNavigate }) => {
+const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist, onNavigate, onAddToCart }) => {
     return (
         <>
             <Hero onNavigate={onNavigate} />
             <OffersSection onNavigate={onNavigate} />
-            <FeaturedSlider onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} />
-            <NewArrivals onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} />
+            <FeaturedSlider onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onAddToCart={onAddToCart} />
+            <NewArrivals onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} onAddToCart={onAddToCart} />
             <section className="py-20 md:py-28 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
                 {/* Background Decor */}
                 <div className="absolute top-20 left-10 w-64 h-64 bg-maroon-dominant/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -64,6 +65,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
                                 onClick={onProductClick}
                                 onToggleWishlist={onToggleWishlist}
                                 isWishlisted={wishlist.includes(product.id)}
+                                onAddToCart={onAddToCart}
                             />
                         ))}
                     </div>
@@ -77,10 +79,11 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
                 wishlist={wishlist}
                 onNavigate={onNavigate}
                 showBestsellerBadge={true}
+                onAddToCart={onAddToCart}
             />
             <VideoCollectionSlider />
             <ShopByBudget onNavigate={onNavigate} />
-            <VivaahCollection onNavigate={onNavigate} onProductClick={onProductClick} />
+            <VivaahCollection onNavigate={onNavigate} onProductClick={onProductClick} onAddToCart={onAddToCart} />
             <NikahCollection onNavigate={onNavigate} />
             <EarringCollection onNavigate={onNavigate} />
             <GemstoneCollection onNavigate={onNavigate} />
