@@ -40,7 +40,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
   return (
     <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen pb-24 transition-colors animate-in fade-in duration-700">
       {/* Premium Hero Section with Video */}
-      <section className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden bg-maroon-dominant">
+      <section className="relative h-[240px] md:h-[300px] flex items-center justify-center overflow-hidden bg-maroon-dominant">
         {/* Cinematic Video Background */}
         <video
           ref={videoRef}
@@ -62,17 +62,17 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center gap-4 mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="h-[1px] w-8 bg-gold/40"></div>
-            <span className="text-gold text-[10px] tracking-[0.6em] uppercase font-black gold-glow">The Eternal Collection</span>
-            <div className="h-[1px] w-8 bg-gold/40"></div>
+          <div className="flex items-center justify-center gap-4 mb-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="h-[1px] w-6 bg-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] tracking-[0.6em] uppercase font-black gold-glow">The Eternal Collection</span>
+            <div className="h-[1px] w-6 bg-gold/40"></div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 uppercase tracking-tight leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-4 uppercase tracking-tight leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
             {category || 'Jewellery'} <span className="italic text-gold block md:inline gold-glow">Catalog</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-white/70 font-light italic text-base md:text-xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="max-w-2xl mx-auto text-white/70 font-light italic text-sm md:text-lg leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             "Discover the soul of Bengal in every curve, where heritage meets the brilliance of modern artisanry."
           </p>
         </div>
@@ -81,7 +81,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-20 bg-gradient-to-b from-gold/0 via-gold/50 to-gold/0 hidden md:block"></div>
       </section>
 
-      <div className="container mx-auto px-6 -mt-10 relative z-20">
+      <div className="container mx-auto px-6 -mt-8 relative z-20">
         {/* Refined Filter & Sort Bar - Centered & Compact Width */}
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/95 dark:bg-luxury-dark-card/95 p-3.5 md:p-4 rounded-full shadow-xl border border-gold/10 dark:border-white/5 backdrop-blur-xl">

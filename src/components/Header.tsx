@@ -24,6 +24,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll(); // Initial check
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -124,7 +125,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
         </div>
 
         {/* Main Navigation Bar */}
-        <div className={`transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-white/95 dark:bg-luxury-dark-primary/95 shadow-2xl' : 'py-4 bg-white dark:bg-luxury-dark-primary'}`}>
+        <div className={`transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-white/95 dark:bg-luxury-dark-primary/95 shadow-2xl' : 'py-2 bg-white dark:bg-luxury-dark-primary'}`}>
           <div className="container mx-auto px-6 grid grid-cols-12 items-center">
 
             {/* Left Actions */}
@@ -151,7 +152,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
                 <img
                   src={logo}
                   alt="Aura Logo"
-                  className={`transition-all duration-700 ${scrolled ? 'h-10 md:h-12' : 'h-16 md:h-20'} group-hover:scale-110`}
+                  className={`transition-all duration-700 ${scrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'} group-hover:scale-110`}
                 />
               </div>
             </div>

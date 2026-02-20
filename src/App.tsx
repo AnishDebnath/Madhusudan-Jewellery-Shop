@@ -145,7 +145,7 @@ const App: React.FC = () => {
         onNavigate={handleNavigate}
       />
 
-      <main className="pt-[120px] lg:pt-[150px]">
+      <main className="pt-[130px] lg:pt-[180px]">
         <React.Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={
