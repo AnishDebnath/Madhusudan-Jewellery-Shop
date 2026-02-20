@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { Filter, ChevronDown, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Filter, ChevronDown, SlidersHorizontal, Sparkles, X, Check, Search } from 'lucide-react';
 import { PRODUCTS } from '../constants';
 import { Category, Product } from '../types';
 import ProductCard from '../components/ProductCard';
@@ -17,6 +17,14 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
   const [sortBy, setSortBy] = useState('featured');
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Filter States
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000000]);
+  const [selectedPurities, setSelectedPurities] = useState<string[]>([]);
+  const [selectedGenders, setSelectedGenders] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
@@ -25,23 +33,80 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
     }
   }, []);
 
+  // Derived filter options from PRODUCTS
+  const categories = useMemo(() => Array.from(new Set(PRODUCTS.map(p => p.category))), []);
+  const subCategories = useMemo(() => Array.from(new Set(PRODUCTS.map(p => p.subCategory))), []);
+  const purities = useMemo(() => Array.from(new Set(PRODUCTS.map(p => p.karat || p.goldPurity).filter(Boolean))), []);
+  const genders = useMemo(() => Array.from(new Set(PRODUCTS.map(p => p.jewelleryFor).filter(Boolean))), []);
+
   const filteredProducts = useMemo(() => {
     let result = PRODUCTS;
-    if (category && category !== 'All') {
-      result = result.filter(p => p.category === category || p.subCategory === category);
+
+    // Search Filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(p =>
+        p.name.toLowerCase().includes(query) ||
+        p.description.toLowerCase().includes(query) ||
+        p.subCategory.toLowerCase().includes(query)
+      );
     }
+
+    // Category Filter
+    if (selectedCategories.length > 0) {
+      result = result.filter(p => selectedCategories.includes(p.category));
+    }
+
+    // SubCategory Filter
+    if (selectedSubCategories.length > 0) {
+      result = result.filter(p => selectedSubCategories.includes(p.subCategory));
+    }
+
+    // Price Filter
+    result = result.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
+
+    // Purity Filter
+    if (selectedPurities.length > 0) {
+      result = result.filter(p => selectedPurities.includes(p.karat || '') || selectedPurities.includes(p.goldPurity || ''));
+    }
+
+    // Gender Filter
+    if (selectedGenders.length > 0) {
+      result = result.filter(p => selectedGenders.includes(p.jewelleryFor || ''));
+    }
+
     const sorted = [...result];
     if (sortBy === 'price-asc') return sorted.sort((a, b) => a.price - b.price);
     if (sortBy === 'price-desc') return sorted.sort((a, b) => b.price - a.price);
     if (sortBy === 'newest') return sorted.filter(p => p.isNewArrival);
     return sorted;
-  }, [category, sortBy]);
+  }, [selectedCategories, selectedSubCategories, priceRange, selectedPurities, selectedGenders, searchQuery, sortBy]);
+
+  const toggleFilter = (list: string[], setList: React.Dispatch<React.SetStateAction<string[]>>, value: string) => {
+    setList(prev => prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]);
+  };
+
+  const clearFilters = () => {
+    setSelectedCategories([]);
+    setSelectedSubCategories([]);
+    setPriceRange([0, 1000000]);
+    setSelectedPurities([]);
+    setSelectedGenders([]);
+    setSearchQuery('');
+  };
+
+  const activeFilterCount = (
+    (selectedCategories.length > 0 ? 1 : 0) +
+    (selectedSubCategories.length > 0 ? 1 : 0) +
+    (priceRange[0] > 0 || priceRange[1] < 1000000 ? 1 : 0) +
+    (selectedPurities.length > 0 ? 1 : 0) +
+    (selectedGenders.length > 0 ? 1 : 0)
+  );
 
   return (
     <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen pb-24 transition-colors animate-in fade-in duration-700">
-      {/* Premium Hero Section with Video */}
-      <section className="relative h-[240px] md:h-[300px] flex items-center justify-center overflow-hidden bg-maroon-dominant">
-        {/* Cinematic Video Background */}
+      {/* Premium Hero Section */}
+      <section className="relative h-[280px] md:h-[350px] flex items-center justify-center overflow-hidden bg-maroon-dominant">
         <video
           ref={videoRef}
           autoPlay
@@ -50,119 +115,212 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, onProductClick, o
           playsInline
           preload="auto"
           poster={heroPoster}
-          className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60"
+          className="absolute inset-0 w-full h-full object-cover scale-105 opacity-50"
         >
           <source src={heritageVideo} type="video/webm" />
         </video>
 
-        {/* Background Decorative Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-[120px] rounded-full -translate-y-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-full bg-black/20 blur-[100px] rounded-full translate-y-1/2"></div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-maroon-dominant/60 via-transparent to-luxury-bg-primary dark:to-luxury-dark-primary"></div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center gap-4 mb-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="flex items-center justify-center gap-4 mb-4">
             <div className="h-[1px] w-6 bg-gold/40"></div>
-            <span className="text-gold text-[9px] md:text-[10px] tracking-[0.6em] uppercase font-black gold-glow">The Eternal Collection</span>
+            <span className="text-gold text-[10px] tracking-[0.6em] uppercase font-black gold-glow">Handcrafted Elegance</span>
             <div className="h-[1px] w-6 bg-gold/40"></div>
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-4 uppercase tracking-tight leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
-            {category || 'Jewellery'} <span className="italic text-gold block md:inline gold-glow">Catalog</span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white mb-4 uppercase tracking-tight leading-tight">
+            {selectedCategories.length === 1 ? selectedCategories[0] : 'All Treasures'} <span className="italic text-gold gold-glow">Collection</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-white/70 font-light italic text-sm md:text-lg leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            "Discover the soul of Bengal in every curve, where heritage meets the brilliance of modern artisanry."
+          <p className="max-w-2xl mx-auto text-white/70 font-light italic text-sm md:text-lg leading-relaxed">
+            "A legacy of brilliance, where every piece tells a story of timeless craftsmanship and Bengali heritage."
           </p>
         </div>
-
-        {/* Floating Scroll Indicator Decoration */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-20 bg-gradient-to-b from-gold/0 via-gold/50 to-gold/0 hidden md:block"></div>
       </section>
 
-      <div className="container mx-auto px-6 -mt-8 relative z-20">
-        {/* Refined Filter & Sort Bar - Centered & Compact Width */}
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/95 dark:bg-luxury-dark-card/95 p-3.5 md:p-4 rounded-full shadow-xl border border-gold/10 dark:border-white/5 backdrop-blur-xl">
-            <div className="flex items-center gap-6 md:gap-8">
-              <button
-                onClick={() => window.scrollTo({ top: window.innerHeight * 0.4, behavior: 'smooth' })}
-                className="flex items-center gap-2.5 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.2em] hover:text-gold transition-all group px-4 py-2 hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full"
+      <div className="container mx-auto px-6">
+        {/* Search and Sort Bar */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 py-8 border-b border-gold/10 mb-8 sticky top-[130px] lg:top-[180px] bg-luxury-bg-primary/95 dark:bg-luxury-dark-primary/95 backdrop-blur-md z-30">
+          <div className="relative w-full lg:w-96 group">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold/50 group-hover:text-gold transition-colors" />
+            <input
+              type="text"
+              placeholder="Search for your masterpiece..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 bg-white/50 dark:bg-white/5 border border-gold/10 rounded-full text-xs font-light tracking-wide focus:outline-none focus:border-gold/30 transition-all placeholder:text-maroon-dominant/30 dark:placeholder:text-white/20"
+            />
+          </div>
+
+          <div className="flex items-center gap-4 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0 hide-scrollbar">
+            <div className="flex items-center gap-3 bg-white/50 dark:bg-white/5 px-6 py-2.5 rounded-full border border-gold/10">
+              <span className="text-[9px] text-maroon-dominant/50 dark:text-white/40 font-black uppercase tracking-widest whitespace-nowrap">Sort By:</span>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="bg-transparent text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-widest focus:outline-none cursor-pointer pr-4"
               >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
-                Refine Search
-                <ChevronDown className="w-3 h-3 text-gold/50 group-hover:rotate-180 transition-transform" />
-              </button>
-              <div className="h-5 w-[1px] bg-maroon-dominant/10 dark:bg-white/10 hidden sm:block"></div>
-              <div className="flex flex-col">
-                <p className="text-[9px] text-maroon-dominant/40 dark:text-white/30 font-black uppercase tracking-[0.2em]">Treasures Unveiled</p>
-                <p className="text-[11px] text-maroon-dominant dark:text-gold font-bold font-serif italic">
-                  {filteredProducts.length} Exquisite Pieces
-                </p>
-              </div>
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low-High</option>
+                <option value="price-desc">Price: High-Low</option>
+                <option value="newest">New Arrivals</option>
+              </select>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3 bg-maroon-dominant/5 dark:bg-white/5 px-5 py-2 rounded-full border border-gold/5">
-                <span className="text-[9px] text-maroon-dominant/50 dark:text-white/40 font-black uppercase tracking-widest hidden lg:inline">Sort Masterpieces:</span>
-                <div className="relative group min-w-[130px]">
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full appearance-none bg-transparent text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-[0.1em] focus:outline-none cursor-pointer pr-6"
-                  >
-                    <option value="featured">Featured Selection</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                    <option value="newest">Newest Arrivals</option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-gold absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none group-hover:rotate-180 transition-transform duration-500" />
-                </div>
-              </div>
-            </div>
+            <p className="text-[10px] text-maroon-dominant/40 dark:text-white/30 font-black uppercase tracking-widest ml-auto italic">
+              {filteredProducts.length} items Found
+            </p>
           </div>
         </div>
 
-        {/* Product Grid Header */}
-        <div className="mt-20 mb-12 flex items-center gap-6">
-          <h2 className="text-[10px] font-black text-gold uppercase tracking-[0.5em] whitespace-nowrap gold-glow">Exquisite Catalog</h2>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-gold/30 to-transparent"></div>
-        </div>
-
-        {/* Optimized Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="animate-in fade-in slide-in-from-bottom-10 duration-700">
-              <ProductCard
-                product={product}
-                onClick={onProductClick}
-                onToggleWishlist={onToggleWishlist}
-                isWishlisted={wishlist.includes(product.id)}
-              />
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Sidebar Filters */}
+          <aside className="lg:w-72 space-y-8">
+            <div className="flex items-center justify-between group">
+              <h3 className="text-[11px] font-black text-gold uppercase tracking-[0.4em] gold-glow">Refine Your Selection</h3>
+              {activeFilterCount > 0 && (
+                <button
+                  onClick={clearFilters}
+                  className="text-[9px] text-maroon-dominant/40 dark:text-white/30 hover:text-gold uppercase tracking-widest transition-colors flex items-center gap-1"
+                >
+                  <X className="w-3 h-3" />
+                  Reset
+                </button>
+              )}
             </div>
-          ))}
 
-          {filteredProducts.length === 0 && (
-            <div className="col-span-full py-48 text-center flex flex-col items-center justify-center">
-              <div className="relative mb-10">
-                <div className="w-24 h-24 rounded-full border border-gold/20 flex items-center justify-center animate-pulse">
-                  <Sparkles className="w-8 h-8 text-gold/30" />
-                </div>
-                <div className="absolute inset-0 w-24 h-24 border border-gold/5 rounded-full animate-ping"></div>
+            {/* Product Type */}
+            <div className="space-y-4">
+              <h4 className="text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-widest border-l-2 border-gold pl-3">Product Type</h4>
+              <div className="grid grid-cols-1 gap-2">
+                {Object.values(Category).map((cat) => (
+                  <label key={cat} className="group flex items-center justify-between cursor-pointer py-1.5 hover:translate-x-1 transition-transform">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${selectedCategories.includes(cat) ? 'bg-gold border-gold' : 'border-gold/30'
+                        }`}>
+                        {selectedCategories.includes(cat) && <Check className="w-3 h-3 text-maroon-dominant" />}
+                      </div>
+                      <input
+                        type="checkbox"
+                        className="hidden"
+                        checked={selectedCategories.includes(cat)}
+                        onChange={() => toggleFilter(selectedCategories, setSelectedCategories, cat)}
+                      />
+                      <span className={`text-[11px] uppercase tracking-wider transition-colors ${selectedCategories.includes(cat) ? 'text-gold font-bold' : 'text-maroon-dominant/70 dark:text-white/60 font-light'
+                        }`}>{cat}</span>
+                    </div>
+                  </label>
+                ))}
               </div>
-              <h3 className="text-3xl font-serif text-maroon-dominant dark:text-white/80 italic mb-4">Seeking a unique creation?</h3>
-              <p className="max-w-md mx-auto text-sm text-maroon-dominant/40 dark:text-white/30 font-light leading-relaxed mb-10">
-                While this specific collection is currently being curated, our artisans are ready to bring your vision to life.
-              </p>
-              <button
-                onClick={() => window.location.href = '/contact'}
-                className="px-10 py-4 border border-gold text-gold text-[10px] font-black uppercase tracking-[0.3em] rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl active:scale-95"
-              >
-                Request Custom Atelier
-              </button>
             </div>
-          )}
+
+            {/* Sub Category */}
+            <div className="space-y-4">
+              <h4 className="text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-widest border-l-2 border-gold pl-3">Material & Style</h4>
+              <div className="grid grid-cols-1 gap-2">
+                {subCategories.map((sub) => (
+                  <label key={sub} className="group flex items-center justify-between cursor-pointer py-1.5 hover:translate-x-1 transition-transform">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${selectedSubCategories.includes(sub) ? 'bg-gold border-gold' : 'border-gold/30'
+                        }`}>
+                        {selectedSubCategories.includes(sub) && <Check className="w-3 h-3 text-maroon-dominant" />}
+                      </div>
+                      <input
+                        type="checkbox"
+                        className="hidden"
+                        checked={selectedSubCategories.includes(sub)}
+                        onChange={() => toggleFilter(selectedSubCategories, setSelectedSubCategories, sub)}
+                      />
+                      <span className={`text-[11px] uppercase tracking-wider transition-colors ${selectedSubCategories.includes(sub) ? 'text-gold font-bold' : 'text-maroon-dominant/70 dark:text-white/60 font-light'
+                        }`}>{sub}</span>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Price Range */}
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h4 className="text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-widest border-l-2 border-gold pl-3">Price Spectrum</h4>
+                <span className="text-[10px] text-gold font-bold italic">Max: ₹{(priceRange[1] / 1000).toFixed(0)}k</span>
+              </div>
+              <div className="px-2">
+                <input
+                  type="range"
+                  min="0"
+                  max="1000000"
+                  step="10000"
+                  value={priceRange[1]}
+                  onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+                  className="w-full accent-gold bg-gold/20 h-1 rounded-full appearance-none cursor-pointer"
+                />
+                <div className="flex justify-between mt-2">
+                  <span className="text-[8px] text-maroon-dominant/40 dark:text-white/30 uppercase font-black">₹0</span>
+                  <span className="text-[8px] text-maroon-dominant/40 dark:text-white/30 uppercase font-black">₹10L+</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Purity */}
+            <div className="space-y-4">
+              <h4 className="text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-widest border-l-2 border-gold pl-3">Metal Purity</h4>
+              <div className="flex flex-wrap gap-2">
+                {purities.map((purity) => (
+                  <button
+                    key={purity}
+                    onClick={() => toggleFilter(selectedPurities, setSelectedPurities, purity)}
+                    className={`px-3 py-1.5 rounded-full border text-[9px] font-bold tracking-widest uppercase transition-all ${selectedPurities.includes(purity)
+                      ? 'bg-gold border-gold text-maroon-dominant shadow-md'
+                      : 'border-gold/20 text-maroon-dominant/60 dark:text-white/50 hover:border-gold/50'
+                      }`}
+                  >
+                    {purity}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Gender */}
+            <div className="space-y-4">
+              <h4 className="text-[10px] font-black text-maroon-dominant dark:text-white uppercase tracking-widest border-l-2 border-gold pl-3">Treasures For</h4>
+              <div className="flex flex-wrap gap-2">
+                {genders.map((gender) => (
+                  <button
+                    key={gender}
+                    onClick={() => toggleFilter(selectedGenders, setSelectedGenders, gender)}
+                    className={`px-3 py-1.5 rounded-full border text-[9px] font-bold tracking-widest uppercase transition-all ${selectedGenders.includes(gender)
+                      ? 'bg-gold border-gold text-maroon-dominant shadow-md'
+                      : 'border-gold/20 text-maroon-dominant/60 dark:text-white/50 hover:border-gold/50'
+                      }`}
+                  >
+                    {gender}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </aside>
+
+          {/* Product Grid Area */}
+          <div className="flex-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
+              {filteredProducts.map((product, index) => (
+                <div
+                  key={product.id}
+                  className="animate-in fade-in slide-in-from-bottom-10 duration-700 fill-mode-both"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <ProductCard
+                    product={product}
+                    onClick={onProductClick}
+                    onToggleWishlist={onToggleWishlist}
+                    isWishlisted={wishlist.includes(product.id)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
