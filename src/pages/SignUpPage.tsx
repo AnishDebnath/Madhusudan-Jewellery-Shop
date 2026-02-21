@@ -107,19 +107,14 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigate, onSignUp }) => {
                     alt="Aura Model"
                     className="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-10000 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/95 via-maroon-dominant/40 to-transparent flex flex-col justify-end p-12 lg:p-24">
-                    <div className="space-y-6 max-w-lg">
-                        <div className="flex items-center gap-3">
-                            <span className="w-8 h-px bg-gold gold-glow"></span>
-                            <span className="text-gold text-[10px] font-black uppercase tracking-[0.5em] gold-glow">The Aura Circle</span>
-                        </div>
-                        <h3 className="text-white font-serif text-5xl lg:text-7xl leading-[1.1] drop-shadow-2xl text-balance">
-                            Where Luxury <br /> <span className="italic font-light opacity-90 text-[0.85em]">Meets Legacy</span>
-                        </h3>
-                        <p className="text-white/80 text-base font-light italic leading-relaxed backdrop-blur-sm bg-white/5 p-4 rounded-r-xl border-l-2 border-gold/50">
-                            Join a heritage of craftsmanship. Unlock bespoke services, early collections, and the prestige of Aura.
-                        </p>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-maroon-dominant/40 to-transparent flex flex-col justify-end p-12 lg:p-20">
+                    <span className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-4 gold-glow">The Aura Circle</span>
+                    <h3 className="text-white font-serif text-4xl lg:text-5xl leading-tight mb-4">
+                        Where Luxury <br /> Meets Legacy
+                    </h3>
+                    <p className="text-white/70 text-sm font-light italic max-w-md">
+                        Join a heritage of craftsmanship. Unlock bespoke services, early collections, and the prestige of Aura.
+                    </p>
                 </div>
             </div>
 
