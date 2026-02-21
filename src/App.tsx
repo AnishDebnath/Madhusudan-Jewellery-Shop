@@ -14,6 +14,8 @@ const WishlistPage = React.lazy(() => import('./pages/WishlistPage'));
 const About = React.lazy(() => import('./pages/StaticPages').then(m => ({ default: m.default.About })));
 const Contact = React.lazy(() => import('./pages/StaticPages').then(m => ({ default: m.default.Contact })));
 const KolkataStore = React.lazy(() => import('./components/KolkataStore'));
+const LoginPage = React.lazy(() => import('./pages/LoginPage'));
+const SignUpPage = React.lazy(() => import('./pages/SignUpPage'));
 
 // Loading component for Suspense
 const PageLoader = () => (
@@ -83,9 +85,11 @@ const App: React.FC = () => {
   // Global State
   const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<string[]>([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
+  const isAuthPage = ['/login', '/signup'].includes(location.pathname);
 
   useEffect(() => {
     // Ensure dark mode is active on mount
@@ -112,6 +116,8 @@ const App: React.FC = () => {
       case 'about': navigate('/about'); break;
       case 'contact': navigate('/contact'); break;
       case 'store-locator': navigate('/store-locator'); break;
+      case 'login': navigate('/login'); break;
+      case 'signup': navigate('/signup'); break;
       default: navigate('/');
     }
   };
@@ -145,9 +151,11 @@ const App: React.FC = () => {
         cartCount={cart.reduce((acc, i) => acc + i.quantity, 0)}
         wishlistCount={wishlist.length}
         onNavigate={handleNavigate}
+        isLoggedIn={isLoggedIn}
+        isMinimal={isAuthPage}
       />
 
-      <main className="pt-[130px] lg:pt-[180px]">
+      <main className={isAuthPage ? "pt-[110px] lg:pt-[140px]" : "pt-[130px] lg:pt-[180px]"}>
         <React.Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={
@@ -193,15 +201,21 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/store-locator" element={<KolkataStore />} />
+            <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={() => { setIsLoggedIn(true); handleNavigate('home'); }} />} />
+            <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={() => { setIsLoggedIn(true); handleNavigate('home'); }} />} />
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </React.Suspense>
       </main>
 
-      <Footer onNavigate={handleNavigate} />
-      <PopularSearches />
-      <Concierge />
+      {!isAuthPage && (
+        <>
+          <Footer onNavigate={handleNavigate} />
+          <PopularSearches />
+          <Concierge />
+        </>
+      )}
     </div>
   );
 };

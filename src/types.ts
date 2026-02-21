@@ -48,7 +48,7 @@ export interface CartItem extends Product {
   quantity: number;
 }
 
-export type PageView = 'home' | 'category' | 'pdp' | 'cart' | 'checkout' | 'wishlist' | 'about' | 'contact' | 'store-locator';
+export type PageView = 'home' | 'category' | 'pdp' | 'cart' | 'checkout' | 'wishlist' | 'about' | 'contact' | 'store-locator' | 'login' | 'signup';
 
 export interface AppState {
   currentView: PageView;

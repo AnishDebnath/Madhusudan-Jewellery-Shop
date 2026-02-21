@@ -6,6 +6,8 @@ interface HeaderProps {
   cartCount: number;
   wishlistCount: number;
   onNavigate: (view: PageView, data?: any) => void;
+  isLoggedIn?: boolean;
+  isMinimal?: boolean;
 }
 
 import model1 from '../assets/models/models (1).jpg';
@@ -16,14 +18,15 @@ import model14 from '../assets/models/models (14).jpg';
 import logo from '../assets/logo.png';
 import logoDark from '../assets/logo.png'; // Using same logo for now, adjust if needed
 
-const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate }) => {
+const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isLoggedIn = false, isMinimal = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolledState, setScrolledState] = useState(false);
+  const scrolled = isMinimal ? false : scrolledState;
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolledState(window.scrollY > 20);
     handleScroll(); // Initial check
     window.addEventListener('scroll', handleScroll);
 
@@ -171,15 +174,26 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
                   <span className="absolute -top-1.5 -right-1.5 bg-gold text-[10px] text-maroon-dominant min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in">{cartCount}</span>
                 )}
               </button>
-              <button className="p-2 hidden lg:block group hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full transition-all">
-                <User className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
-              </button>
+              {isLoggedIn ? (
+                <button className="p-2 hidden lg:block group hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full transition-all">
+                  <User className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
+                </button>
+              ) : (
+                <div className="hidden lg:flex items-center gap-4 ml-2 pl-4 border-l border-maroon-dominant/10 dark:border-white/10">
+                  <button onClick={() => onNavigate('login')} className="text-[10px] font-black tracking-[0.2em] text-maroon-dominant dark:text-white hover:text-gold transition-colors uppercase">
+                    Log In
+                  </button>
+                  <button onClick={() => onNavigate('signup')} className="text-[10px] font-black tracking-[0.2em] px-4 py-2 border border-maroon-dominant dark:border-white text-maroon-dominant dark:text-white hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all uppercase rounded-full">
+                    Sign Up
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
         {/* Desktop Category Menu */}
-        <nav className={`hidden lg:flex justify-center transition-all duration-700 ${scrolled ? 'bg-white/95 dark:bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10 shadow-lg' : 'bg-white dark:bg-luxury-dark-primary border-b border-gold/10 shadow-xl'}`}>
+        <nav className={`${isMinimal ? 'hidden ' : 'hidden lg:flex '}justify-center transition-all duration-700 ${scrolled ? 'bg-white/95 dark:bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10 shadow-lg' : 'bg-white dark:bg-luxury-dark-primary border-b border-gold/10 shadow-xl'}`}>
           <div className="flex items-center px-4">
             {navCategories.map((cat) => (
               <div
@@ -295,7 +309,15 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate })
                   </div>
                 ))}
               </div>
-              <div className="mt-16">
+              <div className="mt-16 space-y-4">
+                {!isLoggedIn && (
+                  <button
+                    onClick={() => { setIsMenuOpen(false); onNavigate('login'); }}
+                    className="w-full border border-maroon-dominant/30 dark:border-white/30 text-maroon-dominant dark:text-white py-4 rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all"
+                  >
+                    Sign In / Create Account
+                  </button>
+                )}
                 <button
                   onClick={() => { setIsMenuOpen(false); onNavigate('contact'); }}
                   className="w-full bg-gold text-maroon-dominant py-5 rounded-full text-[11px] font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-gold-light transition-all"
