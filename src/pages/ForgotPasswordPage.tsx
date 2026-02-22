@@ -101,10 +101,10 @@ const ForgotPasswordPage: React.FC<ForgotPasswordPageProps> = ({ onNavigate }) =
     const errorTextClass = 'text-[10px] text-red-500 font-bold uppercase tracking-wider ml-1 mt-1.5 flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1';
 
     return (
-        <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary flex flex-col md:flex-row w-full border-t border-luxury-bg-card dark:border-white/5 transition-colors relative min-h-screen">
+        <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary flex flex-col md:flex-row w-full border-t border-luxury-bg-card dark:border-white/5 transition-colors relative min-h-[calc(100vh-104px)] md:min-h-[calc(100vh-120px)]">
 
             {/* Image Side */}
-            <div className="w-full md:w-1/2 relative min-h-[500px] md:min-h-0 md:fixed md:left-0 md:top-[110px] lg:top-[140px] md:bottom-0 overflow-hidden">
+            <div className="w-full md:w-1/2 relative min-h-[500px] md:min-h-0 md:fixed md:left-0 md:top-[120px] md:bottom-0 overflow-hidden">
                 <img
                     src={forgotModel}
                     alt="Aura Model"
@@ -122,7 +122,7 @@ const ForgotPasswordPage: React.FC<ForgotPasswordPageProps> = ({ onNavigate }) =
             </div>
 
             {/* Form Side */}
-            <div className="w-full md:w-1/2 md:ml-[50%] flex flex-col justify-start py-24 px-8 md:px-16 lg:px-28 bg-luxury-bg-primary dark:bg-luxury-dark-card relative z-10 overflow-hidden min-h-[calc(100vh-110px)] lg:min-h-[calc(100vh-140px)]">
+            <div className="w-full md:w-1/2 md:ml-[50%] flex flex-col justify-start py-24 px-8 md:px-16 lg:px-28 bg-luxury-bg-primary dark:bg-luxury-dark-card relative z-10 overflow-hidden min-h-full">
                 <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
                 <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-maroon-dominant/5 rounded-full blur-3xl pointer-events-none"></div>
 
