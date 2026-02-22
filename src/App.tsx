@@ -16,6 +16,7 @@ const Contact = React.lazy(() => import('./pages/StaticPages').then(m => ({ defa
 const KolkataStore = React.lazy(() => import('./components/KolkataStore'));
 const LoginPage = React.lazy(() => import('./pages/LoginPage'));
 const SignUpPage = React.lazy(() => import('./pages/SignUpPage'));
+const ForgotPasswordPage = React.lazy(() => import('./pages/ForgotPasswordPage'));
 
 // Loading component for Suspense
 const PageLoader = () => (
@@ -89,7 +90,7 @@ const App: React.FC = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const isAuthPage = ['/login', '/signup'].includes(location.pathname);
+  const isAuthPage = ['/login', '/signup', '/forgot-password'].includes(location.pathname);
 
   useEffect(() => {
     // Ensure dark mode is active on mount
@@ -118,6 +119,7 @@ const App: React.FC = () => {
       case 'store-locator': navigate('/store-locator'); break;
       case 'login': navigate('/login'); break;
       case 'signup': navigate('/signup'); break;
+      case 'forgot-password': navigate('/forgot-password'); break;
       default: navigate('/');
     }
   };
@@ -203,6 +205,7 @@ const App: React.FC = () => {
             <Route path="/store-locator" element={<KolkataStore />} />
             <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={() => { setIsLoggedIn(true); handleNavigate('home'); }} />} />
             <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={() => { setIsLoggedIn(true); handleNavigate('home'); }} />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage onNavigate={handleNavigate} />} />
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
