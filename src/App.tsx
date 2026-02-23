@@ -17,6 +17,8 @@ const KolkataStore = React.lazy(() => import('./components/KolkataStore'));
 const LoginPage = React.lazy(() => import('./pages/LoginPage'));
 const SignUpPage = React.lazy(() => import('./pages/SignUpPage'));
 const ForgotPasswordPage = React.lazy(() => import('./pages/ForgotPasswordPage'));
+const ProfilePage = React.lazy(() => import('./pages/ProfilePage'));
+const OrdersPage = React.lazy(() => import('./pages/OrdersPage'));
 
 // Loading component for Suspense
 const PageLoader = () => (
@@ -121,6 +123,8 @@ const App: React.FC = () => {
       case 'login': navigate('/login'); break;
       case 'signup': navigate('/signup'); break;
       case 'forgot-password': navigate('/forgot-password'); break;
+      case 'profile': navigate('/profile'); break;
+      case 'orders': navigate('/orders'); break;
       default: navigate('/');
     }
   };
@@ -215,6 +219,8 @@ const App: React.FC = () => {
             <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={(name) => { setIsLoggedIn(true); setUser({ firstName: name, lastName: '' }); handleNavigate('home'); }} />} />
             <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fName, lName) => { setIsLoggedIn(true); setUser({ firstName: fName, lastName: lName }); handleNavigate('home'); }} />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage onNavigate={handleNavigate} />} />
+            <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/orders" element={<OrdersPage onNavigate={handleNavigate} />} />
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

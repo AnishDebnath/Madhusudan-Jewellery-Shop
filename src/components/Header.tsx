@@ -131,7 +131,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
         </div>
 
         {/* Main Navigation Bar */}
-        <div className={`transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-white/95 dark:bg-luxury-dark-primary/95 shadow-2xl' : 'py-2 bg-white dark:bg-luxury-dark-primary'}`}>
+        <div className={`relative z-20 transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-white/95 dark:bg-luxury-dark-primary/95' : 'py-2 bg-white dark:bg-luxury-dark-primary'}`}>
           <div className="container mx-auto px-6 grid grid-cols-12 items-center">
 
             {/* Left Actions */}
@@ -210,9 +210,17 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                         <span className="text-[9px] uppercase tracking-[0.2em] text-gold font-black block mb-1">Authenticated Member</span>
                         <span className="text-sm font-serif italic text-maroon-dominant dark:text-white block truncate">{userName}</span>
                       </div>
-                      <button onClick={() => { setIsAccountOpen(false); onNavigate('home'); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
+                      <button onClick={() => { setIsAccountOpen(false); onNavigate('profile'); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
                         <User className="w-4 h-4 group-hover/item:scale-110 transition-transform" />
                         My Profile
+                      </button>
+                      <button onClick={() => { setIsAccountOpen(false); onNavigate('orders'); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
+                        <ShoppingBag className="w-4 h-4 group-hover/item:scale-110 transition-transform" />
+                        My Orders
+                      </button>
+                      <button onClick={() => { setIsAccountOpen(false); onNavigate('wishlist'); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
+                        <Heart className="w-4 h-4 group-hover/item:scale-110 transition-transform" />
+                        My Wishlist
                       </button>
                       <button className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
                         <Settings className="w-4 h-4 group-hover/item:rotate-90 transition-transform duration-500" />
@@ -241,7 +249,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
         </div>
 
         {/* Desktop Category Menu */}
-        <nav className={`${isMinimal ? 'hidden ' : 'hidden lg:flex '}justify-center transition-all duration-700 ${scrolled ? 'bg-white/95 dark:bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10 shadow-lg' : 'bg-white dark:bg-luxury-dark-primary border-b border-gold/10 shadow-xl'}`}>
+        <nav className={`relative z-10 ${isMinimal ? 'hidden ' : 'hidden lg:flex '}justify-center transition-all duration-700 ${scrolled ? 'bg-white/95 dark:bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10' : 'bg-white dark:bg-luxury-dark-primary border-b border-gold/10'}`}>
           <div className="flex items-center px-4">
             {navCategories.map((cat) => (
               <div
@@ -373,23 +381,39 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-3 gap-2">
                         <button
-                          onClick={() => { setIsMenuOpen(false); onNavigate('home'); }}
-                          className="flex flex-col items-center justify-center gap-2 p-4 bg-white dark:bg-luxury-dark-card border border-maroon-dominant/5 dark:border-white/5 rounded-2xl shadow-sm hover:border-gold/30 transition-all"
+                          onClick={() => { setIsMenuOpen(false); onNavigate('profile'); }}
+                          className="flex flex-col items-center justify-center gap-2 p-3 bg-white dark:bg-luxury-dark-card border border-maroon-dominant/5 dark:border-white/5 rounded-2xl shadow-sm hover:border-gold/30 transition-all"
                         >
-                          <User className="w-5 h-5 text-maroon-dominant dark:text-white" />
-                          <span className="text-[9px] font-black uppercase tracking-widest text-maroon-dominant dark:text-white">Profile</span>
+                          <User className="w-4 h-4 text-maroon-dominant dark:text-white" />
+                          <span className="text-[7px] font-black uppercase tracking-widest text-maroon-dominant dark:text-white">Profile</span>
                         </button>
 
                         <button
-                          onClick={() => { setIsMenuOpen(false); onLogout?.(); }}
-                          className="flex flex-col items-center justify-center gap-2 p-4 bg-red-500/5 border border-red-500/10 rounded-2xl shadow-sm hover:bg-red-500/10 transition-all"
+                          onClick={() => { setIsMenuOpen(false); onNavigate('orders'); }}
+                          className="flex flex-col items-center justify-center gap-2 p-3 bg-white dark:bg-luxury-dark-card border border-maroon-dominant/5 dark:border-white/5 rounded-2xl shadow-sm hover:border-gold/30 transition-all"
                         >
-                          <LogOut className="w-5 h-5 text-red-500" />
-                          <span className="text-[9px] font-black uppercase tracking-widest text-red-500">Log Out</span>
+                          <ShoppingBag className="w-4 h-4 text-maroon-dominant dark:text-white" />
+                          <span className="text-[7px] font-black uppercase tracking-widest text-maroon-dominant dark:text-white">Orders</span>
+                        </button>
+
+                        <button
+                          onClick={() => { setIsMenuOpen(false); onNavigate('wishlist'); }}
+                          className="flex flex-col items-center justify-center gap-2 p-3 bg-white dark:bg-luxury-dark-card border border-maroon-dominant/5 dark:border-white/5 rounded-2xl shadow-sm hover:border-gold/30 transition-all"
+                        >
+                          <Heart className="w-4 h-4 text-maroon-dominant dark:text-white" />
+                          <span className="text-[7px] font-black uppercase tracking-widest text-maroon-dominant dark:text-white">Wishlist</span>
                         </button>
                       </div>
+
+                      <button
+                        onClick={() => { setIsMenuOpen(false); onLogout?.(); }}
+                        className="w-full flex items-center justify-center gap-3 py-4 bg-red-500/5 border border-red-500/10 rounded-2xl shadow-sm hover:bg-red-500/10 transition-all text-red-500"
+                      >
+                        <LogOut className="w-4 h-4" />
+                        <span className="text-[9px] font-black uppercase tracking-widest">Log Out Session</span>
+                      </button>
                     </div>
                   ) : (
                     <button
