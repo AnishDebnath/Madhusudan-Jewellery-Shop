@@ -5,7 +5,7 @@ import loginModel from '../assets/models/models (15).jpg';
 
 interface LoginPageProps {
     onNavigate: (view: PageView) => void;
-    onLogin: () => void;
+    onLogin: (name: string) => void;
 }
 
 const LoginPage: React.FC<LoginPageProps> = ({ onNavigate, onLogin }) => {
@@ -29,7 +29,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onNavigate, onLogin }) => {
         setShowAllErrors(true);
         const hasErrors = Object.values(errors).some(err => err !== '');
         if (!hasErrors) {
-            onLogin();
+            // Derive a name from email/phone for display
+            const displayName = identifier.includes('@')
+                ? identifier.split('@')[0]
+                : 'Account';
+            onLogin(displayName);
         }
     };
 

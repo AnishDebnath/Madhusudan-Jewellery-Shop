@@ -7,6 +7,7 @@ interface HeaderProps {
   wishlistCount: number;
   onNavigate: (view: PageView, data?: any) => void;
   isLoggedIn?: boolean;
+  userName?: string;
   isMinimal?: boolean;
 }
 
@@ -18,7 +19,7 @@ import model14 from '../assets/models/models (14).jpg';
 import logo from '../assets/logo.png';
 import logoDark from '../assets/logo.png'; // Using same logo for now, adjust if needed
 
-const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isLoggedIn = false, isMinimal = false }) => {
+const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isLoggedIn = false, userName, isMinimal = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -179,9 +180,16 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                 </>
               )}
               {isLoggedIn ? (
-                <button className="p-2 hidden lg:block group hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full transition-all">
-                  <User className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
-                </button>
+                <div className="flex items-center gap-3 pl-4 border-l border-maroon-dominant/10 dark:border-white/10 ml-2">
+                  <div className="hidden md:flex flex-col items-end">
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-maroon-dominant/40 dark:text-white/40 font-bold">Welcome</span>
+                    <span className="text-[10px] uppercase tracking-[0.1em] text-maroon-dominant dark:text-white font-black">{userName || 'Member'}</span>
+                  </div>
+                  <button className="relative group p-1.5 bg-maroon-dominant/5 dark:bg-white/5 border border-maroon-dominant/10 dark:border-white/10 rounded-full hover:border-gold/50 transition-all duration-500 shadow-sm">
+                    <User className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-all" />
+                    <div className="absolute inset-0 rounded-full bg-gold/0 group-hover:bg-gold/5 transition-all"></div>
+                  </button>
+                </div>
               ) : (
                 <div className={`${isMinimal ? 'flex' : 'hidden lg:flex'} items-center gap-4 ml-2 pl-4 ${!isMinimal ? 'border-l border-maroon-dominant/10 dark:border-white/10' : ''}`}>
                   <button onClick={() => onNavigate('login')} className="text-[10px] font-black tracking-[0.2em] text-maroon-dominant dark:text-white hover:text-gold transition-colors uppercase">
@@ -314,7 +322,17 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                 ))}
               </div>
               <div className="mt-16 space-y-4">
-                {!isLoggedIn && (
+                {isLoggedIn ? (
+                  <div className="w-full p-4 bg-maroon-dominant/5 dark:bg-white/5 rounded-2xl border border-gold/10 flex items-center gap-4">
+                    <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center border border-gold/20">
+                      <User className="w-5 h-5 text-gold" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase font-bold text-maroon-dominant/40 dark:text-white/40 tracking-widest">Logged in as</span>
+                      <span className="text-sm font-black text-maroon-dominant dark:text-white">{userName || 'Member'}</span>
+                    </div>
+                  </div>
+                ) : (
                   <button
                     onClick={() => { setIsMenuOpen(false); onNavigate('login'); }}
                     className="w-full border border-maroon-dominant/30 dark:border-white/30 text-maroon-dominant dark:text-white py-4 rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all"

@@ -87,6 +87,7 @@ const App: React.FC = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<{ firstName: string; lastName?: string } | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -154,6 +155,7 @@ const App: React.FC = () => {
         wishlistCount={wishlist.length}
         onNavigate={handleNavigate}
         isLoggedIn={isLoggedIn}
+        userName={user ? `${user.firstName} ${user.lastName || ''}`.trim() : undefined}
         isMinimal={isAuthPage}
       />
 
@@ -203,8 +205,8 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/store-locator" element={<KolkataStore />} />
-            <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={() => { setIsLoggedIn(true); handleNavigate('home'); }} />} />
-            <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={() => { setIsLoggedIn(true); handleNavigate('home'); }} />} />
+            <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={(name) => { setIsLoggedIn(true); setUser({ firstName: name, lastName: '' }); handleNavigate('home'); }} />} />
+            <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fName, lName) => { setIsLoggedIn(true); setUser({ firstName: fName, lastName: lName }); handleNavigate('home'); }} />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage onNavigate={handleNavigate} />} />
 
             <Route path="*" element={<Navigate to="/" replace />} />

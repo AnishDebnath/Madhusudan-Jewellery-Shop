@@ -5,7 +5,7 @@ import signupModel from '../assets/models/models (16).jpg';
 
 interface SignUpPageProps {
     onNavigate: (view: PageView) => void;
-    onSignUp: () => void;
+    onSignUp: (firstName: string, lastName: string) => void;
 }
 
 const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigate, onSignUp }) => {
@@ -67,7 +67,7 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigate, onSignUp }) => {
 
         const hasErrors = Object.values(errors).some(err => err !== '');
         if (!hasErrors) {
-            onSignUp();
+            onSignUp(firstName, lastName);
         }
     };
 
