@@ -219,7 +219,19 @@ const App: React.FC = () => {
             <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={(name) => { setIsLoggedIn(true); setUser({ firstName: name, lastName: '' }); handleNavigate('home'); }} />} />
             <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fName, lName) => { setIsLoggedIn(true); setUser({ firstName: fName, lastName: lName }); handleNavigate('home'); }} />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage onNavigate={handleNavigate} />} />
-            <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/profile" element={
+              <ProfilePage
+                user={user}
+                onLogout={handleLogout}
+                cart={cart}
+                onUpdateCartQty={updateCartQuantity}
+                onRemoveFromCart={removeFromCart}
+                wishlist={wishlist}
+                onToggleWishlist={toggleWishlist}
+                onProductClick={(p) => handleNavigate('pdp', p)}
+                onNavigate={handleNavigate}
+              />
+            } />
             <Route path="/orders" element={<OrdersPage onNavigate={handleNavigate} />} />
 
             <Route path="*" element={<Navigate to="/" replace />} />

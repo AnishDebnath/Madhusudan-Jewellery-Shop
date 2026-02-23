@@ -188,7 +188,10 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                   onMouseEnter={() => setIsAccountOpen(true)}
                   onMouseLeave={() => setIsAccountOpen(false)}
                 >
-                  <div className="flex items-center gap-3 pl-4 md:pl-6 border-l border-maroon-dominant/10 dark:border-white/10 cursor-pointer py-2 ml-2 md:ml-6">
+                  <div
+                    onClick={() => { onNavigate('profile'); setIsAccountOpen(false); }}
+                    className="flex items-center gap-3 pl-4 md:pl-6 border-l border-maroon-dominant/10 dark:border-white/10 cursor-pointer py-2 ml-2 md:ml-6"
+                  >
                     <div className="hidden md:flex flex-col items-end">
                       <span className="text-[7px] uppercase tracking-[0.3em] text-gold font-black mb-0.5 opacity-70">The Aura Circle</span>
                       <span className="text-[12px] uppercase tracking-[0.1em] text-maroon-dominant dark:text-white font-black group-hover/account:text-gold transition-colors whitespace-nowrap">{userName || 'Member'}</span>
@@ -222,9 +225,9 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                         <Heart className="w-4 h-4 group-hover/item:scale-110 transition-transform" />
                         My Wishlist
                       </button>
-                      <button className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
-                        <Settings className="w-4 h-4 group-hover/item:rotate-90 transition-transform duration-500" />
-                        Account Settings
+                      <button onClick={() => { setIsAccountOpen(false); onNavigate('cart'); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
+                        <ShoppingBag className="w-4 h-4 group-hover/item:scale-110 transition-transform" />
+                        My Cart
                       </button>
                       <div className="h-px bg-maroon-dominant/5 dark:bg-white/5 my-2 mx-4"></div>
                       <button onClick={() => { setIsAccountOpen(false); onLogout?.(); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-red-500/70 hover:text-red-500 hover:bg-red-500/5 rounded-xl transition-all group/item">
