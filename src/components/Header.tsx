@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, Menu, X, Phone, User, Info, ChevronDown, Home, Sparkles, MapPin } from 'lucide-react';
+import { Search, ShoppingBag, Heart, Menu, X, Phone, User, Info, ChevronDown, Home, Sparkles, MapPin, LogOut, Settings } from 'lucide-react';
 import { PageView, Category } from '../types';
 
 interface HeaderProps {
@@ -9,6 +9,7 @@ interface HeaderProps {
   isLoggedIn?: boolean;
   userName?: string;
   isMinimal?: boolean;
+  onLogout?: () => void;
 }
 
 import model1 from '../assets/models/models (1).jpg';
@@ -19,8 +20,9 @@ import model14 from '../assets/models/models (14).jpg';
 import logo from '../assets/logo.png';
 import logoDark from '../assets/logo.png'; // Using same logo for now, adjust if needed
 
-const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isLoggedIn = false, userName, isMinimal = false }) => {
+const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, isLoggedIn = false, userName, isMinimal = false, onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolledState, setScrolledState] = useState(false);
@@ -162,9 +164,9 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
             </div>
 
             {/* Right Actions */}
-            <div className="col-span-4 flex items-center justify-end gap-2 md:gap-8">
+            <div className="col-span-4 flex items-center justify-end">
               {!isMinimal && (
-                <>
+                <div className="flex items-center gap-2 md:gap-4">
                   <button onClick={() => onNavigate('wishlist')} className="relative group p-2">
                     <Heart className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
                     {wishlistCount > 0 && (
@@ -177,21 +179,55 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                       <span className="absolute -top-1.5 -right-1.5 bg-gold text-[10px] text-maroon-dominant min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in">{cartCount}</span>
                     )}
                   </button>
-                </>
+                </div>
               )}
+
               {isLoggedIn ? (
-                <div className="flex items-center gap-3 pl-4 border-l border-maroon-dominant/10 dark:border-white/10 ml-2">
-                  <div className="hidden md:flex flex-col items-end">
-                    <span className="text-[8px] uppercase tracking-[0.2em] text-maroon-dominant/40 dark:text-white/40 font-bold">Welcome</span>
-                    <span className="text-[10px] uppercase tracking-[0.1em] text-maroon-dominant dark:text-white font-black">{userName || 'Member'}</span>
+                <div
+                  className="relative group/account"
+                  onMouseEnter={() => setIsAccountOpen(true)}
+                  onMouseLeave={() => setIsAccountOpen(false)}
+                >
+                  <div className="flex items-center gap-3 pl-4 md:pl-6 border-l border-maroon-dominant/10 dark:border-white/10 cursor-pointer py-2 ml-2 md:ml-6">
+                    <div className="hidden md:flex flex-col items-end">
+                      <span className="text-[7px] uppercase tracking-[0.3em] text-gold font-black mb-0.5 opacity-70">The Aura Circle</span>
+                      <span className="text-[12px] uppercase tracking-[0.1em] text-maroon-dominant dark:text-white font-black group-hover/account:text-gold transition-colors whitespace-nowrap">{userName || 'Member'}</span>
+                    </div>
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gold/20 rounded-full blur-md opacity-0 group-hover/account:opacity-100 transition-opacity duration-500"></div>
+                      <button className="relative w-10 h-10 flex items-center justify-center bg-white dark:bg-luxury-dark-card border border-gold/20 rounded-full shadow-lg group-hover/account:border-gold/50 transition-all duration-500 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-maroon-dominant/5"></div>
+                        <User className="w-5 h-5 text-maroon-dominant dark:text-white group-hover/account:text-gold transition-all" />
+                      </button>
+                      <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-luxury-dark-primary shadow-sm"></div>
+                    </div>
                   </div>
-                  <button className="relative group p-1.5 bg-maroon-dominant/5 dark:bg-white/5 border border-maroon-dominant/10 dark:border-white/10 rounded-full hover:border-gold/50 transition-all duration-500 shadow-sm">
-                    <User className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-all" />
-                    <div className="absolute inset-0 rounded-full bg-gold/0 group-hover:bg-gold/5 transition-all"></div>
-                  </button>
+
+                  {/* Account Dropdown */}
+                  <div className={`absolute right-0 top-full pt-2 w-64 transition-all duration-500 ease-out z-[70] ${isAccountOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+                    <div className="bg-white dark:bg-luxury-dark-card shadow-[0_20px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-maroon-dominant/5 dark:border-white/5 p-2 rounded-2xl overflow-hidden backdrop-blur-xl">
+                      <div className="p-4 border-b border-maroon-dominant/5 dark:border-white/5 mb-2">
+                        <span className="text-[9px] uppercase tracking-[0.2em] text-gold font-black block mb-1">Authenticated Member</span>
+                        <span className="text-sm font-serif italic text-maroon-dominant dark:text-white block truncate">{userName}</span>
+                      </div>
+                      <button onClick={() => { setIsAccountOpen(false); onNavigate('home'); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
+                        <User className="w-4 h-4 group-hover/item:scale-110 transition-transform" />
+                        My Profile
+                      </button>
+                      <button className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-gold hover:bg-gold/5 rounded-xl transition-all group/item">
+                        <Settings className="w-4 h-4 group-hover/item:rotate-90 transition-transform duration-500" />
+                        Account Settings
+                      </button>
+                      <div className="h-px bg-maroon-dominant/5 dark:bg-white/5 my-2 mx-4"></div>
+                      <button onClick={() => { setIsAccountOpen(false); onLogout?.(); }} className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-red-500/70 hover:text-red-500 hover:bg-red-500/5 rounded-xl transition-all group/item">
+                        <LogOut className="w-4 h-4 group-hover/item:-translate-x-1 transition-transform" />
+                        Log Out Session
+                      </button>
+                    </div>
+                  </div>
                 </div>
               ) : (
-                <div className={`${isMinimal ? 'flex' : 'hidden lg:flex'} items-center gap-4 ml-2 pl-4 ${!isMinimal ? 'border-l border-maroon-dominant/10 dark:border-white/10' : ''}`}>
+                <div className={`${isMinimal ? 'flex' : 'hidden lg:flex'} items-center gap-3 md:gap-6 ml-2 md:ml-6 pl-4 md:pl-6 border-l border-maroon-dominant/10 dark:border-white/10`}>
                   <button onClick={() => onNavigate('login')} className="text-[10px] font-black tracking-[0.2em] text-maroon-dominant dark:text-white hover:text-gold transition-colors uppercase">
                     Log In
                   </button>
@@ -268,89 +304,113 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
               </div>
             ))}
           </div>
-        </nav>
-      </header>
+        </nav >
+      </header >
 
       {/* Modern Search Overlay */}
-      {isSearchOpen && (
-        <div className="fixed inset-0 z-[100] bg-luxury-bg-primary/98 dark:bg-luxury-dark-primary/98 backdrop-blur-2xl animate-in fade-in duration-500">
-          <button onClick={() => setIsSearchOpen(false)} className="absolute top-10 right-10 p-4 text-luxury-text-light dark:text-luxury-text-dark hover:text-gold hover:rotate-90 transition-all">
-            <X className="w-8 h-8" />
-          </button>
-          <div className="h-full container mx-auto px-6 flex flex-col justify-center items-center">
-            <div className="w-full max-w-4xl relative">
-              <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold mb-6 block text-center">What are you looking for today?</span>
-              <input
-                autoFocus
-                type="text"
-                placeholder="E.g. Heritage Filigree, Polki Rings..."
-                className="w-full bg-transparent border-b-2 border-gold/20 py-8 text-3xl md:text-5xl font-serif text-luxury-text-light dark:text-luxury-text-dark focus:outline-none focus:border-gold transition-all placeholder:text-luxury-text-light/10 dark:placeholder:text-white/10"
-              />
-              <Search className="w-10 h-10 absolute right-0 top-1/2 -translate-y-1/2 text-gold opacity-50" />
+      {
+        isSearchOpen && (
+          <div className="fixed inset-0 z-[100] bg-luxury-bg-primary/98 dark:bg-luxury-dark-primary/98 backdrop-blur-2xl animate-in fade-in duration-500">
+            <button onClick={() => setIsSearchOpen(false)} className="absolute top-10 right-10 p-4 text-luxury-text-light dark:text-luxury-text-dark hover:text-gold hover:rotate-90 transition-all">
+              <X className="w-8 h-8" />
+            </button>
+            <div className="h-full container mx-auto px-6 flex flex-col justify-center items-center">
+              <div className="w-full max-w-4xl relative">
+                <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold mb-6 block text-center">What are you looking for today?</span>
+                <input
+                  autoFocus
+                  type="text"
+                  placeholder="E.g. Heritage Filigree, Polki Rings..."
+                  className="w-full bg-transparent border-b-2 border-gold/20 py-8 text-3xl md:text-5xl font-serif text-luxury-text-light dark:text-luxury-text-dark focus:outline-none focus:border-gold transition-all placeholder:text-luxury-text-light/10 dark:placeholder:text-white/10"
+                />
+                <Search className="w-10 h-10 absolute right-0 top-1/2 -translate-y-1/2 text-gold opacity-50" />
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )
+      }
 
       {/* Mobile Sidebar */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-sm lg:hidden animate-in fade-in">
-          <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-sm bg-luxury-bg-primary dark:bg-luxury-dark-primary shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300 border-r border-maroon-border">
-            <div className="sticky top-0 z-10 bg-maroon-dominant dark:bg-luxury-dark-secondary p-8 border-b border-white/10 flex justify-between items-center transition-colors">
-              <div className="flex flex-col">
-                <img src={logo} alt="Aura Logo" className="h-10" loading="lazy" />
-                <span className="text-[8px] tracking-[0.3em] text-gold uppercase mt-2">Heritage Luxury</span>
-              </div>
-              <button onClick={() => setIsMenuOpen(false)} className="p-3 bg-white/5 rounded-full text-white hover:bg-gold hover:text-maroon-dominant transition-all">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <div className="p-8">
-              <div className="space-y-8">
-                {navCategories.map(cat => (
-                  <div key={cat.name} className="border-b border-luxury-bg-card dark:border-white/5 pb-8">
-                    <button className="w-full flex justify-between items-center mb-6 group">
-                      <span className="text-sm font-bold text-luxury-text-light dark:text-luxury-text-dark uppercase tracking-[0.2em]">{cat.name}</span>
-                      <ChevronDown className="w-5 h-5 text-gold" />
-                    </button>
-                    <div className="grid grid-cols-1 gap-4 pl-4">
-                      {cat.items.map(item => (
-                        <button key={item} onClick={() => handleItemClick(item)} className="text-left text-xs text-luxury-text-light/60 dark:text-luxury-text-dark/60 py-1 hover:text-gold transition-colors tracking-widest uppercase font-medium">{item}</button>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-16 space-y-4">
-                {isLoggedIn ? (
-                  <div className="w-full p-4 bg-maroon-dominant/5 dark:bg-white/5 rounded-2xl border border-gold/10 flex items-center gap-4">
-                    <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center border border-gold/20">
-                      <User className="w-5 h-5 text-gold" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] uppercase font-bold text-maroon-dominant/40 dark:text-white/40 tracking-widest">Logged in as</span>
-                      <span className="text-sm font-black text-maroon-dominant dark:text-white">{userName || 'Member'}</span>
-                    </div>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => { setIsMenuOpen(false); onNavigate('login'); }}
-                    className="w-full border border-maroon-dominant/30 dark:border-white/30 text-maroon-dominant dark:text-white py-4 rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all"
-                  >
-                    Sign In / Create Account
-                  </button>
-                )}
-                <button
-                  onClick={() => { setIsMenuOpen(false); onNavigate('contact'); }}
-                  className="w-full bg-gold text-maroon-dominant py-5 rounded-full text-[11px] font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-gold-light transition-all"
-                >
-                  Book Private Viewing
+      {
+        isMenuOpen && (
+          <div className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-sm lg:hidden animate-in fade-in">
+            <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-sm bg-luxury-bg-primary dark:bg-luxury-dark-primary shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300 border-r border-maroon-border">
+              <div className="sticky top-0 z-10 bg-maroon-dominant dark:bg-luxury-dark-secondary p-8 border-b border-white/10 flex justify-between items-center transition-colors">
+                <div className="flex flex-col">
+                  <img src={logo} alt="Aura Logo" className="h-10" loading="lazy" />
+                  <span className="text-[8px] tracking-[0.3em] text-gold uppercase mt-2">Heritage Luxury</span>
+                </div>
+                <button onClick={() => setIsMenuOpen(false)} className="p-3 bg-white/5 rounded-full text-white hover:bg-gold hover:text-maroon-dominant transition-all">
+                  <X className="w-6 h-6" />
                 </button>
+              </div>
+              <div className="p-8">
+                <div className="space-y-8">
+                  {navCategories.map(cat => (
+                    <div key={cat.name} className="border-b border-luxury-bg-card dark:border-white/5 pb-8">
+                      <button className="w-full flex justify-between items-center mb-6 group">
+                        <span className="text-sm font-bold text-luxury-text-light dark:text-luxury-text-dark uppercase tracking-[0.2em]">{cat.name}</span>
+                        <ChevronDown className="w-5 h-5 text-gold" />
+                      </button>
+                      <div className="grid grid-cols-1 gap-4 pl-4">
+                        {cat.items.map(item => (
+                          <button key={item} onClick={() => handleItemClick(item)} className="text-left text-xs text-luxury-text-light/60 dark:text-luxury-text-dark/60 py-1 hover:text-gold transition-colors tracking-widest uppercase font-medium">{item}</button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-16 space-y-4">
+                  {isLoggedIn ? (
+                    <div className="space-y-4">
+                      <div className="w-full p-5 bg-maroon-dominant/5 dark:bg-white/5 rounded-3xl border border-gold/10 flex items-center gap-4">
+                        <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center border border-gold/20 shadow-inner">
+                          <User className="w-6 h-6 text-gold" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-[10px] uppercase font-bold text-gold tracking-[0.3em] mb-0.5">The Aura Circle</span>
+                          <span className="text-base font-black text-maroon-dominant dark:text-white leading-tight">{userName || 'Member'}</span>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <button
+                          onClick={() => { setIsMenuOpen(false); onNavigate('home'); }}
+                          className="flex flex-col items-center justify-center gap-2 p-4 bg-white dark:bg-luxury-dark-card border border-maroon-dominant/5 dark:border-white/5 rounded-2xl shadow-sm hover:border-gold/30 transition-all"
+                        >
+                          <User className="w-5 h-5 text-maroon-dominant dark:text-white" />
+                          <span className="text-[9px] font-black uppercase tracking-widest text-maroon-dominant dark:text-white">Profile</span>
+                        </button>
+
+                        <button
+                          onClick={() => { setIsMenuOpen(false); onLogout?.(); }}
+                          className="flex flex-col items-center justify-center gap-2 p-4 bg-red-500/5 border border-red-500/10 rounded-2xl shadow-sm hover:bg-red-500/10 transition-all"
+                        >
+                          <LogOut className="w-5 h-5 text-red-500" />
+                          <span className="text-[9px] font-black uppercase tracking-widest text-red-500">Log Out</span>
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => { setIsMenuOpen(false); onNavigate('login'); }}
+                      className="w-full border border-maroon-dominant/30 dark:border-white/30 text-maroon-dominant dark:text-white py-4 rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all"
+                    >
+                      Sign In / Create Account
+                    </button>
+                  )}
+                  <button
+                    onClick={() => { setIsMenuOpen(false); onNavigate('contact'); }}
+                    className="w-full bg-gold text-maroon-dominant py-5 rounded-full text-[11px] font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-gold-light transition-all"
+                  >
+                    Book Private Viewing
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )
+      }
     </>
   );
 };

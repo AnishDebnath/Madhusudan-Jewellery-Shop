@@ -146,6 +146,12 @@ const App: React.FC = () => {
     setWishlist(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUser(null);
+    navigate('/');
+  };
+
 
 
   return (
@@ -156,6 +162,7 @@ const App: React.FC = () => {
         onNavigate={handleNavigate}
         isLoggedIn={isLoggedIn}
         userName={user ? `${user.firstName} ${user.lastName || ''}`.trim() : undefined}
+        onLogout={handleLogout}
         isMinimal={isAuthPage}
       />
 
