@@ -162,24 +162,28 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
 
             {/* Right Actions */}
             <div className="col-span-4 flex items-center justify-end gap-2 md:gap-8">
-              <button onClick={() => onNavigate('wishlist')} className="relative group p-2">
-                <Heart className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
-                {wishlistCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-maroon-dominant text-[10px] text-white min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-lg border border-gold/40 animate-in zoom-in">{wishlistCount}</span>
-                )}
-              </button>
-              <button onClick={() => onNavigate('cart')} className="relative group p-2">
-                <ShoppingBag className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-gold text-[10px] text-maroon-dominant min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in">{cartCount}</span>
-                )}
-              </button>
+              {!isMinimal && (
+                <>
+                  <button onClick={() => onNavigate('wishlist')} className="relative group p-2">
+                    <Heart className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
+                    {wishlistCount > 0 && (
+                      <span className="absolute -top-1.5 -right-1.5 bg-maroon-dominant text-[10px] text-white min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-lg border border-gold/40 animate-in zoom-in">{wishlistCount}</span>
+                    )}
+                  </button>
+                  <button onClick={() => onNavigate('cart')} className="relative group p-2">
+                    <ShoppingBag className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
+                    {cartCount > 0 && (
+                      <span className="absolute -top-1.5 -right-1.5 bg-gold text-[10px] text-maroon-dominant min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in">{cartCount}</span>
+                    )}
+                  </button>
+                </>
+              )}
               {isLoggedIn ? (
                 <button className="p-2 hidden lg:block group hover:bg-maroon-dominant/5 dark:hover:bg-white/5 rounded-full transition-all">
                   <User className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
                 </button>
               ) : (
-                <div className="hidden lg:flex items-center gap-4 ml-2 pl-4 border-l border-maroon-dominant/10 dark:border-white/10">
+                <div className={`${isMinimal ? 'flex' : 'hidden lg:flex'} items-center gap-4 ml-2 pl-4 ${!isMinimal ? 'border-l border-maroon-dominant/10 dark:border-white/10' : ''}`}>
                   <button onClick={() => onNavigate('login')} className="text-[10px] font-black tracking-[0.2em] text-maroon-dominant dark:text-white hover:text-gold transition-colors uppercase">
                     Log In
                   </button>

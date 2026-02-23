@@ -119,7 +119,7 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigate, onSignUp }) => {
             </div>
 
             {/* Form Side */}
-            <div className="w-full md:w-1/2 md:ml-[50%] flex flex-col justify-start py-16 px-8 md:px-16 lg:px-28 bg-luxury-bg-primary dark:bg-luxury-dark-card relative z-10 overflow-hidden">
+            <div className="w-full md:w-1/2 md:ml-[50%] flex flex-col justify-center py-10 md:py-12 px-8 md:px-16 lg:px-28 bg-luxury-bg-primary dark:bg-luxury-dark-card relative z-10 overflow-hidden min-h-full">
                 <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
                 <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-maroon-dominant/5 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -127,14 +127,14 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigate, onSignUp }) => {
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-maroon-dominant via-gold to-maroon-dominant z-10 md:hidden"></div>
 
                     {/* Header */}
-                    <div className="flex flex-col items-center mb-12 text-center">
-                        <div className="relative group mb-6">
+                    <div className="flex flex-col items-center mb-6 text-center">
+                        <div className="relative group mb-4">
                             <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl group-hover:bg-gold/30 transition-all duration-500"></div>
                             <div className="relative w-20 h-20 bg-gradient-to-br from-gold/20 to-gold/5 rounded-full flex items-center justify-center border border-gold/30 backdrop-blur-md shadow-inner">
                                 <UserPlus className="w-10 h-10 text-gold drop-shadow-lg" />
                             </div>
                         </div>
-                        <h2 className="text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-widest mb-2">Create Your Profile</h2>
+                        <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-widest mb-1">Create Your Profile</h2>
                         <div className="flex items-center gap-2">
                             <span className="w-4 h-px bg-gold/50"></span>
                             <p className="text-luxury-text-light/50 dark:text-luxury-text-darkMuted italic text-sm">Become part of our timeless heritage</p>
@@ -384,7 +384,7 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigate, onSignUp }) => {
                     </form>
 
                     {/* Social Auth */}
-                    <div className="flex items-center gap-6 my-10 px-4 text-center">
+                    <div className="flex items-center gap-6 my-6 px-4 text-center">
                         <div className="flex-1 h-px bg-gradient-to-r from-transparent to-maroon-dominant/10 dark:to-white/10"></div>
                         <span className="text-[10px] uppercase tracking-[0.3em] text-maroon-dominant/40 dark:text-white/20 font-black whitespace-nowrap">Social Authentication</span>
                         <div className="flex-1 h-px bg-gradient-to-l from-transparent to-maroon-dominant/10 dark:to-white/10"></div>
@@ -402,7 +402,7 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigate, onSignUp }) => {
                         <span className="text-[11px] font-black uppercase tracking-[0.2em] text-maroon-dominant dark:text-white group-hover:text-gold transition-colors">Continue with Google</span>
                     </button>
 
-                    <div className="mt-12 pt-10 border-t border-maroon-dominant/5 dark:border-white/5 flex flex-col items-center text-center">
+                    <div className="mt-8 pt-6 border-t border-maroon-dominant/5 dark:border-white/5 flex flex-col items-center text-center">
                         <p className="text-[11px] uppercase tracking-widest text-maroon-dominant/40 dark:text-luxury-text-darkMuted mb-4">Already a member of the circle?</p>
                         <button onClick={() => onNavigate('login')} className="group flex items-center gap-3 text-xs font-black text-gold uppercase tracking-[0.2em] hover:text-maroon-dominant dark:hover:text-white transition-all">
                             Log in to Madhusudan <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
