@@ -21,8 +21,8 @@ const KolkataStore: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-gold text-[10px] tracking-[0.4em] uppercase font-black block mb-4 gold-glow">Heritage Location</span>
-            <h2 className="text-4xl md:text-6xl font-serif mb-6 leading-tight text-white uppercase tracking-tight">
+            <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block mb-4 gold-glow">Heritage Location</span>
+            <h2 className="text-3xl md:text-4xl font-serif mb-6 leading-tight text-white uppercase tracking-tight">
               Flagship <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Park Street</span>
             </h2>
             <p className="text-white/80 mb-10 text-base md:text-lg leading-relaxed font-light text-balance border-l-2 border-gold/30 pl-6">

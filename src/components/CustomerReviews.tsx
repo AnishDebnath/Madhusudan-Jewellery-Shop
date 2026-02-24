@@ -61,9 +61,9 @@ const CustomerReviews: React.FC = () => {
         <div className="mb-12 space-y-3 text-center lg:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="flex items-center justify-center lg:justify-start gap-4">
             <div className="h-[1px] w-12 bg-gold/30"></div>
-            <span className="text-gold text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">The Voice of Heritage</span>
+            <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">The Voice of Heritage</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
             Stories <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold italic font-light tracking-tight">of Trust</span>
           </h2>
         </div>

@@ -56,12 +56,12 @@ const TrustSection: React.FC = () => {
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-4">
             <div className="h-[1px] w-8 bg-gold/30"></div>
-            <span className="text-gold text-[9px] font-black uppercase tracking-[0.4em] gold-glow">
+            <span className="text-gold text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
               The Aura Promise
             </span>
             <div className="h-[1px] w-8 bg-gold/30"></div>
           </div>
-          <h2 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-wider mb-4">Foundation of Trust</h2>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight mb-4">Foundation of Trust</h2>
           <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base md:text-lg font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-gold/10 pt-6">
             "Every heritage piece is an investment in beauty, backed by unwavering purity,
             absolute transparency, and a lifetime of royal care."

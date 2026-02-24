@@ -36,8 +36,8 @@ const ShopByBudget: React.FC<ShopByBudgetProps> = ({ onNavigate }) => {
     <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 space-y-3">
-          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Curated For You</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Budget</span></h2>
+          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Curated For You</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Budget</span></h2>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">

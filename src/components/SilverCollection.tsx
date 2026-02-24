@@ -63,8 +63,8 @@ const SilverCollection: React.FC<SilverCollectionProps> = ({ onNavigate }) => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12 space-y-3">
-          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Heritage Silver</span>
-          <h2 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-2 uppercase">Silver <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white font-light italic">Store</span></h2>
+          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Heritage Silver</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-2 uppercase">Silver <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white font-light italic">Store</span></h2>
           <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base font-light italic max-w-xl mx-auto border-t border-gold/10 pt-6">
             "Where tradition meets silver sophistication, crafted for prosperity."
           </p>

@@ -33,12 +33,12 @@ const GoldLoanSection: React.FC = () => {
           <div className="text-center mb-16 space-y-4">
             <div className="inline-flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
-              <span className="text-gold text-[9px] font-black uppercase tracking-[0.4em] gold-glow">
+              <span className="text-gold text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
                 Financial Sovereignty
               </span>
               <div className="h-[1px] w-12 bg-gold/30"></div>
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif leading-none uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-serif leading-none uppercase tracking-tight">
               Gold Loan <br /> <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold dark:to-white to-maroon-dominant font-light text-2xl md:text-3xl normal-case tracking-normal">Unlock Your True Value</span>
             </h2>
             <p className="text-maroon-dominant/70 dark:text-white/70 text-base md:text-lg font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-maroon-dominant/10 dark:border-white/10 pt-6">

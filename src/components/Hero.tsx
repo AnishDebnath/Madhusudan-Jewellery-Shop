@@ -43,12 +43,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         <div className="space-y-8 max-w-4xl">
           <div className="inline-flex items-center gap-4 animate-in fade-in slide-in-from-left-10 duration-1000">
             <div className="h-[1px] w-12 bg-gold/50"></div>
-            <span className="text-gold font-bold tracking-[0.6em] uppercase text-[10px] md:text-[11px] drop-shadow-sm">
+            <span className="text-gold font-black tracking-[0.4em] uppercase text-[10px] md:text-[11px] drop-shadow-sm">
               KOLKATA'S FINEST HERITAGE HOUSE
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight tracking-tight animate-in fade-in slide-in-from-left-10 duration-1000 delay-200 text-balance drop-shadow-2xl">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight tracking-tight animate-in fade-in slide-in-from-left-10 duration-1000 delay-200 text-balance drop-shadow-2xl">
             Timeless Purity, <br />
             <span className="italic font-light text-gold gold-glow block mt-1">Eternal Grace.</span>
           </h1>

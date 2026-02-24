@@ -97,9 +97,9 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
-              <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Fresh from the Atelier</span>
+              <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Fresh from the Atelier</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
               New Arrivals
             </h2>
           </div>
@@ -173,7 +173,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
                 </div>
                 <div className="flex flex-col items-center gap-2">
                   <span className="text-[11px] font-black tracking-[0.4em] uppercase text-maroon-dominant dark:text-gold group-hover/view-all:text-white transition-colors">View All</span>
-                  <span className="text-[9px] font-serif italic text-maroon-dominant/40 dark:text-white/30 group-hover/view-all:text-white/60">New Masterpieces</span>
+                  <span className="text-[9px] font-sans italic text-maroon-dominant/40 dark:text-white/30 group-hover/view-all:text-white/60">New Masterpieces</span>
                 </div>
               </div>
             </div>

@@ -49,11 +49,11 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
         <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
           <div className="text-center md:text-left space-y-3">
             <div className="flex items-center justify-center md:justify-start gap-5">
-              <span className="text-gold text-[9px] tracking-[0.6em] uppercase font-black">The Boutique Highlights</span>
+              <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black">The Boutique Highlights</span>
               <div className="w-16 h-[1px] bg-gold/20"></div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white leading-tight uppercase tracking-tight">
-              Curated <span className="italic text-gold gold-glow">Masterpieces</span>
+            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white leading-tight uppercase tracking-tight">
+              Curated <span className="italic text-gold gold-glow font-light">Masterpieces</span>
             </h2>
           </div>
 

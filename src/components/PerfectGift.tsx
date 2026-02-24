@@ -71,8 +71,8 @@ const PerfectGift: React.FC<PerfectGiftProps> = ({ onNavigate }) => {
     <section className="py-20 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 space-y-3">
-          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Gifting & More</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Moments</span></h2>
+          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Gifting & More</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Moments</span></h2>
           <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm font-light italic max-w-lg mx-auto border-t border-gold/10 pt-6">
             "Celebrate life's precious milestones with heirlooms that last forever."
           </p>

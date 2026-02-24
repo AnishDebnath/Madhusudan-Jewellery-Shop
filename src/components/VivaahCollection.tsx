@@ -55,7 +55,7 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
           <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant/80 via-maroon-dominant/20 to-transparent"></div>
           <div className="absolute inset-0 flex flex-col justify-center px-10 md:px-20 text-white max-w-3xl">
             <span className="text-gold text-[10px] md:text-[12px] tracking-[0.6em] uppercase font-black mb-6 gold-glow transition-all duration-700 group-hover:tracking-[0.8em]">Exclusive Wedding Couture</span>
-            <h2 className="text-5xl md:text-7xl font-serif mb-8 leading-tight tracking-tight">The Wedding <br /><span className="italic text-gold gold-glow">Masterpieces</span></h2>
+            <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight tracking-tight">The Wedding <br /><span className="italic text-gold gold-glow">Masterpieces</span></h2>
             <div className="w-24 h-[1px] bg-gold/50 mb-10 transition-all duration-700 group-hover:w-40"></div>
             <p className="text-base md:text-xl font-light italic text-white/80 leading-relaxed max-w-xl mb-12 border-l border-gold/30 pl-6">
               "Handcrafted masterpieces designed to crown your most sacred moments with timeless elegance."

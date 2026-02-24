@@ -120,8 +120,8 @@ const OffersSection: React.FC<OffersSectionProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-3">
-            <span className="text-gold text-[9px] tracking-[0.5em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
-            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-wider leading-tight">Curated Offers</h2>
+            <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
+            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">Curated Offers</h2>
           </div>
           <div className="flex items-center gap-4 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[9px] font-black uppercase tracking-[0.3em] mb-2">
             Available across Kolkata boutiques

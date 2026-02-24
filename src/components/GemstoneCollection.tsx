@@ -55,8 +55,8 @@ const GemstoneCollection: React.FC<GemstoneCollectionProps> = ({ onNavigate }) =
     <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 space-y-3">
-          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Precious Stones</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-wide uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Gemstone</span> Edit</h2>
+          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Precious Stones</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 font-light">Gemstone</span> Edit</h2>
           <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base font-light italic max-w-lg mx-auto border-t border-gold/10 pt-6">
             "Timeless grace captured in nature's most vibrant hues."
           </p>

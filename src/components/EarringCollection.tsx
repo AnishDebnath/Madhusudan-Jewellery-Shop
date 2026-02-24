@@ -55,8 +55,8 @@ const EarringCollection: React.FC<EarringCollectionProps> = ({ onNavigate }) => 
     <section className="py-20 bg-luxury-bg-primary dark:bg-luxury-dark-primary border-t border-luxury-bg-card dark:border-white/5 transition-colors relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 space-y-3">
-          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Earring Masterpieces</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-wide uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white">Earring</span> Edit</h2>
+          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Earring Masterpieces</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white font-light">Earring</span> Edit</h2>
           <div className="w-20 h-[1px] bg-gold/20 mx-auto mt-6"></div>
         </div>
 

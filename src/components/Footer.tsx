@@ -19,8 +19,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             >
               <img src={footerLogo} alt="Aura Logo" className="h-16 md:h-20" loading="lazy" />
             </div>
-            <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted mb-10 max-w-md font-serif text-lg leading-relaxed">
-              Celebrating the spirit of Indian heritage through meticulously crafted gold and diamond jewelry. Kolkata's most trusted name since 1952.
+            <p className="text-luxury-text-light/50 dark:text-luxury-text-darkMuted text-xs md:text-sm leading-relaxed max-w-sm mb-10 font-serif italic text-balance">
+              "Crafting timeless elegance and preserving Kolkata's finest jewellery heritage since 1952. Every piece tells a story of royal purity and eternal grace."
             </p>
             <div className="flex gap-4">
               {[Facebook, Instagram, Twitter].map((Icon, idx) => (

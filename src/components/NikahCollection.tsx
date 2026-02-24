@@ -45,8 +45,8 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/80 via-transparent to-transparent group-hover:opacity-80 transition-opacity duration-700"></div>
             <div className="absolute bottom-12 left-10 text-white z-10">
-              <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-black mb-4 block gold-glow">Sacred Union</span>
-              <h2 className="text-5xl md:text-6xl font-serif italic mb-2">Graceful Ceremonies</h2>
+              <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black mb-4 block gold-glow">Sacred Union</span>
+              <h2 className="text-3xl md:text-5xl font-serif italic mb-2">Graceful Ceremonies</h2>
               <div className="w-16 h-[1px] bg-gold/50"></div>
             </div>
           </div>
@@ -55,9 +55,9 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
             <div className="mb-12">
               <div className="flex items-center gap-4 mb-5">
                 <div className="h-[1px] w-12 bg-gold/30"></div>
-                <span className="text-gold dark:text-gold text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">Elegance Redefined</span>
+                <span className="text-gold dark:text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Elegance Redefined</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-none">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">COLLECTION</span></h2>
+              <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-none">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic">COLLECTION</span></h2>
               <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-lg leading-relaxed max-w-lg font-light italic text-balance border-l-2 border-gold/20 pl-6">
                 "Graceful jewellery for a sacred union, designed for timeless Nikah ceremonies and Walima elegance."
               </p>

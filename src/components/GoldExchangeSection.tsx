@@ -34,7 +34,7 @@ const GoldExchangeSection: React.FC = () => {
               <ShieldCheck className="w-6 h-6 text-gold gold-glow" />
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif text-white uppercase tracking-wider leading-tight">
+          <h2 className="text-3xl md:text-4xl font-serif text-white uppercase tracking-tight leading-tight">
             Exchange or Sell <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white gold-glow font-light">Your Old Gold</span>
           </h2>
           <p className="text-white/60 text-base md:text-lg font-light max-w-2xl mx-auto italic mt-6 text-balance border-t border-white/10 pt-6">
