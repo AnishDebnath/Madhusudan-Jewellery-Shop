@@ -27,7 +27,7 @@ const TrustCard: React.FC<TrustCardProps> = ({ icon: Icon, title }) => (
       <div className="absolute inset-0 rounded-full group-hover:animate-ping bg-gold/5 pointer-events-none"></div>
     </div>
 
-    <h4 className="text-[10px] md:text-xs font-serif font-black text-maroon-dominant dark:text-white uppercase tracking-[0.15em] leading-relaxed text-balance group-hover:text-gold transition-colors duration-500 px-4">
+    <h4 className="text-maroon-dominant dark:text-white font-serif text-xl mb-2 tracking-wide group-hover:text-gold transition-colors duration-500 text-center">
       {title}
     </h4>
 

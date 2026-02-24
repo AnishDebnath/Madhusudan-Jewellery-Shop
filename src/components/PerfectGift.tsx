@@ -12,11 +12,10 @@ interface GiftingCardProps {
   image: string;
   link: string;
   onNavigate: (view: string, data?: any) => void;
-  subtitle?: string;
   isTall?: boolean;
 }
 
-const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, onNavigate, subtitle, isTall }) => (
+const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, onNavigate, isTall }) => (
   <div
     onClick={() => onNavigate('category', 'All')}
     className={`group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-700 bg-gray-100 dark:bg-luxury-dark-secondary border border-transparent dark:border-white/5 cursor-pointer ${isTall ? 'h-full' : 'aspect-square md:aspect-auto md:h-full'}`}
@@ -34,14 +33,9 @@ const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, onNavigat
         <h4 className="text-white font-serif text-xl md:text-2xl group-hover:text-gold transition-colors duration-300 leading-tight mb-2">
           {title}
         </h4>
-        {subtitle && (
-          <p className="text-white/60 text-[9px] uppercase tracking-[0.15em] font-medium group-hover:text-white transition-colors delay-75">
-            {subtitle}
-          </p>
-        )}
       </div>
 
-      <div className="mt-5 flex items-center gap-2 text-gold transition-all duration-500 delay-100">
+      <div className="flex items-center gap-2 text-gold transition-all duration-500 delay-100">
         <span className="text-[8px] font-black uppercase tracking-[0.3em]">Explore Collection</span>
         <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
       </div>
@@ -63,8 +57,8 @@ const PerfectGift: React.FC<PerfectGiftProps> = ({ onNavigate }) => {
   ];
 
   const customGifts = [
-    { title: 'Personalised Jewellery', subtitle: 'Bespoke Gifts', image: necklace17, link: '/personalised-jewellery' },
-    { title: 'Custom Consultations', subtitle: 'Royal Bespoke Design', image: necklace18, link: '/customised-jewellery' },
+    { title: 'Personalised Jewellery', image: necklace17, link: '/personalised-jewellery' },
+    { title: 'Custom Consultations', image: necklace18, link: '/customised-jewellery' },
   ];
 
   return (
@@ -96,7 +90,6 @@ const PerfectGift: React.FC<PerfectGiftProps> = ({ onNavigate }) => {
               <GiftingTile
                 key={idx}
                 title={gift.title}
-                subtitle={gift.subtitle}
                 image={gift.image}
                 link={gift.link}
                 onNavigate={onNavigate}
