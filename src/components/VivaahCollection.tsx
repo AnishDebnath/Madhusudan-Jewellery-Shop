@@ -45,6 +45,30 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
       <div className="container mx-auto px-6">
 
 
+        {/* Large Collection Banner */}
+        <div className="relative h-[50vh] md:h-[65vh] mb-20 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
+          <img
+            src={vivaahHero}
+            alt="The Wedding Masterpieces"
+            className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant/80 via-maroon-dominant/20 to-transparent"></div>
+          <div className="absolute inset-0 flex flex-col justify-center px-10 md:px-20 text-white max-w-3xl">
+            <span className="text-gold text-[10px] md:text-[12px] tracking-[0.6em] uppercase font-black mb-6 gold-glow transition-all duration-700 group-hover:tracking-[0.8em]">Exclusive Wedding Couture</span>
+            <h2 className="text-5xl md:text-7xl font-serif mb-8 leading-tight tracking-tight">The Wedding <br /><span className="italic text-gold gold-glow">Masterpieces</span></h2>
+            <div className="w-24 h-[1px] bg-gold/50 mb-10 transition-all duration-700 group-hover:w-40"></div>
+            <p className="text-base md:text-xl font-light italic text-white/80 leading-relaxed max-w-xl mb-12 border-l border-gold/30 pl-6">
+              "Handcrafted masterpieces designed to crown your most sacred moments with timeless elegance."
+            </p>
+            <button
+              onClick={() => onNavigate('category', 'Bridal')}
+              className="w-fit px-10 py-4 bg-gold hover:bg-white text-maroon-dominant font-black rounded-full uppercase tracking-[0.3em] text-[10px] transition-all duration-500 shadow-xl flex items-center gap-3 active:scale-95 group/btn"
+            >
+              Discover Heritage <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
+            </button>
+          </div>
+        </div>
+
         {/* Header Text */}
         <div className="text-center mb-12 space-y-3">
           <h3 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white mb-3 uppercase tracking-tight">The Wedding Masterpieces</h3>
@@ -54,8 +78,8 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
         {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {VIVAAH_PRODUCTS.map((product) => (
-            <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden transition-all duration-700 rounded-3xl hover:shadow-2xl hover:-translate-y-2">
-              <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 rounded-t-3xl border-b border-black/5 dark:border-white/5">
+            <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden transition-all duration-700 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 p-4 md:p-5">
+              <div className="relative aspect-square overflow-hidden bg-luxury-bg-card dark:bg-black/20 rounded-2xl">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -73,7 +97,7 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
                   </button>
                 </div>
               </div>
-              <div className="p-8 text-center flex flex-col justify-between h-auto">
+              <div className="p-4 md:p-6 text-center flex flex-col justify-between h-auto">
                 <div>
                   <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 line-clamp-1 group-hover:text-gold transition-colors">{product.name}</h4>
                   <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight mb-4">₹{product.price.replace('₹', '')}</p>
