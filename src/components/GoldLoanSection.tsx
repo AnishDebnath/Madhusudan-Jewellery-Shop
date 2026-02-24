@@ -26,11 +26,11 @@ const GoldLoanSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary text-maroon-dominant dark:text-white relative overflow-hidden border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-14 md:py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary text-maroon-dominant dark:text-white relative overflow-hidden border-t border-luxury-bg-card dark:border-white/5">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-10 space-y-4">
             <div className="inline-flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
               <span className="text-gold text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
@@ -47,7 +47,7 @@ const GoldLoanSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-10">
             {features.map((f, idx) => (
               <div key={idx} className="flex gap-6 group p-6 rounded-3xl hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-maroon-dominant/5 dark:hover:border-white/5 transition-all duration-500">
                 <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-black/5 dark:from-white/10 to-transparent border border-maroon-dominant/10 dark:border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:border-gold transition-all duration-500 group-hover:scale-105 shadow-md dark:shadow-2xl">
@@ -70,7 +70,7 @@ const GoldLoanSection: React.FC = () => {
             </button>
           </div>
 
-          <div className="mt-16 flex items-center justify-center gap-4 text-[10px] text-maroon-dominant/40 dark:text-white/30 uppercase tracking-[0.2em] font-black">
+          <div className="mt-10 flex items-center justify-center gap-4 text-[10px] text-maroon-dominant/40 dark:text-white/30 uppercase tracking-[0.2em] font-black">
             <Lock className="w-4 h-4" /> Bank-Grade Security Protocol
           </div>
         </div>

@@ -59,10 +59,10 @@ interface SilverCollectionProps {
 
 const SilverCollection: React.FC<SilverCollectionProps> = ({ onNavigate }) => {
   return (
-    <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-12 space-y-3">
+        <div className="text-center mb-8 space-y-3">
           <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Heritage Silver</span>
           <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-2 uppercase">Silver <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white font-light italic">Store</span></h2>
           <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base font-light italic max-w-xl mx-auto border-t border-gold/10 pt-6">
@@ -87,7 +87,7 @@ const SilverCollection: React.FC<SilverCollectionProps> = ({ onNavigate }) => {
           />
         </div>
 
-        <div className="mt-20 flex flex-wrap justify-center gap-12 md:gap-24 opacity-70">
+        <div className="mt-12 flex flex-wrap justify-center gap-12 md:gap-24 opacity-70">
           <div className="flex items-center gap-3 group">
             <div className="w-2 h-2 rounded-full bg-gold group-hover:scale-150 transition-transform"></div>
             <span className="text-xs font-black text-maroon-dominant dark:text-white uppercase tracking-[0.2em] group-hover:text-gold transition-colors">BIS Hallmark</span>

@@ -90,10 +90,10 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   };
 
   return (
-    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-b border-gold/10 relative">
+    <section className="py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-b border-gold/10 relative">
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-10 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
@@ -114,7 +114,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
           </button>
         </div>
 
-        <div className="mb-20">
+        <div className="mb-12">
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5">
             <div className="space-y-2">
               <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Visual Stories</span>
@@ -148,7 +148,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
           </div>
           <div
             ref={productScrollRef}
-            className="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-12 pt-4 -mx-6 px-6 md:mx-0 md:px-0"
+            className="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-8 pt-4 -mx-6 px-6 md:mx-0 md:px-0"
           >
             {newArrivalProducts.slice(0, 8).map((product) => (
               <div key={product.id} className="snap-start h-full flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)]">

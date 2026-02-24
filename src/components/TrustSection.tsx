@@ -50,10 +50,10 @@ const TRUST_POINTS = [
 
 const TrustSection: React.FC = () => {
   return (
-    <section className="py-20 md:py-28 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-14 md:py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-10 space-y-4">
           <div className="inline-flex items-center gap-4">
             <div className="h-[1px] w-8 bg-gold/30"></div>
             <span className="text-gold text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
@@ -78,7 +78,7 @@ const TrustSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-24 text-center">
+        <div className="mt-12 text-center">
           <div className="inline-flex flex-col items-center gap-6">
             <p className="text-[10px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase tracking-[0.4em] font-black">
               BIS Hallmark Guaranteed • GIA & IGI Certified Masterpieces

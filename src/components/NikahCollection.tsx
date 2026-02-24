@@ -32,10 +32,10 @@ interface NikahCollectionProps {
 
 const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
   return (
-    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-24 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
 
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-10">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl group border border-transparent dark:border-white/5 shadow-2xl">
             <img
               src={nikahHero}
@@ -52,7 +52,7 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
           </div>
 
           <div className="flex flex-col h-full justify-center">
-            <div className="mb-12">
+            <div className="mb-8">
               <div className="flex items-center gap-4 mb-5">
                 <div className="h-[1px] w-12 bg-gold/30"></div>
                 <span className="text-gold dark:text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Elegance Redefined</span>
@@ -80,7 +80,7 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
               ))}
             </div>
 
-            <div className="mt-12 flex flex-col sm:flex-row items-center gap-6">
+            <div className="mt-8 flex flex-col sm:flex-row items-center gap-6">
               <button
                 onClick={() => onNavigate('category', 'Bridal')}
                 className="group relative px-8 py-3.5 bg-maroon-dominant text-white text-[10px] font-black tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gold hover:text-maroon-dominant hover:scale-105 active:scale-95 shadow-xl rounded-full border border-white/10"

@@ -51,11 +51,11 @@ const ShopByGender: React.FC<ShopByGenderProps> = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState<GenderTab>('Women');
 
   return (
-    <section className="py-20 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow mb-4">Collections For Everyone</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-8 uppercase">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Gender</span></h2>
+          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-6 uppercase">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Gender</span></h2>
 
           <div className="flex justify-center items-center gap-4 md:gap-8 mb-8 overflow-x-auto no-scrollbar pb-2">
             {(['Women', 'Men', 'Kids'] as GenderTab[]).map((gender) => (

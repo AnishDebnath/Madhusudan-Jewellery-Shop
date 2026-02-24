@@ -35,9 +35,9 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
   };
 
   return (
-    <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden group/section border-t border-maroon-dominant/5 dark:border-white/5">
+    <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden group/section border-t border-maroon-dominant/5 dark:border-white/5">
       <div className="container mx-auto px-6 relative">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-8">
           <div className="space-y-3">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
@@ -68,7 +68,7 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-8 md:gap-10 pb-16 pt-4 no-scrollbar scroll-smooth snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
+          className="flex overflow-x-auto gap-8 md:gap-10 pb-10 pt-4 no-scrollbar scroll-smooth snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {products.map((product) => (

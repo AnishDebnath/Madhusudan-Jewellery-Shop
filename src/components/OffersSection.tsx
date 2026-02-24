@@ -116,9 +116,9 @@ interface OffersSectionProps {
 
 const OffersSection: React.FC<OffersSectionProps> = ({ onNavigate }) => {
   return (
-    <section className="py-16 md:py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
+    <section className="py-12 md:py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="space-y-3">
             <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
             <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">Curated Offers</h2>

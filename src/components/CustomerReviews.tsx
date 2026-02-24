@@ -55,10 +55,10 @@ const CustomerReviews: React.FC = () => {
   const doubledReviews = [...REVIEWS, ...REVIEWS, ...REVIEWS]; // Triple for smoother non-loop break
 
   return (
-    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden relative border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden relative border-t border-luxury-bg-card dark:border-white/5">
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-12 space-y-3 text-center lg:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="mb-8 space-y-3 text-center lg:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="flex items-center justify-center lg:justify-start gap-4">
             <div className="h-[1px] w-12 bg-gold/30"></div>
             <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">The Voice of Heritage</span>
@@ -125,7 +125,7 @@ const CustomerReviews: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-center lg:justify-start gap-8 opacity-40 hover:opacity-100 transition-opacity duration-700 lg:pl-32">
+            <div className="mt-6 flex flex-col sm:flex-row items-center lg:justify-start gap-8 opacity-40 hover:opacity-100 transition-opacity duration-700 lg:pl-32">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4 text-gold" />
                 <span className="text-[9px] font-black uppercase tracking-[0.4em] text-maroon-dominant dark:text-white">GIA Certified Review Pool</span>

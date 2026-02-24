@@ -41,12 +41,12 @@ interface VivaahCollectionProps {
 
 const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProductClick, onAddToCart }) => {
   return (
-    <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-24 overflow-hidden border-t border-gold/10 transition-colors relative">
+    <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-16 overflow-hidden border-t border-gold/10 transition-colors relative">
       <div className="container mx-auto px-6">
 
 
         {/* Large Collection Banner */}
-        <div className="relative h-[50vh] md:h-[65vh] mb-20 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
+        <div className="relative h-[50vh] md:h-[65vh] mb-12 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
           <img
             src={vivaahHero}
             alt="The Wedding Masterpieces"
@@ -70,13 +70,13 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
         </div>
 
         {/* Header Text */}
-        <div className="text-center mb-12 space-y-3">
+        <div className="text-center mb-10 space-y-3">
           <h3 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white mb-3 uppercase tracking-tight">The Wedding Masterpieces</h3>
           <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gold/60 gold-glow">Curated for the Modern Bride</p>
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {VIVAAH_PRODUCTS.map((product) => (
             <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden transition-all duration-700 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 p-3 md:p-4">
               <div className="relative aspect-square overflow-hidden bg-luxury-bg-card dark:bg-black/20 rounded-2xl mb-3">
@@ -117,7 +117,7 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
         </div>
 
         {/* Centered CTA */}
-        <div className="flex justify-center pb-20">
+        <div className="flex justify-center pb-12">
           <button
             onClick={() => onNavigate('category', 'Bridal')}
             className="group relative px-8 py-3.5 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-xl active:scale-95 border border-white/10"

@@ -43,10 +43,10 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
   }, [nextSlide]);
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
+    <section className="relative py-12 md:py-16 overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-8">
           <div className="text-center md:text-left space-y-3">
             <div className="flex items-center justify-center md:justify-start gap-5">
               <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black">The Boutique Highlights</span>
@@ -146,7 +146,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-6 mt-12">
+        <div className="flex justify-center items-center gap-6 mt-8">
           <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
           <div className="flex gap-4">
             {featured.map((_, idx) => (

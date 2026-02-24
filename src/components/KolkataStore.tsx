@@ -17,7 +17,7 @@ const KolkataStore: React.FC = () => {
     }
   }, []);
   return (
-    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-24 text-maroon-dominant dark:text-white overflow-hidden relative border-y border-luxury-bg-card dark:border-white/5">
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 text-maroon-dominant dark:text-white overflow-hidden relative border-y border-luxury-bg-card dark:border-white/5">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
@@ -25,7 +25,7 @@ const KolkataStore: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-serif mb-6 leading-tight text-white uppercase tracking-tight">
               Flagship <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Park Street</span>
             </h2>
-            <p className="text-white/80 mb-10 text-base md:text-lg leading-relaxed font-light text-balance border-l-2 border-gold/30 pl-6">
+            <p className="text-white/80 mb-8 text-base md:text-lg leading-relaxed font-light text-balance border-l-2 border-gold/30 pl-6">
               Experience heritage luxury in person. Our Kolkata boutique houses exclusive bridal collections and allows you to customize your dream jewelry with our master craftsmen.
             </p>
 
@@ -59,7 +59,7 @@ const KolkataStore: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <button className="bg-gold text-maroon-dominant px-8 py-3.5 rounded-full font-black flex items-center gap-3 hover:bg-white transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl gold-glow uppercase text-[10px] tracking-[0.2em]">
                 <Calendar className="w-4 h-4" /> BOOK APPOINTMENT
               </button>

@@ -37,10 +37,10 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
             <OffersSection onNavigate={onNavigate} />
             <FeaturedSlider onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onAddToCart={onAddToCart} />
             <NewArrivals onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} onAddToCart={onAddToCart} />
-            <section className="py-20 md:py-28 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
+            <section className="py-14 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-8">
                         <div className="space-y-3">
                             <div className="flex items-center gap-4">
                                 <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Our Masterpieces</span>

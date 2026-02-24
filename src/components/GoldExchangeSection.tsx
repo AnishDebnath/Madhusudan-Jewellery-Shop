@@ -26,9 +26,9 @@ const GoldExchangeSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-luxury-dark-primary dark:bg-luxury-dark-primary relative transition-colors overflow-hidden border-b border-maroon-dominant/10 dark:border-white/5">
+    <section className="py-14 md:py-16 bg-luxury-dark-primary dark:bg-luxury-dark-primary relative transition-colors overflow-hidden border-b border-maroon-dominant/10 dark:border-white/5">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-10 space-y-4">
           <div className="flex justify-center mb-5">
             <div className="w-14 h-14 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center">
               <ShieldCheck className="w-6 h-6 text-gold gold-glow" />
@@ -43,7 +43,7 @@ const GoldExchangeSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-10">
           {steps.map((step, idx) => (
             <div key={idx} className="relative p-7 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl text-center group hover:bg-white/10 hover:border-gold/30 transition-all duration-500 hover:-translate-y-2">
               <div className="mb-6 relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-black/40 border border-white/5 group-hover:border-gold/30 transition-all duration-500">
