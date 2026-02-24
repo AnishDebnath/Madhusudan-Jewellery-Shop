@@ -26,7 +26,7 @@ const GoldExchangeSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-luxury-dark-primary relative transition-colors overflow-hidden border-b border-white/5">
+    <section className="py-20 md:py-28 bg-luxury-dark-primary dark:bg-luxury-dark-primary relative transition-colors overflow-hidden border-b border-maroon-dominant/10 dark:border-white/5">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">
           <div className="flex justify-center mb-5">
@@ -66,8 +66,7 @@ const GoldExchangeSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-luxury-dark-primary invert"></div>
+
     </section>
   );
 };

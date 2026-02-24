@@ -52,7 +52,7 @@ const EarringCollection: React.FC<EarringCollectionProps> = ({ onNavigate }) => 
   ];
 
   return (
-    <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary border-t border-luxury-bg-card dark:border-white/5 transition-colors relative">
+    <section className="py-20 bg-luxury-bg-primary dark:bg-luxury-dark-primary border-t border-luxury-bg-card dark:border-white/5 transition-colors relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 space-y-3">
           <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Earring Masterpieces</span>

@@ -131,21 +131,21 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
         </div>
 
         {/* Main Navigation Bar */}
-        <div className={`relative z-20 transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-white/95 dark:bg-luxury-dark-primary/95' : 'py-2 bg-white dark:bg-luxury-dark-primary'}`}>
+        <div className={`relative z-20 transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-luxury-dark-primary/95 text-white' : 'py-2 bg-luxury-dark-primary text-white'}`}>
           <div className="container mx-auto px-6 grid grid-cols-12 items-center">
 
             {/* Left Actions */}
             <div className="col-span-4 flex items-center gap-6">
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className="lg:hidden p-2 -ml-2 text-maroon-dominant dark:text-white hover:text-gold transition-all"
+                className="lg:hidden p-2 -ml-2 text-white hover:text-gold transition-all"
               >
                 <Menu className="w-6 h-6" />
               </button>
               <div className="hidden lg:flex items-center gap-8">
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] text-maroon-dominant dark:text-white hover:text-gold transition-all group"
+                  className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] text-white hover:text-gold transition-all group"
                 >
                   <Search className="w-4 h-4 group-hover:scale-110 transition-transform" /> SEARCH
                 </button>
@@ -168,13 +168,13 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
               {!isMinimal && (
                 <div className="flex items-center gap-2 md:gap-4">
                   <button onClick={() => onNavigate('wishlist')} className="relative group p-2">
-                    <Heart className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
+                    <Heart className="w-5 h-5 text-white group-hover:text-gold transition-all group-hover:scale-110" />
                     {wishlistCount > 0 && (
                       <span className="absolute -top-1.5 -right-1.5 bg-maroon-dominant text-[10px] text-white min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-lg border border-gold/40 animate-in zoom-in">{wishlistCount}</span>
                     )}
                   </button>
                   <button onClick={() => onNavigate('cart')} className="relative group p-2">
-                    <ShoppingBag className="w-5 h-5 text-maroon-dominant dark:text-white group-hover:text-gold transition-all group-hover:scale-110" />
+                    <ShoppingBag className="w-5 h-5 text-white group-hover:text-gold transition-all group-hover:scale-110" />
                     {cartCount > 0 && (
                       <span className="absolute -top-1.5 -right-1.5 bg-gold text-[10px] text-maroon-dominant min-w-[20px] h-5 px-1 rounded-full flex items-center justify-center font-black shadow-[0_0_15px_rgba(212,175,55,0.5)] border border-maroon-dominant/20 animate-in zoom-in">{cartCount}</span>
                     )}
@@ -194,13 +194,13 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                   >
                     <div className="hidden md:flex flex-col items-end">
                       <span className="text-[7px] uppercase tracking-[0.3em] text-gold font-black mb-0.5 opacity-70">The Aura Circle</span>
-                      <span className="text-[12px] uppercase tracking-[0.1em] text-maroon-dominant dark:text-white font-black group-hover/account:text-gold transition-colors whitespace-nowrap">{userName || 'Member'}</span>
+                      <span className="text-[12px] uppercase tracking-[0.1em] text-white font-black group-hover/account:text-gold transition-colors whitespace-nowrap">{userName || 'Member'}</span>
                     </div>
                     <div className="relative">
                       <div className="absolute inset-0 bg-gold/20 rounded-full blur-md opacity-0 group-hover/account:opacity-100 transition-opacity duration-500"></div>
                       <button className="relative w-10 h-10 flex items-center justify-center bg-white dark:bg-luxury-dark-card border border-gold/20 rounded-full shadow-lg group-hover/account:border-gold/50 transition-all duration-500 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-maroon-dominant/5"></div>
-                        <User className="w-5 h-5 text-maroon-dominant dark:text-white group-hover/account:text-gold transition-all" />
+                        <User className="w-5 h-5 text-white group-hover/account:text-gold transition-all" />
                       </button>
                       <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-luxury-dark-primary shadow-sm"></div>
                     </div>
@@ -239,10 +239,10 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                 </div>
               ) : (
                 <div className={`${isMinimal ? 'flex' : 'hidden lg:flex'} items-center gap-3 md:gap-6 ml-2 md:ml-6 pl-4 md:pl-6 border-l border-maroon-dominant/10 dark:border-white/10`}>
-                  <button onClick={() => onNavigate('login')} className="text-[10px] font-black tracking-[0.2em] text-maroon-dominant dark:text-white hover:text-gold transition-colors uppercase">
+                  <button onClick={() => onNavigate('login')} className="text-[10px] font-black tracking-[0.2em] text-white hover:text-gold transition-colors uppercase">
                     Log In
                   </button>
-                  <button onClick={() => onNavigate('signup')} className="text-[10px] font-black tracking-[0.2em] px-4 py-2 border border-maroon-dominant dark:border-white text-maroon-dominant dark:text-white hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all uppercase rounded-full">
+                  <button onClick={() => onNavigate('signup')} className="text-[10px] font-black tracking-[0.2em] px-4 py-2 border border-white text-white hover:bg-white hover:text-maroon-dominant transition-all uppercase rounded-full">
                     Sign Up
                   </button>
                 </div>
@@ -252,7 +252,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
         </div>
 
         {/* Desktop Category Menu */}
-        <nav className={`relative z-10 ${isMinimal ? 'hidden ' : 'hidden lg:flex '}justify-center transition-all duration-700 ${scrolled ? 'bg-white/95 dark:bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10' : 'bg-white dark:bg-luxury-dark-primary border-b border-gold/10'}`}>
+        <nav className={`relative z-10 ${isMinimal ? 'hidden ' : 'hidden lg:flex '}justify-center transition-all duration-700 ${scrolled ? 'bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10' : 'bg-luxury-dark-primary border-b border-gold/10'}`}>
           <div className="flex items-center px-4">
             {navCategories.map((cat) => (
               <div
@@ -262,7 +262,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                 onMouseLeave={() => setActiveMega(null)}
               >
                 <div className="flex items-center gap-2 group-hover:text-gold transition-all duration-500">
-                  <span className="text-[10px] font-black text-maroon-dominant/70 dark:text-white/70 group-hover:text-gold uppercase tracking-[0.25em] whitespace-nowrap transition-all">
+                  <span className="text-[10px] font-black text-white/70 group-hover:text-gold uppercase tracking-[0.25em] whitespace-nowrap transition-all">
                     {cat.name}
                   </span>
                   <ChevronDown className={`w-3.5 h-3.5 text-gold/30 transition-transform duration-500 ${activeMega === cat.name ? 'rotate-180 text-gold shadow-sm' : ''}`} />

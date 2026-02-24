@@ -17,13 +17,7 @@ const KolkataStore: React.FC = () => {
     }
   }, []);
   return (
-    <section className="bg-maroon-dominant py-24 text-white overflow-hidden relative border-y border-white/5">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none mix-blend-overlay">
-        <img src={model12} alt="Kolkata Pattern" className="w-full h-full object-cover grayscale" loading="lazy" />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant via-maroon-dominant/95 to-maroon-dominant/80 z-0"></div>
-
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-24 text-maroon-dominant dark:text-white overflow-hidden relative border-y border-luxury-bg-card dark:border-white/5">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
@@ -98,7 +92,7 @@ const KolkataStore: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

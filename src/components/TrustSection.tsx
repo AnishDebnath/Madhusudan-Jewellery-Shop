@@ -50,8 +50,7 @@ const TRUST_POINTS = [
 
 const TrustSection: React.FC = () => {
   return (
-    <section className="py-20 md:py-28 bg-luxury-bg-secondary/50 dark:bg-luxury-dark-primary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent pointer-events-none"></div>
+    <section className="py-20 md:py-28 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">

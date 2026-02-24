@@ -90,10 +90,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   };
 
   return (
-    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-b border-gold/10 relative">
-      {/* Background Decoration */}
-      <div className="absolute right-0 top-1/4 w-[500px] h-[500px] bg-maroon-dominant/5 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute left-0 bottom-1/4 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-b border-gold/10 relative">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">

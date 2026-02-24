@@ -26,11 +26,7 @@ const GoldLoanSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-maroon-dominant via-black to-maroon-dominant text-white relative overflow-hidden border-t border-white/5">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[150px] -mr-64 -mt-64 pointer-events-none mix-blend-screen"></div>
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/10 to-transparent"></div>
-      <div className="absolute inset-0 bg-transparent opacity-[0.03] pointer-events-none"></div>
+    <section className="py-20 md:py-28 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary text-maroon-dominant dark:text-white relative overflow-hidden border-t border-luxury-bg-card dark:border-white/5">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
@@ -43,9 +39,9 @@ const GoldLoanSection: React.FC = () => {
               <div className="h-[1px] w-12 bg-gold/30"></div>
             </div>
             <h2 className="text-3xl md:text-5xl font-serif leading-none uppercase tracking-tight">
-              Gold Loan <br /> <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white font-light text-2xl md:text-3xl normal-case tracking-normal">Unlock Your True Value</span>
+              Gold Loan <br /> <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold dark:to-white to-maroon-dominant font-light text-2xl md:text-3xl normal-case tracking-normal">Unlock Your True Value</span>
             </h2>
-            <p className="text-white/70 text-base md:text-lg font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-white/10 pt-6">
+            <p className="text-maroon-dominant/70 dark:text-white/70 text-base md:text-lg font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-maroon-dominant/10 dark:border-white/10 pt-6">
               Safe, secure, and dignified gold loans from Kolkata's most trusted heritage house.
               Turn your heirlooms into immediate opportunities.
             </p>
@@ -53,13 +49,13 @@ const GoldLoanSection: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16">
             {features.map((f, idx) => (
-              <div key={idx} className="flex gap-6 group p-6 rounded-3xl hover:bg-white/5 border border-transparent hover:border-white/5 transition-all duration-500">
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:border-gold transition-all duration-500 group-hover:scale-105 shadow-2xl">
-                  <f.icon className="w-6 h-6 text-gold group-hover:text-maroon-dominant transition-colors duration-500" />
+              <div key={idx} className="flex gap-6 group p-6 rounded-3xl hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-maroon-dominant/5 dark:hover:border-white/5 transition-all duration-500">
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-black/5 dark:from-white/10 to-transparent border border-maroon-dominant/10 dark:border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:border-gold transition-all duration-500 group-hover:scale-105 shadow-md dark:shadow-2xl">
+                  <f.icon className="w-6 h-6 text-gold group-hover:text-white dark:group-hover:text-maroon-dominant transition-colors duration-500" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-xl font-serif text-white group-hover:text-gold transition-colors duration-300">{f.title}</h4>
-                  <p className="text-sm text-white/50 font-light leading-relaxed group-hover:text-white/80 transition-colors duration-300">{f.desc}</p>
+                  <h4 className="text-xl font-serif text-maroon-dominant dark:text-white group-hover:text-gold transition-colors duration-300">{f.title}</h4>
+                  <p className="text-sm text-maroon-dominant/60 dark:text-white/50 font-light leading-relaxed group-hover:text-maroon-dominant dark:group-hover:text-white/80 transition-colors duration-300">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -74,7 +70,7 @@ const GoldLoanSection: React.FC = () => {
             </button>
           </div>
 
-          <div className="mt-16 flex items-center justify-center gap-4 text-[10px] text-white/30 uppercase tracking-[0.2em] font-black">
+          <div className="mt-16 flex items-center justify-center gap-4 text-[10px] text-maroon-dominant/40 dark:text-white/30 uppercase tracking-[0.2em] font-black">
             <Lock className="w-4 h-4" /> Bank-Grade Security Protocol
           </div>
         </div>

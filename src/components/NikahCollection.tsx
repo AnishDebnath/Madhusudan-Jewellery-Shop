@@ -32,9 +32,7 @@ interface NikahCollectionProps {
 
 const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
   return (
-    <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-24 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-maroon-dominant/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-24 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
 
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">

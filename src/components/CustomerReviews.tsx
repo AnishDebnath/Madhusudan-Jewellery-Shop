@@ -56,10 +56,6 @@ const CustomerReviews: React.FC = () => {
 
   return (
     <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden relative border-t border-luxury-bg-card dark:border-white/5">
-      {/* Decorative luxury elements */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #D4AF37 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[150px] -mr-96 -mt-96 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-maroon-dominant/5 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-12 space-y-3 text-center lg:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">

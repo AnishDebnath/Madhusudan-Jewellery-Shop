@@ -60,7 +60,6 @@ interface SilverCollectionProps {
 const SilverCollection: React.FC<SilverCollectionProps> = ({ onNavigate }) => {
   return (
     <section className="py-20 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12 space-y-3">

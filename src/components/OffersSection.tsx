@@ -116,7 +116,7 @@ interface OffersSectionProps {
 
 const OffersSection: React.FC<OffersSectionProps> = ({ onNavigate }) => {
   return (
-    <section className="py-16 md:py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
+    <section className="py-16 md:py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-3">

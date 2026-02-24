@@ -38,22 +38,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         />
       </video>
 
-      {/* Luxury Vignette Blending */}
-      {/* Top Blend */}
-      <div className="absolute inset-x-0 top-0 h-[15vh] bg-gradient-to-b from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-90"></div>
-
-      {/* Bottom Blend */}
-      <div className="absolute inset-x-0 bottom-0 h-[25vh] bg-gradient-to-t from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-90"></div>
-
-      {/* Left Blend */}
-      <div className="absolute inset-y-0 left-0 w-[15vw] bg-gradient-to-r from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-60"></div>
-
-      {/* Right Blend */}
-      <div className="absolute inset-y-0 right-0 w-[15vw] bg-gradient-to-l from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-10 opacity-60"></div>
-
-      <div className="absolute inset-0 bg-black/5 mix-blend-overlay"></div>
-
-      <div className="relative h-full container mx-auto px-6 md:px-12 flex flex-col justify-center text-luxury-text-light dark:text-luxury-text-dark">
+      <div className="absolute inset-0 bg-black/40 mix-blend-multiply z-10"></div>
+      <div className="relative z-20 h-full container mx-auto px-6 md:px-12 flex flex-col justify-center text-white">
         <div className="space-y-8 max-w-4xl">
           <div className="inline-flex items-center gap-4 animate-in fade-in slide-in-from-left-10 duration-1000">
             <div className="h-[1px] w-12 bg-gold/50"></div>
@@ -67,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <span className="italic font-light text-gold gold-glow block mt-1">Eternal Grace.</span>
           </h1>
 
-          <p className="text-base md:text-lg opacity-90 dark:text-luxury-text-darkMuted max-w-2xl mb-10 font-light leading-relaxed animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mb-10 font-light leading-relaxed animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
             Discover signature heritage collections and certified diamonds,
             crafted with the soul of Kolkata's legendary master artisans since 1952.
           </p>

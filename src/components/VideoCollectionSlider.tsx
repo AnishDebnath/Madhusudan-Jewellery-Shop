@@ -66,8 +66,7 @@ const VideoCollectionSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent pointer-events-none"></div>
+    <section className="py-24 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-3">

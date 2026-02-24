@@ -44,10 +44,6 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
 
   return (
     <section className="relative py-16 md:py-24 overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
-      <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gold/5 rounded-full blur-[180px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-maroon-dominant/5 rounded-full blur-[180px]"></div>
-      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">

@@ -43,25 +43,7 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
   return (
     <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-24 overflow-hidden border-t border-gold/10 transition-colors relative">
       <div className="container mx-auto px-6">
-        {/* Cinematic Hero Image */}
-        <div className="relative h-[65vh] mb-20 rounded-3xl overflow-hidden group border border-transparent dark:border-white/5 shadow-2xl">
-          <img
-            src={vivaahHero}
-            alt="Vivaah Collection"
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant/80 via-maroon-dominant/10 to-transparent"></div>
-          <div className="absolute inset-0 flex flex-col justify-center p-10 md:p-20 text-white">
-            <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black mb-5 animate-in fade-in slide-in-from-left-5 block gold-glow">Heritage Bridal House</span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-5 animate-in fade-in slide-in-from-left-10 duration-1000 leading-tight uppercase tracking-tight">VIVAAH</h2>
-            <div className="w-14 h-[1px] bg-gold/50 mb-6"></div>
-            <p className="text-base md:text-lg max-w-md font-serif italic leading-relaxed text-white/90 animate-in fade-in slide-in-from-left-10 duration-1000 delay-200">
-              "Timeless gold & diamond jewellery crafted for sacred wedding moments."
-            </p>
-          </div>
-        </div>
+
 
         {/* Header Text */}
         <div className="text-center mb-12 space-y-3">
