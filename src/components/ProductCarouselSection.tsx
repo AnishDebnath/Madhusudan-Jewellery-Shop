@@ -51,17 +51,17 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
           <div className="flex gap-4">
             <button
               onClick={() => scroll('left')}
-              className="p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"
+              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
               aria-label="Previous"
             >
-              <ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white transition-colors" />
+              <ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"
+              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
               aria-label="Next"
             >
-              <ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white transition-colors" />
+              <ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
             </button>
           </div>
         </div>

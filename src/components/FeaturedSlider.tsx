@@ -60,17 +60,17 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
           <div className="flex items-center gap-4">
             <button
               onClick={prevSlide}
-              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl active:scale-90"
+              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
               aria-label="Previous masterpiece"
             >
-              <ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white transition-colors" />
+              <ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
             </button>
             <button
               onClick={nextSlide}
-              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl active:scale-90"
+              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
               aria-label="Next masterpiece"
             >
-              <ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white transition-colors" />
+              <ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
             </button>
           </div>
         </div>
@@ -111,29 +111,27 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
                     )}
                   </div>
 
-                  <div className="text-center relative space-y-2 px-2">
-                    <span className="text-gold/80 text-[10px] font-black uppercase tracking-[0.4em] block">Artisan's Choice</span>
-                    <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 truncate group-hover:text-gold transition-colors duration-500">
+                  <div className="text-center relative space-y-1 px-2">
+                    <span className="text-gold/80 text-[9px] font-black uppercase tracking-[0.4em] block">Artisan's Choice</span>
+                    <h4 className="font-serif text-maroon-dominant dark:text-white text-lg truncate group-hover:text-gold transition-colors duration-500">
                       {product.name}
                     </h4>
 
-                    <div className="flex items-center justify-center gap-2 mb-5">
+                    <div className="flex items-center justify-center gap-2">
                       <div className="flex text-gold">
                         {[...Array(5)].map((_, i) => <Star key={i} className="w-2.5 h-2.5 fill-gold" />)}
                       </div>
                       <span className="text-[8px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase tracking-[0.25em] font-black">(BIS Hallmark)</span>
                     </div>
 
-                    <div className="relative mb-4">
-                      <p className="text-maroon-dominant dark:text-gold font-sans text-lg md:text-xl font-bold tracking-tight">
-                        ₹{product.price.toLocaleString('en-IN')}
-                      </p>
-                    </div>
+                    <p className="text-maroon-dominant dark:text-gold font-sans text-lg font-bold tracking-tight">
+                      ₹{product.price.toLocaleString('en-IN')}
+                    </p>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="pt-2">
                       <button
                         onClick={() => onProductClick(product)}
-                        className="relative w-full py-3.5 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
+                        className="relative w-full py-3 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
                       >
                         <span className="relative z-10 flex items-center justify-center gap-2">
                           EXPLORE THE CRAFT <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />

@@ -121,8 +121,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
               <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Behind the craftsmanship</p>
             </div>
             <div className="flex gap-4">
-              <button onClick={() => scroll(scrollRef, 'left')} className="p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
-              <button onClick={() => scroll(scrollRef, 'right')} className="p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
+              <button onClick={() => scroll(scrollRef, 'left')} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
+              <button onClick={() => scroll(scrollRef, 'right')} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
             </div>
           </div>
           <div
@@ -142,8 +142,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
               <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Ready for your collection</p>
             </div>
             <div className="flex gap-4">
-              <button onClick={() => scroll(productScrollRef, 'left')} className="p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
-              <button onClick={() => scroll(productScrollRef, 'right')} className="p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:bg-gold hover:text-maroon-dominant transition-all duration-500 shadow-xl group active:scale-90"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-maroon-dominant" /></button>
+              <button onClick={() => scroll(productScrollRef, 'left')} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
+              <button onClick={() => scroll(productScrollRef, 'right')} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
             </div>
           </div>
           <div

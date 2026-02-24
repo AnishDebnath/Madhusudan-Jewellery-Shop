@@ -78,8 +78,8 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
         {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {VIVAAH_PRODUCTS.map((product) => (
-            <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden transition-all duration-700 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 p-4 md:p-5">
-              <div className="relative aspect-square overflow-hidden bg-luxury-bg-card dark:bg-black/20 rounded-2xl">
+            <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden transition-all duration-700 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 p-3 md:p-4">
+              <div className="relative aspect-square overflow-hidden bg-luxury-bg-card dark:bg-black/20 rounded-2xl mb-3">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -97,15 +97,16 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
                   </button>
                 </div>
               </div>
-              <div className="p-4 md:p-6 text-center flex flex-col justify-between h-auto">
+
+              <div className="px-1 text-center flex flex-col justify-between">
                 <div>
-                  <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 truncate group-hover:text-gold transition-colors">{product.name}</h4>
-                  <p className="text-maroon-dominant dark:text-gold font-sans text-lg md:text-xl font-bold tracking-tight mb-4">₹{product.price.replace('₹', '')}</p>
+                  <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-1 truncate group-hover:text-gold transition-colors">{product.name}</h4>
+                  <p className="text-maroon-dominant dark:text-gold font-sans text-lg font-bold tracking-tight mb-2">₹{product.price.replace('₹', '')}</p>
                 </div>
                 {onAddToCart && (
                   <button
                     onClick={(e) => { e.stopPropagation(); onAddToCart({ ...product, price: parseInt(product.price.replace(/[^\d]/g, '')) }); }}
-                    className="w-full bg-maroon-dominant text-white py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
+                    className="w-full bg-maroon-dominant text-white py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
                   >
                     Add to Bag
                   </button>
@@ -119,10 +120,10 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
         <div className="flex justify-center pb-20">
           <button
             onClick={() => onNavigate('category', 'Bridal')}
-            className="group relative px-12 py-5 bg-maroon-dominant text-white text-[11px] font-black uppercase tracking-[0.4em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-2xl active:scale-95 border border-white/10"
+            className="group relative px-8 py-3.5 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-xl active:scale-95 border border-white/10"
           >
-            <span className="relative z-10 flex items-center gap-4">
-              Explore The Collection <ArrowRight className="w-4 h-4 group-hover:translate-x-3 transition-transform duration-500" />
+            <span className="relative z-10 flex items-center gap-3">
+              Explore The Collection <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform duration-500" />
             </span>
           </button>
         </div>

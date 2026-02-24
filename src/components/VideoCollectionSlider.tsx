@@ -80,16 +80,16 @@ const VideoCollectionSlider: React.FC = () => {
           {/* Navigation Controls */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 md:left-10 z-40 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all shadow-xl hover:scale-110"
+            className="absolute left-4 md:left-10 z-40 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all shadow-xl hover:scale-110"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute right-4 md:right-10 z-40 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-maroon-dominant dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all shadow-xl hover:scale-110"
+            className="absolute right-4 md:right-10 z-40 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all shadow-xl hover:scale-110"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5" />
           </button>
 
           {/* 3D Stacked Slider */}
