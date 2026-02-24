@@ -46,7 +46,7 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
 
 
         {/* Large Collection Banner */}
-        <div className="relative h-[50vh] md:h-[65vh] mb-12 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
+        <div className="relative h-[50vh] md:h-[80vh] mb-12 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
           <img
             src={vivaahHero}
             alt="The Wedding Masterpieces"
