@@ -32,8 +32,8 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
   const offer = getOfferBadge();
 
   return (
-    <div className="flex-shrink-0 w-full bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group cursor-pointer p-4 transition-all duration-700 rounded-3xl hover:border-gold/20 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
-      <div className="relative aspect-square overflow-hidden bg-luxury-bg-secondary dark:bg-black/20 mb-6 rounded-2xl">
+    <div className="flex-shrink-0 w-full bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group cursor-pointer p-4 md:p-5 transition-all duration-700 rounded-[2rem] hover:border-gold/20 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
+      <div className="relative aspect-square overflow-hidden bg-luxury-bg-card dark:bg-black/20 mb-6 rounded-2xl">
         <img
           src={product.image}
           alt={product.name}
@@ -44,16 +44,11 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
         />
 
         <div className="absolute top-3 left-3 flex flex-col gap-2 pointer-events-none z-10">
-          {/* {showBestseller && (
-            <span className="inline-block bg-red-600 text-white text-[8px] font-black tracking-[0.2em] px-3 py-1.5 uppercase rounded-full shadow-lg animate-in fade-in slide-in-from-left-2 transition-all whitespace-nowrap">
-              Bestseller
-            </span>
-          )} */}
-          {/* {showNewArrival && (
-            <span className="inline-block bg-maroon-dominant text-white text-[8px] font-black tracking-[0.2em] px-3 py-1.5 uppercase rounded-full shadow-lg animate-in fade-in slide-in-from-left-2 transition-all whitespace-nowrap">
-              New
-            </span>
-          )} */}
+          {showNewArrival && (
+            <div className="bg-gold/90 backdrop-blur-sm text-maroon-dominant text-[8px] px-4 py-2 uppercase tracking-[0.3em] font-black shadow-lg rounded-full">
+              New Launch
+            </div>
+          )}
           {offer && (
             <span className="inline-flex bg-white dark:bg-maroon-dominant/90 text-maroon-dominant dark:text-gold border border-gold/20 text-[8px] font-black px-3 py-1.5 uppercase tracking-widest rounded-full shadow-lg backdrop-blur-md whitespace-nowrap">
               {offer}

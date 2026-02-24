@@ -74,10 +74,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         className="absolute bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30 group cursor-pointer"
         onClick={() => window.scrollTo({ top: window.innerHeight * 0.85, behavior: 'smooth' })}
       >
-        <span className="text-[9px] uppercase tracking-[0.4em] font-black text-gold/50 group-hover:text-gold transition-all duration-500">
+        <span className="text-[9px] uppercase tracking-[0.4em] font-black text-gold transition-all duration-500">
           Scroll
         </span>
-        <div className="w-[20px] h-[34px] rounded-full border-2 border-gold/20 group-hover:border-gold/50 transition-colors duration-500 flex justify-center p-1.5 backdrop-blur-sm">
+        <div className="w-[20px] h-[34px] rounded-full border-2 border-gold/50 transition-colors duration-500 flex justify-center p-1.5 backdrop-blur-sm">
           <div className="w-1 h-1 bg-gold rounded-full animate-scroll-dot shadow-[0_0_8px_rgba(212,175,55,0.8)]"></div>
         </div>
       </div>

@@ -55,7 +55,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
                             <div className="w-12 h-[1px] bg-gold/30"></div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-12">
                         {PRODUCTS.slice(0, 8).map((product) => (
                             <ProductCard
                                 key={product.id}
