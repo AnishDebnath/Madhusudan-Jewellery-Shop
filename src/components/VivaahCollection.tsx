@@ -99,8 +99,8 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
               </div>
               <div className="p-4 md:p-6 text-center flex flex-col justify-between h-auto">
                 <div>
-                  <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 line-clamp-1 group-hover:text-gold transition-colors">{product.name}</h4>
-                  <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight mb-4">₹{product.price.replace('₹', '')}</p>
+                  <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 truncate group-hover:text-gold transition-colors">{product.name}</h4>
+                  <p className="text-maroon-dominant dark:text-gold font-sans text-lg md:text-xl font-bold tracking-tight mb-4">₹{product.price.replace('₹', '')}</p>
                 </div>
                 {onAddToCart && (
                   <button

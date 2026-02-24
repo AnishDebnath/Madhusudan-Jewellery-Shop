@@ -68,13 +68,13 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
 
       <div className="px-2 flex-1 flex flex-col justify-between" onClick={() => onClick(product)}>
         <div>
-          <span className="text-[9px] text-gold uppercase tracking-[0.3em] font-black mb-2 block">{product.category} {product.karat || product.diamondCarat}</span>
-          <h3 className="text-base font-serif text-maroon-dominant dark:text-white mb-3 line-clamp-1 min-h-[1.5rem] group-hover:text-gold transition-colors">
+          <span className="text-[10px] text-gold uppercase tracking-[0.4em] font-black mb-2 block">{product.category} {product.karat || product.diamondCarat}</span>
+          <h3 className="text-lg font-serif text-maroon-dominant dark:text-white mb-3 truncate group-hover:text-gold transition-colors">
             {product.name}
           </h3>
 
           <div className="flex items-center gap-4 mb-4">
-            <span className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight">
+            <span className="text-maroon-dominant dark:text-gold font-sans text-lg md:text-xl font-bold tracking-tight">
               ₹{product.price.toLocaleString('en-IN')}
             </span>
             <span className="font-sans text-[11px] text-maroon-dominant/30 dark:text-white/20 line-through Decoration-1 font-bold">

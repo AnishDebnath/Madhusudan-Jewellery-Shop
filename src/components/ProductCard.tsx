@@ -40,9 +40,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onToggleWis
 
       <div className="p-2 text-center flex-1 flex flex-col justify-between" onClick={() => onClick(product)}>
         <div>
-          <span className="text-[10px] md:text-[11px] text-gold uppercase tracking-[0.4em] font-black mb-3 block">{product.category} {product.karat || product.diamondCarat}</span>
-          <h3 className="font-serif text-maroon-dominant dark:text-white text-lg md:text-xl mb-2 truncate group-hover:text-gold transition-colors">{product.name}</h3>
-          <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight mt-1">₹{product.price.toLocaleString('en-IN')}</p>
+          <span className="text-[10px] text-gold uppercase tracking-[0.4em] font-black mb-2 block">{product.category} {product.karat || product.diamondCarat}</span>
+          <h3 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 truncate group-hover:text-gold transition-colors">{product.name}</h3>
+          <p className="text-maroon-dominant dark:text-gold font-sans text-lg md:text-xl font-bold tracking-tight mt-1">₹{product.price.toLocaleString('en-IN')}</p>
         </div>
         <div className="mt-6 pt-4 border-t border-luxury-bg-card dark:border-white/5 flex justify-center items-center gap-4 text-[9px] text-luxury-text-light/40 dark:text-white/40 uppercase tracking-widest font-bold">
           <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> BIS Hallmark</span>

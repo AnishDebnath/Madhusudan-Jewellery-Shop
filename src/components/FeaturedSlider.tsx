@@ -112,8 +112,8 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
                   </div>
 
                   <div className="text-center relative space-y-2 px-2">
-                    <span className="text-gold/80 text-[8px] font-black uppercase tracking-[0.4em] block">Artisan's Choice</span>
-                    <h4 className="font-serif text-maroon-dominant dark:text-white text-lg md:text-xl mb-2 line-clamp-1 group-hover:text-gold transition-colors duration-500 tracking-wide">
+                    <span className="text-gold/80 text-[10px] font-black uppercase tracking-[0.4em] block">Artisan's Choice</span>
+                    <h4 className="font-serif text-maroon-dominant dark:text-white text-lg mb-2 truncate group-hover:text-gold transition-colors duration-500">
                       {product.name}
                     </h4>
 
@@ -125,7 +125,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
                     </div>
 
                     <div className="relative mb-4">
-                      <p className="text-maroon-dominant dark:text-gold font-sans text-xl md:text-2xl font-bold tracking-tight">
+                      <p className="text-maroon-dominant dark:text-gold font-sans text-lg md:text-xl font-bold tracking-tight">
                         ₹{product.price.toLocaleString('en-IN')}
                       </p>
                     </div>
