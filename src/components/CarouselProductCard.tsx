@@ -50,7 +50,7 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
               New Launch
             </div>
           )}
-          {offer && (
+          {offer && !showNewArrival && (
             <span className="inline-flex bg-white dark:bg-maroon-dominant/90 text-maroon-dominant dark:text-gold border border-gold/20 text-[8px] font-black px-3 py-1 uppercase tracking-widest rounded-full shadow-lg backdrop-blur-md whitespace-nowrap">
               {offer}
             </span>

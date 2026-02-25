@@ -158,7 +158,7 @@ const VideoCollectionSlider: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-3 mt-12">
+        <div className="flex justify-center gap-3 mt-20">
           {VIDEO_COLLECTIONS.map((_, idx) => (
             <button
               key={idx}
