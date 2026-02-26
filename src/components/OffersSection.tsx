@@ -50,10 +50,10 @@ const OfferCard: React.FC<OfferCardProps> = ({
           <span className="text-gold text-[8px] font-black uppercase tracking-[0.3em] mb-2 block gold-glow opacity-90">
             {offerSubtext}
           </span>
-          <h3 className="text-2xl md:text-3xl font-serif text-white leading-tight mb-1 tracking-tight">
+          <h3 className="text-xl md:text-2xl lg:text-2xl xl:text-2xl font-serif text-white leading-tight mb-1 tracking-tight">
             {offerHeadline}
           </h3>
-          <h4 className="text-base font-light text-white/80 italic mb-5">
+          <h4 className="text-sm md:text-base font-light text-white/80 italic mb-5">
             {title}
           </h4>
           <div className="flex items-center justify-between border-t border-white/10 pt-4 transition-all duration-500">
@@ -117,18 +117,18 @@ interface OffersSectionProps {
 const OffersSection: React.FC<OffersSectionProps> = ({ onNavigate }) => {
   return (
     <section className="py-12 md:py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-y border-luxury-bg-card dark:border-maroon-border/10">
-      <div className="container mx-auto px-6">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="space-y-3">
-            <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
-            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">Curated Offers</h2>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">Curated Offers</h2>
           </div>
           <div className="flex items-center gap-4 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[9px] font-black uppercase tracking-[0.3em] mb-2">
             Available across Kolkata boutiques
             <div className="w-12 h-[1px] bg-gold/30"></div>
           </div>
         </div>
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 no-scrollbar pb-6 pt-2 md:pb-0 snap-x snap-mandatory">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 no-scrollbar pb-6 pt-2 md:pb-0 snap-x snap-mandatory">
           {OFFERS_DATA.map((offer, idx) => (
             <div key={idx} className="flex-shrink-0 w-[80vw] md:w-auto snap-center">
               <OfferCard {...offer} onNavigate={onNavigate} />

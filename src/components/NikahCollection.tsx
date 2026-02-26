@@ -34,7 +34,7 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
   return (
     <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 relative overflow-hidden transition-colors border-t border-luxury-bg-card dark:border-white/5">
 
-      <div className="container mx-auto px-6">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-10">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl group border border-transparent dark:border-white/5 shadow-2xl">
             <img
@@ -45,8 +45,8 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/80 via-transparent to-transparent group-hover:opacity-80 transition-opacity duration-700"></div>
             <div className="absolute bottom-12 left-10 text-white z-10">
-              <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black mb-4 block gold-glow">Sacred Union</span>
-              <h2 className="text-3xl md:text-5xl font-serif italic mb-2">Graceful Ceremonies</h2>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black mb-4 block gold-glow">Sacred Union</span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif italic mb-2 leading-tight">Graceful Ceremonies</h2>
               <div className="w-16 h-[1px] bg-gold/50"></div>
             </div>
           </div>
@@ -55,15 +55,15 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
             <div className="mb-8">
               <div className="flex items-center gap-4 mb-5">
                 <div className="h-[1px] w-12 bg-gold/30"></div>
-                <span className="text-gold dark:text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Elegance Redefined</span>
+                <span className="text-gold dark:text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Elegance Redefined</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-none">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic">COLLECTION</span></h2>
-              <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-lg leading-relaxed max-w-lg font-light italic text-balance border-l-2 border-gold/20 pl-6">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic">COLLECTION</span></h2>
+              <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base leading-relaxed max-w-lg font-light italic text-balance border-l-2 border-gold/20 pl-6">
                 "Graceful jewellery for a sacred union, designed for timeless Nikah ceremonies and Walima elegance."
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-8 xl:gap-10">
               {NIKAH_PRODUCTS.map((product) => (
                 <div key={product.id} className="group cursor-pointer" onClick={() => onNavigate('category', 'Bridal')}>
                   <div className="relative aspect-square overflow-hidden mb-5 rounded-2xl border border-transparent dark:border-white/10 shadow-lg group-hover:shadow-xl transition-all duration-500 bg-white dark:bg-luxury-dark-card">

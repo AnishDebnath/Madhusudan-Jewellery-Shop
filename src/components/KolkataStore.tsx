@@ -18,14 +18,14 @@ const KolkataStore: React.FC = () => {
   }, []);
   return (
     <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 text-maroon-dominant dark:text-white overflow-hidden relative border-y border-luxury-bg-card dark:border-white/5">
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block mb-4 gold-glow">Heritage Location</span>
-            <h2 className="text-3xl md:text-4xl font-serif mb-6 leading-tight text-white uppercase tracking-tight">
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block mb-4 gold-glow">Heritage Location</span>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif mb-6 leading-tight text-white uppercase tracking-tight">
               Flagship <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Park Street</span>
             </h2>
-            <p className="text-white/80 mb-8 text-base md:text-lg leading-relaxed font-light text-balance border-l-2 border-gold/30 pl-6">
+            <p className="text-white/80 mb-8 text-sm md:text-base lg:text-base xl:text-base leading-relaxed font-light text-balance border-l-2 border-gold/30 pl-6">
               Experience heritage luxury in person. Our Kolkata boutique houses exclusive bridal collections and allows you to customize your dream jewelry with our master craftsmen.
             </p>
 
@@ -60,10 +60,10 @@ const KolkataStore: React.FC = () => {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <button className="bg-gold text-maroon-dominant px-8 py-3.5 rounded-full font-black flex items-center gap-3 hover:bg-white transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl gold-glow uppercase text-[10px] tracking-[0.2em]">
+              <button className="bg-gold text-maroon-dominant px-6 md:px-8 py-3 md:py-3.5 rounded-full font-black flex items-center gap-3 hover:bg-white transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl gold-glow uppercase text-[9px] md:text-[10px] tracking-[0.2em]">
                 <Calendar className="w-4 h-4" /> BOOK APPOINTMENT
               </button>
-              <button className="border border-gold/40 text-gold px-8 py-3.5 rounded-full font-black hover:bg-gold hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 uppercase text-[10px] tracking-[0.2em]">
+              <button className="border border-gold/40 text-gold px-6 md:px-8 py-3 md:py-3.5 rounded-full font-black hover:bg-gold hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 uppercase text-[9px] md:text-[10px] tracking-[0.2em]">
                 GET DIRECTIONS
               </button>
             </div>
@@ -84,8 +84,8 @@ const KolkataStore: React.FC = () => {
                 <source src={heritageVideo} type="video/webm" />
               </video>
               <div className="absolute inset-0 bg-maroon-dominant/20 group-hover:bg-transparent transition-colors duration-700"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-                <p className="text-white/90 text-lg italic font-serif tracking-wide text-center">"Step into our heritage Flagship boutique on Park Street"</p>
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                <p className="text-white/90 text-sm md:text-base lg:text-lg italic font-serif tracking-wide text-center">"Step into our heritage Flagship boutique on Park Street"</p>
               </div>
             </div>
           </div>

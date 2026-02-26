@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
     <>
       <header className={`fixed top-0 z-50 w-full transition-all duration-700 ${scrolled ? '-translate-y-10' : 'translate-y-0'}`}>
         {/* Top Ticker Bar */}
-        <div className="bg-maroon-dominant text-white h-10 px-6 md:px-12 flex items-center text-[9px] tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
+        <div className="bg-maroon-dominant text-white h-10 px-4 md:px-8 lg:px-10 xl:px-12 flex items-center text-[9px] tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
           <div className="flex items-center gap-10 z-10 bg-maroon-dominant pr-10">
             <span className="flex items-center gap-2 text-gold gold-glow whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
@@ -132,7 +132,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
 
         {/* Main Navigation Bar */}
         <div className={`relative z-20 transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-luxury-dark-primary/95 text-white' : 'py-2 bg-luxury-dark-primary text-white'}`}>
-          <div className="container mx-auto px-6 grid grid-cols-12 items-center">
+          <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 grid grid-cols-12 items-center">
 
             {/* Left Actions */}
             <div className="col-span-4 flex items-center gap-6">

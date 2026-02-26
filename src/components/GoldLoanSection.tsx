@@ -28,20 +28,20 @@ const GoldLoanSection: React.FC = () => {
   return (
     <section className="py-14 md:py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary text-maroon-dominant dark:text-white relative overflow-hidden border-t border-luxury-bg-card dark:border-white/5">
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 space-y-4">
+          <div className="text-center mb-12 space-y-4">
             <div className="inline-flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
-              <span className="text-gold text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
                 Financial Sovereignty
               </span>
               <div className="h-[1px] w-12 bg-gold/30"></div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif leading-none uppercase tracking-tight">
-              Gold Loan <br /> <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold dark:to-white to-maroon-dominant font-light text-2xl md:text-3xl normal-case tracking-normal">Unlock Your True Value</span>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif leading-tight uppercase tracking-tight">
+              Gold Loan <br /> <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold dark:to-white to-maroon-dominant font-light text-xl md:text-2xl lg:text-3xl xl:text-3xl normal-case tracking-normal">Unlock Your True Value</span>
             </h2>
-            <p className="text-maroon-dominant/70 dark:text-white/70 text-base md:text-lg font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-maroon-dominant/10 dark:border-white/10 pt-6">
+            <p className="text-maroon-dominant/70 dark:text-white/70 text-sm md:text-base lg:text-base xl:text-base font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-maroon-dominant/10 dark:border-white/10 pt-6">
               Safe, secure, and dignified gold loans from Kolkata's most trusted heritage house.
               Turn your heirlooms into immediate opportunities.
             </p>
@@ -54,18 +54,18 @@ const GoldLoanSection: React.FC = () => {
                   <f.icon className="w-6 h-6 text-gold group-hover:text-white dark:group-hover:text-maroon-dominant transition-colors duration-500" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-xl font-serif text-maroon-dominant dark:text-white group-hover:text-gold transition-colors duration-300">{f.title}</h4>
-                  <p className="text-sm text-maroon-dominant/60 dark:text-white/50 font-light leading-relaxed group-hover:text-maroon-dominant dark:group-hover:text-white/80 transition-colors duration-300">{f.desc}</p>
+                  <h4 className="text-lg md:text-xl font-serif text-maroon-dominant dark:text-white group-hover:text-gold transition-colors duration-300">{f.title}</h4>
+                  <p className="text-xs md:text-sm text-maroon-dominant/60 dark:text-white/50 font-light leading-relaxed group-hover:text-maroon-dominant dark:group-hover:text-white/80 transition-colors duration-300">{f.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <button className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-gold to-gold/80 text-maroon-dominant font-black rounded-full uppercase tracking-[0.25em] text-[10px] shadow-[0_20px_50px_rgba(212,175,55,0.2)] hover:bg-white transition-all duration-500 hover:scale-105 active:scale-95 group border border-transparent">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6">
+            <button className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 bg-gradient-to-r from-gold to-gold/80 text-maroon-dominant font-black rounded-full uppercase tracking-[0.25em] text-[10px] shadow-[0_20px_50px_rgba(212,175,55,0.2)] hover:bg-white transition-all duration-500 hover:scale-105 active:scale-95 group border border-transparent">
               Apply for Gold Loan <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </button>
-            <button className="w-full sm:w-auto px-10 py-4 border border-gold/40 text-gold font-black rounded-full uppercase tracking-[0.25em] text-[10px] hover:bg-gold hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
+            <button className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 border border-gold/40 text-gold font-black rounded-full uppercase tracking-[0.25em] text-[10px] hover:bg-gold hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
               <Phone className="w-4 h-4" /> Talk to an Expert
             </button>
           </div>

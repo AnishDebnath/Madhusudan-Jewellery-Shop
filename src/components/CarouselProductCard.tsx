@@ -70,12 +70,12 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
       <div className="px-1 flex-1 flex flex-col justify-between" onClick={() => onClick(product)}>
         <div>
           <span className="text-[9px] text-gold uppercase tracking-[0.4em] font-black mb-1 block">{product.category} {product.karat || product.diamondCarat}</span>
-          <h3 className="text-lg font-serif text-maroon-dominant dark:text-white mb-2 truncate group-hover:text-gold transition-colors">
+          <h3 className="text-base md:text-lg lg:text-lg xl:text-lg font-serif text-maroon-dominant dark:text-white mb-2 truncate group-hover:text-gold transition-colors">
             {product.name}
           </h3>
 
           <div className="flex items-baseline gap-3 mb-2">
-            <span className="text-maroon-dominant dark:text-gold font-sans text-lg font-bold tracking-tight">
+            <span className="text-maroon-dominant dark:text-gold font-sans text-base md:text-lg lg:text-lg xl:text-lg font-bold tracking-tight">
               ₹{product.price.toLocaleString('en-IN')}
             </span>
             <span className="font-sans text-[11px] text-maroon-dominant/30 dark:text-white/20 line-through font-bold">
@@ -96,7 +96,7 @@ const CarouselProductCard: React.FC<CarouselProductCardProps> = ({
         {onAddToCart && (
           <button
             onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
-            className="w-full mt-3 bg-maroon-dominant text-white py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
+            className="w-full mt-3 bg-maroon-dominant text-white py-2 md:py-2.5 rounded-full text-xs md:text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
           >
             Add to Bag
           </button>

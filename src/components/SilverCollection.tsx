@@ -30,10 +30,10 @@ const FeaturedSilverCard: React.FC<FeaturedSilverCardProps> = ({ title, descript
         <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] inline-block mb-3 shadow-lg">
           999 Pure Silver
         </span>
-        <h3 className="text-3xl md:text-4xl font-serif text-white tracking-wide mb-3 leading-tight">
+        <h3 className="text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-serif text-white tracking-wide mb-3 leading-tight">
           {title}
         </h3>
-        <p className="text-white/80 text-xs md:text-sm font-light italic leading-relaxed max-w-sm mx-auto md:mx-0 transition-opacity duration-700 delay-100 text-balance">
+        <p className="text-white/80 text-xs md:text-sm lg:text-sm xl:text-sm font-light italic leading-relaxed max-w-sm mx-auto md:mx-0 transition-opacity duration-700 delay-100 text-balance">
           {description}
         </p>
       </div>
@@ -61,16 +61,16 @@ const SilverCollection: React.FC<SilverCollectionProps> = ({ onNavigate }) => {
   return (
     <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-8 space-y-3">
-          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Heritage Silver</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-2 uppercase">Silver <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white font-light italic">Store</span></h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base font-light italic max-w-xl mx-auto border-t border-gold/10 pt-6">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
+        <div className="text-center mb-10 space-y-3">
+          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Heritage Silver</span>
+          <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-2 uppercase leading-tight">Silver <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white font-light italic">Store</span></h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base font-light italic max-w-xl mx-auto border-t border-gold/10 pt-6">
             "Where tradition meets silver sophistication, crafted for prosperity."
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 pt-4">
           <FeaturedSilverCard
             title="Coins & Bars"
             description="Tradition wrapped in purity, perfect for every Shagun moment and smart investment."

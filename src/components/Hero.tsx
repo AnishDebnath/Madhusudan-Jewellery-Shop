@@ -39,7 +39,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </video>
 
       <div className="absolute inset-0 bg-black/40 mix-blend-multiply z-10"></div>
-      <div className="relative z-30 h-full container mx-auto px-6 md:px-12 flex flex-col justify-center text-white">
+      <div className="relative z-30 h-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 flex flex-col justify-center text-white">
         <div className="space-y-8 max-w-4xl">
           <div className="inline-flex items-center gap-4 animate-in fade-in slide-in-from-left-10 duration-1000">
             <div className="h-[1px] w-12 bg-gold/50"></div>
@@ -48,12 +48,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight tracking-tight animate-in fade-in slide-in-from-left-10 duration-1000 delay-200 text-balance drop-shadow-2xl">
+          <h1 className="text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-6 leading-tight tracking-tight animate-in fade-in slide-in-from-left-10 duration-1000 delay-200 text-balance drop-shadow-2xl">
             Timeless Purity, <br />
             <span className="italic font-light text-gold gold-glow block mt-1">Eternal Grace.</span>
           </h1>
 
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mb-10 font-light leading-relaxed animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
+          <p className="text-sm md:text-base lg:text-base xl:text-base text-white/90 max-w-2xl mb-10 font-light leading-relaxed animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
             Discover signature heritage collections and certified diamonds,
             crafted with the soul of Kolkata's legendary master artisans since 1952.
           </p>
@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
             <button
               onClick={() => onNavigate('category', 'All')}
-              className="px-8 py-4 bg-gold hover:bg-gold-light text-maroon-dominant font-black rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 uppercase tracking-[0.2em] text-[10px] md:text-[11px] group shadow-[0_15px_35px_-5px_rgba(212,175,55,0.3)]"
+              className="px-6 py-3 text-sm md:px-8 md:py-4 md:text-base lg:px-10 lg:py-4 bg-gold hover:bg-gold-light text-maroon-dominant font-black rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 uppercase tracking-[0.2em] group shadow-[0_15px_35px_-5px_rgba(212,175,55,0.3)]"
             >
               EXPLORE COLLECTIONS <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </button>

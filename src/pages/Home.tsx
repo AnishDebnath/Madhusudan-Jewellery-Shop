@@ -39,14 +39,14 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
             <NewArrivals onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} onAddToCart={onAddToCart} />
             <section className="py-14 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
 
-                <div className="container mx-auto px-6 relative z-10">
+                <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-8">
                         <div className="space-y-3">
                             <div className="flex items-center gap-4">
-                                <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Our Masterpieces</span>
+                                <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">Our Masterpieces</span>
                                 <div className="h-[1px] w-12 bg-gold/30"></div>
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
+                            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
                                 Signature <span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">Collections</span>
                             </h2>
                         </div>
@@ -55,7 +55,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
                             <div className="w-12 h-[1px] bg-gold/30"></div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10">
                         {PRODUCTS.slice(0, 8).map((product) => (
                             <ProductCard
                                 key={product.id}

@@ -27,7 +27,7 @@ const TrustCard: React.FC<TrustCardProps> = ({ icon: Icon, title }) => (
       <div className="absolute inset-0 rounded-full group-hover:animate-ping bg-gold/5 pointer-events-none"></div>
     </div>
 
-    <h4 className="text-maroon-dominant dark:text-white font-serif text-xl mb-2 tracking-wide group-hover:text-gold transition-colors duration-500 text-center">
+    <h4 className="text-maroon-dominant dark:text-white font-serif text-lg md:text-xl xl:text-lg mb-2 tracking-wide group-hover:text-gold transition-colors duration-500 text-center uppercase">
       {title}
     </h4>
 
@@ -52,23 +52,23 @@ const TrustSection: React.FC = () => {
   return (
     <section className="py-14 md:py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors relative border-t border-luxury-bg-card dark:border-white/5">
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="text-center mb-10 space-y-4">
           <div className="inline-flex items-center gap-4">
             <div className="h-[1px] w-8 bg-gold/30"></div>
-            <span className="text-gold text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
               The Aura Promise
             </span>
             <div className="h-[1px] w-8 bg-gold/30"></div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight mb-4">Foundation of Trust</h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base md:text-lg font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-gold/10 pt-6">
+          <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight mb-4 leading-tight">Foundation of Trust</h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-gold/10 pt-6">
             "Every heritage piece is an investment in beauty, backed by unwavering purity,
             absolute transparency, and a lifetime of royal care."
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 pt-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pt-6">
           {TRUST_POINTS.map((point, index) => (
             <TrustCard
               key={index}

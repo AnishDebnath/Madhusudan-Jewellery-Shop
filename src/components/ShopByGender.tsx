@@ -52,17 +52,17 @@ const ShopByGender: React.FC<ShopByGenderProps> = ({ onNavigate }) => {
 
   return (
     <section className="py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-8">
-          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow mb-4">Collections For Everyone</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-6 uppercase">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Gender</span></h2>
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
+        <div className="text-center mb-10">
+          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow mb-4">Collections For Everyone</span>
+          <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-8 uppercase leading-tight">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Gender</span></h2>
 
           <div className="flex justify-center items-center gap-4 md:gap-8 mb-8 overflow-x-auto no-scrollbar pb-2">
             {(['Women', 'Men', 'Kids'] as GenderTab[]).map((gender) => (
               <button
                 key={gender}
                 onClick={() => setActiveTab(gender)}
-                className={`relative py-2.5 px-6 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full border ${activeTab === gender
+                className={`relative py-2.5 px-6 text-[9px] md:text-xs font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full border ${activeTab === gender
                   ? 'bg-maroon-dominant text-gold border-gold/50 shadow-[0_5px_15px_rgba(212,175,55,0.2)]'
                   : 'bg-transparent text-luxury-text-light/40 dark:text-white/40 border-transparent hover:border-gold/20 hover:text-maroon-dominant dark:hover:text-white'
                   }`}
@@ -73,7 +73,7 @@ const ShopByGender: React.FC<ShopByGenderProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 animate-in fade-in duration-500">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 animate-in fade-in duration-500">
           {GENDER_DATA[activeTab].map((item, idx) => (
             <div
               key={`${activeTab}-${idx}`}

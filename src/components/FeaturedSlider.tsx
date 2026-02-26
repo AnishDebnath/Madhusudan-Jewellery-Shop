@@ -45,14 +45,14 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
   return (
     <section className="relative py-12 md:py-16 overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-8">
           <div className="text-center md:text-left space-y-3">
             <div className="flex items-center justify-center md:justify-start gap-5">
-              <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black">The Boutique Highlights</span>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black">The Boutique Highlights</span>
               <div className="w-16 h-[1px] bg-gold/20"></div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white leading-tight uppercase tracking-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white leading-tight uppercase tracking-tight">
               Curated <span className="italic text-gold gold-glow font-light">Masterpieces</span>
             </h2>
           </div>
@@ -79,13 +79,13 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
           <div
             className="flex transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)"
             style={{
-              transform: `translateX(-${currentIndex * (100 / (viewState.isMobile ? 1 : viewState.isTablet ? 2 : 4))}%)`
+              transform: `translateX(-${currentIndex * (100 / (viewState.isMobile ? 1 : viewState.isTablet ? 2 : window.innerWidth >= 1280 ? 3 : 4))}%)`
             }}
           >
             {featured.map((product) => (
               <div
                 key={product.id}
-                className="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-4"
+                className="w-full md:w-1/2 lg:w-1/4 xl:w-1/3 flex-shrink-0 px-4"
               >
                 <div className="group relative bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-[2rem] p-4 md:p-5 border border-luxury-bg-card dark:border-maroon-border/20 hover:border-gold/40 transition-all duration-700 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] overflow-hidden">
                   <div className="aspect-square mb-6 overflow-hidden relative bg-luxury-bg-card dark:bg-luxury-dark-secondary rounded-2xl">
@@ -113,7 +113,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
 
                   <div className="text-center relative space-y-1 px-2">
                     <span className="text-gold/80 text-[9px] font-black uppercase tracking-[0.4em] block">Artisan's Choice</span>
-                    <h4 className="font-serif text-maroon-dominant dark:text-white text-lg truncate group-hover:text-gold transition-colors duration-500">
+                    <h4 className="font-serif text-maroon-dominant dark:text-white text-base md:text-lg lg:text-lg xl:text-lg truncate group-hover:text-gold transition-colors duration-500">
                       {product.name}
                     </h4>
 
@@ -124,14 +124,14 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
                       <span className="text-[8px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase tracking-[0.25em] font-black">(BIS Hallmark)</span>
                     </div>
 
-                    <p className="text-maroon-dominant dark:text-gold font-sans text-lg font-bold tracking-tight">
+                    <p className="text-maroon-dominant dark:text-gold font-sans text-base md:text-lg lg:text-lg xl:text-lg font-bold tracking-tight">
                       ₹{product.price.toLocaleString('en-IN')}
                     </p>
 
                     <div className="pt-2">
                       <button
                         onClick={() => onProductClick(product)}
-                        className="relative w-full py-3 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
+                        className="relative w-full py-2.5 md:py-3 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
                       >
                         <span className="relative z-10 flex items-center justify-center gap-2">
                           EXPLORE THE CRAFT <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />

@@ -10,8 +10,8 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-luxury-bg-primary dark:bg-luxury-dark-primary pt-24 pb-12 border-t border-luxury-bg-card dark:border-white/5 transition-colors relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-16 mb-24">
           <div className="col-span-1 md:col-span-2">
             <div
               className="mb-8 cursor-pointer transition-all duration-500 hover:scale-105"
@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             >
               <img src={footerLogo} alt="Aura Logo" className="h-16 md:h-20" loading="lazy" />
             </div>
-            <p className="text-luxury-text-light/50 dark:text-luxury-text-darkMuted text-xs md:text-sm leading-relaxed max-w-sm mb-10 font-serif italic text-balance">
+            <p className="text-luxury-text-light/50 dark:text-luxury-text-darkMuted text-xs md:text-sm xl:text-xs leading-relaxed max-w-sm mb-10 font-serif italic text-balance">
               "Crafting timeless elegance and preserving Kolkata's finest jewellery heritage since 1952. Every piece tells a story of royal purity and eternal grace."
             </p>
             <div className="flex gap-4">

@@ -41,8 +41,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onToggleWis
       <div className="text-center flex-1 flex flex-col justify-between" onClick={() => onClick(product)}>
         <div>
           <span className="text-[9px] text-gold uppercase tracking-[0.4em] font-black mb-1 block">{product.category} {product.karat || product.diamondCarat}</span>
-          <h3 className="font-serif text-maroon-dominant dark:text-white text-lg mb-1 truncate group-hover:text-gold transition-colors">{product.name}</h3>
-          <p className="text-maroon-dominant dark:text-gold font-sans text-lg font-bold tracking-tight">₹{product.price.toLocaleString('en-IN')}</p>
+          <h3 className="font-serif text-maroon-dominant dark:text-white text-base md:text-lg lg:text-lg xl:text-lg mb-1 truncate group-hover:text-gold transition-colors">{product.name}</h3>
+          <p className="text-maroon-dominant dark:text-gold font-sans text-base md:text-lg lg:text-lg xl:text-lg font-bold tracking-tight">₹{product.price.toLocaleString('en-IN')}</p>
         </div>
 
         <div className="mt-3 pt-3 border-t border-luxury-bg-card dark:border-white/5 flex justify-center items-center gap-3 text-[9px] text-luxury-text-light/40 dark:text-white/40 uppercase tracking-widest font-bold">
@@ -54,7 +54,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onToggleWis
         {onAddToCart && (
           <button
             onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
-            className="w-full mt-3 bg-maroon-dominant text-white py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
+            className="w-full mt-3 bg-maroon-dominant text-white py-2 md:py-2.5 rounded-full text-xs md:text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
           >
             Add to Bag
           </button>

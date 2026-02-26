@@ -68,10 +68,10 @@ const VideoCollectionSlider: React.FC = () => {
   return (
     <section className="py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="text-center mb-16 space-y-3">
-          <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">Cinematic Showcase</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+          <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">Cinematic Showcase</span>
+          <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
             Jewellery In Motion
           </h2>
         </div>
@@ -107,7 +107,7 @@ const VideoCollectionSlider: React.FC = () => {
               return (
                 <div
                   key={item.id}
-                  className={`absolute w-[300px] md:w-[420px] aspect-[9/16] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer ${offset}`}
+                  className={`absolute w-[260px] md:w-[380px] lg:w-[420px] aspect-[9/16] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer ${offset}`}
                   onClick={() => setActiveIndex(index)}
                 >
                   <div className={`relative w-full h-full rounded-3xl overflow-hidden bg-black group border border-white/10 ${isActive ? 'ring-1 ring-gold/30' : ''}`}>
@@ -126,7 +126,7 @@ const VideoCollectionSlider: React.FC = () => {
 
                     <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
                       <span className="text-gold text-[9px] tracking-[0.4em] uppercase mb-4 font-black gold-glow">{item.tag}</span>
-                      <h4 className="text-white text-3xl md:text-4xl font-serif mb-8 leading-none">{item.title}</h4>
+                      <h4 className="text-white text-xl md:text-2xl lg:text-3xl xl:text-3xl font-serif mb-8 leading-none">{item.title}</h4>
 
                       <div className="flex items-center justify-between">
                         <button className="bg-white/10 backdrop-blur-md hover:bg-gold text-white text-[10px] font-black py-3.5 px-7 uppercase tracking-[0.25em] transition-all rounded-full border border-white/20 hover:border-gold hover:text-maroon-dominant group/btn">

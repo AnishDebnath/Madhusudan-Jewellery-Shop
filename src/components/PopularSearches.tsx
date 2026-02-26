@@ -45,16 +45,16 @@ const PopularSearches: React.FC = () => {
 
   return (
     <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-12 border-t border-luxury-bg-card dark:border-white/5 transition-colors">
-      <div className="container mx-auto px-6">
-        <h2 className="text-lg font-serif text-maroon-dominant dark:text-white mb-10 tracking-widest uppercase border-b border-luxury-bg-card dark:border-white/10 pb-5">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
+        <h2 className="text-base md:text-lg lg:text-lg xl:text-xl font-serif text-maroon-dominant dark:text-white mb-10 tracking-widest uppercase border-b border-luxury-bg-card dark:border-white/10 pb-5">
           Popular Searches
         </h2>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-12 gap-y-12">
           {SEARCH_DATA.map((category, idx) => (
             <div key={idx} className="flex flex-col">
-              <h3 className="text-xs font-black text-gold mb-5 uppercase tracking-[0.2em]">
+              <h3 className="text-[10px] md:text-xs font-black text-gold mb-5 uppercase tracking-[0.2em]">
                 {category.title}
               </h3>
               <div className="flex flex-wrap items-center text-[11px] leading-7 text-luxury-text-light/70 dark:text-luxury-text-darkMuted/70 font-medium">

@@ -51,18 +51,18 @@ const Concierge: React.FC = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 z-[150] w-18 h-18 bg-maroon-dominant text-white rounded-full flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(128,0,0,0.5)] hover:scale-110 active:scale-95 transition-all duration-500 border border-gold/40 group overflow-hidden"
+        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[150] w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 bg-maroon-dominant text-white rounded-full flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(128,0,0,0.5)] hover:scale-110 active:scale-95 transition-all duration-500 border border-gold/40 group overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <MessageSquare className="w-7 h-7 group-hover:rotate-12 transition-transform duration-500 relative z-10" />
-        <span className="absolute top-4 right-4 flex h-3 w-3">
+        <MessageSquare className="w-6 h-6 md:w-7 md:h-7 group-hover:rotate-12 transition-transform duration-500 relative z-10" />
+        <span className="absolute top-3 right-3 md:top-4 md:right-4 flex h-2 w-2 md:h-3 md:w-3">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-gold shadow-[0_0_10px_rgba(212,175,55,1)]"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-gold shadow-[0_0_10px_rgba(212,175,55,1)]"></span>
         </span>
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-28 right-8 z-[150] w-[400px] max-h-[650px] bg-white dark:bg-luxury-dark-card rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] border border-transparent dark:border-white/5 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-10 zoom-in-95 duration-500">
+        <div className="fixed bottom-4 right-4 left-4 md:left-auto md:bottom-28 md:right-8 z-[150] md:w-[400px] h-[70vh] md:max-h-[650px] bg-white dark:bg-luxury-dark-card rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] border border-transparent dark:border-white/5 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-10 zoom-in-95 duration-500">
           <div className="bg-maroon-dominant p-6 flex justify-between items-center border-b border-white/5 relative">
             <div className="absolute inset-0 bg-maroon-dominant opacity-10"></div>
             <div className="flex items-center gap-4 relative z-10">
@@ -91,8 +91,8 @@ const Concierge: React.FC = () => {
                 <div className="w-16 h-16 bg-maroon-dominant/5 dark:bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold/10">
                   <Sparkles className="w-8 h-8 text-gold" />
                 </div>
-                <h5 className="text-maroon-dominant dark:text-white font-serif text-2xl uppercase tracking-tight">Royal Greetings</h5>
-                <p className="text-luxury-text-light/50 dark:text-luxury-text-darkMuted text-xs font-medium max-w-[220px] mx-auto leading-relaxed uppercase tracking-widest">
+                <h5 className="text-maroon-dominant dark:text-white font-serif text-xl md:text-2xl uppercase tracking-tight">Royal Greetings</h5>
+                <p className="text-luxury-text-light/50 dark:text-luxury-text-darkMuted text-[10px] md:text-xs font-medium max-w-[220px] mx-auto leading-relaxed uppercase tracking-widest">
                   I am here to ensure your journey through our heritage collection is flawless. How may I serve you?
                 </p>
               </div>

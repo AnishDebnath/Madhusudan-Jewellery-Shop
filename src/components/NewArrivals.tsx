@@ -92,21 +92,21 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   return (
     <section className="py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-b border-gold/10 relative">
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-end justify-between mb-10 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
-              <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Fresh from the Atelier</span>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Fresh from the Atelier</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
               New Arrivals
             </h2>
           </div>
 
           <button
             onClick={() => onNavigate('category', 'All')}
-            className="group relative px-8 py-3.5 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95"
+            className="group relative px-6 py-3 text-sm md:px-8 md:py-4 md:text-base lg:px-8 lg:py-3.5 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95"
           >
             <span className="relative z-10 flex items-center gap-3">
               View Full Catalog <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
@@ -127,7 +127,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
           </div>
           <div
             ref={scrollRef}
-            className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-8 pt-4 -mx-6 px-6 md:mx-0 md:px-0"
+            className="flex gap-4 md:gap-6 lg:gap-8 xl:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-8 pt-4 -mx-4 px-4 md:-mx-8 md:px-8 lg:-mx-10 lg:px-10 xl:-mx-12 xl:px-12"
           >
             {VIDEO_HIGHLIGHTS.map((video) => (
               <VideoStripCard key={video.id} video={video} />
@@ -148,10 +148,10 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
           </div>
           <div
             ref={productScrollRef}
-            className="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-8 pt-4 -mx-6 px-6 md:mx-0 md:px-0"
+            className="flex gap-4 md:gap-6 lg:gap-8 xl:gap-10 overflow-x-auto no-scrollbar scroll-smooth pb-8 pt-4 -mx-4 px-4 md:-mx-8 md:px-8 lg:-mx-10 lg:px-10 xl:-mx-12 xl:px-12"
           >
             {newArrivalProducts.slice(0, 8).map((product) => (
-              <div key={product.id} className="snap-start h-full flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)]">
+              <div key={product.id} className="snap-start h-full flex-shrink-0 w-[280px] md:w-[320px] lg:w-[320px] xl:w-[380px]">
                 <CarouselProductCard
                   product={product}
                   onClick={onProductClick}
@@ -165,7 +165,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
 
             <div
               onClick={() => onNavigate('category', 'All')}
-              className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden"
+              className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[320px] xl:w-[380px] flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden"
             >
               <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500">
                 <div className="w-20 h-20 rounded-full bg-white dark:bg-luxury-dark-card flex items-center justify-center group-hover/view-all:bg-transparent group-hover/view-all:border-white/40 border border-gold/10 transition-all duration-500 group-hover/view-all:scale-110 shadow-2xl">

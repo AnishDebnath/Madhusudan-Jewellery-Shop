@@ -36,14 +36,14 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
 
   return (
     <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden group/section border-t border-maroon-dominant/5 dark:border-white/5">
-      <div className="container mx-auto px-6 relative">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-8">
           <div className="space-y-3">
             <div className="flex items-center gap-4">
               <div className="h-[1px] w-12 bg-gold/30"></div>
-              <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black block gold-glow">The Elite Selection</span>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">The Elite Selection</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
               {title}
             </h2>
           </div>
@@ -68,11 +68,11 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-8 md:gap-10 pb-10 pt-4 no-scrollbar scroll-smooth snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
+          className="flex overflow-x-auto gap-4 md:gap-6 lg:gap-8 xl:gap-10 pb-10 pt-4 no-scrollbar scroll-smooth snap-x snap-mandatory -mx-4 px-4 md:-mx-8 md:px-8 lg:-mx-10 lg:px-10 xl:-mx-12 xl:px-12"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {products.map((product) => (
-            <div key={product.id} className="snap-start flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)]">
+            <div key={product.id} className="snap-start flex-shrink-0 w-[280px] md:w-[320px] lg:w-[320px] xl:w-[380px]">
               <CarouselProductCard
                 product={product}
                 onClick={onProductClick}
@@ -86,7 +86,7 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
 
           <div
             onClick={() => onNavigate('category', 'All')}
-            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[calc(25%-30px)] snap-start flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden"
+            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[320px] xl:w-[380px] snap-start flex flex-col items-center justify-center border-2 border-dashed border-gold/20 rounded-3xl hover:border-gold/50 transition-all duration-700 group/view-all cursor-pointer hover:bg-maroon-dominant active:scale-95 bg-luxury-bg-secondary/30 dark:bg-luxury-dark-card/30 backdrop-blur-sm relative overflow-hidden"
           >
             <div className="flex flex-col items-center gap-6 relative z-10 transition-all duration-500">
               <div className="w-20 h-20 rounded-full bg-white dark:bg-luxury-dark-card flex items-center justify-center group-hover/view-all:bg-transparent group-hover/view-all:border-white/40 border border-gold/10 transition-all duration-500 group-hover/view-all:scale-110 shadow-2xl">

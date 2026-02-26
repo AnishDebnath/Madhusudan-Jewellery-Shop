@@ -26,7 +26,7 @@ const EarringCard: React.FC<EarringCardProps> = ({ title, image, link, onNavigat
       <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
       <div className="absolute inset-x-0 bottom-0 p-6">
-        <h4 className="text-white font-serif text-xl md:text-2xl tracking-wide group-hover:text-gold transition-colors duration-300 leading-tight mb-3">
+        <h4 className="text-white font-serif text-lg md:text-xl lg:text-xl xl:text-xl tracking-wide group-hover:text-gold transition-colors duration-300 leading-tight mb-3">
           {title.replace(' Collection', '')}
         </h4>
         <div className="flex items-center gap-2 transition-all duration-500">
@@ -53,14 +53,14 @@ const EarringCollection: React.FC<EarringCollectionProps> = ({ onNavigate }) => 
 
   return (
     <section className="py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary border-t border-luxury-bg-card dark:border-white/5 transition-colors relative">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-8 space-y-3">
-          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Earring Masterpieces</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white font-light">Earring</span> Edit</h2>
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
+        <div className="text-center mb-10 space-y-3">
+          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Earring Masterpieces</span>
+          <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase leading-tight">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white font-light">Earring</span> Edit</h2>
           <div className="w-20 h-[1px] bg-gold/20 mx-auto mt-6"></div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pt-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pt-4">
           {categories.map((cat, idx) => (
             <EarringCard key={idx} {...cat} onNavigate={onNavigate} />
           ))}

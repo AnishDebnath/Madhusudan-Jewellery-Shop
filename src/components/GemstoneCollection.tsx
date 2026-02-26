@@ -27,7 +27,7 @@ const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link, onNavig
 
       <div className="absolute inset-x-0 bottom-0 p-6 text-center flex flex-col items-center justify-end h-full">
         <div className="flex flex-col items-center">
-          <span className="text-white font-serif text-2xl md:text-3xl tracking-wide group-hover:text-gold transition-colors duration-300 mb-2">
+          <span className="text-white font-serif text-lg md:text-xl lg:text-xl xl:text-xl tracking-wide group-hover:text-gold transition-colors duration-300 mb-2">
             {label}
           </span>
           <div className="w-10 h-[1px] bg-gold transition-opacity duration-500 delay-100"></div>
@@ -53,16 +53,16 @@ const GemstoneCollection: React.FC<GemstoneCollectionProps> = ({ onNavigate }) =
 
   return (
     <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-8 space-y-3">
-          <span className="text-gold text-[10px] md:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Precious Stones</span>
-          <h2 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 font-light">Gemstone</span> Edit</h2>
-          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-base font-light italic max-w-lg mx-auto border-t border-gold/10 pt-6">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
+        <div className="text-center mb-10 space-y-3">
+          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Precious Stones</span>
+          <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase leading-tight">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 font-light">Gemstone</span> Edit</h2>
+          <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base font-light italic max-w-lg mx-auto border-t border-gold/10 pt-6">
             "Timeless grace captured in nature's most vibrant hues."
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pt-4">
           {categories.map((cat, idx) => (
             <GemstoneTile key={idx} {...cat} onNavigate={onNavigate} />
           ))}
