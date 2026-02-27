@@ -89,12 +89,12 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
                   EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
-              <button
+              {/* <button
                 onClick={() => onNavigate('contact')}
                 className="flex items-center gap-2 text-[10px] font-black text-maroon-dominant dark:text-gold uppercase tracking-[0.2em] hover:text-gold dark:hover:text-white transition-all duration-300 border-b border-gold/30 pb-1 hover:scale-105 group px-4"
               >
                 Book Consultation <Star className="w-3 h-3 text-gold transition-transform group-hover:rotate-12" />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate, useParams } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import PopularSearches from './components/PopularSearches';
 import Concierge from './components/Concierge';
 
 const Home = React.lazy(() => import('./pages/Home'));
@@ -242,7 +241,6 @@ const App: React.FC = () => {
       {!isAuthPage && (
         <>
           <Footer onNavigate={handleNavigate} />
-          <PopularSearches />
           <Concierge />
         </>
       )}
