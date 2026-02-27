@@ -10,10 +10,11 @@ interface FeaturedSliderProps {
   onProductClick: (p: Product) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
+  onNavigate: (view: string, data?: any) => void;
   onAddToCart?: (p: Product) => void;
 }
 
-const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggleWishlist, wishlist, onAddToCart }) => {
+const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggleWishlist, wishlist, onNavigate, onAddToCart }) => {
   const featured = PRODUCTS.filter(p => p.isBestSeller || p.isNewArrival).slice(0, 6);
   const [currentIndex, setCurrentIndex] = useState(6);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -123,7 +124,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
       </div>
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mt-12">
-        <div className="flex justify-center items-center gap-6">
+        <div className="flex justify-center items-center gap-6 mb-12">
           <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
           <div className="flex gap-4">
             {featured.map((_, idx) => {
@@ -145,6 +146,15 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
             })}
           </div>
           <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            onClick={() => onNavigate('category', 'All')}
+            className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant shadow-2xl active:scale-95 flex items-center gap-3"
+          >
+            Explore All Curated Masterpieces <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+          </button>
         </div>
       </div>
     </section>

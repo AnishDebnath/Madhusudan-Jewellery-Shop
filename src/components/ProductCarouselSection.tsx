@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { Product } from '../types';
 import CarouselProductCard from './CarouselProductCard';
 
@@ -136,7 +136,7 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
 
       {/* Slide Indicators */}
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mt-12">
-        <div className="flex justify-center items-center gap-6">
+        <div className="flex justify-center items-center gap-6 mb-12">
           <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
           <div className="flex gap-4">
             {products.map((_, idx) => {
@@ -158,6 +158,15 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
             })}
           </div>
           <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            onClick={() => onNavigate('category', 'All')}
+            className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant shadow-2xl active:scale-95 flex items-center gap-3"
+          >
+            Explore All {title} <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+          </button>
         </div>
       </div>
     </section>

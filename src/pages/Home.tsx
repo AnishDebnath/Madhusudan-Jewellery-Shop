@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import { ArrowRight } from 'lucide-react';
 import OffersSection from '../components/OffersSection';
 import FeaturedSlider from '../components/FeaturedSlider';
 import NewArrivals from '../components/NewArrivals';
@@ -35,7 +36,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
         <>
             <Hero onNavigate={onNavigate} />
             <OffersSection onNavigate={onNavigate} />
-            <FeaturedSlider onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onAddToCart={onAddToCart} />
+            <FeaturedSlider onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} onAddToCart={onAddToCart} />
             <NewArrivals onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} onAddToCart={onAddToCart} />
             <section className="py-14 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
 
@@ -55,7 +56,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
                             <div className="w-12 h-[1px] bg-gold/30"></div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 mb-12">
                         {PRODUCTS.slice(0, 8).map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -66,6 +67,15 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
                                 onAddToCart={onAddToCart}
                             />
                         ))}
+                    </div>
+
+                    <div className="flex justify-center">
+                        <button
+                            onClick={() => onNavigate('category', 'All')}
+                            className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant shadow-2xl active:scale-95 flex items-center gap-3"
+                        >
+                            Explore All Signature Collections <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                        </button>
                     </div>
                 </div>
             </section>
