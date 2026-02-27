@@ -153,7 +153,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
             onClick={() => onNavigate('category', 'All')}
             className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant shadow-2xl active:scale-95 flex items-center gap-3"
           >
-            Explore All Curated Masterpieces <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+            Explore All <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
           </button>
         </div>
       </div>
