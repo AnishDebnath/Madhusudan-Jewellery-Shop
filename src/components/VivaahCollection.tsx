@@ -1,5 +1,7 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+
+import React, { useState, useEffect, useCallback } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import CarouselProductCard from './CarouselProductCard';
 import necklace12 from '../assets/jewellery/necklace/nacklace (12).jpg';
 import necklace13 from '../assets/jewellery/necklace/nacklace (13).jpg';
 import necklace14 from '../assets/jewellery/necklace/nacklace (14).jpg';
@@ -11,42 +13,94 @@ const VIVAAH_PRODUCTS = [
     id: 'v1',
     name: 'Heritage Polki Choker Set',
     image: necklace12,
-    price: '₹4,50,000'
+    price: 450000,
+    category: 'Bridal'
   },
   {
     id: 'v2',
     name: 'Antique Gold Temple Set',
     image: necklace13,
-    price: '₹7,20,000'
+    price: 720000,
+    category: 'Gold'
   },
   {
     id: 'v3',
     name: 'Kundan Meena Bridal Haar',
     image: necklace14,
-    price: '₹5,80,000'
+    price: 580000,
+    category: 'Bridal'
   },
   {
     id: 'v4',
     name: 'Rose Gold Diamond Maang Tikka',
     image: necklace15,
-    price: '₹1,25,000'
+    price: 125000,
+    category: 'Diamond'
   }
 ];
 
 interface VivaahCollectionProps {
   onNavigate: (view: string, data?: any) => void;
   onProductClick: (p: any) => void;
+  onToggleWishlist: (id: string) => void;
+  wishlist: string[];
   onAddToCart?: (p: any) => void;
 }
 
-const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProductClick, onAddToCart }) => {
+const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProductClick, onToggleWishlist, wishlist, onAddToCart }) => {
+  const [currentIndex, setCurrentIndex] = useState(VIVAAH_PRODUCTS.length);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const getItemsPerView = () => {
+    if (windowWidth < 768) return 1;
+    if (windowWidth < 1024) return 2;
+    if (windowWidth < 1280) return 3;
+    return 4;
+  };
+
+  const itemsPerView = getItemsPerView();
+
+  const nextSlide = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex(prev => prev + 1);
+  }, [isTransitioning]);
+
+  const prevSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex(prev => prev - 1);
+  };
+
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+    if (currentIndex >= VIVAAH_PRODUCTS.length * 2) {
+      setCurrentIndex(currentIndex - VIVAAH_PRODUCTS.length);
+    } else if (currentIndex < VIVAAH_PRODUCTS.length) {
+      setCurrentIndex(currentIndex + VIVAAH_PRODUCTS.length);
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  const displayProducts = [...VIVAAH_PRODUCTS, ...VIVAAH_PRODUCTS, ...VIVAAH_PRODUCTS];
+
   return (
     <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-16 overflow-hidden border-t border-gold/10 transition-colors relative">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
 
-
         {/* Large Collection Banner */}
-        <div className="relative h-[50vh] md:h-[80vh] mb-12 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
+        <div className="relative h-[45vh] md:h-[60vh] mb-12 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
           <img
             src={vivaahHero}
             alt="The Wedding Masterpieces"
@@ -69,61 +123,92 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
           </div>
         </div>
 
-        {/* Header Text */}
-        <div className="text-center mb-10 space-y-3">
+        {/* Header Text - Restored to centered position */}
+        <div className="text-center mb-10 relative">
           <h3 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-3 uppercase tracking-tight leading-tight">The Wedding Masterpieces</h3>
           <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gold/60 gold-glow">Curated for the Modern Bride</p>
-        </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 mb-12">
-          {VIVAAH_PRODUCTS.map((product) => (
-            <div key={product.id} className="group relative bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 hover:border-gold/20 overflow-hidden transition-all duration-700 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 p-3 md:p-4">
-              <div className="relative aspect-square overflow-hidden bg-luxury-bg-card dark:bg-black/20 rounded-2xl mb-3">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
+          {/* Navigation Buttons integrated into the center header row but floated to the sides if needed or keeping them for manual control */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              onClick={prevSlide}
+              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Product Slider Viewport */}
+      <div className="relative mb-8">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 overflow-visible">
+          <div
+            className={`flex ${isTransitioning ? 'transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)' : ''}`}
+            onTransitionEnd={handleTransitionEnd}
+            style={{
+              transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`
+            }}
+          >
+            {displayProducts.map((product, idx) => (
+              <div key={`${product.id}-${idx}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/4 xl:w-1/4 px-4">
+                <CarouselProductCard
+                  product={product as any}
+                  onClick={onProductClick}
+                  onToggleWishlist={onToggleWishlist}
+                  isWishlisted={wishlist.includes(product.id)}
+                  onAddToCart={onAddToCart}
                 />
-
-                {/* Quick Actions Hover Overlay */}
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center gap-3 z-10">
-                  <button
-                    onClick={() => onProductClick({ ...product, price: parseInt(product.price.replace(/[^\d]/g, '')) })}
-                    className="bg-maroon-dominant/90 backdrop-blur-md text-white text-[9px] font-black tracking-[0.2em] px-6 py-3 w-44 hover:bg-gold hover:text-maroon-dominant transition-all duration-300 transform active:scale-95 shadow-xl border border-white/10 rounded-full translate-y-4 group-hover:translate-y-0"
-                  >
-                    VIEW DETAILS
-                  </button>
-                </div>
               </div>
-
-              <div className="px-1 text-center flex flex-col justify-between">
-                <div>
-                  <h4 className="font-serif text-maroon-dominant dark:text-white text-base md:text-lg lg:text-lg xl:text-lg mb-1 truncate group-hover:text-gold transition-colors">{product.name}</h4>
-                  <p className="text-maroon-dominant dark:text-gold font-sans text-base md:text-lg lg:text-lg xl:text-lg font-bold tracking-tight mb-2">₹{product.price.replace('₹', '')}</p>
-                </div>
-                {onAddToCart && (
-                  <button
-                    onClick={(e) => { e.stopPropagation(); onAddToCart({ ...product, price: parseInt(product.price.replace(/[^\d]/g, '')) }); }}
-                    className="w-full bg-maroon-dominant text-white py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
-                  >
-                    Add to Bag
-                  </button>
-                )}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </div>
 
+      {/* Slide Indicators */}
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mt-12 mb-16">
+        <div className="flex justify-center items-center gap-6">
+          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+          <div className="flex gap-4">
+            {VIVAAH_PRODUCTS.map((_, idx) => {
+              const isActive = (currentIndex % VIVAAH_PRODUCTS.length) === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    if (isTransitioning) return;
+                    setIsTransitioning(true);
+                    setCurrentIndex(VIVAAH_PRODUCTS.length + idx);
+                  }}
+                  className="group relative py-3"
+                  aria-label={`Go to slide ${idx + 1}`}
+                >
+                  <div className={`h-[2px] transition-all duration-1000 rounded-full ${isActive ? 'w-16 bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)]' : 'w-5 bg-gold/20 hover:bg-gold/50'}`} />
+                </button>
+              );
+            })}
+          </div>
+          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+        </div>
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         {/* Centered CTA */}
         <div className="flex justify-center pb-12">
           <button
             onClick={() => onNavigate('category', 'Bridal')}
-            className="group relative px-8 py-3.5 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-xl active:scale-95 border border-white/10"
+            className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-2xl active:scale-95 border border-white/10"
           >
             <span className="relative z-10 flex items-center gap-3">
-              Explore The Collection <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform duration-500" />
+              Explore The Full Collection <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
             </span>
           </button>
         </div>

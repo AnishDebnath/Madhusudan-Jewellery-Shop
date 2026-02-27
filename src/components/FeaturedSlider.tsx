@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PRODUCTS } from '../constants';
 import { Product } from '../types';
-import { ChevronLeft, ChevronRight, ArrowRight, Star, Heart } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import CarouselProductCard from './CarouselProductCard';
 
 
 interface FeaturedSliderProps {
@@ -14,39 +15,57 @@ interface FeaturedSliderProps {
 
 const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggleWishlist, wishlist, onAddToCart }) => {
   const featured = PRODUCTS.filter(p => p.isBestSeller || p.isNewArrival).slice(0, 6);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [viewState, setViewState] = useState({ isMobile: false, isTablet: false });
+  const [currentIndex, setCurrentIndex] = useState(6);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
 
   useEffect(() => {
-    const handleResize = () => {
-      setViewState({
-        isMobile: window.innerWidth < 768,
-        isTablet: window.innerWidth >= 768 && window.innerWidth < 1280
-      });
-    };
-    handleResize();
+    const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const getItemsPerView = () => {
+    if (windowWidth < 768) return 1;
+    if (windowWidth < 1024) return 2;
+    if (windowWidth < 1280) return 3;
+    return 4;
+  };
+
+  const itemsPerView = getItemsPerView();
+
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev === featured.length - 1 ? 0 : prev + 1));
-  }, [featured.length]);
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  }, [isTransitioning]);
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? featured.length - 1 : prev - 1));
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+    if (currentIndex >= featured.length * 2) {
+      setCurrentIndex(currentIndex - featured.length);
+    } else if (currentIndex < featured.length) {
+      setCurrentIndex(currentIndex + featured.length);
+    }
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 4000);
+    const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
+  const displayFeatured = [...featured, ...featured, ...featured];
+
   return (
     <section className="relative py-12 md:py-16 overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
-
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-8">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mb-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left space-y-3">
             <div className="flex items-center justify-center md:justify-start gap-5">
               <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black">The Boutique Highlights</span>
@@ -74,91 +93,56 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
             </button>
           </div>
         </div>
+      </div>
 
-        <div className="relative overflow-visible">
+      <div className="relative">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 overflow-visible">
           <div
-            className="flex transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)"
+            className={`flex ${isTransitioning ? 'transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)' : ''}`}
+            onTransitionEnd={handleTransitionEnd}
             style={{
-              transform: `translateX(-${currentIndex * (100 / (viewState.isMobile ? 1 : viewState.isTablet ? 2 : window.innerWidth >= 1280 ? 3 : 4))}%)`
+              transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`
             }}
           >
-            {featured.map((product) => (
+            {displayFeatured.map((product, idx) => (
               <div
-                key={product.id}
-                className="w-full md:w-1/2 lg:w-1/4 xl:w-1/3 flex-shrink-0 px-4"
+                key={`${product.id}-${idx}`}
+                className="w-full md:w-1/2 lg:w-1/4 xl:w-1/4 flex-shrink-0 px-4"
               >
-                <div className="group relative bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-[2rem] p-4 md:p-5 border border-luxury-bg-card dark:border-maroon-border/20 hover:border-gold/40 transition-all duration-700 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] overflow-hidden">
-                  <div className="aspect-square mb-6 overflow-hidden relative bg-luxury-bg-card dark:bg-luxury-dark-secondary rounded-2xl">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    {/* Wishlist Button - Top Right Corner of Image */}
-                    <button
-                      onClick={(e) => { e.stopPropagation(); onToggleWishlist(product.id); }}
-                      className={`absolute top-4 right-4 z-30 w-10 h-10 backdrop-blur-md border rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 ${wishlist.includes(product.id) ? 'bg-gold text-white border-gold' : 'bg-white/90 dark:bg-luxury-dark-card/90 text-maroon-dominant dark:text-white border-white/20 dark:border-white/10 hover:bg-gold/20'}`}
-                      aria-label={wishlist.includes(product.id) ? "Remove from wishlist" : "Add to wishlist"}
-                    >
-                      <Heart className={`w-4 h-4 ${wishlist.includes(product.id) ? 'fill-current' : ''}`} />
-                    </button>
-
-                    {product.isNewArrival && (
-                      <div className="absolute top-0 left-0 bg-gold/90 backdrop-blur-sm text-maroon-dominant text-[8px] px-4 py-2 uppercase tracking-[0.3em] font-black shadow-lg rounded-full mt-3 ml-3">
-                        New Launch
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="text-center relative space-y-1 px-2">
-                    <span className="text-gold/80 text-[9px] font-black uppercase tracking-[0.4em] block">Artisan's Choice</span>
-                    <h4 className="font-serif text-maroon-dominant dark:text-white text-base md:text-lg lg:text-lg xl:text-lg truncate group-hover:text-gold transition-colors duration-500">
-                      {product.name}
-                    </h4>
-
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="flex text-gold">
-                        {[...Array(5)].map((_, i) => <Star key={i} className="w-2.5 h-2.5 fill-gold" />)}
-                      </div>
-                      <span className="text-[8px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase tracking-[0.25em] font-black">(BIS Hallmark)</span>
-                    </div>
-
-                    <p className="text-maroon-dominant dark:text-gold font-sans text-base md:text-lg lg:text-lg xl:text-lg font-bold tracking-tight">
-                      ₹{product.price.toLocaleString('en-IN')}
-                    </p>
-
-                    <div className="pt-2">
-                      <button
-                        onClick={() => onProductClick(product)}
-                        className="relative w-full py-2.5 md:py-3 border border-maroon-dominant/10 dark:border-gold/20 text-maroon-dominant dark:text-gold text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden group/btn transition-all duration-500 hover:text-white dark:hover:text-maroon-dominant rounded-full hover:border-transparent"
-                      >
-                        <span className="relative z-10 flex items-center justify-center gap-2">
-                          EXPLORE THE CRAFT <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
-                        </span>
-                        <div className="absolute inset-0 bg-maroon-dominant dark:bg-gold transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-out"></div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <CarouselProductCard
+                  product={product}
+                  onClick={onProductClick}
+                  onToggleWishlist={onToggleWishlist}
+                  isWishlisted={wishlist.includes(product.id)}
+                  onAddToCart={onAddToCart}
+                />
               </div>
             ))}
           </div>
         </div>
+      </div>
 
-        <div className="flex justify-center items-center gap-6 mt-8">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mt-12">
+        <div className="flex justify-center items-center gap-6">
           <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
           <div className="flex gap-4">
-            {featured.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className="group relative py-3"
-                aria-label={`Go to slide ${idx + 1}`}
-              >
-                <div className={`h-[2px] transition-all duration-1000 rounded-full ${currentIndex === idx ? 'w-16 bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)]' : 'w-5 bg-gold/20 hover:bg-gold/50'}`} />
-              </button>
-            ))}
+            {featured.map((_, idx) => {
+              const isActive = (currentIndex % featured.length) === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    if (isTransitioning) return;
+                    setIsTransitioning(true);
+                    setCurrentIndex(featured.length + idx);
+                  }}
+                  className="group relative py-3"
+                  aria-label={`Go to slide ${idx + 1}`}
+                >
+                  <div className={`h-[2px] transition-all duration-1000 rounded-full ${isActive ? 'w-16 bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)]' : 'w-5 bg-gold/20 hover:bg-gold/50'}`} />
+                </button>
+              );
+            })}
           </div>
           <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
         </div>

@@ -81,7 +81,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
             />
             <VideoCollectionSlider />
             <ShopByBudget onNavigate={onNavigate} />
-            <VivaahCollection onNavigate={onNavigate} onProductClick={onProductClick} onAddToCart={onAddToCart} />
+            <VivaahCollection onNavigate={onNavigate} onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onAddToCart={onAddToCart} />
             <NikahCollection onNavigate={onNavigate} />
             <EarringCollection onNavigate={onNavigate} />
             <GemstoneCollection onNavigate={onNavigate} />
