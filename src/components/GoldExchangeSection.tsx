@@ -1,5 +1,5 @@
 import React from 'react';
-import { BringToFront, Search, IndianRupee, Handshake, ArrowRight, ShieldCheck } from 'lucide-react';
+import { BringToFront, Search, IndianRupee, Handshake, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 
 const GoldExchangeSection: React.FC = () => {
   const steps = [
@@ -29,10 +29,12 @@ const GoldExchangeSection: React.FC = () => {
     <section className="py-14 md:py-16 bg-luxury-dark-primary dark:bg-luxury-dark-primary relative transition-colors overflow-hidden border-b border-maroon-dominant/10 dark:border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="text-center mb-12 space-y-4">
-          <div className="flex justify-center mb-5">
-            <div className="w-14 h-14 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6 text-gold gold-glow" />
-            </div>
+          <div className="flex justify-center items-center gap-4 group mb-6">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4" /> Trust & Security
+            </span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-white uppercase tracking-tight leading-tight">
             Exchange or Sell <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white gold-glow font-light">Your Old Gold</span>

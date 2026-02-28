@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PRODUCTS } from '../constants';
 import { Product } from '../types';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
 import CarouselProductCard from './CarouselProductCard';
 
 
@@ -68,9 +68,11 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mb-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left space-y-3">
-            <div className="flex items-center justify-center md:justify-start gap-5">
-              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black">The Boutique Highlights</span>
-              <div className="w-16 h-[1px] bg-gold/20"></div>
+            <div className="flex items-center justify-center md:justify-start gap-4 group">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                <Sparkles className="w-2.5 h-2.5" /> The Boutique Highlights
+              </span>
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white leading-tight uppercase tracking-tight">
               Curated <span className="italic text-gold gold-glow font-light">Masterpieces</span>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Sparkles } from 'lucide-react';
 import earrings7 from '../assets/jewellery/earrings/earrings (7).jpg';
 import earrings8 from '../assets/jewellery/earrings/earrings (8).jpg';
 import earrings9 from '../assets/jewellery/earrings/earrings (9).jpg';
@@ -55,7 +56,13 @@ const EarringCollection: React.FC<EarringCollectionProps> = ({ onNavigate }) => 
     <section className="py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary border-t border-luxury-bg-card dark:border-white/5 transition-colors relative">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="text-center mb-10 space-y-3">
-          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Earring Masterpieces</span>
+          <div className="flex justify-center items-center gap-4 group mb-3">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> Earring Masterpieces
+            </span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
+          </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight uppercase leading-tight">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white font-light">Earring</span> Edit</h2>
           <div className="w-20 h-[1px] bg-gold/20 mx-auto mt-6"></div>
         </div>

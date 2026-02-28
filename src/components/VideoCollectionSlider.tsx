@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Volume2, VolumeX, Maximize, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Volume2, VolumeX, Maximize, Play, Sparkles } from 'lucide-react';
 import reel1 from '../assets/reels/Reel 1.webm';
 import reel2 from '../assets/reels/Reel 2.webm';
 import reel3 from '../assets/reels/Reel 3.webm';
@@ -70,7 +70,13 @@ const VideoCollectionSlider: React.FC = () => {
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="text-center mb-16 space-y-3">
-          <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">Cinematic Showcase</span>
+          <div className="flex justify-center items-center gap-4 group">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> Cinematic Showcase
+            </span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
+          </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
             Jewellery In Motion
           </h2>

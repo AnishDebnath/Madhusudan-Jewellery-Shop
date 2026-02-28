@@ -59,9 +59,11 @@ const CustomerReviews: React.FC = () => {
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="mb-10 space-y-3 text-center lg:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">
-          <div className="flex items-center justify-center lg:justify-start gap-4">
-            <div className="h-[1px] w-12 bg-gold/30"></div>
-            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">The Voice of Heritage</span>
+          <div className="flex items-center justify-center lg:justify-start gap-4 group">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> The Voice of Heritage
+            </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
             Stories <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold italic font-light tracking-tight">of Trust</span>

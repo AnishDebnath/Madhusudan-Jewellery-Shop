@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { MapPin, Clock, Phone, Calendar, ArrowRight } from 'lucide-react';
+import { MapPin, Clock, Phone, Calendar, ArrowRight, Sparkles } from 'lucide-react';
 import model11 from '../assets/models/models (11).jpg';
 import model12 from '../assets/models/models (12).jpg';
 import heroPoster from '../assets/models/models (2).jpg';
@@ -21,7 +21,12 @@ const KolkataStore: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block mb-4 gold-glow">Heritage Location</span>
+            <div className="flex items-center gap-4 group mb-4">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                <Sparkles className="w-2.5 h-2.5" /> Heritage Location
+              </span>
+            </div>
             <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif mb-6 leading-tight text-white uppercase tracking-tight">
               Flagship <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Park Street</span>
             </h2>

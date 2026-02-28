@@ -1,4 +1,5 @@
 import React from 'react';
+import { Sparkles } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import earrings10 from '../assets/jewellery/earrings/earrings (10).jpg';
 import necklace19 from '../assets/jewellery/necklace/nacklace (19).jpg';
@@ -65,7 +66,13 @@ const PerfectGift: React.FC<PerfectGiftProps> = ({ onNavigate }) => {
     <section className="py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="text-center mb-10 space-y-3">
-          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Gifting & More</span>
+          <div className="flex justify-center items-center gap-4 group mb-3">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> Gifting & More
+            </span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
+          </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight leading-tight uppercase">Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Moments</span></h2>
           <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base font-light italic max-w-lg mx-auto border-t border-gold/10 pt-6">
             "Celebrate life's precious milestones with heirlooms that last forever."

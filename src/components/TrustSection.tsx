@@ -54,12 +54,12 @@ const TrustSection: React.FC = () => {
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="text-center mb-10 space-y-4">
-          <div className="inline-flex items-center gap-4">
-            <div className="h-[1px] w-8 bg-gold/30"></div>
-            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] font-black uppercase tracking-[0.4em] gold-glow">
-              The Aura Promise
+          <div className="flex justify-center items-center gap-4 group mb-4">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] font-black uppercase tracking-[0.4em] gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> The Aura Promise
             </span>
-            <div className="h-[1px] w-8 bg-gold/30"></div>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight mb-4 leading-tight">Foundation of Trust</h2>
           <p className="text-luxury-text-light/60 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base font-light italic max-w-2xl mx-auto leading-relaxed text-balance border-t border-gold/10 pt-6">

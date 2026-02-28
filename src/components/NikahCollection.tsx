@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, Sparkles } from 'lucide-react';
 import necklace19 from '../assets/jewellery/necklace/nacklace (19).jpg';
 import necklace20 from '../assets/jewellery/necklace/nacklace (20).jpg';
 import necklace21 from '../assets/jewellery/necklace/nacklace (21).jpg';
@@ -45,7 +45,12 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/80 via-transparent to-transparent group-hover:opacity-80 transition-opacity duration-700"></div>
             <div className="absolute bottom-12 left-10 text-white z-10">
-              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black mb-4 block gold-glow">Sacred Union</span>
+              <div className="flex items-center gap-4 group mb-4">
+                <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-gold/40"></div>
+                <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                  <Sparkles className="w-2.5 h-2.5" /> Sacred Union
+                </span>
+              </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif italic mb-2 leading-tight">Graceful Ceremonies</h2>
               <div className="w-16 h-[1px] bg-gold/50"></div>
             </div>
@@ -53,9 +58,11 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
 
           <div className="flex flex-col h-full justify-center">
             <div className="mb-8">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="h-[1px] w-12 bg-gold/30"></div>
-                <span className="text-gold dark:text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Elegance Redefined</span>
+              <div className="flex items-center gap-4 mb-5 group">
+                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+                <span className="text-gold dark:text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                  <Sparkles className="w-2.5 h-2.5" /> Elegance Redefined
+                </span>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic">COLLECTION</span></h2>
               <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base leading-relaxed max-w-lg font-light italic text-balance border-l-2 border-gold/20 pl-6">

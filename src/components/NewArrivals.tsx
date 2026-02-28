@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Play, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { PRODUCTS } from '../constants';
 import { Product } from '../types';
 import CarouselProductCard from './CarouselProductCard';
@@ -175,9 +175,11 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-8">
           <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <div className="h-[1px] w-12 bg-gold/30"></div>
-              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Fresh from the Atelier</span>
+            <div className="flex items-center gap-4 group">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                <Sparkles className="w-2.5 h-2.5" /> Fresh from the Atelier
+              </span>
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
               New Arrivals

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 type GenderTab = 'Women' | 'Men' | 'Kids';
 
@@ -54,7 +54,13 @@ const ShopByGender: React.FC<ShopByGenderProps> = ({ onNavigate }) => {
     <section className="py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="text-center mb-10">
-          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow mb-4">Collections For Everyone</span>
+          <div className="flex justify-center items-center gap-4 group mb-4">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> Collections For Everyone
+            </span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
+          </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white tracking-tight mb-8 uppercase leading-tight">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Gender</span></h2>
 
           <div className="flex justify-center items-center gap-4 md:gap-8 mb-8 overflow-x-auto no-scrollbar pb-2">

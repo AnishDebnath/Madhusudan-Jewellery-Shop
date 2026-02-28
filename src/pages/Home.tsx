@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import OffersSection from '../components/OffersSection';
 import FeaturedSlider from '../components/FeaturedSlider';
 import NewArrivals from '../components/NewArrivals';
@@ -43,17 +43,19 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
                 <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-8">
                         <div className="space-y-3">
-                            <div className="flex items-center gap-4">
-                                <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black block gold-glow">Our Masterpieces</span>
-                                <div className="h-[1px] w-12 bg-gold/30"></div>
+                            <div className="flex items-center gap-4 group">
+                                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+                                <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                                    <Sparkles className="w-2.5 h-2.5" /> Our Masterpieces
+                                </span>
                             </div>
                             <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">
                                 Signature <span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50">Collections</span>
                             </h2>
                         </div>
                         <div className="flex items-center gap-6 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[9px] font-black uppercase tracking-[0.3em] mb-2">
-                            Handcrafted in Bengal
                             <div className="w-12 h-[1px] bg-gold/30"></div>
+                            Handcrafted in Bengal
                         </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 mb-12">

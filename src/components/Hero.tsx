@@ -41,10 +41,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="absolute inset-0 bg-black/40 mix-blend-multiply z-10"></div>
       <div className="relative z-30 h-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 flex flex-col justify-center text-white">
         <div className="space-y-8 max-w-4xl">
-          <div className="inline-flex items-center gap-4 animate-in fade-in slide-in-from-left-10 duration-1000">
-            <div className="h-[1px] w-12 bg-gold/50"></div>
-            <span className="text-gold font-black tracking-[0.4em] uppercase text-[10px] md:text-[11px] drop-shadow-sm">
-              KOLKATA'S FINEST HERITAGE HOUSE
+          <div className="inline-flex items-center gap-4 animate-in fade-in slide-in-from-left-10 duration-1000 group">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold font-black tracking-[0.4em] uppercase text-[10px] md:text-[11px] drop-shadow-sm flex items-center gap-2 gold-glow">
+              <Sparkles className="w-2.5 h-2.5" /> KOLKATA'S FINEST HERITAGE HOUSE
             </span>
           </div>
 

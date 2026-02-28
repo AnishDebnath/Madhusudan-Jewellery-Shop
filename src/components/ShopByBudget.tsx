@@ -1,4 +1,5 @@
 import React from 'react';
+import { Sparkles } from 'lucide-react';
 import earrings9 from '../assets/jewellery/earrings/earrings (9).jpg';
 import necklace12 from '../assets/jewellery/necklace/nacklace (12).jpg';
 import necklace9 from '../assets/jewellery/necklace/nacklace (9).jpg';
@@ -36,7 +37,13 @@ const ShopByBudget: React.FC<ShopByBudgetProps> = ({ onNavigate }) => {
     <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="text-center mb-10 space-y-3">
-          <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Curated For You</span>
+          <div className="flex justify-center items-center gap-4 group">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> Curated For You
+            </span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
+          </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">Shop By <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic font-light">Budget</span></h2>
         </div>
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import necklace1 from '../assets/jewellery/necklace/nacklace (20).jpg';
 import necklace2 from '../assets/jewellery/necklace/nacklace (7).jpg';
 import necklace3 from '../assets/jewellery/mens/mens collection (1).jpg';
@@ -120,12 +120,17 @@ const OffersSection: React.FC<OffersSectionProps> = ({ onNavigate }) => {
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="space-y-3">
-            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black block gold-glow">Limited Time Opportunities</span>
+            <div className="flex items-center gap-4 group">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                <Sparkles className="w-2.5 h-2.5" /> Limited Time Opportunities
+              </span>
+            </div>
             <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight leading-tight">Curated Offers</h2>
           </div>
           <div className="flex items-center gap-4 text-luxury-text-light/40 dark:text-luxury-text-darkMuted text-[9px] font-black uppercase tracking-[0.3em] mb-2">
-            Available across Kolkata boutiques
             <div className="w-12 h-[1px] bg-gold/30"></div>
+            Available across Kolkata boutiques
           </div>
         </div>
         <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 no-scrollbar pb-6 pt-2 md:pb-0 snap-x snap-mandatory">
