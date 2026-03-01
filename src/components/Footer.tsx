@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <img src={footerLogo} alt="Madhusudan Jewellery Logo" className="h-14 md:h-16 drop-shadow-sm" loading="lazy" />
             </div>
             <p className="text-maroon-dominant/70 dark:text-luxury-text-darkMuted text-[13px] md:text-sm leading-relaxed mb-8 font-serif italic text-balance max-w-md">
-              "Preserving Kolkata's finest jewellery heritage since 1952. We craft timeless elegance that resonates with the soul of Bengali craftsmanship and regal purity."
+              "Kolkata's trusted gold and diamond jewellery store since 1952. BIS Hallmark certified gold, IGI diamonds, and beautiful bridal jewellery — at 2 stores in Kolkata."
             </p>
             <div className="flex gap-4">
               {[
@@ -82,17 +82,17 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="flex items-start gap-3.5 group">
                 <MapPin className="w-4.5 h-4.5 text-gold mt-0.5 group-hover:scale-110 transition-transform duration-500" />
                 <p className="text-[13px] text-maroon-dominant/70 dark:text-luxury-text-darkMuted leading-snug font-serif italic">
-                  123 Jewellery Lane, Bowbazar,<br />
-                  Kolkata, West Bengal 700012
+                  Store 1: 123 Your Street, Area, Kolkata – 700001<br />
+                  Store 2: 456 Your Street, Area, Kolkata – 700XXX
                 </p>
               </div>
               <div className="flex items-center gap-3.5 group cursor-pointer w-fit">
                 <Phone className="w-4.5 h-4.5 text-gold group-hover:scale-110 transition-transform duration-500" />
-                <span className="text-[12px] font-black tracking-widest text-maroon-dominant dark:text-white group-hover:text-gold transition-colors">+91 33 2241 0000</span>
+                <span className="text-[12px] font-black tracking-widest text-maroon-dominant dark:text-white group-hover:text-gold transition-colors">+91 33 2241 XXXX</span>
               </div>
               <div className="flex items-center gap-3.5 group cursor-pointer w-fit">
                 <Mail className="w-4.5 h-4.5 text-gold group-hover:scale-110 transition-transform duration-500" />
-                <span className="text-[12px] font-black tracking-widest text-maroon-dominant dark:text-white group-hover:text-gold transition-colors">concierge@madhusudan.com</span>
+                <span className="text-[12px] font-black tracking-widest text-maroon-dominant dark:text-white group-hover:text-gold transition-colors">info@madhusudangold.com</span>
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-2 pb-6">
           <p className="text-maroon-dominant/30 dark:text-white/20 text-[8px] uppercase tracking-[0.4em] font-black text-center md:text-left">
-            © 2026 Madhusudan Jewellery Heritage. Kolkata.
+            © 2026 Madhusudan Gold & Diamonds. Kolkata, West Bengal.
           </p>
           <div className="flex items-center gap-6">
             <span className="text-[8px] font-black text-maroon-dominant/20 dark:text-white/10 uppercase tracking-[0.2em] hover:text-gold transition-colors cursor-pointer">Terms</span>

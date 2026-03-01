@@ -114,8 +114,8 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
           <div className="w-full xl:w-auto flex justify-between items-center px-4 md:px-8 xl:px-10 2xl:px-12 h-8 md:h-10 z-10 bg-maroon-dominant xl:border-none border-b border-white/5 xl:pr-10">
             <span className="flex items-center gap-1.5 md:gap-2 text-gold gold-glow whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
-              <span className="hidden sm:inline">TODAY'S RATES ({currentDate}):</span>
-              <span className="sm:hidden">TODAY'S RATES ({currentDate}):</span>
+              <span className="hidden sm:inline">TODAY'S LIVE RATES ({currentDate}):</span>
+              <span className="sm:hidden">LIVE RATES ({currentDate}):</span>
             </span>
 
             <button onClick={() => onNavigate('store-locator')} className="xl:hidden hover:text-gold flex items-center gap-2 transition-all group">

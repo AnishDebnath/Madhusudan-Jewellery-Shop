@@ -84,7 +84,7 @@ const Home: React.FC<HomeProps> = ({ onProductClick, onToggleWishlist, wishlist,
             <FeaturedSlider onProductClick={onProductClick} onToggleWishlist={onToggleWishlist} wishlist={wishlist} onNavigate={onNavigate} onAddToCart={onAddToCart} />
 
             {/* Signature Collections - render immediately as it's just below fold */}
-            <section className="py-14 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors duration-500 relative">
+            <section className="py-14 md:py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors duration-500 relative">
                 <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-8">
                         <div className="space-y-3">

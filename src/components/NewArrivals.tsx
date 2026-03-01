@@ -170,7 +170,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   const displayProducts = [...newArrivalProducts, ...newArrivalProducts, ...newArrivalProducts];
 
   return (
-    <section className="py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-b border-gold/10 relative">
+    <section className="py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-b border-gold/10 relative">
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-8 text-center md:text-left">
@@ -181,14 +181,14 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
                 <Sparkles className="w-2.5 h-2.5" /> Fresh from the Atelier
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-white uppercase tracking-tight">
               New Arrivals
             </h2>
           </div>
 
           <button
             onClick={() => onNavigate('category', 'All')}
-            className="group relative px-6 py-3 md:px-8 md:py-3.5 border border-maroon-dominant/10 dark:border-white/10 text-maroon-dominant dark:text-white text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95"
+            className="group relative px-6 py-3 md:px-8 md:py-3.5 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95"
           >
             <span className="relative z-10 flex items-center gap-3">
               View Full Catalog <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
@@ -198,14 +198,14 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
 
         {/* Visual Stories Section */}
         <div className="mb-16">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5 flex-col md:flex-row gap-6 md:gap-0">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10 flex-col md:flex-row gap-6 md:gap-0">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Visual Stories</span>
-              <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Behind the craftsmanship</p>
+              <p className="text-sm font-serif italic text-white/50 tracking-wide">Behind the craftsmanship</p>
             </div>
             <div className="flex gap-4">
-              <button onClick={prevVideo} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
-              <button onClick={nextVideo} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
+              <button onClick={prevVideo} className="group p-3 border border-white/10 bg-white/5 backdrop-blur-md rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronLeft className="w-4 h-4 text-white group-hover:text-gold transition-colors" /></button>
+              <button onClick={nextVideo} className="group p-3 border border-white/10 bg-white/5 backdrop-blur-md rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronRight className="w-4 h-4 text-white group-hover:text-gold transition-colors" /></button>
             </div>
           </div>
         </div>

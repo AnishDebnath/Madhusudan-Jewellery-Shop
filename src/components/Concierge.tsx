@@ -34,7 +34,7 @@ const Concierge: React.FC = () => {
         model: 'gemini-3-flash-preview',
         contents: userMsg,
         config: {
-          systemInstruction: `You are Aura's luxury jewelry concierge. We are located in Kolkata. You help customers choose gold and diamond jewelry. Be sophisticated, formal, and helpful.`
+          systemInstruction: `You are a helpful assistant at Madhusudan Gold & Diamonds, a trusted gold and diamond jewellery store in Kolkata with 2 locations. Help customers with jewellery queries, gold rates, store timings, and product guidance. Be friendly, professional, and concise.`
         }
       });
       const text = response.text || "I apologize, I'm having trouble connecting to our showroom right now.";
@@ -70,10 +70,10 @@ const Concierge: React.FC = () => {
                 <Sparkles className="w-6 h-6 text-gold gold-glow group-hover:rotate-12 transition-transform" />
               </div>
               <div>
-                <h4 className="text-white text-lg font-serif tracking-wide leading-none mb-1">Aura Concierge</h4>
+                <h4 className="text-white text-lg font-serif tracking-wide leading-none mb-1">Madhusudan Assistant</h4>
                 <div className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.5)]"></div>
-                  <span className="text-[9px] text-white/60 uppercase tracking-[0.3em] font-black">Digital Boutique</span>
+                  <span className="text-[9px] text-white/60 uppercase tracking-[0.3em] font-black">Gold & Diamonds Help</span>
                 </div>
               </div>
             </div>
@@ -91,9 +91,9 @@ const Concierge: React.FC = () => {
                 <div className="w-16 h-16 bg-maroon-dominant/5 dark:bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold/10">
                   <Sparkles className="w-8 h-8 text-gold" />
                 </div>
-                <h5 className="text-maroon-dominant dark:text-white font-serif text-xl md:text-2xl uppercase tracking-tight">Royal Greetings</h5>
+                <h5 className="text-maroon-dominant dark:text-white font-serif text-xl md:text-2xl uppercase tracking-tight">Hello! 👋</h5>
                 <p className="text-luxury-text-light/50 dark:text-luxury-text-darkMuted text-[10px] md:text-xs font-medium max-w-[220px] mx-auto leading-relaxed uppercase tracking-widest">
-                  I am here to ensure your journey through our heritage collection is flawless. How may I serve you?
+                  Ask about gold rates, jewellery, our stores, or anything else. We're here to help!
                 </p>
               </div>
             )}
@@ -126,7 +126,7 @@ const Concierge: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Your royal request..."
+              placeholder="Ask about gold, diamonds, stores..."
               className="flex-1 bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-full px-8 py-4 text-sm focus:outline-none focus:ring-1 focus:ring-gold/30 transition-all text-maroon-dominant dark:text-white placeholder:text-black/20 dark:placeholder:text-white/20 border border-transparent shadow-inner"
             />
             <button

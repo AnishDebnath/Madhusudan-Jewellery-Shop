@@ -1,102 +1,119 @@
-import React, { useEffect, useRef } from 'react';
-import { MapPin, Clock, Phone, Calendar, ArrowRight, Sparkles } from 'lucide-react';
-import model11 from '../assets/models/models (11).jpg';
-import model12 from '../assets/models/models (12).jpg';
-import heroPoster from '../assets/models/models (2).jpg';
+import React from 'react';
+import { MapPin, Clock, Phone, Sparkles } from 'lucide-react';
 
-import heritageVideo from '../assets/Hero Banner.webm';
+const STORES = [
+  {
+    id: 1,
+    name: 'Store 1 — Main Branch',
+    area: 'Kolkata',
+    address: '123 Your Street Name, Area Name,\nKolkata, West Bengal – 700001',
+    timings: 'Mon – Sat: 11:00 AM – 8:30 PM\nSun: 12:00 PM – 6:00 PM',
+    phone: '+91 33 2241 XXXX',
+    badge: 'Flagship Store',
+  },
+  {
+    id: 2,
+    name: 'Store 2 — Branch',
+    area: 'Kolkata',
+    address: '456 Your Street Name, Area Name,\nKolkata, West Bengal – 700XXXX',
+    timings: 'Mon – Sat: 11:00 AM – 8:30 PM\nSun: 12:00 PM – 6:00 PM',
+    phone: '+91 33 2241 YYYY',
+    badge: 'Branch Store',
+  },
+];
 
 const KolkataStore: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log("Kolkata store video playback failed:", error);
-      });
-    }
-  }, []);
   return (
-    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 text-maroon-dominant dark:text-white overflow-hidden relative border-y border-luxury-bg-card dark:border-white/5">
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 text-white overflow-hidden relative border-y border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="flex items-center gap-4 group mb-4">
-              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
-              <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
-                <Sparkles className="w-2.5 h-2.5" /> Heritage Location
-              </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif mb-6 leading-tight text-white uppercase tracking-tight">
-              Flagship <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white italic">Park Street</span>
-            </h2>
-            <p className="text-white/80 mb-8 text-sm md:text-base lg:text-base xl:text-base leading-relaxed font-light text-balance border-l-2 border-gold/30 pl-6">
-              Experience heritage luxury in person. Our Kolkata boutique houses exclusive bridal collections and allows you to customize your dream jewelry with our master craftsmen.
-            </p>
 
-            <div className="space-y-6">
-              <div className="flex gap-5 items-start group">
-                <div className="p-3 bg-white/5 backdrop-blur-md rounded-full border border-white/10 group-hover:bg-gold group-hover:text-maroon-dominant transition-all duration-300 shadow-lg">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-black mb-1 uppercase tracking-[0.2em] text-gold text-[9px]">Address</h4>
-                  <p className="text-white/90 text-sm font-light leading-relaxed">Aura Heritage House, 15A Park Street,<br />Near Middleton Row, Kolkata - 700016</p>
-                </div>
-              </div>
-              <div className="flex gap-5 items-start group">
-                <div className="p-3 bg-white/5 backdrop-blur-md rounded-full border border-white/10 group-hover:bg-gold group-hover:text-maroon-dominant transition-all duration-300 shadow-lg">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-black mb-1 uppercase tracking-[0.2em] text-gold text-[9px]">Timings</h4>
-                  <p className="text-white/90 text-sm font-light leading-relaxed">Mon - Sat: 11:00 AM to 8:30 PM<br />Sun: 12:00 PM to 6:00 PM</p>
-                </div>
-              </div>
-              <div className="flex gap-5 items-start group">
-                <div className="p-3 bg-white/5 backdrop-blur-md rounded-full border border-white/10 group-hover:bg-gold group-hover:text-maroon-dominant transition-all duration-300 shadow-lg">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-black mb-1 uppercase tracking-[0.2em] text-gold text-[9px]">Contact</h4>
-                  <p className="text-white/90 text-sm font-light leading-relaxed text-balance">+91 33 22XX XXXX | concierge@aurajewels.in</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <button className="bg-gold text-maroon-dominant px-6 md:px-8 py-3 md:py-3.5 rounded-full font-black flex items-center gap-3 hover:bg-white transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl gold-glow uppercase text-[9px] md:text-[10px] tracking-[0.2em]">
-                <Calendar className="w-4 h-4" /> BOOK APPOINTMENT
-              </button>
-              <button className="border border-gold/40 text-gold px-6 md:px-8 py-3 md:py-3.5 rounded-full font-black hover:bg-gold hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 uppercase text-[9px] md:text-[10px] tracking-[0.2em]">
-                GET DIRECTIONS
-              </button>
-            </div>
+        {/* Section Header */}
+        <div className="text-center mb-12 space-y-3">
+          <div className="flex justify-center items-center gap-4 mb-3">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+            <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+              <Sparkles className="w-2.5 h-2.5" /> Visit Us in Kolkata
+            </span>
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold/40"></div>
           </div>
-
-          <div className="relative group">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3]">
-              <video
-                ref={videoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                poster={heroPoster}
-                className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
-              >
-                <source src={heritageVideo} type="video/webm" />
-              </video>
-              <div className="absolute inset-0 bg-maroon-dominant/20 group-hover:bg-transparent transition-colors duration-700"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-                <p className="text-white/90 text-sm md:text-base lg:text-lg italic font-serif tracking-wide text-center">"Step into our heritage Flagship boutique on Park Street"</p>
-              </div>
-            </div>
-          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif uppercase tracking-tight leading-tight">
+            Our 2 Stores in{' '}
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold to-white font-light">
+              Kolkata
+            </span>
+          </h2>
+          <p className="text-white/60 text-sm font-light max-w-lg mx-auto">
+            Visit Madhusudan Gold &amp; Diamonds at either of our Kolkata stores. Walk in to see our full collection of gold, diamond, and bridal jewellery.
+          </p>
         </div>
+
+        {/* Two Store Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+          {STORES.map((store) => (
+            <div key={store.id} className="bg-white/5 backdrop-blur-sm border border-gold/20 rounded-3xl p-8 hover:border-gold/50 hover:bg-white/[0.08] transition-all duration-500 group">
+
+              {/* Badge */}
+              <span className="inline-block text-[8px] font-black uppercase tracking-[0.3em] text-maroon-dominant bg-gold px-4 py-1.5 rounded-full mb-6 gold-glow">
+                {store.badge}
+              </span>
+
+              <h3 className="text-xl md:text-2xl font-serif mb-6 leading-tight group-hover:text-gold transition-colors duration-300">
+                {store.name}
+              </h3>
+
+              <div className="space-y-5">
+                <div className="flex gap-4 items-start">
+                  <div className="p-2.5 bg-white/5 rounded-full border border-white/10 group-hover:bg-gold group-hover:text-maroon-dominant transition-all duration-300 flex-shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gold mb-1">Address</p>
+                    <p className="text-white/80 text-sm font-light leading-relaxed whitespace-pre-line">{store.address}</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="p-2.5 bg-white/5 rounded-full border border-white/10 group-hover:bg-gold group-hover:text-maroon-dominant transition-all duration-300 flex-shrink-0">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gold mb-1">Store Timings</p>
+                    <p className="text-white/80 text-sm font-light leading-relaxed whitespace-pre-line">{store.timings}</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="p-2.5 bg-white/5 rounded-full border border-white/10 group-hover:bg-gold group-hover:text-maroon-dominant transition-all duration-300 flex-shrink-0">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gold mb-1">Phone</p>
+                    <p className="text-white/80 text-sm font-light">{store.phone}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/10 flex gap-3">
+                <button className="flex-1 bg-gold text-maroon-dominant px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 hover:scale-105 active:scale-95">
+                  Get Directions
+                </button>
+                <a
+                  href={`tel:${store.phone.replace(/\s/g, '')}`}
+                  className="flex-1 border border-gold/40 text-gold px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all duration-300 hover:scale-105 active:scale-95 text-center"
+                >
+                  Call Now
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Note */}
+        <p className="text-center text-white/30 text-[9px] uppercase tracking-[0.4em] font-black mt-10">
+          Madhusudan Gold &amp; Diamonds · Serving Kolkata Since 1952 · BIS Hallmark Certified
+        </p>
       </div>
-    </section >
+    </section>
   );
 };
 

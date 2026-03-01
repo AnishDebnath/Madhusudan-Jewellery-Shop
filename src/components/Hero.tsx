@@ -32,10 +32,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         poster={heroPoster}
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source
+        {/* <source
           src={heritageVideo}
           type="video/webm"
-        />
+        /> */}
       </video>
 
       <div className="absolute inset-0 bg-black/40 mix-blend-multiply z-10"></div>
@@ -44,18 +44,17 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <div className="inline-flex items-center gap-4 animate-in fade-in slide-in-from-left-10 duration-1000 group">
             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
             <span className="text-gold font-black tracking-[0.4em] uppercase text-[10px] md:text-[11px] drop-shadow-sm flex items-center gap-2 gold-glow">
-              <Sparkles className="w-2.5 h-2.5" /> KOLKATA'S FINEST HERITAGE HOUSE
+              <Sparkles className="w-2.5 h-2.5" /> KOLKATA'S TRUSTED GOLD & DIAMOND JEWELLERY STORE
             </span>
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-6 leading-tight tracking-tight animate-in fade-in slide-in-from-left-10 duration-1000 delay-200 text-balance drop-shadow-2xl">
-            Timeless Purity, <br />
-            <span className="italic font-light text-gold gold-glow block mt-1">Eternal Grace.</span>
+            Pure Gold. Real Diamonds. <br />
+            <span className="italic font-light text-gold gold-glow block mt-1">Since 1952.</span>
           </h1>
 
           <p className="text-sm md:text-base lg:text-base xl:text-base text-white/90 max-w-2xl mb-10 font-light leading-relaxed animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
-            Discover signature heritage collections and certified diamonds,
-            crafted with the soul of Kolkata's legendary master artisans since 1952.
+            Shop BIS Hallmark gold, IGI certified diamonds, and traditional bridal jewellery at Madhusudan Gold & Diamonds — Kolkata's most trusted jewellery store with 2 locations.
           </p>
 
           <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
@@ -63,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('category', 'All')}
               className="px-6 py-3 text-sm md:px-8 md:py-4 md:text-base lg:px-10 lg:py-4 bg-gold hover:bg-gold-light text-maroon-dominant font-black rounded-full flex items-center gap-3 transition-all duration-500 transform hover:scale-105 uppercase tracking-[0.2em] group shadow-[0_15px_35px_-5px_rgba(212,175,55,0.3)]"
             >
-              EXPLORE COLLECTIONS <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              EXPLORE JEWELLERY <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </button>
           </div>
         </div>
