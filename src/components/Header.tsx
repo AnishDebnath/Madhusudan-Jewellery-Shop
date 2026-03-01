@@ -28,6 +28,8 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
   const [scrolledState, setScrolledState] = useState(false);
   const scrolled = isMinimal ? false : scrolledState;
 
+  const currentDate = `${String(new Date().getDate()).padStart(2, '0')}/${String(new Date().getMonth() + 1).padStart(2, '0')}/${new Date().getFullYear()}`;
+
   useEffect(() => {
     const handleScroll = () => setScrolledState(window.scrollY > 20);
     handleScroll(); // Initial check
@@ -37,6 +39,18 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const navCategories = [
     {
@@ -87,17 +101,23 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
 
   return (
     <>
-      <header className={`fixed top-0 z-50 w-full transition-all duration-700 ${scrolled ? '-translate-y-10' : 'translate-y-0'}`}>
+      <header className={`fixed top-0 z-50 w-full transition-all duration-700 ${scrolled ? '-translate-y-20' : 'translate-y-0'}`}>
         {/* Top Ticker Bar */}
-        <div className="bg-maroon-dominant text-white h-10 px-4 md:px-8 lg:px-10 xl:px-12 flex items-center text-[9px] tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
-          <div className="flex items-center gap-10 z-10 bg-maroon-dominant pr-10">
-            <span className="flex items-center gap-2 text-gold gold-glow whitespace-nowrap">
+        <div className="bg-maroon-dominant text-white flex flex-col xl:flex-row items-center text-[8px] md:text-[9px] tracking-[0.2em] md:tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
+
+          <div className="w-full xl:w-auto flex justify-between items-center px-4 md:px-8 xl:px-10 2xl:px-12 h-8 md:h-10 z-10 bg-maroon-dominant xl:border-none border-b border-white/5 xl:pr-10">
+            <span className="flex items-center gap-1.5 md:gap-2 text-gold gold-glow whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
-              TODAY'S LIVE RATES:
+              <span className="hidden sm:inline">TODAY'S RATES ({currentDate}):</span>
+              <span className="sm:hidden">TODAY'S RATES ({currentDate}):</span>
             </span>
+
+            <button onClick={() => onNavigate('store-locator')} className="xl:hidden hover:text-gold flex items-center gap-2 transition-all group">
+              <span className="group-hover:tracking-[0.4em] transition-all">OUR STORES</span> <MapPin className="w-3 h-3 text-gold group-hover:scale-110 transition-transform" />
+            </button>
           </div>
 
-          <div className="flex-1 overflow-hidden relative h-full flex items-center">
+          <div className="w-full xl:flex-1 h-8 md:h-10 overflow-hidden relative flex items-center">
             <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
               <div className="flex gap-12 pr-12 items-center">
                 <span className="hover:text-gold transition-colors">22K GOLD - <span className="text-gold">₹ 1,48,090 (10g)</span></span>
@@ -105,8 +125,6 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                 <span className="hover:text-gold transition-colors">18K GOLD - <span className="text-gold">₹ 1,24,880 (10g)</span></span>
                 <span className="w-1 h-1 rounded-full bg-white/20"></span>
                 <span className="hover:text-gold transition-colors">SILVER - <span className="text-gold">₹ 2,590 (10g)</span></span>
-                <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                <span className="hover:text-gold transition-colors">KOLKATA'S FINEST HERITAGE HOUSE SINCE 1952</span>
                 <span className="w-1 h-1 rounded-full bg-white/20"></span>
               </div>
               {/* Duplicate for seamless loop */}
@@ -117,32 +135,30 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                 <span className="w-1 h-1 rounded-full bg-white/20"></span>
                 <span className="hover:text-gold transition-colors">SILVER - <span className="text-gold">₹ 2,590 (10g)</span></span>
                 <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                <span className="hover:text-gold transition-colors">KOLKATA'S FINEST HERITAGE HOUSE SINCE 1952</span>
-                <span className="w-1 h-1 rounded-full bg-white/20"></span>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-8 z-10 bg-maroon-dominant pl-10">
+          <div className="hidden xl:flex items-center gap-8 z-10 bg-maroon-dominant pl-10 h-10 px-4 md:px-8 xl:px-10 2xl:px-12">
             <button onClick={() => onNavigate('store-locator')} className="hover:text-gold flex items-center gap-2 transition-all group">
-              <span className="group-hover:tracking-[0.4em] transition-all">OUR BOUTIQUES</span> <MapPin className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
+              <span className="group-hover:tracking-[0.4em] transition-all">OUR STORES</span> <MapPin className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
             </button>
           </div>
         </div>
 
         {/* Main Navigation Bar */}
         <div className={`relative z-20 transition-all duration-1000 backdrop-blur-2xl border-b-2 border-gold/5 ${scrolled ? 'py-1.5 bg-luxury-dark-primary/95 text-white' : 'py-2 bg-luxury-dark-primary text-white'}`}>
-          <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 grid grid-cols-12 items-center">
+          <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-10 2xl:px-12 grid grid-cols-12 items-center">
 
             {/* Left Actions */}
-            <div className="col-span-4 flex items-center gap-6">
+            <div className="col-span-3 xl:col-span-4 flex items-center gap-6">
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className="lg:hidden p-2 -ml-2 text-white hover:text-gold transition-all"
+                className="xl:hidden p-2 -ml-2 text-white hover:text-gold transition-all"
               >
                 <Menu className="w-6 h-6" />
               </button>
-              <div className="hidden lg:flex items-center gap-8">
+              <div className="hidden xl:flex items-center gap-8">
                 <button
                   onClick={() => setIsSearchOpen(true)}
                   className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] text-white hover:text-gold transition-all group"
@@ -153,18 +169,18 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
             </div>
 
             {/* Centered Logo */}
-            <div className="col-span-4 flex justify-center">
-              <div onClick={() => onNavigate('home')} className="flex flex-col items-center group cursor-pointer relative py-2">
+            <div className="col-span-6 xl:col-span-4 flex justify-center">
+              <div onClick={() => onNavigate('home')} className="flex flex-col items-center group cursor-pointer relative py-1">
                 <img
                   src={logo}
                   alt="Aura Logo"
-                  className={`transition-all duration-700 ${scrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'} group-hover:scale-110`}
+                  className={`transition-all duration-700 ${scrolled ? 'h-10 sm:h-10 xl:h-10' : 'h-12 sm:h-12 xl:h-16'} group-hover:scale-110`}
                 />
               </div>
             </div>
 
             {/* Right Actions */}
-            <div className="col-span-4 flex items-center justify-end">
+            <div className="col-span-3 xl:col-span-4 flex items-center justify-end">
               {!isMinimal && (
                 <div className="flex items-center gap-2 md:gap-4">
                   <button onClick={() => onNavigate('wishlist')} className="relative group p-2">
@@ -184,7 +200,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
 
               {isLoggedIn ? (
                 <div
-                  className="relative group/account"
+                  className="hidden xl:block relative group/account"
                   onMouseEnter={() => setIsAccountOpen(true)}
                   onMouseLeave={() => setIsAccountOpen(false)}
                 >
@@ -238,7 +254,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                   </div>
                 </div>
               ) : (
-                <div className={`${isMinimal ? 'flex' : 'hidden lg:flex'} items-center gap-3 md:gap-6 ml-2 md:ml-6 pl-4 md:pl-6 border-l border-maroon-dominant/10 dark:border-white/10`}>
+                <div className={`${isMinimal ? 'flex' : 'hidden xl:flex'} items-center gap-3 md:gap-6 ml-2 md:ml-6 pl-4 md:pl-6 border-l border-maroon-dominant/10 dark:border-white/10`}>
                   <button onClick={() => onNavigate('login')} className="text-[10px] font-black tracking-[0.2em] text-white hover:text-gold transition-colors uppercase">
                     Log In
                   </button>
@@ -252,7 +268,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
         </div>
 
         {/* Desktop Category Menu */}
-        <nav className={`relative z-10 ${isMinimal ? 'hidden ' : 'hidden lg:flex '}justify-center transition-all duration-700 ${scrolled ? 'bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10' : 'bg-luxury-dark-primary border-b border-gold/10'}`}>
+        <nav className={`relative z-10 ${isMinimal ? 'hidden ' : 'hidden xl:flex '}justify-center transition-all duration-700 ${scrolled ? 'bg-luxury-dark-primary/95 backdrop-blur-xl border-b border-gold/10' : 'bg-luxury-dark-primary border-b border-gold/10'}`}>
           <div className="flex items-center px-4">
             {navCategories.map((cat) => (
               <div
@@ -344,8 +360,14 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
       {/* Mobile Sidebar */}
       {
         isMenuOpen && (
-          <div className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-sm lg:hidden animate-in fade-in">
-            <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-sm bg-luxury-bg-primary dark:bg-luxury-dark-primary shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300 border-r border-maroon-border">
+          <div
+            className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-sm xl:hidden animate-in fade-in"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <div
+              className="absolute left-0 top-0 bottom-0 w-[85%] max-w-sm bg-luxury-bg-primary dark:bg-luxury-dark-primary shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300 border-r border-maroon-border"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="sticky top-0 z-10 bg-maroon-dominant dark:bg-luxury-dark-secondary p-8 border-b border-white/10 flex justify-between items-center transition-colors">
                 <div className="flex flex-col">
                   <img src={logo} alt="Aura Logo" className="h-10" loading="lazy" />
