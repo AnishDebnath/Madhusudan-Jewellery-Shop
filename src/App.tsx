@@ -169,7 +169,7 @@ const App: React.FC = () => {
         isMinimal={isAuthPage}
       />
 
-      <main className={isAuthPage ? "pt-[104px] md:pt-[120px]" : "pt-[130px] lg:pt-[180px]"}>
+      <main className={isAuthPage ? "pt-[104px] md:pt-[120px]" : "pt-[128px] md:pt-[150px] xl:pt-[164px]"}>
         <React.Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={

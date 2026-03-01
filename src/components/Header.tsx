@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
 
   return (
     <>
-      <header className={`fixed top-0 z-50 w-full transition-all duration-700 ${scrolled ? '-translate-y-20' : 'translate-y-0'}`}>
+      <header className={`fixed top-0 z-50 w-full transition-all duration-700 ${scrolled ? '-translate-y-16 md:-translate-y-20 xl:-translate-y-10' : 'translate-y-0'}`}>
         {/* Top Ticker Bar */}
         <div className="bg-maroon-dominant text-white flex flex-col xl:flex-row items-center text-[8px] md:text-[9px] tracking-[0.2em] md:tracking-[0.3em] font-black border-b border-white/5 relative overflow-hidden transition-colors">
 

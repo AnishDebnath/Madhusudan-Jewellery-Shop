@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   }, []);
 
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary">
+    <section className="relative h-[calc(100dvh-128px)] md:h-[calc(100vh-150px)] xl:h-[calc(100vh-164px)] min-h-[500px] w-full overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary">
       {/* Cinematic Video/Image Background */}
       <video
         ref={videoRef}
@@ -72,7 +72,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* Refined Scroll Indicator */}
       <div
         className="absolute bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30 group cursor-pointer"
-        onClick={() => window.scrollTo({ top: window.innerHeight * 0.85, behavior: 'smooth' })}
+        onClick={() => {
+          const scrollTarget = window.innerWidth < 768 ? window.innerHeight * 0.70 : window.innerHeight * 0.85;
+          window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+        }}
       >
         <span className="text-[9px] uppercase tracking-[0.4em] font-black text-gold transition-all duration-500">
           Scroll
