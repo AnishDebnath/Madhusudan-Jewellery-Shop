@@ -107,11 +107,11 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
             className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant/80 via-maroon-dominant/20 to-transparent"></div>
-          <div className="absolute inset-0 flex flex-col justify-center px-10 md:px-20 text-white max-w-3xl">
+          <div className="absolute inset-x-0 inset-y-0 flex flex-col justify-center items-center md:items-start px-6 md:px-20 text-white text-center md:text-left max-w-3xl mx-auto md:mx-0">
             <span className="text-gold text-[10px] md:text-[12px] tracking-[0.6em] uppercase font-black mb-6 gold-glow transition-all duration-700 group-hover:tracking-[0.8em]">Exclusive Wedding Couture</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-8 leading-tight tracking-tight">The Wedding <br /><span className="italic text-gold gold-glow">Masterpieces</span></h2>
-            <div className="w-24 h-[1px] bg-gold/50 mb-10 transition-all duration-700 group-hover:w-40"></div>
-            <p className="text-sm md:text-base lg:text-lg xl:text-lg font-light italic text-white/80 leading-relaxed max-w-xl mb-12 border-l border-gold/30 pl-6">
+            <div className="w-24 h-[1px] bg-gold/50 mb-10 transition-all duration-700 group-hover:w-40 mx-auto md:mx-0"></div>
+            <p className="text-sm md:text-base lg:text-lg xl:text-lg font-light italic text-white/80 leading-relaxed max-w-xl mb-12 border-l-0 md:border-l md:border-gold/30 md:pl-6">
               "Handcrafted masterpieces designed to crown your most sacred moments with timeless elegance."
             </p>
             <button

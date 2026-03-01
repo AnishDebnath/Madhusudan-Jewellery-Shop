@@ -173,9 +173,9 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
     <section className="py-16 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden border-b border-gold/10 relative">
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-8">
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-8 text-center md:text-left">
           <div className="space-y-4">
-            <div className="flex items-center gap-4 group">
+            <div className="flex items-center justify-center md:justify-start gap-4 group">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
               <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
                 <Sparkles className="w-2.5 h-2.5" /> Fresh from the Atelier
@@ -198,8 +198,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
 
         {/* Visual Stories Section */}
         <div className="mb-16">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5">
-            <div className="space-y-2">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5 flex-col md:flex-row gap-6 md:gap-0">
+            <div className="space-y-2 text-center md:text-left">
               <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Visual Stories</span>
               <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Behind the craftsmanship</p>
             </div>
@@ -257,8 +257,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div>
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5">
-            <div className="space-y-2">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5 flex-col md:flex-row gap-6 md:gap-0">
+            <div className="space-y-2 text-center md:text-left">
               <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Just Dropped</span>
               <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Ready for your collection</p>
             </div>

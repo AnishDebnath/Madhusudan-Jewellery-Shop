@@ -11,10 +11,17 @@
 
   html {
     scroll-behavior: smooth;
+    /* Prevent layout shift from scrollbar appearing */
+    scrollbar-gutter: stable;
   }
 
   body {
     @apply bg-luxury-bg-primary text-luxury-text-light transition-colors duration-300 antialiased;
+    /* Prevent horizontal overflow causing repaints */
+    overflow-x: hidden;
+    /* Enable GPU compositing for the body */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .dark body {
@@ -23,6 +30,11 @@
 
   ::selection {
     @apply bg-gold/30 text-maroon-dominant;
+  }
+
+  /* GPU-promote images that have hover transitions */
+  img {
+    transform: translateZ(0);
   }
 }
 
@@ -73,14 +85,29 @@
     }
   }
 
-  /* Rendering Optimization */
-  section {
-    content-visibility: auto;
-    contain-intrinsic-size: 0 500px;
+  /* Promote fixed/sticky elements to their own GPU layer */
+  header,
+  nav {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Carousel/sliding containers get GPU promotion */
+  .animate-marquee,
+  [class*="transition-transform"] {
+    will-change: transform;
+  }
+
+  /* Prevent backdrop-filter from triggering on every scroll repaint */
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
   }
 
   .animate-marquee {
     animation: marquee 12s linear infinite;
+    will-change: transform;
   }
 
   @keyframes marquee {
@@ -111,5 +138,12 @@
 
   .animate-scroll-dot {
     animation: scroll-dot 2s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  /* Reduce paint areas on hover transitions */
+  .group:hover .group-hover\:scale-110,
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1.1) translateZ(0);
   }
 }

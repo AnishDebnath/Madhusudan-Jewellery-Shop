@@ -19,6 +19,24 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': path.resolve(__dirname, './src'),
       }
-    }
+    },
+    // Pre-bundle heavy dependencies for faster dev server startup
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
+    },
+    build: {
+      // Split output into async chunks for better caching
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+            'vendor-ui': ['lucide-react'],
+          },
+        },
+      },
+      // Increase chunk size warning threshold (media assets are large by nature)
+      chunkSizeWarningLimit: 1500,
+    },
   };
 });
+

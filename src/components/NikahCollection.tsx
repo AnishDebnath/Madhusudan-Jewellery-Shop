@@ -44,28 +44,28 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/80 via-transparent to-transparent group-hover:opacity-80 transition-opacity duration-700"></div>
-            <div className="absolute bottom-12 left-10 text-white z-10">
-              <div className="flex items-center gap-4 group mb-4">
+            <div className="absolute bottom-12 left-0 right-0 md:left-10 text-white z-10 text-center md:text-left px-6 md:px-0">
+              <div className="flex items-center justify-center md:justify-start gap-4 group mb-4">
                 <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-gold/40"></div>
                 <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
                   <Sparkles className="w-2.5 h-2.5" /> Sacred Union
                 </span>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif italic mb-2 leading-tight">Graceful Ceremonies</h2>
-              <div className="w-16 h-[1px] bg-gold/50"></div>
+              <div className="w-16 h-[1px] bg-gold/50 mx-auto md:mx-0"></div>
             </div>
           </div>
 
-          <div className="flex flex-col h-full justify-center">
+          <div className="flex flex-col h-full justify-center items-center lg:items-start text-center lg:text-left">
             <div className="mb-8">
-              <div className="flex items-center gap-4 mb-5 group">
+              <div className="flex items-center justify-center lg:justify-start gap-4 mb-5 group">
                 <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
                 <span className="text-gold dark:text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
                   <Sparkles className="w-2.5 h-2.5" /> Elegance Redefined
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic">COLLECTION</span></h2>
-              <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base leading-relaxed max-w-lg font-light italic text-balance border-l-2 border-gold/20 pl-6">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic text-center">COLLECTION</span></h2>
+              <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base leading-relaxed max-w-lg font-light italic text-balance border-l-0 lg:border-l-2 lg:border-gold/20 lg:pl-6 mx-auto lg:mx-0">
                 "Graceful jewellery for a sacred union, designed for timeless Nikah ceremonies and Walima elegance."
               </p>
             </div>

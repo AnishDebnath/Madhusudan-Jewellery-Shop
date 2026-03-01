@@ -28,9 +28,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         poster={heroPoster}
-        className="absolute inset-0 w-full h-full object-cover scale-105"
+        className="absolute inset-0 w-full h-full object-cover"
       >
         <source
           src={heritageVideo}

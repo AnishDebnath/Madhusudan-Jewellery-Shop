@@ -46,7 +46,7 @@ const PopularSearches: React.FC = () => {
   return (
     <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-12 border-t border-luxury-bg-card dark:border-white/5 transition-colors">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
-        <h2 className="text-base md:text-lg lg:text-lg xl:text-xl font-serif text-maroon-dominant dark:text-white mb-10 tracking-widest uppercase border-b border-luxury-bg-card dark:border-white/10 pb-5">
+        <h2 className="text-base md:text-lg lg:text-lg xl:text-xl font-serif text-maroon-dominant dark:text-white mb-10 tracking-widest uppercase border-b border-luxury-bg-card dark:border-white/10 pb-5 text-center md:text-left">
           Popular Searches
         </h2>
 

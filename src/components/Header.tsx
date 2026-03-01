@@ -31,13 +31,19 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
   const currentDate = `${String(new Date().getDate()).padStart(2, '0')}/${String(new Date().getMonth() + 1).padStart(2, '0')}/${new Date().getFullYear()}`;
 
   useEffect(() => {
-    const handleScroll = () => setScrolledState(window.scrollY > 20);
-    handleScroll(); // Initial check
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolledState(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Lock body scroll when mobile menu is open
