@@ -104,17 +104,22 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
         </div>
       </div>
 
-      <div className="relative mb-8">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 overflow-visible">
+      <div className="relative mb-8 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
+          {/* Main Slider Track */}
           <div
-            className={`flex ${isTransitioning ? 'transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)' : ''}`}
+            className={`flex ${isTransitioning ? 'transition-transform duration-700 ease-out' : 'transition-none'}`}
             onTransitionEnd={handleTransitionEnd}
             style={{
-              transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`
+              transform: `translateX(calc(-${currentIndex} * (100% / ${itemsPerView})))`,
             }}
           >
             {displayProducts.map((product, idx) => (
-              <div key={`${product.id}-${idx}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-4">
+              <div
+                key={`${product.id}-${idx}`}
+                className="flex-shrink-0 px-4 sm:px-3"
+                style={{ width: `${100 / itemsPerView}%` }}
+              >
                 <CarouselProductCard
                   product={product}
                   onClick={onProductClick}

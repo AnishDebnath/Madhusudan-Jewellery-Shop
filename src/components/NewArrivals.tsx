@@ -48,32 +48,28 @@ const VIDEO_HIGHLIGHTS = [
 
 const VideoStripCard: React.FC<{ video: typeof VIDEO_HIGHLIGHTS[0] }> = ({ video }) => {
   return (
-    <div
-      className="relative flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-4"
-    >
-      <div className="w-full h-full aspect-[9/16] relative rounded-[2rem] overflow-hidden group cursor-pointer bg-black border border-white/5 lg:border-white/10 hover:border-gold/40 transition-all duration-700 shadow-2xl shadow-black/50">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-70 group-hover:opacity-100"
-        >
-          <source src={video.videoUrl} type="video/webm" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:opacity-40 transition-opacity duration-700" />
+    <div className="h-full aspect-[9/16] relative rounded-[2rem] overflow-hidden group cursor-pointer bg-transparent transition-all duration-700">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700"
+      >
+        <source src={video.videoUrl} type="video/webm" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:opacity-40 transition-opacity duration-700" />
 
-        <div className="absolute bottom-8 left-8 right-8 text-white z-10 transition-transform duration-700">
-          <span className="text-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block gold-glow opacity-95 transition-all duration-500">{video.tag}</span>
-          <h4 className="text-xl md:text-2xl font-serif tracking-tight leading-tight mb-6 text-balance group-hover:text-gold transition-colors">{video.title}</h4>
+      <div className="absolute bottom-8 left-8 right-8 text-white z-10">
+        <span className="text-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block gold-glow opacity-95">{video.tag}</span>
+        <h4 className="text-xl md:text-2xl font-serif tracking-tight leading-tight mb-6 text-balance group-hover:text-gold transition-colors duration-500">{video.title}</h4>
 
-          <div className="h-[1px] w-full bg-gold/50 transition-all duration-700 mb-4 group-hover:w-full"></div>
+        <div className="h-[1px] w-full bg-gold/50 mb-4"></div>
 
-          <button className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60 group-hover:text-gold transition-all duration-500 flex items-center gap-3">
-            DISCOVER STORY <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
-          </button>
-        </div>
+        <button className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60 group-hover:text-gold transition-colors duration-500 flex items-center gap-3">
+          DISCOVER STORY <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
+        </button>
       </div>
     </div>
   );
@@ -127,7 +123,9 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
     setVideoIndex(prev => prev - 1);
   };
 
-  const handleVideoTransitionEnd = () => {
+  const handleVideoTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
+    // Only handle events from the slide track itself, not bubbled child transitions
+    if (e.target !== e.currentTarget) return;
     setIsVideoTransitioning(false);
     if (videoIndex >= VIDEO_HIGHLIGHTS.length * 2) {
       setVideoIndex(videoIndex - VIDEO_HIGHLIGHTS.length);
@@ -148,7 +146,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
     setProductIndex(prev => prev - 1);
   };
 
-  const handleProductTransitionEnd = () => {
+  const handleProductTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
+    if (e.target !== e.currentTarget) return;
     setIsProductTransitioning(false);
     if (productIndex >= newArrivalProducts.length * 2) {
       setProductIndex(productIndex - newArrivalProducts.length);
@@ -220,18 +219,24 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
         </div>
       </div>
 
-      {/* Video Slider Viewport */}
-      <div className="relative mb-12">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 overflow-visible">
+      {/* Video Slider Viewport — overflow-hidden clips cards outside the window */}
+      <div className="relative mb-12 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
           <div
-            className={`flex ${isVideoTransitioning ? 'transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)' : ''}`}
+            className={`flex ${isVideoTransitioning ? 'transition-transform duration-700 ease-out' : 'transition-none'}`}
             onTransitionEnd={handleVideoTransitionEnd}
             style={{
-              transform: `translateX(-${videoIndex * (100 / itemsPerViewVideo)}%)`
+              transform: `translateX(calc(-${videoIndex} * (100% / ${itemsPerViewVideo})))`,
             }}
           >
             {displayVideos.map((video, idx) => (
-              <VideoStripCard key={`${video.id}-${idx}`} video={video} />
+              <div
+                key={`${video.id}-${idx}`}
+                className="flex-shrink-0 px-12 sm:px-6"
+                style={{ width: `${100 / itemsPerViewVideo}%` }}
+              >
+                <VideoStripCard video={video} />
+              </div>
             ))}
           </div>
         </div>
@@ -286,17 +291,21 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
         </div>
       </div>
 
-      <div className="relative mb-8">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 overflow-visible">
+      <div className="relative mb-8 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
           <div
-            className={`flex ${isProductTransitioning ? 'transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)' : ''}`}
+            className={`flex ${isProductTransitioning ? 'transition-transform duration-700 ease-out' : 'transition-none'}`}
             onTransitionEnd={handleProductTransitionEnd}
             style={{
-              transform: `translateX(-${productIndex * (100 / itemsPerViewProduct)}%)`
+              transform: `translateX(calc(-${productIndex} * (100% / ${itemsPerViewProduct})))`,
             }}
           >
             {displayProducts.map((product, idx) => (
-              <div key={`${product.id}-${idx}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-4">
+              <div
+                key={`${product.id}-${idx}`}
+                className="flex-shrink-0 px-6 sm:px-4"
+                style={{ width: `${100 / itemsPerViewProduct}%` }}
+              >
                 <CarouselProductCard
                   product={product}
                   onClick={onProductClick}

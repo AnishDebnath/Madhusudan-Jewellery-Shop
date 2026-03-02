@@ -47,7 +47,8 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
     setCurrentIndex((prev) => prev - 1);
   };
 
-  const handleTransitionEnd = () => {
+  const handleTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
+    if (e.target !== e.currentTarget) return;
     setIsTransitioning(false);
     if (currentIndex >= featured.length * 2) {
       setCurrentIndex(currentIndex - featured.length);
@@ -91,19 +92,20 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
         </div>
       </div>
 
-      <div className="relative">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 overflow-visible">
+      <div className="relative overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
           <div
-            className={`flex ${isTransitioning ? 'transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)' : ''}`}
+            className={`flex ${isTransitioning ? 'transition-transform duration-700 ease-out' : 'transition-none'}`}
             onTransitionEnd={handleTransitionEnd}
             style={{
-              transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`
+              transform: `translateX(calc(-${currentIndex} * (100% / ${itemsPerView})))`,
             }}
           >
             {displayFeatured.map((product, idx) => (
               <div
                 key={`${product.id}-${idx}`}
-                className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-4"
+                className="flex-shrink-0 px-4"
+                style={{ width: `${100 / itemsPerView}%` }}
               >
                 <CarouselProductCard
                   product={product}
