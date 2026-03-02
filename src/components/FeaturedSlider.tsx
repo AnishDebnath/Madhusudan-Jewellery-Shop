@@ -79,20 +79,13 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
             </h2>
           </div>
 
-          <div className="flex items-center gap-4">
-            <button
-              onClick={prevSlide}
-              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
-              aria-label="Previous masterpiece"
-            >
-              <ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
+          {/* Desktop nav buttons */}
+          <div className="hidden xl:flex gap-3">
+            <button onClick={prevSlide} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Previous">
+              <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
             </button>
-            <button
-              onClick={nextSlide}
-              className="group p-3 border border-maroon-dominant/10 dark:border-white/20 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"
-              aria-label="Next masterpiece"
-            >
-              <ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" />
+            <button onClick={nextSlide} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Next">
+              <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
             </button>
           </div>
         </div>
@@ -110,7 +103,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
             {displayFeatured.map((product, idx) => (
               <div
                 key={`${product.id}-${idx}`}
-                className="w-full md:w-1/2 lg:w-1/4 xl:w-1/4 flex-shrink-0 px-4"
+                className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-4"
               >
                 <CarouselProductCard
                   product={product}
@@ -126,28 +119,30 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
       </div>
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mt-12">
-        <div className="flex justify-center items-center gap-6 mb-12">
-          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
-          <div className="flex gap-4">
-            {featured.map((_, idx) => {
-              const isActive = (currentIndex % featured.length) === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    if (isTransitioning) return;
-                    setIsTransitioning(true);
-                    setCurrentIndex(featured.length + idx);
-                  }}
-                  className="group relative py-3"
-                  aria-label={`Go to slide ${idx + 1}`}
-                >
-                  <div className={`h-[2px] transition-all duration-1000 rounded-full ${isActive ? 'w-16 bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)]' : 'w-5 bg-gold/20 hover:bg-gold/50'}`} />
-                </button>
-              );
-            })}
+        <div className="flex flex-col items-center gap-8 mb-12">
+          <div className="flex justify-center items-center gap-6">
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+            <div className="relative w-48 h-[2px] bg-gold/10 rounded-full overflow-hidden">
+              <div
+                className="absolute h-full bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)] transition-all duration-500 ease-out"
+                style={{
+                  width: `${(itemsPerView / featured.length) * 100}%`,
+                  left: `${((currentIndex % featured.length) / featured.length) * 100}%`
+                }}
+              />
+            </div>
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
           </div>
-          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+
+          {/* Mobile/Tablet nav buttons (includes 1024px) */}
+          <div className="flex xl:hidden items-center gap-6">
+            <button onClick={prevSlide} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Previous">
+              <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+            <button onClick={nextSlide} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Next">
+              <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+          </div>
         </div>
 
         <div className="flex justify-center">

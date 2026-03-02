@@ -158,13 +158,17 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   };
 
   useEffect(() => {
-    const videoInterval = setInterval(nextVideo, 6000);
+    // Stable interval — directly updates state to avoid stale-closure issues
+    const videoInterval = setInterval(() => {
+      setIsVideoTransitioning(true);
+      setVideoIndex(prev => prev + 1);
+    }, 6000);
     const productInterval = setInterval(nextProduct, 5000);
     return () => {
       clearInterval(videoInterval);
       clearInterval(productInterval);
     };
-  }, [nextVideo, nextProduct]);
+  }, [nextProduct]);
 
   const displayVideos = [...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS];
   const displayProducts = [...newArrivalProducts, ...newArrivalProducts, ...newArrivalProducts];
@@ -198,21 +202,26 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
 
         {/* Visual Stories Section */}
         <div className="mb-16">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10 flex-col md:flex-row gap-6 md:gap-0">
-            <div className="space-y-2 text-center md:text-left">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10 flex-col md:flex-row gap-6 md:gap-0 text-center md:text-left">
+            <div className="space-y-2">
               <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Visual Stories</span>
               <p className="text-sm font-serif italic text-white/50 tracking-wide">Behind the craftsmanship</p>
             </div>
-            <div className="flex gap-4">
-              <button onClick={prevVideo} className="group p-3 border border-white/10 bg-white/5 backdrop-blur-md rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronLeft className="w-4 h-4 text-white group-hover:text-gold transition-colors" /></button>
-              <button onClick={nextVideo} className="group p-3 border border-white/10 bg-white/5 backdrop-blur-md rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronRight className="w-4 h-4 text-white group-hover:text-gold transition-colors" /></button>
+            {/* Desktop nav buttons */}
+            <div className="hidden xl:flex gap-3">
+              <button onClick={prevVideo} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Previous story">
+                <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+              </button>
+              <button onClick={nextVideo} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Next story">
+                <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Video Slider Viewport - Shows exactly 4 at 1440px for a perfect fit */}
-      <div className="relative mb-8">
+      {/* Video Slider Viewport */}
+      <div className="relative mb-12">
         <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 overflow-visible">
           <div
             className={`flex ${isVideoTransitioning ? 'transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)' : ''}`}
@@ -230,41 +239,48 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
 
       {/* Video Slider Dots */}
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mb-20">
-        <div className="flex justify-center items-center gap-6">
-          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
-          <div className="flex gap-4">
-            {VIDEO_HIGHLIGHTS.map((_, idx) => {
-              const isActive = (videoIndex % VIDEO_HIGHLIGHTS.length) === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    if (isVideoTransitioning) return;
-                    setIsVideoTransitioning(true);
-                    setVideoIndex(VIDEO_HIGHLIGHTS.length + idx);
-                  }}
-                  className="group relative py-3"
-                  aria-label={`Go to slide ${idx + 1}`}
-                >
-                  <div className={`h-[2px] transition-all duration-1000 rounded-full ${isActive ? 'w-16 bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)]' : 'w-5 bg-gold/20 hover:bg-gold/50'}`} />
-                </button>
-              );
-            })}
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex justify-center items-center gap-6">
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+            <div className="relative w-48 h-[2px] bg-gold/10 rounded-full overflow-hidden">
+              <div
+                className="absolute h-full bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)] transition-all duration-500 ease-out"
+                style={{
+                  width: `${(itemsPerViewVideo / VIDEO_HIGHLIGHTS.length) * 100}%`,
+                  left: `${((videoIndex % VIDEO_HIGHLIGHTS.length) / VIDEO_HIGHLIGHTS.length) * 100}%`
+                }}
+              />
+            </div>
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
           </div>
-          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+
+          {/* Mobile/Tablet nav buttons (includes 1024px) */}
+          <div className="flex xl:hidden items-center gap-6">
+            <button onClick={prevVideo} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Previous story">
+              <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+            <button onClick={nextVideo} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Next story">
+              <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+          </div>
         </div>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div>
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5 flex-col md:flex-row gap-6 md:gap-0">
-            <div className="space-y-2 text-center md:text-left">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-maroon-dominant/5 dark:border-white/5 flex-col md:flex-row gap-6 md:gap-0 text-center md:text-left">
+            <div className="space-y-2">
               <span className="text-[11px] md:text-sm font-black text-gold uppercase tracking-[0.3em] block gold-glow">Just Dropped</span>
               <p className="text-sm font-serif italic text-maroon-dominant/60 dark:text-white/50 tracking-wide">Ready for your collection</p>
             </div>
-            <div className="flex gap-4">
-              <button onClick={prevProduct} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronLeft className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
-              <button onClick={nextProduct} className="group p-3 border border-maroon-dominant/5 dark:border-white/10 bg-white dark:bg-luxury-dark-card rounded-full hover:border-gold transition-all duration-500 shadow-xl active:scale-90"><ChevronRight className="w-4 h-4 text-maroon-dominant dark:text-white group-hover:text-gold transition-colors" /></button>
+            {/* Desktop nav buttons */}
+            <div className="hidden xl:flex gap-3">
+              <button onClick={prevProduct} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Previous product">
+                <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+              </button>
+              <button onClick={nextProduct} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Next product">
+                <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+              </button>
             </div>
           </div>
         </div>
@@ -280,7 +296,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
             }}
           >
             {displayProducts.map((product, idx) => (
-              <div key={`${product.id}-${idx}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/4 xl:w-1/4 px-4">
+              <div key={`${product.id}-${idx}`} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-4">
                 <CarouselProductCard
                   product={product}
                   onClick={onProductClick}
@@ -297,28 +313,30 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
 
       {/* Product Slider Dots */}
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mb-16">
-        <div className="flex justify-center items-center gap-6">
-          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
-          <div className="flex gap-4">
-            {newArrivalProducts.map((_, idx) => {
-              const isActive = (productIndex % newArrivalProducts.length) === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    if (isProductTransitioning) return;
-                    setIsProductTransitioning(true);
-                    setProductIndex(newArrivalProducts.length + idx);
-                  }}
-                  className="group relative py-3"
-                  aria-label={`Go to slide ${idx + 1}`}
-                >
-                  <div className={`h-[2px] transition-all duration-1000 rounded-full ${isActive ? 'w-16 bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)]' : 'w-5 bg-gold/20 hover:bg-gold/50'}`} />
-                </button>
-              );
-            })}
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex justify-center items-center gap-6">
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+            <div className="relative w-48 h-[2px] bg-gold/10 rounded-full overflow-hidden">
+              <div
+                className="absolute h-full bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)] transition-all duration-500 ease-out"
+                style={{
+                  width: `${(itemsPerViewProduct / newArrivalProducts.length) * 100}%`,
+                  left: `${((productIndex % newArrivalProducts.length) / newArrivalProducts.length) * 100}%`
+                }}
+              />
+            </div>
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
           </div>
-          <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+
+          {/* Mobile/Tablet nav buttons (includes 1024px) */}
+          <div className="flex xl:hidden items-center gap-6">
+            <button onClick={prevProduct} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Previous product">
+              <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+            <button onClick={nextProduct} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Next product">
+              <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+          </div>
         </div>
       </div>
 

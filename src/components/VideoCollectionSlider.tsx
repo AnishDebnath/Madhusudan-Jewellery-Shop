@@ -70,7 +70,7 @@ const VideoCollectionSlider: React.FC = () => {
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="text-center mb-16 space-y-3">
-          <div className="flex justify-center items-center gap-4 group">
+          <div className="flex justify-center items-center gap-4">
             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
             <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
               <Sparkles className="w-2.5 h-2.5" /> Cinematic Showcase
@@ -83,23 +83,28 @@ const VideoCollectionSlider: React.FC = () => {
         </div>
 
         <div className="relative flex items-center justify-center h-[600px] md:h-[700px]">
-          {/* Navigation Controls */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-4 md:left-10 z-40 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all shadow-xl hover:scale-110"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="absolute right-4 md:right-10 z-40 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all shadow-xl hover:scale-110"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          {/* 3D Stacked Slider */}
+          {/* 3D Stacked Slider Container */}
           <div className="relative w-full max-w-5xl h-full flex justify-center items-center perspective-1000">
+            {/* Desktop Navigation Buttons - Positioned relative to max-w-5xl to reduce gap */}
+            <div className="hidden xl:block absolute -left-12 lg:-left-20 z-40 top-1/2 -translate-y-1/2">
+              <button
+                onClick={handlePrev}
+                className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+              </button>
+            </div>
+
+            <div className="hidden xl:block absolute -right-12 lg:-right-20 z-40 top-1/2 -translate-y-1/2">
+              <button
+                onClick={handleNext}
+                className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90"
+                aria-label="Next"
+              >
+                <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+              </button>
+            </div>
             {VIDEO_COLLECTIONS.map((item, index) => {
               const isActive = index === activeIndex;
               const isPrev = index === (activeIndex === 0 ? VIDEO_COLLECTIONS.length - 1 : activeIndex - 1);
@@ -164,14 +169,30 @@ const VideoCollectionSlider: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-3 mt-20">
-          {VIDEO_COLLECTIONS.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveIndex(idx)}
-              className={`h-1 transition-all duration-500 rounded-full ${activeIndex === idx ? 'w-10 bg-gold shadow-[0_0_10px_#D4AF37]' : 'w-2 bg-gold/20 hover:bg-gold/50'}`}
-            />
-          ))}
+        <div className="flex flex-col items-center gap-8 mt-20">
+          <div className="flex justify-center items-center gap-6">
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+            <div className="relative w-48 h-[2px] bg-gold/10 rounded-full overflow-hidden">
+              <div
+                className="absolute h-full bg-gold shadow-[0_0_10px_rgba(212,175,55,0.6)] transition-all duration-500 ease-out"
+                style={{
+                  width: `${(1 / VIDEO_COLLECTIONS.length) * 100}%`,
+                  left: `${(activeIndex / VIDEO_COLLECTIONS.length) * 100}%`
+                }}
+              />
+            </div>
+            <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
+          </div>
+
+          {/* Mobile/Tablet nav buttons (includes 1024px) */}
+          <div className="flex xl:hidden items-center gap-6">
+            <button onClick={handlePrev} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Previous">
+              <ChevronLeft className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+            <button onClick={handleNext} className="group p-3 border border-gold/20 bg-white/5 backdrop-blur-md rounded-full hover:border-gold hover:bg-gold transition-all duration-500 shadow-xl active:scale-90" aria-label="Next">
+              <ChevronRight className="w-4 h-4 text-gold group-hover:text-maroon-dominant transition-colors" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
