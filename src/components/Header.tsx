@@ -279,21 +279,20 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
             {navCategories.map((cat) => (
               <div
                 key={cat.name}
-                className="group relative px-6 py-3 cursor-pointer"
+                className="group px-6 py-3 cursor-pointer"
                 onMouseEnter={() => setActiveMega(cat.name)}
                 onMouseLeave={() => setActiveMega(null)}
               >
-                <div className="flex items-center gap-2 group-hover:text-gold transition-all duration-500">
+                <div className="relative flex items-center gap-2 group-hover:text-gold transition-all duration-500 pb-1">
                   <span className="text-[10px] font-black text-white/70 group-hover:text-gold uppercase tracking-[0.25em] whitespace-nowrap transition-all">
                     {cat.name}
                   </span>
                   <ChevronDown className={`w-3.5 h-3.5 text-gold/30 transition-transform duration-500 ${activeMega === cat.name ? 'rotate-180 text-gold shadow-sm' : ''}`} />
+                  <div className={`absolute -bottom-1 left-0 h-[2px] bg-gold transition-all duration-700 ease-in-out ${activeMega === cat.name ? 'w-full opacity-100' : 'w-0 opacity-0'}`}></div>
                 </div>
 
-                <div className={`absolute bottom-0 left-0 h-[2px] bg-gold transition-all duration-700 ease-in-out ${activeMega === cat.name ? 'w-full opacity-100' : 'w-0 opacity-0'}`}></div>
-
                 {activeMega === cat.name && (
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[1000px] bg-white dark:bg-luxury-dark-card shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] border border-transparent dark:border-white/10 animate-in fade-in slide-in-from-top-4 duration-500 z-[60] p-12 overflow-hidden">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[95vw] lg:w-[1200px] bg-white dark:bg-luxury-dark-card shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] border border-transparent dark:border-white/10 animate-in fade-in slide-in-from-top-4 duration-500 z-[60] p-12 overflow-hidden">
                     <div className="absolute inset-0 bg-transparent opacity-[0.03] pointer-events-none"></div>
                     <div className="grid grid-cols-12 gap-16 relative z-10">
                       <div className="col-span-7">
