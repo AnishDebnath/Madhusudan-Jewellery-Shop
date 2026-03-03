@@ -15,18 +15,18 @@ interface GemstoneTileProps {
 const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link, onNavigate }) => (
   <div
     onClick={() => onNavigate('category', 'Gemstone')}
-    className="group relative block rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 border border-transparent dark:border-white/5 cursor-pointer"
+    className="group flex flex-col items-center cursor-pointer"
   >
-    <div className="aspect-square overflow-hidden relative">
+    <div className="relative aspect-square w-full overflow-hidden mb-3 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group-hover:border-gold/30">
       <img
         src={image}
         alt={label}
         className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.1] group-hover:grayscale-0"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 hidden md:block" />
 
-      <div className="absolute inset-x-0 bottom-0 p-6 text-center flex flex-col items-center justify-end h-full">
+      <div className="absolute inset-x-0 bottom-0 p-6 text-center hidden md:flex flex-col items-center justify-end h-full">
         <div className="flex flex-col items-center">
           <span className="text-white font-serif text-lg md:text-xl lg:text-xl xl:text-xl tracking-wide group-hover:text-gold transition-colors duration-300 mb-2">
             {label}
@@ -36,6 +36,9 @@ const GemstoneTile: React.FC<GemstoneTileProps> = ({ label, image, link, onNavig
         </div>
       </div>
     </div>
+    <span className="text-[11px] md:hidden font-black text-maroon-dominant dark:text-white tracking-[0.15em] uppercase group-hover:text-gold transition-colors text-center mt-2">
+      {label}
+    </span>
   </div>
 );
 

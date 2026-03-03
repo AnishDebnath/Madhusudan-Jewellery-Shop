@@ -145,30 +145,11 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
               <h2 className="text-xl font-serif italic">Heritage Couture</h2>
             </div>
           </div>
-
-          <div className="flex flex-col items-center text-center px-2">
-            <div className="flex items-center justify-center gap-4 mb-4 group">
-              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
-              <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
-                <Sparkles className="w-2 h-2" /> Iconic Legends
-              </span>
-            </div>
-            <h2 className="text-3xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">THE WEDDING <br /><span className="italic text-gold gold-glow font-light">MASTERPIECES</span></h2>
-            <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-sm leading-relaxed max-w-lg font-light italic mb-8">
-              "Handcrafted masterpieces designed to crown your most sacred moments with timeless elegance."
-            </p>
-            <button
-              onClick={() => onNavigate('category', 'Bridal')}
-              className="w-fit px-8 py-3.5 bg-maroon-dominant text-white font-black rounded-full uppercase tracking-[0.2em] text-[9px] transition-all duration-500 shadow-xl flex items-center gap-3 active:scale-95 group/btn whitespace-nowrap"
-            >
-              EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-            </button>
-          </div>
         </div>
 
         {/* Header Text - Restored to centered position */}
         <div className="text-center mb-10 relative">
-          <h3 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-3 uppercase tracking-tight leading-tight">The Wedding Masterpieces</h3>
+          <h3 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-3 uppercase tracking-tight leading-tight">The Wedding <span className="italic text-gold gold-glow">Masterpieces</span></h3>
           <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gold/60 gold-glow">Curated for the Modern Bride</p>
 
           {/* Desktop nav buttons */}

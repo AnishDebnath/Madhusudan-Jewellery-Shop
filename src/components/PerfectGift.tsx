@@ -19,28 +19,33 @@ interface GiftingCardProps {
 const GiftingTile: React.FC<GiftingCardProps> = ({ title, image, link, onNavigate, isTall }) => (
   <div
     onClick={() => onNavigate('category', 'All')}
-    className={`group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-700 bg-gray-100 dark:bg-luxury-dark-secondary border border-transparent dark:border-white/5 cursor-pointer ${isTall ? 'h-full' : 'aspect-square md:aspect-auto md:h-full'}`}
+    className={`group flex flex-col items-center cursor-pointer ${isTall ? 'lg:h-full' : ''}`}
   >
-    <img
-      src={image}
-      alt={title}
-      className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.1] group-hover:grayscale-0"
-      loading="lazy"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
+    <div className="relative w-full overflow-hidden mb-3 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 bg-gray-100 dark:bg-luxury-dark-secondary border border-transparent dark:border-white/5 group-hover:border-gold/30 aspect-square lg:aspect-auto lg:h-full">
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.1] group-hover:grayscale-0"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700 hidden md:block" />
 
-    <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-      <div className="transition-transform duration-500">
-        <h4 className="text-white font-serif text-lg md:text-xl lg:text-xl xl:text-xl group-hover:text-gold transition-colors duration-300 leading-tight mb-2">
-          {title}
-        </h4>
-      </div>
+      <div className="absolute inset-x-0 bottom-0 p-6 flex-col justify-end hidden md:flex">
+        <div className="transition-transform duration-500">
+          <h4 className="text-white font-serif text-lg md:text-xl lg:text-xl xl:text-xl group-hover:text-gold transition-colors duration-300 leading-tight mb-2">
+            {title}
+          </h4>
+        </div>
 
-      <div className="flex items-center gap-2 text-gold transition-all duration-500 delay-100">
-        <span className="text-[8px] font-black uppercase tracking-[0.3em]">Explore Collection</span>
-        <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
+        <div className="flex items-center gap-2 text-gold transition-all duration-500 delay-100">
+          <span className="text-[8px] font-black uppercase tracking-[0.3em]">Explore Collection</span>
+          <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
+        </div>
       </div>
     </div>
+    <span className="text-[11px] md:hidden font-black text-maroon-dominant dark:text-white tracking-[0.15em] uppercase group-hover:text-gold transition-colors text-center mt-2">
+      {title}
+    </span>
   </div>
 );
 

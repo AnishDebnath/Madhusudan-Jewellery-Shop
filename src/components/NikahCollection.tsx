@@ -64,7 +64,7 @@ const NikahCollection: React.FC<NikahCollectionProps> = ({ onNavigate }) => {
                   <Sparkles className="w-2.5 h-2.5" /> Elegance Redefined
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">NIKAH <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic text-center">COLLECTION</span></h2>
+              <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">NIKAH <span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-dominant to-gold dark:from-white dark:to-gold/50 font-light italic text-center">COLLECTION</span></h2>
               <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-sm md:text-base lg:text-base xl:text-base leading-relaxed max-w-lg font-light italic text-balance border-l-0 lg:border-l-2 lg:border-gold/20 lg:pl-6 mx-auto lg:mx-0">
                 "Graceful jewellery for a sacred union, designed for timeless Nikah ceremonies and Walima elegance."
               </p>

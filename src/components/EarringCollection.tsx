@@ -15,18 +15,18 @@ interface EarringCardProps {
 const EarringCard: React.FC<EarringCardProps> = ({ title, image, link, onNavigate }) => (
   <div
     onClick={() => onNavigate('category', 'Earrings')}
-    className="group relative block bg-white dark:bg-luxury-dark-card rounded-3xl overflow-hidden border border-transparent dark:border-white/5 transition-all duration-700 hover:shadow-2xl hover:-translate-y-2 cursor-pointer"
+    className="group flex flex-col items-center cursor-pointer"
   >
-    <div className="aspect-square overflow-hidden relative">
+    <div className="relative aspect-square w-full overflow-hidden mb-3 rounded-2xl shadow-lg bg-white dark:bg-luxury-dark-card border border-transparent dark:border-white/5 group-hover:border-gold/30 transition-all duration-500">
       <img
         src={image}
         alt={title}
         className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale-[0.1] group-hover:grayscale-0"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 hidden md:block" />
 
-      <div className="absolute inset-x-0 bottom-0 p-6">
+      <div className="absolute inset-x-0 bottom-0 p-6 hidden md:block">
         <h4 className="text-white font-serif text-lg md:text-xl lg:text-xl xl:text-xl tracking-wide group-hover:text-gold transition-colors duration-300 leading-tight mb-3">
           {title.replace(' Collection', '')}
         </h4>
@@ -36,6 +36,9 @@ const EarringCard: React.FC<EarringCardProps> = ({ title, image, link, onNavigat
         </div>
       </div>
     </div>
+    <span className="text-[11px] md:hidden font-black text-maroon-dominant dark:text-white tracking-[0.15em] uppercase group-hover:text-gold transition-colors text-center mt-2">
+      {title.replace(' Collection', '')}
+    </span>
   </div>
 );
 

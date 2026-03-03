@@ -69,7 +69,7 @@ const VideoCollectionSlider: React.FC = () => {
     <section className="py-10 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
-        <div className="text-center mb-4 md:mb-12 space-y-3">
+        <div className="text-center mb-4 md:mb-8 lg:mb-16 space-y-3">
           <div className="flex justify-center items-center gap-4">
             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
             <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
@@ -140,7 +140,7 @@ const VideoCollectionSlider: React.FC = () => {
                       <h4 className="text-white text-xl md:text-2xl lg:text-3xl xl:text-3xl font-serif mb-8 leading-none">{item.title}</h4>
 
                       <div className="flex items-center justify-between">
-                        <button className="bg-white/10 backdrop-blur-md hover:bg-gold text-white text-[10px] font-black py-3.5 px-7 uppercase tracking-[0.25em] transition-all rounded-full border border-white/20 hover:border-gold hover:text-maroon-dominant group/btn">
+                        <button className="bg-white/10 backdrop-blur-md hover:bg-gold text-white text-[9px] md:text-[10px] font-black py-3.5 px-4 md:px-7 uppercase tracking-[0.2em] md:tracking-[0.25em] transition-all rounded-full border border-white/20 hover:border-gold hover:text-maroon-dominant group/btn whitespace-nowrap">
                           View details
                         </button>
 
