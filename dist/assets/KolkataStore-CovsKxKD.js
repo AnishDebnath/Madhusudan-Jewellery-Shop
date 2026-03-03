@@ -1,4 +1,4 @@
-import{j as e}from"./index-pJsR2KFp.js";import{c as a,M as r,r as s,P as l}from"./vendor-ui-CGEgodGM.js";import"./vendor-react-B26Aov4G.js";const i=[{id:1,name:"Store 1 — Main Branch",area:"Kolkata",address:`123 Your Street Name, Area Name,
+import{j as e}from"./index-DVJmCNzV.js";import{c as a,M as r,r as s,P as l}from"./vendor-ui-CGEgodGM.js";import"./vendor-react-B26Aov4G.js";const i=[{id:1,name:"Store 1 — Main Branch",area:"Kolkata",address:`123 Your Street Name, Area Name,
 Kolkata, West Bengal – 700001`,timings:`Mon – Sat: 11:00 AM – 8:30 PM
 Sun: 12:00 PM – 6:00 PM`,phone:"+91 33 2241 XXXX",badge:"Flagship Store"},{id:2,name:"Store 2 — Branch",area:"Kolkata",address:`456 Your Street Name, Area Name,
 Kolkata, West Bengal – 700XXXX`,timings:`Mon – Sat: 11:00 AM – 8:30 PM
