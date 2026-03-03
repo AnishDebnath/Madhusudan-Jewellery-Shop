@@ -446,19 +446,23 @@ const Header: React.FC<HeaderProps> = ({ cartCount, wishlistCount, onNavigate, i
                       </button>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => { setIsMenuOpen(false); onNavigate('login'); }}
-                      className="w-full border border-maroon-dominant/30 dark:border-white/30 text-maroon-dominant dark:text-white py-4 rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all"
-                    >
-                      Sign In / Create Account
-                    </button>
+                    <div className="flex flex-col items-center gap-4">
+                      <button
+                        onClick={() => { setIsMenuOpen(false); onNavigate('login'); }}
+                        className="w-fit px-8 border border-maroon-dominant/30 dark:border-white/30 text-maroon-dominant dark:text-white py-3.5 rounded-full text-[9px] font-black tracking-[0.2em] uppercase hover:bg-maroon-dominant hover:text-white dark:hover:bg-white dark:hover:text-maroon-dominant transition-all whitespace-nowrap"
+                      >
+                        Sign In / Join
+                      </button>
+                    </div>
                   )}
-                  <button
-                    onClick={() => { setIsMenuOpen(false); onNavigate('contact'); }}
-                    className="w-full bg-gold text-maroon-dominant py-5 rounded-full text-[11px] font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-gold-light transition-all"
-                  >
-                    Book Private Viewing
-                  </button>
+                  <div className="flex justify-center mt-4">
+                    <button
+                      onClick={() => { setIsMenuOpen(false); onNavigate('contact'); }}
+                      className="w-fit px-8 bg-gold text-maroon-dominant py-4 rounded-full text-[10px] font-black tracking-[0.2em] uppercase shadow-[0_10px_20px_rgba(212,175,55,0.2)] hover:bg-gold-light transition-all whitespace-nowrap"
+                    >
+                      Book Consultation
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

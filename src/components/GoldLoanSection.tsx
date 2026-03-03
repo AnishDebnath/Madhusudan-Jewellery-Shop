@@ -87,12 +87,12 @@ const GoldLoanSection: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6">
-            <button className="w-full sm:w-auto px-10 py-3.5 bg-maroon-dominant dark:bg-gold text-white dark:text-maroon-dominant font-black rounded-full uppercase tracking-[0.3em] text-[10px] shadow-xl hover:shadow-gold/20 transition-all duration-500 hover:scale-105 active:scale-95 group flex items-center justify-center gap-3">
-              Initiate Application <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform" />
+          <div className="flex flex-row justify-center items-center gap-4 md:gap-6">
+            <button className="w-auto px-6 py-3 bg-maroon-dominant dark:bg-gold text-white dark:text-maroon-dominant font-black rounded-full uppercase tracking-[0.2em] text-[9px] shadow-xl hover:shadow-gold/20 transition-all duration-500 hover:scale-105 active:scale-95 group flex items-center justify-center gap-2 whitespace-nowrap">
+              Apply Now <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="w-full sm:w-auto px-10 py-3.5 border-2 border-maroon-dominant/10 dark:border-gold/30 text-maroon-dominant dark:text-gold font-black rounded-full uppercase tracking-[0.3em] text-[10px] hover:bg-maroon-dominant hover:text-white dark:hover:bg-gold dark:hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
-              <Phone className="w-3.5 h-3.5" /> Consultation
+            <button className="w-auto px-6 py-3 border border-maroon-dominant/10 dark:border-gold/30 text-maroon-dominant dark:text-gold font-black rounded-full uppercase tracking-[0.2em] text-[9px] hover:bg-maroon-dominant hover:text-white dark:hover:bg-gold dark:hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap">
+              Consult Now
             </button>
           </div>
 

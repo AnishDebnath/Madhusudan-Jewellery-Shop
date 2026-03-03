@@ -66,10 +66,10 @@ const VideoCollectionSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-10 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-y border-luxury-bg-card dark:border-white/5 relative">
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
-        <div className="text-center mb-16 space-y-3">
+        <div className="text-center mb-4 md:mb-12 space-y-3">
           <div className="flex justify-center items-center gap-4">
             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
             <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
@@ -82,7 +82,7 @@ const VideoCollectionSlider: React.FC = () => {
           </h2>
         </div>
 
-        <div className="relative flex items-center justify-center h-[600px] md:h-[700px]">
+        <div className="relative flex items-center justify-center h-[500px] sm:h-[600px] md:h-[700px]">
           {/* 3D Stacked Slider Container */}
           <div className="relative w-full max-w-5xl h-full flex justify-center items-center perspective-1000">
             {/* Desktop Navigation Buttons - Positioned relative to max-w-5xl to reduce gap */}
@@ -169,7 +169,7 @@ const VideoCollectionSlider: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-8 mt-20">
+        <div className="flex flex-col items-center gap-8 mt-10 md:mt-16 lg:mt-20">
           <div className="flex justify-center items-center gap-6">
             <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
             <div className="relative w-48 h-[2px] bg-gold/10 rounded-full overflow-hidden">

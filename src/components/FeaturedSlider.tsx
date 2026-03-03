@@ -65,7 +65,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
   const displayFeatured = [...featured, ...featured, ...featured];
 
   return (
-    <section className="relative py-12 md:py-16 overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
+    <section className="relative py-10 md:py-16 overflow-hidden bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mb-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left space-y-3">
@@ -147,12 +147,12 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ onProductClick, onToggl
           </div>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-6">
           <button
             onClick={() => onNavigate('category', 'All')}
-            className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant shadow-2xl active:scale-95 flex items-center gap-3"
+            className="w-fit px-8 py-3.5 bg-maroon-dominant text-white text-[9px] font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant active:scale-95 flex items-center gap-3 whitespace-nowrap"
           >
-            Explore All <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+            EXPLORE ALL <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

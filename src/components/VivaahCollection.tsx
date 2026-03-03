@@ -96,29 +96,72 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
   const displayProducts = [...VIVAAH_PRODUCTS, ...VIVAAH_PRODUCTS, ...VIVAAH_PRODUCTS];
 
   return (
-    <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-16 overflow-hidden border-t border-gold/10 transition-colors relative">
+    <section className="bg-luxury-bg-primary dark:bg-luxury-dark-primary py-12 md:py-16 overflow-hidden border-t border-gold/10 transition-colors relative">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
 
         {/* Large Collection Banner */}
-        <div className="relative h-[45vh] md:h-[60vh] mb-12 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
+        {/* Collection Grid Banner (Refined like Nikah) */}
+        {/* Desktop/Tablet View Banner (Original Full-width) - Restored for other devices */}
+        <div className="hidden md:block relative md:h-[60vh] mb-16 rounded-[3rem] overflow-hidden group shadow-2xl border border-gold/10">
           <img
             src={vivaahHero}
             alt="The Wedding Masterpieces"
             className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-maroon-dominant/80 via-maroon-dominant/20 to-transparent"></div>
-          <div className="absolute inset-x-0 inset-y-0 flex flex-col justify-center items-center md:items-start px-6 md:px-20 text-white text-center md:text-left max-w-3xl mx-auto md:mx-0">
+          <div className="absolute inset-x-0 inset-y-0 flex flex-col justify-center items-start px-12 md:px-20 text-white text-left max-w-3xl">
             <span className="text-gold text-[10px] md:text-[12px] tracking-[0.6em] uppercase font-black mb-6 gold-glow transition-all duration-700 group-hover:tracking-[0.8em]">Exclusive Wedding Couture</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-8 leading-tight tracking-tight">The Wedding <br /><span className="italic text-gold gold-glow">Masterpieces</span></h2>
-            <div className="w-24 h-[1px] bg-gold/50 mb-10 transition-all duration-700 group-hover:w-40 mx-auto md:mx-0"></div>
-            <p className="text-sm md:text-base lg:text-lg xl:text-lg font-light italic text-white/80 leading-relaxed max-w-xl mb-12 border-l-0 md:border-l md:border-gold/30 md:pl-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight tracking-tight uppercase">The Wedding <br /><span className="italic text-gold gold-glow">Masterpieces</span></h2>
+            <div className="w-24 h-[1px] bg-gold/50 mb-8 transition-all duration-700 group-hover:w-40"></div>
+            <p className="text-sm md:text-base lg:text-lg font-light italic text-white/80 leading-relaxed max-w-xl mb-10 border-l border-gold/30 pl-6">
               "Handcrafted masterpieces designed to crown your most sacred moments with timeless elegance."
             </p>
             <button
               onClick={() => onNavigate('category', 'Bridal')}
-              className="w-fit px-10 py-4 bg-gold hover:bg-white text-maroon-dominant font-black rounded-full uppercase tracking-[0.3em] text-[10px] transition-all duration-500 shadow-xl flex items-center gap-3 active:scale-95 group/btn"
+              className="w-fit px-8 py-3.5 bg-gold hover:bg-white text-maroon-dominant font-black rounded-full uppercase tracking-[0.2em] text-[10px] transition-all duration-500 shadow-xl flex items-center gap-3 active:scale-95 group/btn whitespace-nowrap"
             >
-              Discover Heritage <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
+              EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile View Banner (Refined side-by-side style) - Only for mobile */}
+        <div className="md:hidden grid grid-cols-1 gap-10 items-center mb-12">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] group border border-gold/10 shadow-2xl">
+            <img
+              src={vivaahHero}
+              alt="The Wedding Masterpieces"
+              className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/80 via-transparent to-transparent"></div>
+            <div className="absolute bottom-8 left-0 right-0 text-center text-white z-10 px-6">
+              <div className="flex items-center justify-center gap-4 mb-2">
+                <div className="h-[1px] w-8 bg-gold/40"></div>
+                <span className="text-gold text-[8px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                  <Sparkles className="w-2 h-2" /> Divine Union
+                </span>
+                <div className="h-[1px] w-8 bg-gold/40"></div>
+              </div>
+              <h2 className="text-xl font-serif italic">Heritage Couture</h2>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center text-center px-2">
+            <div className="flex items-center justify-center gap-4 mb-4 group">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
+              <span className="text-gold text-[9px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
+                <Sparkles className="w-2 h-2" /> Iconic Legends
+              </span>
+            </div>
+            <h2 className="text-3xl font-serif text-maroon-dominant dark:text-white mb-6 uppercase tracking-tight leading-tight">THE WEDDING <br /><span className="italic text-gold gold-glow font-light">MASTERPIECES</span></h2>
+            <p className="text-luxury-text-light/70 dark:text-luxury-text-darkMuted text-sm leading-relaxed max-w-lg font-light italic mb-8">
+              "Handcrafted masterpieces designed to crown your most sacred moments with timeless elegance."
+            </p>
+            <button
+              onClick={() => onNavigate('category', 'Bridal')}
+              className="w-fit px-8 py-3.5 bg-maroon-dominant text-white font-black rounded-full uppercase tracking-[0.2em] text-[9px] transition-all duration-500 shadow-xl flex items-center gap-3 active:scale-95 group/btn whitespace-nowrap"
+            >
+              EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>
@@ -196,14 +239,12 @@ const VivaahCollection: React.FC<VivaahCollectionProps> = ({ onNavigate, onProdu
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         {/* Centered CTA */}
-        <div className="flex justify-center pb-12">
+        <div className="flex justify-center pb-8 mt-4">
           <button
             onClick={() => onNavigate('category', 'Bridal')}
-            className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:scale-105 shadow-2xl active:scale-95 border border-white/10"
+            className="w-fit px-8 py-3.5 bg-maroon-dominant text-white text-[9px] font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant active:scale-95 border border-white/10 flex items-center gap-3 whitespace-nowrap"
           >
-            <span className="relative z-10 flex items-center gap-3">
-              Explore The Full Collection <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
-            </span>
+            EXPLORE COLLECTION <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

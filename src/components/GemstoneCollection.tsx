@@ -53,7 +53,7 @@ const GemstoneCollection: React.FC<GemstoneCollectionProps> = ({ onNavigate }) =
   ];
 
   return (
-    <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
+    <section className="py-10 md:py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors border-t border-luxury-bg-card dark:border-white/5 relative">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="text-center mb-10 space-y-3">
           <div className="flex justify-center items-center gap-4 group mb-3">
@@ -69,7 +69,7 @@ const GemstoneCollection: React.FC<GemstoneCollectionProps> = ({ onNavigate }) =
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pt-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pt-4">
           {categories.map((cat, idx) => (
             <GemstoneTile key={idx} {...cat} onNavigate={onNavigate} />
           ))}

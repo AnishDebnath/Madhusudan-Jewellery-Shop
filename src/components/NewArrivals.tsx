@@ -173,7 +173,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   const displayProducts = [...newArrivalProducts, ...newArrivalProducts, ...newArrivalProducts];
 
   return (
-    <section className="py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-b border-gold/10 relative">
+    <section className="py-12 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-b border-gold/10 relative">
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-8 text-center md:text-left">
@@ -189,14 +189,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
             </h2>
           </div>
 
-          <button
-            onClick={() => onNavigate('category', 'All')}
-            className="group relative px-6 py-3 md:px-8 md:py-3.5 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant hover:border-gold shadow-lg active:scale-95"
-          >
-            <span className="relative z-10 flex items-center gap-3">
-              View Full Catalog <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-            </span>
-          </button>
+
         </div>
 
         {/* Visual Stories Section */}
@@ -232,7 +225,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
             {displayVideos.map((video, idx) => (
               <div
                 key={`${video.id}-${idx}`}
-                className="flex-shrink-0 px-12 sm:px-6"
+                className="flex-shrink-0 px-3 sm:px-2"
                 style={{ width: `${100 / itemsPerViewVideo}%` }}
               >
                 <VideoStripCard video={video} />
@@ -303,7 +296,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
             {displayProducts.map((product, idx) => (
               <div
                 key={`${product.id}-${idx}`}
-                className="flex-shrink-0 px-6 sm:px-4"
+                className="flex-shrink-0 px-3 sm:px-2"
                 style={{ width: `${100 / itemsPerViewProduct}%` }}
               >
                 <CarouselProductCard
@@ -321,8 +314,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
       </div>
 
       {/* Product Slider Dots */}
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mb-16">
-        <div className="flex flex-col items-center gap-8">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 mt-12">
+        <div className="flex flex-col items-center gap-8 mb-12">
           <div className="flex justify-center items-center gap-6">
             <div className="h-[1px] w-20 bg-gold/10 hidden md:block"></div>
             <div className="relative w-48 h-[2px] bg-gold/10 rounded-full overflow-hidden">
@@ -347,16 +340,18 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
             </button>
           </div>
         </div>
+
+        {/* Centered Explore Button */}
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={() => onNavigate('category', 'All')}
+            className="w-fit px-8 py-3.5 bg-maroon-dominant text-white text-[9px] font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant active:scale-95 border border-white/10 flex items-center gap-3 whitespace-nowrap shadow-xl"
+          >
+            EXPLORE ALL <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10 flex justify-center">
-        <button
-          onClick={() => onNavigate('category', 'All')}
-          className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant shadow-2xl active:scale-95 flex items-center gap-3"
-        >
-          Explore All New <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-        </button>
-      </div>
     </section>
   );
 };

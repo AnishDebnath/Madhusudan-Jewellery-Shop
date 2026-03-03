@@ -24,7 +24,7 @@ const STORES = [
 
 const KolkataStore: React.FC = () => {
   return (
-    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-16 text-white overflow-hidden relative border-y border-white/5">
+    <section className="bg-luxury-bg-secondary dark:bg-luxury-dark-secondary py-12 md:py-16 text-white overflow-hidden relative border-y border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
 
         {/* Section Header */}
@@ -93,13 +93,13 @@ const KolkataStore: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/10 flex gap-3">
-                <button className="flex-1 bg-gold text-maroon-dominant px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 hover:scale-105 active:scale-95">
-                  Get Directions
+              <div className="mt-8 pt-6 border-t border-white/10 flex justify-center gap-4">
+                <button className="w-auto px-6 py-2.5 bg-gold text-maroon-dominant rounded-full text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap">
+                  Directions
                 </button>
                 <a
                   href={`tel:${store.phone.replace(/\s/g, '')}`}
-                  className="flex-1 border border-gold/40 text-gold px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all duration-300 hover:scale-105 active:scale-95 text-center"
+                  className="w-auto px-6 py-2.5 border border-gold/40 text-gold rounded-full text-[9px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all duration-300 hover:scale-105 active:scale-95 text-center whitespace-nowrap"
                 >
                   Call Now
                 </a>

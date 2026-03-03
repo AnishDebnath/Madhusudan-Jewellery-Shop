@@ -77,9 +77,9 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
   if (products.length === 0) return null;
 
   return (
-    <section className="py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden group/section border-t border-maroon-dominant/5 dark:border-white/5">
+    <section className="py-10 md:py-14 bg-luxury-bg-secondary dark:bg-luxury-dark-secondary transition-colors overflow-hidden group/section border-t border-maroon-dominant/5 dark:border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-8">
           <div className="space-y-3">
             <div className="flex items-center gap-4 group">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
@@ -162,12 +162,12 @@ const ProductCarouselSection: React.FC<ProductCarouselSectionProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-4">
           <button
             onClick={() => onNavigate('category', 'All')}
-            className="group relative px-10 py-4 bg-maroon-dominant text-white text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant shadow-2xl active:scale-95 flex items-center gap-3"
+            className="w-fit px-8 py-3.5 bg-maroon-dominant text-white text-[9px] font-black uppercase tracking-[0.2em] transition-all duration-500 rounded-full hover:bg-gold hover:text-maroon-dominant active:scale-95 flex items-center justify-center gap-3 whitespace-nowrap"
           >
-            Explore All <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+            EXPLORE ALL <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

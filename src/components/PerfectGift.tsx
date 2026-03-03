@@ -63,7 +63,7 @@ const PerfectGift: React.FC<PerfectGiftProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5">
+    <section className="py-10 md:py-14 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors border-t border-luxury-bg-card dark:border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
         <div className="text-center mb-10 space-y-3">
           <div className="flex justify-center items-center gap-4 group mb-3">
@@ -79,7 +79,7 @@ const PerfectGift: React.FC<PerfectGiftProps> = ({ onNavigate }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 xl:gap-10 h-auto lg:h-[600px] xl:h-[700px] pt-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 xl:gap-10 h-auto lg:h-[600px] xl:h-[700px] pt-4">
           {/* Row 1 */}
           <GiftingTile
             title={occasionGifts[0].title}

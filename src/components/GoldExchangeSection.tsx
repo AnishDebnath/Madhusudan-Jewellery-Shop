@@ -26,7 +26,7 @@ const GoldExchangeSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 md:py-16 bg-luxury-dark-primary dark:bg-luxury-dark-primary relative transition-colors overflow-hidden border-b border-maroon-dominant/10 dark:border-white/5">
+    <section className="py-10 md:py-16 bg-luxury-dark-primary dark:bg-luxury-dark-primary relative transition-colors overflow-hidden border-b border-maroon-dominant/10 dark:border-white/5">
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <div className="text-center mb-12 space-y-4">
@@ -46,7 +46,7 @@ const GoldExchangeSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 mb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10 mb-10">
           {steps.map((step, idx) => (
             <div key={idx} className="relative p-5 md:p-6 bg-white/5 backdrop-blur-xl border border-gold/40 rounded-2xl text-center group hover:bg-white/[0.10] hover:border-gold/70 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 shadow-xl overflow-hidden">
               {/* Corner glow */}
@@ -66,11 +66,11 @@ const GoldExchangeSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6">
-          <button className="w-full sm:w-auto px-10 py-3.5 bg-maroon-dominant dark:bg-gold text-white dark:text-maroon-dominant font-black rounded-full uppercase tracking-[0.3em] text-[10px] shadow-[0_15px_30px_-10px_rgba(212,175,55,0.3)] hover:shadow-gold/20 transition-all duration-500 hover:scale-105 active:scale-95 group flex items-center justify-center gap-3">
-            Exchange Gold <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform" />
+        <div className="flex flex-row justify-center items-center gap-4 md:gap-6">
+          <button className="w-auto px-6 py-3 bg-maroon-dominant dark:bg-gold text-white dark:text-maroon-dominant font-black rounded-full uppercase tracking-[0.2em] text-[9px] shadow-[0_15px_30px_-10px_rgba(212,175,55,0.3)] transition-all duration-500 hover:scale-105 active:scale-95 group flex items-center justify-center gap-2 whitespace-nowrap">
+            Exchange Gold <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="w-full sm:w-auto px-10 py-3.5 border-2 border-white/20 dark:border-gold/30 text-white dark:text-gold font-black rounded-full uppercase tracking-[0.3em] text-[10px] hover:bg-white/10 hover:text-white dark:hover:bg-gold dark:hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
+          <button className="w-auto px-6 py-3 border border-white/20 dark:border-gold/30 text-white dark:text-gold font-black rounded-full uppercase tracking-[0.2em] text-[9px] hover:bg-white/10 dark:hover:bg-gold dark:hover:text-maroon-dominant transition-all duration-500 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap">
             Sell Old Gold
           </button>
         </div>
