@@ -70,30 +70,91 @@ const CustomerReviews: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        {/* Mobile/Tablet: stacked layout */}
+        <div className="lg:hidden">
+          {/* Rating card — centered and compact */}
+          <div className="mb-10">
+            <div className="bg-white dark:bg-luxury-dark-card/40 backdrop-blur-xl p-8 rounded-[32px] text-center flex flex-col items-center justify-center shadow-xl border border-white/20 dark:border-white/5 hover:border-gold/30 transition-all duration-700 group relative overflow-hidden max-w-sm mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-maroon-dominant/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-5 ring-1 ring-gold/30 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-700 shadow-xl">
+                  <Star className="w-7 h-7 text-gold fill-gold gold-glow" />
+                </div>
+                <div className="flex items-baseline gap-2 mb-2 justify-center">
+                  <h3 className="text-3xl font-serif text-maroon-dominant dark:text-white font-medium">4.9</h3>
+                  <span className="text-gold text-base font-serif italic opacity-40">/ 5.0</span>
+                </div>
+                <div className="flex gap-1 mb-4 justify-center">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-gold fill-gold shadow-sm" />)}
+                </div>
+                <p className="text-maroon-dominant/60 dark:text-luxury-text-darkMuted text-sm italic leading-relaxed font-light mb-6">
+                  "Unmatched brilliance as shared by our 1,500+ verified patrons across the city."
+                </p>
+                <div className="pt-5 border-t border-maroon-dominant/5 dark:border-white/5 w-full">
+                  <div className="flex items-center gap-4 justify-center">
+                    <div className="flex -space-x-3">
+                      {[1, 2, 3, 4, 5].map(i => (
+                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white dark:border-luxury-dark-card bg-luxury-bg-secondary overflow-hidden shadow-lg">
+                          <div className={`w-full h-full bg-gradient-to-br ${i % 2 === 0 ? 'from-gold/40 to-maroon-dominant/20' : 'from-maroon-dominant/30 to-gold/10'}`}></div>
+                        </div>
+                      ))}
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-black uppercase tracking-widest text-maroon-dominant dark:text-gold block">Loyal Family</span>
+                      <span className="text-[8px] text-maroon-dominant/30 dark:text-white/20 uppercase font-bold tracking-widest">1.5K+ Stories</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Marquee — full container width, no overflow tricks */}
+          <div className="relative overflow-hidden">
+            <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-luxury-bg-primary dark:from-luxury-dark-primary to-transparent z-20 pointer-events-none"></div>
+            <div className="flex overflow-hidden group/container py-6">
+              <div className="flex gap-6 animate-marquee group-hover/container:pause pointer-events-auto">
+                {doubledReviews.map((review, idx) => (
+                  <ReviewCard key={`${review.id}-${idx}`} review={review} />
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-6 opacity-60">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-4 h-4 text-gold" />
+                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-maroon-dominant dark:text-white">GIA Certified Review Pool</span>
+              </div>
+              <div className="w-1 h-1 bg-gold rounded-full hidden sm:block"></div>
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="w-4 h-4 text-gold" />
+                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-maroon-dominant dark:text-white">Heritage Quality Assured</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: side-by-side grid layout */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           {/* Left Column: Fixed Rating Card */}
           <div className="lg:col-span-4 sticky top-32">
             <div className="bg-white dark:bg-luxury-dark-card/40 backdrop-blur-xl p-8 md:p-10 rounded-[32px] text-center lg:text-left flex flex-col items-center lg:items-start justify-center shadow-xl border border-white/20 dark:border-white/5 hover:border-gold/30 transition-all duration-700 group relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-maroon-dominant/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6 ring-1 ring-gold/30 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-700 shadow-xl">
                   <Star className="w-8 h-8 text-gold fill-gold gold-glow" />
                 </div>
-
                 <div className="flex items-baseline gap-2 mb-2">
                   <h3 className="text-3xl md:text-4xl lg:text-4xl font-serif text-maroon-dominant dark:text-white font-medium">4.9</h3>
                   <span className="text-gold text-base md:text-lg font-serif italic opacity-40">/ 5.0</span>
                 </div>
-
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-gold fill-gold shadow-sm" />)}
                 </div>
-
                 <p className="text-maroon-dominant/60 dark:text-luxury-text-darkMuted text-sm italic leading-relaxed font-light mb-8">
                   "Unmatched brilliance as shared by our 1,500+ verified patrons across the city."
                 </p>
-
                 <div className="pt-6 border-t border-maroon-dominant/5 dark:border-white/5 w-full space-y-4">
                   <div className="flex items-center gap-4">
                     <div className="flex -space-x-3">
@@ -113,12 +174,10 @@ const CustomerReviews: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Marquee Testimonials - Extending to screen edge */}
+          {/* Right Column: Marquee Testimonials */}
           <div className="lg:col-span-8 relative mt-10 lg:mt-0 lg:-mr-[calc((100vw-100%)/2+2rem)] overflow-visible">
-            {/* Fade masks */}
             <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-luxury-bg-primary via-luxury-bg-primary/80 to-transparent dark:from-luxury-dark-primary dark:via-luxury-dark-primary/80 z-20 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-luxury-bg-primary via-luxury-bg-primary/95 to-transparent dark:from-luxury-dark-primary dark:via-luxury-dark-primary/95 z-20 pointer-events-none lg:right-[calc((100vw-100%)/2)] translate-x-full"></div>
-
             <div className="flex overflow-hidden group/container py-10 w-full lg:w-[calc(100%+50vw)]">
               <div className="flex gap-8 md:gap-12 animate-marquee group-hover/container:pause pointer-events-auto">
                 {doubledReviews.map((review, idx) => (
@@ -126,7 +185,6 @@ const CustomerReviews: React.FC = () => {
                 ))}
               </div>
             </div>
-
             <div className="mt-6 flex flex-col sm:flex-row items-center lg:justify-start gap-8 opacity-40 hover:opacity-100 transition-opacity duration-700 lg:pl-32">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4 text-gold" />
@@ -138,21 +196,21 @@ const CustomerReviews: React.FC = () => {
                 <span className="text-[9px] font-black uppercase tracking-[0.4em] text-maroon-dominant dark:text-white">Heritage Quality Assured</span>
               </div>
             </div>
-
-            <style>{`
-              @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-33.33%); }
-              }
-              .animate-marquee {
-                animation: marquee 60s linear infinite;
-              }
-              .pause {
-                animation-play-state: paused;
-              }
-            `}</style>
           </div>
         </div>
+
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.33%); }
+          }
+          .animate-marquee {
+            animation: marquee 60s linear infinite;
+          }
+          .pause {
+            animation-play-state: paused;
+          }
+        `}</style>
       </div>
     </section>
   );
