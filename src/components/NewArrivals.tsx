@@ -86,11 +86,11 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   }, []);
 
   // Slider State for Visual Stories
-  const [videoIndex, setVideoIndex] = useState(VIDEO_HIGHLIGHTS.length);
+  const [videoIndex, setVideoIndex] = useState(VIDEO_HIGHLIGHTS.length * 2);
   const [isVideoTransitioning, setIsVideoTransitioning] = useState(false);
 
   // Slider State for Just Dropped
-  const [productIndex, setProductIndex] = useState(newArrivalProducts.length);
+  const [productIndex, setProductIndex] = useState(newArrivalProducts.length * 2);
   const [isProductTransitioning, setIsProductTransitioning] = useState(false);
 
   // Focus on showing 4 videos nicely on XL as per request
@@ -127,9 +127,9 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
     // Only handle events from the slide track itself, not bubbled child transitions
     if (e.target !== e.currentTarget) return;
     setIsVideoTransitioning(false);
-    if (videoIndex >= VIDEO_HIGHLIGHTS.length * 2) {
+    if (videoIndex >= VIDEO_HIGHLIGHTS.length * 3) {
       setVideoIndex(videoIndex - VIDEO_HIGHLIGHTS.length);
-    } else if (videoIndex < VIDEO_HIGHLIGHTS.length) {
+    } else if (videoIndex < VIDEO_HIGHLIGHTS.length * 2) {
       setVideoIndex(videoIndex + VIDEO_HIGHLIGHTS.length);
     }
   };
@@ -149,28 +149,25 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onProductClick, onToggleWishl
   const handleProductTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget) return;
     setIsProductTransitioning(false);
-    if (productIndex >= newArrivalProducts.length * 2) {
+    if (productIndex >= newArrivalProducts.length * 3) {
       setProductIndex(productIndex - newArrivalProducts.length);
-    } else if (productIndex < newArrivalProducts.length) {
+    } else if (productIndex < newArrivalProducts.length * 2) {
       setProductIndex(productIndex + newArrivalProducts.length);
     }
   };
 
   useEffect(() => {
-    // Stable interval — directly updates state to avoid stale-closure issues
-    const videoInterval = setInterval(() => {
-      setIsVideoTransitioning(true);
-      setVideoIndex(prev => prev + 1);
-    }, 6000);
+    const videoInterval = setInterval(nextVideo, 6000);
+    return () => clearInterval(videoInterval);
+  }, [nextVideo]);
+
+  useEffect(() => {
     const productInterval = setInterval(nextProduct, 5000);
-    return () => {
-      clearInterval(videoInterval);
-      clearInterval(productInterval);
-    };
+    return () => clearInterval(productInterval);
   }, [nextProduct]);
 
-  const displayVideos = [...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS];
-  const displayProducts = [...newArrivalProducts, ...newArrivalProducts, ...newArrivalProducts];
+  const displayVideos = [...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS, ...VIDEO_HIGHLIGHTS];
+  const displayProducts = [...newArrivalProducts, ...newArrivalProducts, ...newArrivalProducts, ...newArrivalProducts, ...newArrivalProducts];
 
   return (
     <section className="py-12 md:py-16 bg-luxury-bg-primary dark:bg-luxury-dark-primary transition-colors overflow-hidden border-b border-gold/10 relative">
