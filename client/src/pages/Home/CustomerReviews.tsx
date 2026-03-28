@@ -76,7 +76,7 @@ const CustomerReviews: React.FC = () => {
           <div className="mb-10">
             <div className="bg-white dark:bg-luxury-dark-card/40 backdrop-blur-xl p-8 rounded-[32px] text-center flex flex-col items-center justify-center shadow-xl border border-white/20 dark:border-white/5 hover:border-gold/30 transition-all duration-700 group relative overflow-hidden max-w-sm mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-maroon-dominant/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col items-center">
                 <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-5 ring-1 ring-gold/30 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-700 shadow-xl">
                   <Star className="w-7 h-7 text-gold fill-gold gold-glow" />
                 </div>
@@ -141,7 +141,7 @@ const CustomerReviews: React.FC = () => {
           <div className="lg:col-span-4 sticky top-32">
             <div className="bg-white dark:bg-luxury-dark-card/40 backdrop-blur-xl p-8 md:p-10 rounded-[32px] text-center lg:text-left flex flex-col items-center lg:items-start justify-center shadow-xl border border-white/20 dark:border-white/5 hover:border-gold/30 transition-all duration-700 group relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-maroon-dominant/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col items-center lg:items-start">
                 <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6 ring-1 ring-gold/30 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-700 shadow-xl">
                   <Star className="w-8 h-8 text-gold fill-gold gold-glow" />
                 </div>

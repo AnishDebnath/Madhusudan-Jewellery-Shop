@@ -110,17 +110,17 @@ const ShopByGender: React.FC<ShopByGenderProps> = ({ onNavigate }) => {
                 <img
                   src={item.image}
                   alt={`${item.label} for ${activeTab}`}
-                  className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
                   loading="lazy"
                 />
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon-dominant/40 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-700"></div>
+                <div className="absolute inset-0 bg-maroon-dominant/10 group-hover:bg-transparent transition-colors duration-700"></div>
 
                 {/* Hover Action Indicator */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 backdrop-blur-[1px] transition-all duration-700">
                   <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center transform scale-50 group-hover:scale-100 transition-transform duration-500">
-                    <ArrowRight className="text-white w-4 h-4" />
+                    <ArrowRight className="text-gold w-4 h-4" />
                   </div>
                 </div>
 
