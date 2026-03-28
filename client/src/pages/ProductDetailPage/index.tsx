@@ -50,11 +50,11 @@ const ProductDetailPage: React.FC<PDPProps> = ({
           </div>
         </div>
 
-        <div className="mt-32 pt-20 border-t border-luxury-bg-card dark:border-white/10">
-          <div className="flex items-center justify-between mb-12">
+        <div className="mt-24 pt-16 border-t border-luxury-bg-card dark:border-white/10">
+          <div className="flex items-center justify-between mb-8 md:mb-12">
             <div>
-              <span className="text-gold text-[10px] tracking-[0.4em] uppercase font-black mb-3 block gold-glow">Curated For You</span>
-              <h3 className="text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">You May Also <span className="italic text-gold">Adore</span></h3>
+              <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black mb-2 md:mb-3 block gold-glow">Curated For You</span>
+              <h3 className="text-2xl md:text-3xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight">You May Also <span className="italic text-gold">Adore</span></h3>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
