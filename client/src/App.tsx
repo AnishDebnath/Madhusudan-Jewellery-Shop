@@ -10,8 +10,6 @@ const ProductDetailPage = React.lazy(() => import('./pages/ProductDetailPage'));
 const CartPage = React.lazy(() => import('./pages/CartPage'));
 const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'));
 const WishlistPage = React.lazy(() => import('./pages/WishlistPage'));
-const About = React.lazy(() => import('./pages/About'));
-const Contact = React.lazy(() => import('./pages/Contact'));
 const StoreLocation = React.lazy(() => import('./components/ui/StoreLocation'));
 const LoginPage = React.lazy(() => import('./pages/LoginPage'));
 const SignUpPage = React.lazy(() => import('./pages/SignUpPage'));
@@ -169,7 +167,7 @@ const App: React.FC = () => {
         isMinimal={isAuthPage}
       />
 
-      <main className={isAuthPage ? "pt-[104px] md:pt-[120px]" : "pt-[128px] md:pt-[150px] xl:pt-[164px]"}>
+      <main className={isAuthPage ? "" : "pt-[128px] md:pt-[150px] xl:pt-[164px]"}>
         <React.Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={
@@ -212,8 +210,6 @@ const App: React.FC = () => {
             } />
 
             {/* Static Content Routes */}
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/store-locator" element={<StoreLocation />} />
             <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={(name) => { setIsLoggedIn(true); setUser({ firstName: name, lastName: '' }); handleNavigate('home'); }} />} />
             <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fName, lName) => { setIsLoggedIn(true); setUser({ firstName: fName, lastName: lName }); handleNavigate('home'); }} />} />
