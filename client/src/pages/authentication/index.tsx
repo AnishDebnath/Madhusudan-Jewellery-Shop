@@ -23,22 +23,43 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, onBack }) => {
     const col2 = [mod6, mod7, mod8, mod9, mod10, mod6, mod7, mod8, mod9, mod10, mod6, mod7, mod8, mod9, mod10];
 
     return (
-        <div className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] bg-luxury-bg-secondary dark:bg-luxury-dark-secondary">
-            {/* Left Side: Animated Marquee (Fixed in screen) */}
-            <div className="fixed top-[64px] md:top-[80px] left-0 w-[40%] sm:w-1/2 h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] overflow-hidden bg-luxury-bg-secondary dark:bg-luxury-dark-secondary border-r border-maroon-dominant/5 dark:border-white/5 z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 p-2 sm:p-4 h-full">
+        <div className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] bg-luxury-bg-secondary dark:bg-luxury-dark-secondary flex flex-col md:block">
+            {/* Left Side: Animated Marquee (Relative on mobile, Fixed on Tablet/Desktop) */}
+            <div className="relative md:fixed md:top-[80px] left-0 w-full md:w-1/2 h-[35vh] sm:h-[40vh] md:h-[calc(100vh-80px)] overflow-hidden bg-luxury-bg-secondary dark:bg-luxury-dark-secondary border-b md:border-b-0 md:border-r border-maroon-dominant/5 dark:border-white/5 z-10">
+                {/* Tablet/Desktop: Vertical Marquee Columns */}
+                <div className="hidden md:grid grid-cols-2 gap-4 p-4 h-full">
                     {/* Column 1: Up to Down */}
-                    <div className="flex flex-col gap-2 sm:gap-4 v-marquee-down h-fit shrink-0">
+                    <div className="flex flex-col gap-4 v-marquee-down h-fit shrink-0">
                         {col1.map((img, idx) => (
-                            <div key={idx} className="relative aspect-[4/5] rounded-xl sm:rounded-3xl overflow-hidden shadow-2xl">
+                            <div key={`d1-${idx}`} className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-lg">
                                 <img src={img} alt="" className="w-full h-full object-cover" />
                             </div>
                         ))}
                     </div>
-                    {/* Column 2: Down to Up - Visible on sm and above */}
-                    <div className="hidden sm:flex flex-col gap-4 v-marquee-up h-fit shrink-0">
+                    {/* Column 2: Down to Up */}
+                    <div className="flex flex-col gap-4 v-marquee-up h-fit shrink-0">
                         {col2.map((img, idx) => (
-                            <div key={idx} className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                            <div key={`d2-${idx}`} className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-lg">
+                                <img src={img} alt="" className="w-full h-full object-cover" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Mobile: Horizontal Marquee Rows */}
+                <div className="flex md:hidden flex-col gap-3 py-4 h-full justify-center">
+                    {/* Row 1: Left to Right */}
+                    <div className="flex flex-row gap-3 h-marquee-right w-fit shrink-0">
+                        {col1.map((img, idx) => (
+                            <div key={`m1-${idx}`} className="relative h-[14vh] sm:h-[16vh] aspect-[4/5] rounded-2xl overflow-hidden shadow-lg shrink-0">
+                                <img src={img} alt="" className="w-full h-full object-cover" />
+                            </div>
+                        ))}
+                    </div>
+                    {/* Row 2: Right to Left */}
+                    <div className="flex flex-row gap-3 h-marquee-left w-fit shrink-0">
+                        {col2.map((img, idx) => (
+                            <div key={`m2-${idx}`} className="relative h-[14vh] sm:h-[16vh] aspect-[4/5] rounded-2xl overflow-hidden shadow-lg shrink-0">
                                 <img src={img} alt="" className="w-full h-full object-cover" />
                             </div>
                         ))}
@@ -55,8 +76,8 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, onBack }) => {
                 </div>
             </div>
 
-            {/* Right Side: Form Container (Offset by fixed left side, scrolls with main page) */}
-            <div className="ml-[40%] sm:ml-[50%] w-[60%] sm:w-[50%] flex items-start justify-center p-4 sm:p-8 lg:p-12 relative min-h-screen">
+            {/* Right Side: Form Container (Normal flow on mobile, Offset on desktop/tablet) */}
+            <div className="w-full md:ml-[50%] md:w-[50%] flex items-center justify-center px-8 py-8 sm:px-12 sm:py-10 md:p-12 relative md:min-h-[calc(100vh-80px)]">
                 {/* Subtle Mesh Background for depth */}
                 <div className="absolute inset-0 z-0 opacity-40 dark:opacity-20 pointer-events-none overflow-hidden">
                     <div className="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] animate-pulse"></div>

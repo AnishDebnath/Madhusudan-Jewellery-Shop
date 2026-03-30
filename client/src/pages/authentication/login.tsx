@@ -46,12 +46,12 @@ const Login: React.FC<LoginProps> = ({ onNavigate, onLogin }) => {
         text-maroon-dominant dark:text-white placeholder:text-luxury-text-light/40 dark:placeholder:text-white/30 outline-none
     `;
 
-    const labelClass = 'text-[10px] uppercase tracking-[0.2em] text-maroon-dominant/80 dark:text-luxury-text-darkMuted font-bold ml-1 transition-colors block mb-2';
+    const labelClass = 'text-[10px] uppercase tracking-[0.2em] text-maroon-dominant/80 dark:text-luxury-text-darkMuted font-bold ml-1 transition-colors block mb-2 text-left';
     const errorTextClass = 'text-[10px] text-red-500 font-bold uppercase tracking-wider ml-1 mt-1.5 flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1';
 
     return (
         <AuthLayout onBack={() => onNavigate('home')}>
-            <div className="w-full max-w-[440px] py-12 lg:py-24 relative z-10 text-center sm:text-left">
+            <div className="w-full max-w-[440px] py-8 sm:py-12 md:py-16 relative z-10 text-center sm:text-left">
                 {/* Header: Elevated & More Premium */}
                 <div className="flex flex-col items-center mb-12 text-center">
                     <div className="relative group mb-6">
@@ -61,11 +61,11 @@ const Login: React.FC<LoginProps> = ({ onNavigate, onLogin }) => {
                             <Lock className="w-8 h-8 text-gold drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] group-hover:scale-110 transition-transform duration-500 relative z-10" />
                         </div>
                     </div>
-                    <h2 className="text-4xl font-serif text-maroon-dominant dark:text-white tracking-widest mb-3 leading-tight uppercase relative inline-block">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-maroon-dominant dark:text-white tracking-widest mb-3 leading-tight uppercase relative inline-block">
                         Welcome Back
                         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-gold/40 rounded-full"></span>
                     </h2>
-                    <p className="text-luxury-text-muted dark:text-luxury-text-darkMuted text-xs font-light tracking-[0.15em] mt-2 uppercase">
+                    <p className="text-luxury-text-muted dark:text-luxury-text-darkMuted text-[10px] sm:text-xs md:text-sm font-light tracking-[0.15em] mt-2 uppercase">
                         Log in to your premium account
                     </p>
                 </div>
@@ -159,7 +159,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate, onLogin }) => {
 
                 <div className="mt-14 text-center pt-10 border-t border-maroon-dominant/5 dark:border-white/5">
                     <p className="text-[11px] uppercase tracking-widest text-maroon-dominant/60 dark:text-white/60 font-medium">
-                        New to our collections?{' '}
+                        New to our collections?{' '}<br />
                         <button onClick={() => onNavigate('signup')} className="text-gold hover:text-gold/80 font-black ml-2 underline underline-offset-8 transition-all hover:decoration-gold/50">
                             Create Account
                         </button>
