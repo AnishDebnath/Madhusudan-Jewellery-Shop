@@ -1,28 +1,28 @@
 import React from 'react';
-import Hero from './Hero';
-import OffersSection from './OffersSection';
-import FeaturedSlider from './FeaturedSlider';
-import SignatureCollections from './SignatureCollections';
+import Hero from './hero';
+import OffersSection from './offers-section';
+import FeaturedSlider from './featured-slider';
+import SignatureCollections from './signature-collections';
 import { Product } from '../../types';
-import { LazySection } from '../../components/feature/LazySection';
+import { LazySection } from '../../components/feature/lazy-section';
 
 // Lazy-load sections to optimize performance
-const NewArrivals = React.lazy(() => import('./NewArrivals'));
-const TopSellers = React.lazy(() => import('./TopSellers'));
-const VideoCollectionSlider = React.lazy(() => import('./VideoCollectionSlider'));
-const ShopByBudget = React.lazy(() => import('./ShopByBudget'));
-const VivaahCollection = React.lazy(() => import('./VivaahCollection'));
-const NikahCollection = React.lazy(() => import('./NikahCollection'));
-const EarringCollection = React.lazy(() => import('./EarringCollection'));
-const GemstoneCollection = React.lazy(() => import('./GemstoneCollection'));
-const ShopByGender = React.lazy(() => import('./ShopByGender'));
-const SilverCollection = React.lazy(() => import('./SilverCollection'));
-const PerfectGift = React.lazy(() => import('./PerfectGift'));
-const GoldLoanSection = React.lazy(() => import('./GoldLoanSection'));
-const GoldExchangeSection = React.lazy(() => import('./GoldExchangeSection'));
-const TrustSection = React.lazy(() => import('./TrustSection'));
-const CustomerReviews = React.lazy(() => import('./CustomerReviews'));
-const StoreLocation = React.lazy(() => import('../../components/ui/StoreLocation'));
+const NewArrivals = React.lazy(() => import('./new-arrivals'));
+const TopSellers = React.lazy(() => import('./top-sellers'));
+const VideoCollectionSlider = React.lazy(() => import('./video-collection-slider'));
+const ShopByBudget = React.lazy(() => import('./shop-by-budget'));
+const VivaahCollection = React.lazy(() => import('./vivaah-collection'));
+const NikahCollection = React.lazy(() => import('./nikah-collection'));
+const EarringCollection = React.lazy(() => import('./earring-collection'));
+const GemstoneCollection = React.lazy(() => import('./gemstone-collection'));
+const ShopByGender = React.lazy(() => import('./shop-by-gender'));
+const SilverCollection = React.lazy(() => import('./silver-collection'));
+const PerfectGift = React.lazy(() => import('./perfect-gift'));
+const GoldLoanSection = React.lazy(() => import('./gold-loan-section'));
+const GoldExchangeSection = React.lazy(() => import('./gold-exchange-section'));
+const TrustSection = React.lazy(() => import('./trust-section'));
+const CustomerReviews = React.lazy(() => import('./customer-reviews'));
+const StoreLocation = React.lazy(() => import('../../components/ui/store-location'));
 
 interface HomeProps {
     onProductClick: (p: Product) => void;

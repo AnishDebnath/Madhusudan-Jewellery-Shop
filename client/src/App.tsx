@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate, useParams } from 'react-router-dom';
 import Header from './components/common/header';
 import Footer from './components/common/footer';
-import Concierge from './components/common/Navigation/Concierge';
+import Concierge from './components/common/navigation/concierge';
 
-const Home = React.lazy(() => import('./pages/Home'));
-const CategoryPage = React.lazy(() => import('./pages/CategoryPage'));
-const ProductDetailPage = React.lazy(() => import('./pages/ProductDetailPage'));
-const CartPage = React.lazy(() => import('./pages/CartPage'));
-const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'));
-const WishlistPage = React.lazy(() => import('./pages/WishlistPage'));
-const StoreLocation = React.lazy(() => import('./components/ui/StoreLocation'));
-const LoginPage = React.lazy(() => import('./pages/Auth/Login'));
-const SignUpPage = React.lazy(() => import('./pages/Auth/Signup'));
-const ForgotPasswordPage = React.lazy(() => import('./pages/Auth/ForgotPassword'));
-const ProfilePage = React.lazy(() => import('./pages/ProfilePage'));
-const OrdersPage = React.lazy(() => import('./pages/OrdersPage'));
+const Home = React.lazy(() => import('./pages/home'));
+const CategoryPage = React.lazy(() => import('./pages/category-page'));
+const ProductDetailPage = React.lazy(() => import('./pages/product-detail-page'));
+const CartPage = React.lazy(() => import('./pages/cart-page'));
+const CheckoutPage = React.lazy(() => import('./pages/checkout-page'));
+const WishlistPage = React.lazy(() => import('./pages/wishlist-page'));
+const StoreLocation = React.lazy(() => import('./components/ui/store-location'));
+const LoginPage = React.lazy(() => import('./pages/authentication/login'));
+const SignUpPage = React.lazy(() => import('./pages/authentication/signup'));
+const ForgotPasswordPage = React.lazy(() => import('./pages/authentication/forgot-password'));
+const ProfilePage = React.lazy(() => import('./pages/profile-page'));
+const OrdersPage = React.lazy(() => import('./pages/orders-page'));
 
 // Loading component for Suspense
 const PageLoader = () => (
@@ -212,12 +212,12 @@ const App: React.FC = () => {
             {/* Static Content Routes */}
             <Route path="/store-locator" element={<StoreLocation />} />
             <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={(name) => { setIsLoggedIn(true); setUser({ firstName: name, lastName: '' }); handleNavigate('home'); }} />} />
-            <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fullName) => { 
+            <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fullName) => {
               const [firstName, ...rest] = fullName.trim().split(/\s+/);
               const lastName = rest.join(' ') || '';
-              setIsLoggedIn(true); 
-              setUser({ firstName, lastName }); 
-              handleNavigate('home'); 
+              setIsLoggedIn(true);
+              setUser({ firstName, lastName });
+              handleNavigate('home');
             }} />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage onNavigate={handleNavigate} />} />
             <Route path="/profile" element={

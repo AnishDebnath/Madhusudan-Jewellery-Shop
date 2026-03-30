@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Play, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { PRODUCTS } from '../../data';
 import { Product } from '../../types';
-import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/ProductCarouselSection';
+import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/product-carousel-section';
 
 interface NewArrivalsProps {
   onProductClick: (p: Product) => void;
@@ -12,10 +12,10 @@ interface NewArrivalsProps {
   onAddToCart?: (p: Product) => void;
 }
 
-import reel1 from '../../assets/reels/Reel 1.webm';
-import reel2 from '../../assets/reels/Reel 2.webm';
-import reel3 from '../../assets/reels/Reel 3.webm';
-import reel4 from '../../assets/reels/Reel 4.webm';
+import reel1 from '../../assets/reels/reel-1.webm';
+import reel2 from '../../assets/reels/reel-2.webm';
+import reel3 from '../../assets/reels/reel-3.webm';
+import reel4 from '../../assets/reels/reel-4.webm';
 
 const VIDEO_HIGHLIGHTS = [
   {

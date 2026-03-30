@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import OrderTracker from './OrderTracker';
+import OrderTracker from './order-tracker';
 import { getStatusColor } from './data';
 
 interface OrderCardProps {

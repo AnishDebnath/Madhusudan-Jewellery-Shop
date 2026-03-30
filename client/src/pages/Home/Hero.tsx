@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
-import heritageVideo from '../../assets/Hero Banner.webm';
+import heritageVideo from '../../assets/hero-banner.webm';
 import heroPoster from '../../assets/models/models (2).jpg';
 
 interface HeroProps {

@@ -2,7 +2,7 @@ import React from 'react';
 import { ShoppingBag, Search, ArrowLeft } from 'lucide-react';
 import { PageView } from '../../types';
 import { MOCK_ORDERS } from './data';
-import OrderCard from './OrderCard';
+import OrderCard from './order-card';
 
 interface OrdersPageProps {
     onNavigate: (view: PageView) => void;

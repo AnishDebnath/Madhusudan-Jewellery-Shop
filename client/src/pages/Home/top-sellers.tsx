@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import { Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PRODUCTS } from '../../data';
 import { Product } from '../../types';
-import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/ProductCarouselSection';
+import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/product-carousel-section';
 
-interface SignatureCollectionsProps {
+interface TopSellersProps {
   onProductClick: (p: Product) => void;
   onToggleWishlist: (id: string) => void;
   wishlist: string[];
@@ -12,14 +12,14 @@ interface SignatureCollectionsProps {
   onAddToCart?: (p: Product) => void;
 }
 
-const SignatureCollections: React.FC<SignatureCollectionsProps> = ({
+const TopSellers: React.FC<TopSellersProps> = ({
   onProductClick,
   onToggleWishlist,
   wishlist,
   onNavigate,
   onAddToCart
 }) => {
-  const products = PRODUCTS.slice(0, 12);
+  const products = PRODUCTS.filter(p => p.isBestSeller);
   const carouselRef = useRef<ProductCarouselRef>(null);
 
   return (
@@ -30,11 +30,11 @@ const SignatureCollections: React.FC<SignatureCollectionsProps> = ({
             <div className="flex items-center gap-4 group justify-center md:justify-start">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold/40"></div>
               <span className="text-gold text-[9px] md:text-[10px] lg:text-[11px] tracking-[0.4em] uppercase font-black gold-glow flex items-center gap-2">
-                <Sparkles className="w-2.5 h-2.5" /> The Elite Selection
+                <Sparkles className="w-2.5 h-2.5" /> Handpicked for You
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-serif text-maroon-dominant dark:text-white uppercase tracking-tight text-center md:text-left">
-              Signature Collections
+              Top Sellers
             </h2>
           </div>
           <div className="hidden lg:flex gap-3">
@@ -62,6 +62,7 @@ const SignatureCollections: React.FC<SignatureCollectionsProps> = ({
         onToggleWishlist={onToggleWishlist}
         wishlist={wishlist}
         onNavigate={onNavigate}
+        showBestsellerBadge={true}
         onAddToCart={onAddToCart}
         sectionClassName="bg-transparent py-0 pb-14 overflow-visible"
       />
@@ -69,4 +70,4 @@ const SignatureCollections: React.FC<SignatureCollectionsProps> = ({
   );
 };
 
-export default SignatureCollections;
+export default TopSellers;

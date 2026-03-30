@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { PageView } from '../../../types';
-import LiveRateMarquee from './LiveRateMarquee';
-import Navbar from './Navbar';
-import NavCategory from './NavCategory';
-import SearchOverlay from './SearchOverlay';
-import MobileSidebar from './MobileSidebar';
+import LiveRateMarquee from './live-rate-marquee';
+import Navbar from './navbar';
+import NavCategory from './nav-category';
+import SearchOverlay from './search-overlay';
+import MobileSidebar from './mobile-sidebar';
 
 interface HeaderProps {
   cartCount: number;

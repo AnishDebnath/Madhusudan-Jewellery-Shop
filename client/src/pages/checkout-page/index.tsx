@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { CartItem } from '../../types';
-import CheckoutForm from './CheckoutForm';
-import OrderSummary from './OrderSummary';
+import CheckoutForm from './checkout-form';
+import OrderSummary from './order-summary';
 
 interface CheckoutPageProps {
   cart: CartItem[];

@@ -3,7 +3,7 @@ import { X, ChevronDown, User, ShoppingBag, Heart, LogOut } from 'lucide-react';
 import { PageView } from '../../../types';
 import logo from '../../../assets/logo.png';
 import { navCategories } from './data';
-import LiveRateMarquee from './LiveRateMarquee';
+import LiveRateMarquee from './live-rate-marquee';
 
 const MobileAccordionItem: React.FC<{
   cat: { name: string; items: string[]; featured: string };

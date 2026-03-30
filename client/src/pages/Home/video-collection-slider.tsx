@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Volume2, VolumeX, Maximize, Play, Sparkles } from 'lucide-react';
-import reel1 from '../../assets/reels/Reel 1.webm';
-import reel2 from '../../assets/reels/Reel 2.webm';
-import reel3 from '../../assets/reels/Reel 3.webm';
-import reel4 from '../../assets/reels/Reel 4.webm';
+import reel1 from '../../assets/reels/reel-1.webm';
+import reel2 from '../../assets/reels/reel-2.webm';
+import reel3 from '../../assets/reels/reel-3.webm';
+import reel4 from '../../assets/reels/reel-4.webm';
 import model5 from '../../assets/models/models (5).jpg';
 import model6 from '../../assets/models/models (6).jpg';
 import model7 from '../../assets/models/models (7).jpg';

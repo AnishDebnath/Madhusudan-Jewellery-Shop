@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
-import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/ProductCarouselSection';
+import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/product-carousel-section';
 import necklace12 from '../../assets/jewellery/necklace/nacklace (12).jpg';
 import necklace13 from '../../assets/jewellery/necklace/nacklace (13).jpg';
 import necklace14 from '../../assets/jewellery/necklace/nacklace (14).jpg';

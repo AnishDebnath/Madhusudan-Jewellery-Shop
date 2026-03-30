@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { PRODUCTS } from '../../data';
 import { Category, Product } from '../../types';
-import ProductCard from '../../components/product/ProductCard';
-import CategoryHero from './CategoryHero';
-import CategoryToolbar from './CategoryToolbar';
-import CategorySidebar from './CategorySidebar';
+import ProductCard from '../../components/product/product-card';
+import CategoryHero from './category-hero';
+import CategoryToolbar from './category-toolbar';
+import CategorySidebar from './category-sidebar';
 
 interface CategoryPageProps {
   category?: Category | string;

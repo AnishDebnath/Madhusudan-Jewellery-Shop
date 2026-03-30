@@ -1,9 +1,9 @@
 import React from 'react';
 import { ChevronLeft } from 'lucide-react';
 import { CartItem } from '../../types';
-import EmptyCart from './EmptyCart';
-import CartItemRow from './CartItemRow';
-import CartSummary from './CartSummary';
+import EmptyCart from './empty-cart';
+import CartItemRow from './cart-item-row';
+import CartSummary from './cart-summary';
 
 interface CartPageProps {
   cart: CartItem[];

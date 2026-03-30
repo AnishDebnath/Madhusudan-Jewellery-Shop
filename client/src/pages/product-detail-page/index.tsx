@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Product, Category } from '../../types';
 import { PRODUCTS } from '../../data';
-import ProductCard from '../../components/product/ProductCard';
-import ProductGallery from './ProductGallery';
-import ProductInfo from './ProductInfo';
-import ProductTabs from './ProductTabs';
+import ProductCard from '../../components/product/product-card';
+import ProductGallery from './product-gallery';
+import ProductInfo from './product-info';
+import ProductTabs from './product-tabs';
 
 interface PDPProps {
   product?: Product;

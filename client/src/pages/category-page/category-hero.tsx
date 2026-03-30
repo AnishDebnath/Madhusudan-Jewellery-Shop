@@ -1,5 +1,5 @@
 import React from 'react';
-import heritageVideo from '../../assets/Hero Banner.webm';
+import heritageVideo from '../../assets/hero-banner.webm';
 import heroPoster from '../../assets/models/models (2).jpg';
 
 interface CategoryHeroProps {

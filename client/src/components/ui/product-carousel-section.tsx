@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { Product } from '../../types';
-import ProductCard from '../product/ProductCard';
+import ProductCard from '../product/product-card';
 
 interface ProductCarouselSectionProps {
   products: Product[];

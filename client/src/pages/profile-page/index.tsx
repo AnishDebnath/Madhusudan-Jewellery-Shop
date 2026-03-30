@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Camera, ChevronRight, LogOut, User as UserIcon } from 'lucide-react';
 import { Product, CartItem, PageView } from '../../types';
 import { MOCK_ORDERS, NAV_TABS } from './data';
-import ProfileTab from './ProfileTab';
-import OrdersTab from './OrdersTab';
-import WishlistTab from './WishlistTab';
-import CartTab from './CartTab';
+import ProfileTab from './profile-tab';
+import OrdersTab from './orders-tab';
+import WishlistTab from './wishlist-tab';
+import CartTab from './cart-tab';
 
 interface ProfilePageProps {
     user: {

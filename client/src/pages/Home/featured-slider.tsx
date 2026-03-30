@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { PRODUCTS } from '../../data';
 import { Product } from '../../types';
-import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/ProductCarouselSection';
+import ProductCarouselSection, { ProductCarouselRef } from '../../components/ui/product-carousel-section';
 
 interface FeaturedSliderProps {
   onProductClick: (p: Product) => void;
