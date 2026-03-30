@@ -11,9 +11,9 @@ const CartPage = React.lazy(() => import('./pages/CartPage'));
 const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'));
 const WishlistPage = React.lazy(() => import('./pages/WishlistPage'));
 const StoreLocation = React.lazy(() => import('./components/ui/StoreLocation'));
-const LoginPage = React.lazy(() => import('./pages/LoginPage'));
-const SignUpPage = React.lazy(() => import('./pages/SignUpPage'));
-const ForgotPasswordPage = React.lazy(() => import('./pages/ForgotPasswordPage'));
+const LoginPage = React.lazy(() => import('./pages/Auth/Login'));
+const SignUpPage = React.lazy(() => import('./pages/Auth/Signup'));
+const ForgotPasswordPage = React.lazy(() => import('./pages/Auth/ForgotPassword'));
 const ProfilePage = React.lazy(() => import('./pages/ProfilePage'));
 const OrdersPage = React.lazy(() => import('./pages/OrdersPage'));
 
@@ -167,7 +167,7 @@ const App: React.FC = () => {
         isMinimal={isAuthPage}
       />
 
-      <main className={isAuthPage ? "" : "pt-[128px] md:pt-[150px] xl:pt-[164px]"}>
+      <main className={isAuthPage ? "pt-[64px] md:pt-[80px]" : "pt-[128px] md:pt-[150px] xl:pt-[164px]"}>
         <React.Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={
@@ -212,7 +212,13 @@ const App: React.FC = () => {
             {/* Static Content Routes */}
             <Route path="/store-locator" element={<StoreLocation />} />
             <Route path="/login" element={<LoginPage onNavigate={handleNavigate} onLogin={(name) => { setIsLoggedIn(true); setUser({ firstName: name, lastName: '' }); handleNavigate('home'); }} />} />
-            <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fName, lName) => { setIsLoggedIn(true); setUser({ firstName: fName, lastName: lName }); handleNavigate('home'); }} />} />
+            <Route path="/signup" element={<SignUpPage onNavigate={handleNavigate} onSignUp={(fullName) => { 
+              const [firstName, ...rest] = fullName.trim().split(/\s+/);
+              const lastName = rest.join(' ') || '';
+              setIsLoggedIn(true); 
+              setUser({ firstName, lastName }); 
+              handleNavigate('home'); 
+            }} />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage onNavigate={handleNavigate} />} />
             <Route path="/profile" element={
               <ProfilePage

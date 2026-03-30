@@ -141,6 +141,27 @@
     will-change: transform, opacity;
   }
 
+  /* Vertical Marquee Animations */
+  @keyframes marquee-up-v {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-33.33%); }
+  }
+
+  @keyframes marquee-down-v {
+    0% { transform: translateY(-33.33%); }
+    100% { transform: translateY(0); }
+  }
+
+  .v-marquee-up {
+    animation: marquee-up-v 25s linear infinite;
+    will-change: transform;
+  }
+
+  .v-marquee-down {
+    animation: marquee-down-v 25s linear infinite;
+    will-change: transform;
+  }
+
   /* Custom Animations */
   @keyframes fade-in {
     from { opacity: 0; }
@@ -176,5 +197,20 @@
   .group:hover .group-hover\:scale-110,
   .group:hover .group-hover\:scale-105 {
     transform: scale(1.1) translateZ(0);
+  }
+
+  /* Custom Scrollbar for Luxury UI */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gold/20 rounded-full;
+    transition: background 0.3s ease;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold/40;
   }
 }

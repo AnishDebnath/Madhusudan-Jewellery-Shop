@@ -42,6 +42,20 @@ export default {
           }
         }
       },
+      keyframes: {
+        marqueeUp: {
+          '0%': { transform: 'translateY(0%)' },
+          '100%': { transform: 'translateY(-50%)' }
+        },
+        marqueeDown: {
+          '0%': { transform: 'translateY(-50%)' },
+          '100%': { transform: 'translateY(0%)' }
+        }
+      },
+      animation: {
+        'marquee-up': 'marqueeUp 30s linear infinite',
+        'marquee-down': 'marqueeDown 30s linear infinite'
+      },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],
         sans: ['Inter', 'sans-serif'],
