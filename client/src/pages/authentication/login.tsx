@@ -53,7 +53,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate, onLogin }) => {
         <AuthLayout onBack={() => onNavigate('home')}>
             <div className="w-full max-w-[440px] py-8 sm:py-12 md:py-16 relative z-10 text-center sm:text-left">
                 {/* Header: Elevated & More Premium */}
-                <div className="flex flex-col items-center mb-12 text-center">
+                <div className="flex flex-col items-center mb-10 text-center">
                     <div className="relative group mb-6">
                         <div className="absolute inset-0 bg-gold/30 rounded-full blur-2xl group-hover:bg-gold/40 transition-all duration-700 animate-pulse"></div>
                         <div className="relative w-20 h-20 bg-white dark:bg-black/40 backdrop-blur-xl rounded-full flex items-center justify-center border border-gold/20 shadow-2xl overflow-hidden">
@@ -70,7 +70,29 @@ const Login: React.FC<LoginProps> = ({ onNavigate, onLogin }) => {
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-8">
+                {/* View Toggle Switch */}
+                <div className="flex justify-center mb-8">
+                    <div className="bg-white/50 dark:bg-black/30 backdrop-blur-md p-1.5 rounded-full flex relative w-full max-w-[260px] shadow-sm border border-maroon-dominant/10 dark:border-white/10">
+                        {/* Indicator - Login (Left) */}
+                        <div className="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-maroon-dominant dark:bg-gold rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-500 ease-out pointer-events-none" />
+                        
+                        <button 
+                            type="button"
+                            className="flex-1 py-2 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-white dark:text-maroon-dominant relative z-10 transition-all duration-500"
+                        >
+                            Log In
+                        </button>
+                        <button 
+                            type="button"
+                            onClick={() => onNavigate('signup')}
+                            className="flex-1 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-maroon-dominant/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-white relative z-10 transition-all duration-500 cursor-pointer"
+                        >
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Identifier Field: Enhanced focus state */}
                     <div className="group relative">
                         <label className={labelClass}>Email or Phone No.</label>
