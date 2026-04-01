@@ -6,7 +6,7 @@ import Concierge from './components/common/navigation/concierge';
 
 const Home = React.lazy(() => import('./pages/home'));
 const CategoryPage = React.lazy(() => import('./pages/category-page'));
-const ProductDetailPage = React.lazy(() => import('./pages/product-detail-page'));
+const ProductDetailPage = React.lazy(() => import('./pages/product'));
 const CartPage = React.lazy(() => import('./pages/cart-page'));
 const CheckoutPage = React.lazy(() => import('./pages/checkout-page'));
 const WishlistPage = React.lazy(() => import('./pages/wishlist-page'));

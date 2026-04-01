@@ -19,21 +19,29 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
 }) => {
   return (
     <div className="bg-luxury-bg-secondary dark:bg-luxury-dark-card/50 rounded-3xl p-8 mb-10 border border-transparent dark:border-white/5 backdrop-blur-sm">
-      <div className="flex gap-8 mb-8 border-b border-luxury-bg-card dark:border-white/10">
-        <button
-          onClick={() => setActiveTab('specs')}
-          className={`pb-4 text-xs font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'specs' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-gold'}`}
-        >
-          Product Specification
-          {activeTab === 'specs' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold animate-in slide-in-from-left duration-300"></div>}
-        </button>
-        <button
-          onClick={() => setActiveTab('price')}
-          className={`pb-4 text-xs font-black uppercase tracking-[0.2em] transition-all relative ${activeTab === 'price' ? 'text-maroon-dominant dark:text-gold' : 'text-luxury-text-light/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-gold'}`}
-        >
-          Price Breakdown
-          {activeTab === 'price' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold animate-in slide-in-from-left duration-300"></div>}
-        </button>
+      {/* Pill Toggle Switch — matches Login/Signup style */}
+      <div className="flex justify-start mb-8">
+        <div className="bg-white/50 dark:bg-black/30 backdrop-blur-md p-1.5 rounded-full flex relative max-w-[380px] w-full shadow-sm border border-maroon-dominant/10 dark:border-white/10">
+          {/* Sliding pill indicator */}
+          <div
+            className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-maroon-dominant dark:bg-gold rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-500 ease-out pointer-events-none"
+            style={{ left: activeTab === 'specs' ? '6px' : 'calc(50%)' }}
+          />
+          <button
+            type="button"
+            onClick={() => setActiveTab('specs')}
+            className={`flex-1 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] relative z-10 transition-all duration-500 ${activeTab === 'specs' ? 'text-white dark:text-maroon-dominant' : 'text-maroon-dominant/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-white'}`}
+          >
+            Specification
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('price')}
+            className={`flex-1 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] relative z-10 transition-all duration-500 ${activeTab === 'price' ? 'text-white dark:text-maroon-dominant' : 'text-maroon-dominant/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-white'}`}
+          >
+            Price Breakdown
+          </button>
+        </div>
       </div>
 
       {activeTab === 'specs' ? (

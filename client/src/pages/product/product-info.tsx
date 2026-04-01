@@ -11,7 +11,13 @@ interface ProductInfoProps {
 const ProductInfo: React.FC<ProductInfoProps> = ({ product, onAddToCart, onNavigate }) => (
   <div className="mb-8 pb-8 border-b border-luxury-bg-card dark:border-white/10">
     <span className="text-gold text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-black mb-3 md:mb-4 block gold-glow">The {product.category} Collection</span>
-    <h1 className="text-2xl md:text-4xl xl:text-5xl font-serif text-maroon-dominant dark:text-white mb-4 md:mb-6 leading-tight uppercase tracking-tight">{product.name}</h1>
+    <h1 className="text-[22px] md:text-[28px] lg:text-[36px] font-serif text-maroon-dominant dark:text-white mb-2 md:mb-3 leading-tight uppercase tracking-tight">{product.name}</h1>
+    {product.productCode && (
+      <span className="inline-flex items-center gap-2 mb-4 md:mb-6">
+        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-luxury-text-light/40 dark:text-white/30">Product Code:</span>
+        <span className="text-[9px] uppercase tracking-[0.25em] font-black text-maroon-dominant/60 dark:text-white/50 bg-luxury-bg-card dark:bg-white/5 px-3 py-1 rounded-full border border-luxury-bg-card dark:border-white/10">{product.productCode}</span>
+      </span>
+    )}
 
     <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-6 md:mb-8">
       <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
@@ -44,7 +50,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product, onAddToCart, onNavig
           onClick={() => onAddToCart(product)}
           className="flex-[1.5] bg-maroon-dominant text-white py-4 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-xl active:scale-95 group relative overflow-hidden"
         >
-          <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">Add to Bag</span>
+          <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">Add to Cart</span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
         </button>
       </div>

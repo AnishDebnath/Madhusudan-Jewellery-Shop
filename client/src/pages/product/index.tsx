@@ -5,7 +5,7 @@ import { PRODUCTS } from '../../data';
 import ProductCard from '../../components/product/product-card';
 import ProductGallery from './product-gallery';
 import ProductInfo from './product-info';
-import ProductTabs from './product-tabs';
+import ProductTabs from './product-details';
 
 interface PDPProps {
   product?: Product;
@@ -30,14 +30,14 @@ const ProductDetailPage: React.FC<PDPProps> = ({
   };
 
   return (
-    <div className="bg-luxury-bg-primary dark:bg-luxury-dark-primary min-h-screen pb-24 text-luxury-text-light dark:text-luxury-text-dark transition-colors animate-in fade-in duration-500">
-      <div className="container mx-auto px-6 py-4 border-b border-luxury-bg-card dark:border-white/10 mb-8 sticky top-[110px] lg:top-[140px] z-20 bg-luxury-bg-primary/95 dark:bg-luxury-dark-primary/95 backdrop-blur-md">
-        <div className="flex items-center gap-2 text-[10px] font-black text-luxury-text-light/50 dark:text-luxury-text-darkMuted uppercase tracking-widest">
-          <button onClick={() => onNavigateToCategory('All')} className="hover:text-gold">Home</button>
-          <ChevronRight className="w-3 h-3" />
-          <button onClick={() => onNavigateToCategory(product.category)} className="hover:text-gold">{product.category}</button>
-          <ChevronRight className="w-3 h-3" />
-          <span className="text-maroon-dominant dark:text-white">{product.name}</span>
+    <div className="bg-luxury-bg-primary dark:bg-luxury-dark-secondary min-h-screen pt-6 md:pt-10 pb-24 text-luxury-text-light dark:text-luxury-text-dark transition-colors animate-in fade-in duration-500">
+      <div className="container mx-auto px-12 py-4 border-b border-luxury-bg-card dark:border-white/10 mb-8 sticky top-[110px] lg:top-[140px] z-20 bg-luxury-bg-primary/95 dark:bg-luxury-dark-secondary/95 backdrop-blur-md">
+        <div className="flex items-center gap-2 text-[10px] font-black text-luxury-text-light/50 dark:text-luxury-text-darkMuted uppercase tracking-widest min-w-0">
+          <button onClick={() => onNavigateToCategory('All')} className="hover:text-gold shrink-0">Home</button>
+          <ChevronRight className="w-3 h-3 shrink-0" />
+          <button onClick={() => onNavigateToCategory(product.category)} className="hover:text-gold shrink-0">{product.category}</button>
+          <ChevronRight className="w-3 h-3 shrink-0" />
+          <span className="text-maroon-dominant dark:text-white truncate min-w-0">{product.name}</span>
         </div>
       </div>
 
