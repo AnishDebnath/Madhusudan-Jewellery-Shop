@@ -61,34 +61,34 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
               <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gross Weight</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.grossWeight || product.weight || '6.81'} (Approx.)</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.grossWeight || product.weight || 'N/A'} g</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Weight</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldWeight || product.weight || '6.81'} (Approx.)</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldWeight || product.weight || 'N/A'} g</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Base Metal</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.baseMetal || 'Gold'}</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.baseMetal || 'N/A'}</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Purity</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldPurity || product.karat || '22K'}</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldPurity || product.karat || 'N/A'}</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Color</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldColor || 'Yellow'}</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldColor || 'N/A'}</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Metal Stamp</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.metalStamp || 'BIS'}</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.metalStamp || 'N/A'}</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Diamond Details Accordion (Conditional) */}
-          {(product.diamondCarat || product.category === 'Diamond') && (
+          {(product.diamondCarat || product.diamondWeight || product.diamondCount) && (
             <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('diamond') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
               <button
                 onClick={() => toggleAccordion('diamond')}
@@ -103,15 +103,52 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
                 <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
                   <div className="flex flex-col gap-1">
                     <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Weight</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondCarat || '0.8ct'}</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondWeight || product.diamondCarat || 'N/A'} carat</span>
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Quality</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">VS-SI / G-H</span>
+                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Clarity</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondClarity || 'N/A'}</span>
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Setting Type</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">Prong / Pave</span>
+                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Color</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondColor || 'N/A'}</span>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">No of Diamonds</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondCount || 'N/A'}</span>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Shape</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondShape || 'N/A'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Stone Details Accordion (Conditional) */}
+          {product.stoneName && (
+            <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('stone') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+              <button
+                onClick={() => toggleAccordion('stone')}
+                className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+              >
+                <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('stone') ? 'text-gold' : 'group-hover:text-gold'}`}>
+                  {(product.diamondCarat || product.diamondWeight || product.diamondCount) ? '3. Stone Details' : '2. Stone Details'}
+                </span>
+                <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('stone') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
+                  <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                </div>
+              </button>
+              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('stone') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Stone Name</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.stoneName || 'N/A'}</span>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">No of Stones</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.stoneCount || 'N/A'}</span>
                   </div>
                 </div>
               </div>
@@ -125,7 +162,12 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
               className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
             >
               <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('more') ? 'text-gold' : 'group-hover:text-gold'}`}>
-                {(product.diamondCarat || product.category === 'Diamond') ? '3. More Info' : '2. More Info'}
+                {(() => {
+                  let count = 2;
+                  if (product.diamondCarat || product.diamondWeight || product.diamondCount) count++;
+                  if (product.stoneName) count++;
+                  return `${count}. More Info`;
+                })()}
               </span>
               <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('more') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
                 <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
@@ -135,19 +177,19 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
               <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Size</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.sizes?.join(', ') || '15, 16, 17, 18, 19, 20'} No</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.sizes?.join(', ') || 'N/A'}</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Resizeable</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.resizeable ? 'Yes' : 'No'}</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.resizeable || 'N/A'}</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Warranty</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.warranty ? 'Yes' : 'No'}</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.warranty || 'N/A'}</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Jewellery for</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.jewelleryFor || 'Female'}</span>
+                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.jewelleryFor || 'N/A'}</span>
                 </div>
               </div>
             </div>
@@ -160,7 +202,12 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
               className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
             >
               <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('details') ? 'text-gold' : 'group-hover:text-gold'}`}>
-                {(product.diamondCarat || product.category === 'Diamond') ? '4. Product Details' : '3. Product Details'}
+                {(() => {
+                  let count = 3;
+                  if (product.diamondCarat || product.diamondWeight || product.diamondCount) count++;
+                  if (product.stoneName) count++;
+                  return `${count}. Product Details`;
+                })()}
               </span>
               <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('details') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
                 <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />

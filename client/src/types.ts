@@ -32,6 +32,13 @@ export interface Product {
   goldColor?: string;
   warranty?: boolean;
   jewelleryFor?: string;
+  diamondClarity?: string;
+  diamondColor?: string;
+  diamondWeight?: string;
+  diamondCount?: number;
+  diamondShape?: string;
+  stoneName?: string;
+  stoneCount?: number;
   productCode?: string;
   designCode?: string;
 }

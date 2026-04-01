@@ -1,6 +1,6 @@
 import React from 'react';
 import { Product } from '../../types';
-import { Heart, ShieldCheck, Star } from 'lucide-react';
+import { Heart, ShieldCheck, Star, ShoppingBag } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -117,8 +117,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {onAddToCart && (
           <button
             onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
-            className="w-full mt-4 bg-maroon-dominant text-white py-2 md:py-3 rounded-full text-xs md:text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95"
+            className="w-full mt-4 bg-maroon-dominant text-white py-2 md:py-3 rounded-full text-xs md:text-[10px] font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 group"
           >
+            <ShoppingBag className="w-3 h-3 md:w-3.5 md:h-3.5 transition-transform group-hover:scale-110" />
             Add to Bag
           </button>
         )}

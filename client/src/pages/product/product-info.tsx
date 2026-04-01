@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, Zap, ShoppingBag } from 'lucide-react';
 import { Product } from '../../types';
 
 interface ProductInfoProps {
@@ -43,14 +43,20 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product, onAddToCart, onNavig
           onClick={() => { onAddToCart(product); onNavigate('checkout'); }}
           className="flex-1 bg-gradient-to-r from-gold-light via-gold to-gold-dark text-maroon-dominant py-4 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.2em] hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] transition-all shadow-xl active:scale-95 group relative overflow-hidden border-none"
         >
-          <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">Buy Now</span>
+          <span className="relative z-10 flex items-center justify-center gap-2 group-hover:tracking-[0.3em] transition-all duration-300">
+            <Zap className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" />
+            Buy Now
+          </span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
         </button>
         <button
           onClick={() => onAddToCart(product)}
           className="flex-[1.5] bg-maroon-dominant text-white py-4 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.2em] hover:bg-gold hover:text-maroon-dominant transition-all shadow-xl active:scale-95 group relative overflow-hidden"
         >
-          <span className="relative z-10 group-hover:tracking-[0.3em] transition-all duration-300">Add to Cart</span>
+          <span className="relative z-10 flex items-center justify-center gap-2 group-hover:tracking-[0.3em] transition-all duration-300">
+            <ShoppingBag className="w-3 h-3 md:w-3.5 md:h-3.5" />
+            Add to Cart
+          </span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
         </button>
       </div>
