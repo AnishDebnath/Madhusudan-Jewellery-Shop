@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, CircleDollarSign, Hammer, Percent, Scale, Info, ShieldCheck, Gem, Sparkles, User, FileText, Barcode, Ruler, Calculator } from 'lucide-react';
 import { Product } from '../../types';
 
 interface ProductTabsProps {
@@ -45,198 +45,222 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
       </div>
 
       {activeTab === 'specs' ? (
-        <div className="animate-in fade-in slide-in-from-bottom-2 duration-500 flex flex-col gap-4">
+        <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 flex flex-col gap-3">
           {/* Metal Details Accordion */}
-          <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('metal') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+          <div className={`border rounded-2xl overflow-hidden transition-all duration-500 ${openAccordions.includes('metal') ? 'border-gold/30 bg-gold/[0.02] shadow-[0_10px_30px_rgba(212,175,55,0.08)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
             <button
               onClick={() => toggleAccordion('metal')}
-              className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+              className="w-full px-5 py-3.5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
             >
-              <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('metal') ? 'text-gold' : 'group-hover:text-gold'}`}>1. Metal Details</span>
+              <div className="flex items-center gap-4">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${openAccordions.includes('metal') ? 'bg-gold text-maroon-dominant rotate-[360deg]' : 'bg-gold/10 text-gold group-hover:scale-110'}`}>
+                  <Scale className="w-4 h-4" />
+                </div>
+                <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('metal') ? 'text-gold' : 'group-hover:text-gold'}`}>1. Metal Details</span>
+              </div>
               <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('metal') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
-                <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                <ChevronDown className="w-3.5 h-3.5" />
               </div>
             </button>
-            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('metal') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-              <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gross Weight</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.grossWeight || product.weight || 'N/A'} g</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Weight</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldWeight || product.weight || 'N/A'} g</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Base Metal</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.baseMetal || 'N/A'}</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Purity</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldPurity || product.karat || 'N/A'}</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Gold Color</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.goldColor || 'N/A'}</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Metal Stamp</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.metalStamp || 'N/A'}</span>
-                </div>
+            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('metal') ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+              <div className="px-5 pb-5 grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-3 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
+                {[
+                  { label: 'Gross Weight', value: `${product.grossWeight || product.weight || 'N/A'} g`, icon: Scale },
+                  { label: 'Gold Weight', value: `${product.goldWeight || product.weight || 'N/A'} g`, icon: ShieldCheck },
+                  { label: 'Base Metal', value: product.baseMetal || 'N/A' },
+                  { label: 'Gold Purity', value: product.goldPurity || product.karat || 'N/A', highlight: true },
+                  { label: 'Gold Color', value: product.goldColor || 'N/A' },
+                  { label: 'Metal Stamp', value: product.metalStamp || 'N/A' },
+                ].map((item, idx) => (
+                  <div key={idx} className={`flex flex-col gap-0.5 p-2 rounded-xl transition-colors ${item.highlight ? 'bg-gold/5 border border-gold/10' : 'hover:bg-luxury-bg-secondary dark:hover:bg-white/5'}`}>
+                    <span className="text-[8px] md:text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">{item.label}</span>
+                    <span className={`text-sm md:text-base font-serif ${item.highlight ? 'text-gold' : 'text-maroon-dominant dark:text-white'}`}>{item.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Diamond Details Accordion (Conditional) */}
           {(product.diamondCarat || product.diamondWeight || product.diamondCount) && (
-            <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('diamond') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+            <div className={`border rounded-2xl overflow-hidden transition-all duration-500 ${openAccordions.includes('diamond') ? 'border-gold/30 bg-gold/[0.02] shadow-[0_10px_30px_rgba(212,175,55,0.08)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
               <button
                 onClick={() => toggleAccordion('diamond')}
-                className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+                className="w-full px-5 py-3.5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
               >
-                <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('diamond') ? 'text-gold' : 'group-hover:text-gold'}`}>2. Diamond Details</span>
+                <div className="flex items-center gap-4">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${openAccordions.includes('diamond') ? 'bg-gold text-maroon-dominant rotate-[360deg]' : 'bg-gold/10 text-gold group-hover:scale-110'}`}>
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('diamond') ? 'text-gold' : 'group-hover:text-gold'}`}>2. Diamond Details</span>
+                </div>
                 <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('diamond') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
-                  <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                  <ChevronDown className="w-3.5 h-3.5" />
                 </div>
               </button>
-              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('diamond') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Weight</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondWeight || product.diamondCarat || 'N/A'} carat</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Clarity</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondClarity || 'N/A'}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Color</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondColor || 'N/A'}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">No of Diamonds</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondCount || 'N/A'}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond Shape</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.diamondShape || 'N/A'}</span>
-                  </div>
+              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('diamond') ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-5 pb-5 grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-3 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
+                  {[
+                    { label: 'Weight', value: `${product.diamondWeight || product.diamondCarat || 'N/A'} carat`, highlight: true },
+                    { label: 'Clarity', value: product.diamondClarity || 'N/A' },
+                    { label: 'Color', value: product.diamondColor || 'N/A' },
+                    { label: 'No. of Diamonds', value: product.diamondCount || 'N/A' },
+                    { label: 'Shape', value: product.diamondShape || 'N/A' },
+                  ].map((item, idx) => (
+                    <div key={idx} className={`flex flex-col gap-0.5 p-2 rounded-xl transition-colors ${item.highlight ? 'bg-gold/5 border border-gold/10' : 'hover:bg-luxury-bg-secondary dark:hover:bg-white/5'}`}>
+                      <span className="text-[8px] md:text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Diamond {item.label}</span>
+                      <span className={`text-sm md:text-base font-serif ${item.highlight ? 'text-gold' : 'text-maroon-dominant dark:text-white'}`}>{item.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           )}
 
           {/* Stone Details Accordion (Conditional) */}
-          {product.stoneName && (
-            <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('stone') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+          {(product.stoneName || product.stoneCount) && (
+            <div className={`border rounded-2xl overflow-hidden transition-all duration-500 ${openAccordions.includes('stone') ? 'border-gold/30 bg-gold/[0.02] shadow-[0_10px_30px_rgba(212,175,55,0.08)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
               <button
                 onClick={() => toggleAccordion('stone')}
-                className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+                className="w-full px-5 py-3.5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
               >
-                <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('stone') ? 'text-gold' : 'group-hover:text-gold'}`}>
-                  {(product.diamondCarat || product.diamondWeight || product.diamondCount) ? '3. Stone Details' : '2. Stone Details'}
-                </span>
+                <div className="flex items-center gap-4">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${openAccordions.includes('stone') ? 'bg-gold text-maroon-dominant rotate-[360deg]' : 'bg-gold/10 text-gold group-hover:scale-110'}`}>
+                    <Gem className="w-4 h-4" />
+                  </div>
+                  <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('stone') ? 'text-gold' : 'group-hover:text-gold'}`}>
+                    {(product.diamondCarat || product.diamondWeight || product.diamondCount) ? '3. Stone Details' : '2. Stone Details'}
+                  </span>
+                </div>
                 <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('stone') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
-                  <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                  <ChevronDown className="w-3.5 h-3.5" />
                 </div>
               </button>
-              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('stone') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Stone Name</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.stoneName || 'N/A'}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">No of Stones</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.stoneCount || 'N/A'}</span>
-                  </div>
+              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('stone') ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-5 pb-5 grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-3 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
+                  {[
+                    { label: 'Stone Name', value: product.stoneName || 'N/A', highlight: true },
+                    { label: 'No. of Stones', value: product.stoneCount || 'N/A' },
+                  ].map((item, idx) => (
+                    <div key={idx} className={`flex flex-col gap-0.5 p-2 rounded-xl transition-colors ${item.highlight ? 'bg-gold/5 border border-gold/10' : 'hover:bg-luxury-bg-secondary dark:hover:bg-white/5'}`}>
+                      <span className="text-[8px] md:text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">{item.label}</span>
+                      <span className={`text-sm md:text-base font-serif ${item.highlight ? 'text-gold' : 'text-maroon-dominant dark:text-white'}`}>{item.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           )}
 
           {/* More Info Accordion */}
-          <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('more') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+          <div className={`border rounded-2xl overflow-hidden transition-all duration-500 ${openAccordions.includes('more') ? 'border-gold/30 bg-gold/[0.02] shadow-[0_10px_30px_rgba(212,175,55,0.08)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
             <button
               onClick={() => toggleAccordion('more')}
-              className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+              className="w-full px-5 py-3.5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
             >
-              <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('more') ? 'text-gold' : 'group-hover:text-gold'}`}>
-                {(() => {
-                  let count = 2;
-                  if (product.diamondCarat || product.diamondWeight || product.diamondCount) count++;
-                  if (product.stoneName) count++;
-                  return `${count}. More Info`;
-                })()}
-              </span>
+              <div className="flex items-center gap-4">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${openAccordions.includes('more') ? 'bg-gold text-maroon-dominant rotate-[360deg]' : 'bg-gold/10 text-gold group-hover:scale-110'}`}>
+                  <User className="w-3.5 h-3.5" />
+                </div>
+                <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('more') ? 'text-gold' : 'group-hover:text-gold'}`}>
+                  {(() => {
+                    let count = 2;
+                    if (product.diamondCarat || product.diamondWeight || product.diamondCount) count++;
+                    if (product.stoneName || product.stoneCount) count++;
+                    return `${count}. More Info`;
+                  })()}
+                </span>
+              </div>
               <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('more') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
-                <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                <ChevronDown className="w-3.5 h-3.5" />
               </div>
             </button>
-            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('more') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-              <div className="px-5 md:px-6 pb-6 md:pt-2 grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Size</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.sizes?.join(', ') || 'N/A'}</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Resizeable</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.resizeable || 'N/A'}</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Warranty</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.warranty || 'N/A'}</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Jewellery for</span>
-                  <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white">{product.jewelleryFor || 'N/A'}</span>
-                </div>
+            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('more') ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+              <div className="px-5 pb-5 grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-3 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
+                {[
+                  { label: 'Size', value: product.sizes?.join(', ') || 'N/A', icon: Ruler },
+                  { label: 'Resizeable', value: product.resizeable ? 'Yes' : 'No' },
+                  { label: 'Warranty', value: product.warranty ? '1 Year Official' : '6 Months' },
+                  { label: 'Jewellery for', value: product.jewelleryFor || 'N/A' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex flex-col gap-0.5 p-2 rounded-xl hover:bg-luxury-bg-secondary dark:hover:bg-white/5 transition-colors">
+                    <span className="text-[8px] md:text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">{item.label}</span>
+                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white capitalize">{item.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Product Details Accordion */}
-          <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openAccordions.includes('details') ? 'border-gold/30 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.05)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
+          <div className={`border rounded-2xl overflow-hidden transition-all duration-500 ${openAccordions.includes('details') ? 'border-gold/30 bg-gold/[0.02] shadow-[0_10px_30px_rgba(212,175,55,0.08)]' : 'border-luxury-bg-card dark:border-white/10 hover:border-gold/20'}`}>
             <button
               onClick={() => toggleAccordion('details')}
-              className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
+              className="w-full px-5 py-3.5 flex items-center justify-between text-maroon-dominant dark:text-white transition-colors group"
             >
-              <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('details') ? 'text-gold' : 'group-hover:text-gold'}`}>
-                {(() => {
-                  let count = 3;
-                  if (product.diamondCarat || product.diamondWeight || product.diamondCount) count++;
-                  if (product.stoneName) count++;
-                  return `${count}. Product Details`;
-                })()}
-              </span>
+              <div className="flex items-center gap-4">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${openAccordions.includes('details') ? 'bg-gold text-maroon-dominant rotate-[360deg]' : 'bg-gold/10 text-gold group-hover:scale-110'}`}>
+                  <FileText className="w-3.5 h-3.5" />
+                </div>
+                <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] transition-colors ${openAccordions.includes('details') ? 'text-gold' : 'group-hover:text-gold'}`}>
+                  {(() => {
+                    let count = 3;
+                    if (product.diamondCarat || product.diamondWeight || product.diamondCount) count++;
+                    if (product.stoneName || product.stoneCount) count++;
+                    return `${count}. Product Details`;
+                  })()}
+                </span>
+              </div>
               <div className={`p-1 rounded-full transition-all duration-300 ${openAccordions.includes('details') ? 'bg-gold text-maroon-dominant rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold/20'}`}>
-                <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                <ChevronDown className="w-3.5 h-3.5" />
               </div>
             </button>
-            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('details') ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-              <div className="px-5 md:px-6 pb-6 md:pt-2 space-y-4 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
-                <div className="grid grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4 pt-2">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Product Code</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white uppercase">{product.productCode || 'N/A'}</span>
+            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordions.includes('details') ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+              <div className="px-5 pb-5 space-y-4 border-t border-luxury-bg-card/50 dark:border-white/5 mt-1 pt-4">
+                <div className="grid grid-cols-2 gap-x-5 md:gap-x-12 gap-y-3">
+                  <div className="flex items-start gap-3 p-3 rounded-2xl bg-luxury-bg-secondary dark:bg-white/5 border border-transparent hover:border-gold/20 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold">
+                      <Barcode className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[8px] md:text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Product Code</span>
+                      <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white uppercase tracking-tighter">{product.productCode || 'N/A'}</span>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Design Code</span>
-                    <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white uppercase">{product.designCode || 'N/A'}</span>
+                  <div className="flex items-start gap-3 p-3 rounded-2xl bg-luxury-bg-secondary dark:bg-white/5 border border-transparent hover:border-gold/20 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-maroon-dominant/5 dark:bg-gold/5 flex items-center justify-center text-maroon-dominant dark:text-gold">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[8px] md:text-[9px] text-luxury-text-light/40 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest">Design Code</span>
+                      <span className="text-sm md:text-base font-serif text-maroon-dominant dark:text-white uppercase tracking-tighter">{product.designCode || 'N/A'}</span>
+                    </div>
                   </div>
                 </div>
-                <div className="pt-2 border-t border-luxury-bg-card/30 dark:border-white/5">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-widest mb-2 block">Description</span>
-                  <p className="text-sm md:text-base font-serif text-maroon-dominant/80 dark:text-white/80 leading-relaxed italic">
-                    "{product.description}"
-                  </p>
+
+                <div className="relative group">
+                  <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+                  <div className="pt-6">
+                    <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.2em] mb-3 block">Description</span>
+                    <p className="text-sm md:text-base font-serif text-maroon-dominant/70 dark:text-white/60 leading-relaxed italic border-l-2 border-gold/40 pl-5">
+                      "{product.description}"
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
+        <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 flex flex-col gap-5">
+          <div className="flex items-center justify-between mb-1 px-1">
+            <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] text-maroon-dominant/40 dark:text-white/30">Detailed Price Breakdown</span>
+            {/* <div className="flex items-center gap-1.5 px-2.5 py-1 bg-gold/5 border border-gold/10 rounded-full">
+              <span className="text-[8px] font-black uppercase tracking-widest text-gold whitespace-nowrap">Live Price</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+            </div> */}
+          </div>
+
           {(() => {
             const payableAmount = product.price;
             const netAmount = Math.floor(payableAmount);
@@ -247,42 +271,61 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
             const goldValue = grandTotal - makingCharge;
 
             return (
-              <div className="space-y-0.5">
-                <div className="flex justify-between items-end py-2 md:py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Gold Value</span>
-                  <span className="text-base md:text-lg font-serif text-maroon-dominant dark:text-white">₹{goldValue.toLocaleString('en-IN')}.00</span>
-                </div>
-                <div className="flex justify-between items-end py-2 md:py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Making Charge</span>
-                  <span className="text-base md:text-lg font-serif text-maroon-dominant dark:text-white">₹{makingCharge.toLocaleString('en-IN')}.00</span>
-                </div>
-                <div className="flex justify-between items-center py-3 md:py-4 border-b border-gold/20 -mx-4 px-4 rounded-lg my-1">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] md:text-[11px] text-gold uppercase font-black tracking-[0.2em]">Grand Total</span>
-                  </div>
-                  <span className="text-lg md:text-xl font-serif text-gold font-bold">₹{grandTotal.toLocaleString('en-IN')}.00</span>
-                </div>
-                <div className="flex justify-between items-end py-2 md:py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">GST (3%)</span>
-                  <span className="text-base md:text-lg font-serif text-maroon-dominant dark:text-white">₹{gst3.toLocaleString('en-IN')}.00</span>
-                </div>
-                <div className="flex justify-between items-end py-2 md:py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Net Amount</span>
-                  <span className="text-base md:text-lg font-serif text-maroon-dominant dark:text-white">₹{netAmount.toLocaleString('en-IN')}.00</span>
-                </div>
-                <div className="flex justify-between items-end py-2 md:py-3 border-b border-luxury-bg-card/50 dark:border-white/5 group hover:bg-gold/5 transition-colors -mx-4 px-4 rounded-lg">
-                  <span className="text-[9px] md:text-[10px] text-luxury-text-light/70 dark:text-luxury-text-darkMuted uppercase font-black tracking-[0.15em]">Round Off</span>
-                  <span className="text-base md:text-lg font-serif text-maroon-dominant dark:text-white">₹{roundOff}</span>
-                </div>
-                <div className="mt-4 pt-4 md:mt-6 md:pt-6">
-                  <div className="bg-gold/10 -mx-4 px-6 py-4 md:py-5 rounded-xl border border-gold/20 flex items-center justify-between group">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-[10px] md:text-[11px] font-black text-maroon-dominant dark:text-gold uppercase tracking-[0.25em]">Payable Amount</span>
-                      <span className="text-[8px] md:text-[9px] text-luxury-text-light/60 dark:text-white/40 font-bold uppercase tracking-widest">(Incl. of all taxes)</span>
+              <div className="space-y-2">
+                {[
+                  { label: 'Gold Value', value: goldValue, icon: Scale, subtitle: `Live Rate @ ${product.weight || 'N/A'}g` },
+                  { label: 'Making Charge', value: makingCharge, icon: Hammer, subtitle: '@ 12% of Metal Value' },
+                  { label: 'Grand Total', value: grandTotal, isHighlight: true, isDivider: true },
+                  { label: 'GST (3%)', value: gst3, icon: Percent },
+                  { label: 'Net Amount', value: netAmount, icon: Calculator },
+                  { label: 'Round Off', value: roundOff, isString: true },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex items-center justify-between p-3 rounded-xl transition-all duration-300 border ${item.isHighlight
+                      ? 'bg-gold/[0.03] border-gold/20 shadow-[0_4px_12px_rgba(212,175,55,0.05)] mt-4 mb-2'
+                      : 'bg-white/5 dark:bg-white/[0.02] border-transparent hover:border-gold/10 hover:bg-white/10 dark:hover:bg-white/[0.04]'
+                      }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      {item.icon && (
+                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${item.isHighlight ? 'bg-gold text-maroon-dominant' : 'bg-gold/5 text-gold'}`}>
+                          <item.icon className="w-3.5 h-3.5" />
+                        </div>
+                      )}
+                      <div className="flex flex-col">
+                        <span className={`text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] ${item.isHighlight ? 'text-gold' : 'text-maroon-dominant/70 dark:text-white/50'}`}>
+                          {item.label}
+                        </span>
+                        {item.subtitle && (
+                          <span className="text-[8px] font-bold text-luxury-text-light/20 dark:text-white/10 uppercase tracking-widest leading-none mt-0.5">
+                            {item.subtitle}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <span className="text-2xl md:text-3xl font-sans text-maroon-dominant dark:text-gold font-bold tracking-tight drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
-                      ₹{payableAmount.toLocaleString('en-IN')}
+                    <span className={`text-sm md:text-base font-serif tracking-tight ${item.isHighlight ? 'text-gold font-bold' : 'text-maroon-dominant dark:text-white'}`}>
+                      ₹{item.isString ? item.value : item.value.toLocaleString('en-IN')}{!item.isString && '.00'}
                     </span>
+                  </div>
+                ))}
+
+                {/* Payable Amount Card */}
+                <div className="mt-6">
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gold/5 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-maroon-dominant/[0.04] to-maroon-dominant/[0.08] dark:from-white/[0.03] dark:to-white/[0.06] p-5 rounded-2xl border border-gold/20 flex items-center justify-between overflow-hidden shadow-sm">
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[10px] md:text-[11px] font-black text-gold uppercase tracking-[0.3em]">Payable Amount</span>
+                        <span className="text-[8px] font-bold text-maroon-dominant/30 dark:text-white/20 uppercase tracking-widest">(Inclusive of all taxes)</span>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-px h-8 bg-gold/10"></div>
+                        <span className="text-xl md:text-3xl font-serif text-gold font-bold tracking-tight">
+                          ₹{payableAmount.toLocaleString('en-IN')}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
