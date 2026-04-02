@@ -273,7 +273,7 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
             return (
               <div className="space-y-2">
                 {[
-                  { label: 'Gold Value', value: goldValue, icon: Scale, subtitle: `Live Rate @ ${product.weight || 'N/A'}g` },
+                  { label: 'Gold Value', value: goldValue, icon: Scale, subtitle: `Live Rate @ ${product.karat || 'N/A'}` },
                   { label: 'Making Charge', value: makingCharge, icon: Hammer, subtitle: '@ 12% of Metal Value' },
                   { label: 'Grand Total', value: grandTotal, isHighlight: true, isDivider: true },
                   { label: 'GST (3%)', value: gst3, icon: Percent },
@@ -294,11 +294,11 @@ const ProductTabs: React.FC<ProductTabsProps> = ({
                         </div>
                       )}
                       <div className="flex flex-col">
-                        <span className={`text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] ${item.isHighlight ? 'text-gold' : 'text-maroon-dominant/70 dark:text-white/50'}`}>
+                        <span className={`text-[10px] md:text-[11px] font-bold uppercase tracking-wider ${item.isHighlight ? 'text-gold' : 'text-maroon-dominant dark:text-white/90'}`}>
                           {item.label}
                         </span>
                         {item.subtitle && (
-                          <span className="text-[8px] font-bold text-luxury-text-light/20 dark:text-white/10 uppercase tracking-widest leading-none mt-0.5">
+                          <span className="text-[9px] font-medium text-maroon-dominant/60 dark:text-white/40 uppercase tracking-widest leading-none mt-1">
                             {item.subtitle}
                           </span>
                         )}

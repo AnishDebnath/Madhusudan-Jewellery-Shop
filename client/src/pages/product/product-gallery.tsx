@@ -18,29 +18,29 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
 }) => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
-  
+
   // Dynamic Thumbnail Counting
   const [maxVisibleThumbnails, setMaxVisibleThumbnails] = useState(4);
   const thumbContainerRef = useRef<HTMLDivElement>(null);
 
   const allImages = [product.image, ...(product.additionalImages || [])];
-  
+
   useEffect(() => {
     const calculateVisible = () => {
       if (thumbContainerRef.current) {
         const containerWidth = thumbContainerRef.current.clientWidth;
         // Each item requires: min width (80 on mobile, 100 on md) + 16px gap + tolerance
         const isMd = window.innerWidth >= 768;
-        const itemWidth = isMd ? 116 : 96; 
-        
+        const itemWidth = isMd ? 116 : 96;
+
         let possibleItems = Math.floor(containerWidth / itemWidth);
         // Guarantee at least 3 visible items
         if (possibleItems < 3) possibleItems = 3;
-        
+
         setMaxVisibleThumbnails(possibleItems);
       }
     };
-    
+
     // Slight delay to ensure DOM is fully rendered on first pass
     setTimeout(calculateVisible, 50);
     window.addEventListener('resize', calculateVisible);
@@ -69,7 +69,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
     <>
       <div className="lg:w-1/2 flex flex-col gap-6 h-fit sticky top-[200px] lg:top-[220px]">
         <div className="flex flex-col gap-6">
-          <div 
+          <div
             className="aspect-square bg-luxury-bg-secondary dark:bg-luxury-dark-card rounded-3xl overflow-hidden relative group border border-transparent dark:border-white/5 shadow-2xl cursor-pointer"
             onClick={() => openGallery(allImages.indexOf(mainImage) !== -1 ? allImages.indexOf(mainImage) : 0)}
           >
@@ -77,15 +77,15 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <button
               onClick={(e) => { e.stopPropagation(); onToggleWishlist(product.id); }}
-              className={`absolute top-6 right-6 p-4 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 group/heart ${isWishlisted ? 'bg-gold text-white' : 'bg-white/10 hover:bg-gold text-white'}`}
+              className={`absolute top-4 right-4 p-2.5 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 group/heart ${isWishlisted ? 'bg-gold text-white' : 'bg-white/10 hover:bg-gold text-white'}`}
             >
-              <Heart className={`w-6 h-6 transition-colors ${isWishlisted ? 'fill-current' : ''}`} />
+              <Heart className={`w-4 h-4 md:w-6 md:h-6 transition-colors ${isWishlisted ? 'fill-current' : ''}`} />
             </button>
-            <button 
-              onClick={(e) => { e.stopPropagation(); }} 
-              className="absolute bottom-6 right-6 p-4 bg-white/10 backdrop-blur-md hover:bg-gold text-white rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500 delay-100"
+            <button
+              onClick={(e) => { e.stopPropagation(); }}
+              className="absolute bottom-4 right-4 p-2.5 bg-white/10 backdrop-blur-md hover:bg-gold text-white rounded-full shadow-lg transition-all hover:scale-110 border border-white/20 -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500 delay-100"
             >
-              <Share2 className="w-6 h-6 transition-colors" />
+              <Share2 className="w-4 h-4 md:w-6 md:h-6 transition-colors" />
             </button>
           </div>
 
@@ -94,7 +94,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
             {visibleImages.map((img, i) => {
               const isLastVisible = hasExtraImages && i === maxVisibleThumbnails - 1;
               const remainingCount = allImages.length - maxVisibleThumbnails + 1;
-              
+
               return (
                 <button
                   key={i}
@@ -108,7 +108,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
                   }}
                 >
                   <img src={img} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                  
+
                   {isLastVisible ? (
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity hover:bg-black/50">
                       <span className="text-white text-lg md:text-xl font-serif font-bold">+{remainingCount}</span>
@@ -125,19 +125,19 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
 
       {/* Floating Gallery Modal */}
       {isGalleryOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-4 animate-in fade-in duration-300"
           onClick={() => setIsGalleryOpen(false)}
         >
           {/* Main Floating Window */}
-          <div 
+          <div
             className="relative w-full max-w-5xl bg-luxury-bg-primary dark:bg-luxury-dark-primary rounded-3xl shadow-2xl border border-white/5 dark:border-white/10 overflow-hidden flex flex-col pointer-events-auto animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header / Close Button */}
             <div className="absolute z-50 top-4 right-4 md:top-6 md:right-6">
-              <button 
-                onClick={() => setIsGalleryOpen(false)} 
+              <button
+                onClick={() => setIsGalleryOpen(false)}
                 className="p-3 text-luxury-text-light/50 dark:text-white/50 hover:text-maroon-dominant dark:hover:text-white bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 backdrop-blur-md rounded-full transition-all"
               >
                 <X className="w-5 h-5 md:w-6 md:h-6" />
@@ -146,23 +146,23 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
 
             {/* Content Area */}
             <div className="flex flex-col md:flex-row h-[75vh] md:h-[80vh]">
-              
+
               {/* Image Viewer */}
               <div className="flex-1 relative bg-luxury-bg-secondary dark:bg-black/30 flex flex-col items-center justify-center p-4 md:p-8 shrink-0">
-                <button 
+                <button
                   onClick={prevGalleryImage}
                   className="absolute left-4 md:left-6 p-3 text-maroon-dominant/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-white bg-white/70 dark:bg-black/40 hover:bg-white dark:hover:bg-white/20 backdrop-blur-md rounded-full transition-all z-20 shadow-lg"
                 >
                   <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
                 </button>
-                
-                <img 
-                  src={allImages[currentGalleryIndex]} 
-                  className="w-full h-full object-contain drop-shadow-xl" 
-                  alt={`Product view ${currentGalleryIndex + 1}`} 
+
+                <img
+                  src={allImages[currentGalleryIndex]}
+                  className="w-full h-full object-contain drop-shadow-xl"
+                  alt={`Product view ${currentGalleryIndex + 1}`}
                 />
-                
-                <button 
+
+                <button
                   onClick={nextGalleryImage}
                   className="absolute right-4 md:right-6 p-3 text-maroon-dominant/60 dark:text-white/60 hover:text-maroon-dominant dark:hover:text-white bg-white/70 dark:bg-black/40 hover:bg-white dark:hover:bg-white/20 backdrop-blur-md rounded-full transition-all z-20 shadow-lg"
                 >
@@ -184,7 +184,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
                 ))}
               </div>
             </div>
-            
+
           </div>
         </div>
       )}
